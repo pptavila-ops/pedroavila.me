@@ -1,0 +1,237 @@
+:root {
+  --font-main: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+  --color-bg: #f4f4f4;
+  --color-text: #000;
+  --color-link: #0000ee;
+  --spacing-unit: 1rem;
+  --info-col-width: 300px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout */
+.app-container {
+  display: grid;
+  grid-template-columns: var(--info-col-width) 1fr;
+  min-height: 100vh;
+}
+
+/* Info Column (Right Side) */
+.info-column {
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #e0e0e0;
+  /* Optional separator */
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.logo {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.info-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+.info-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+/* Main Content (Right Side) */
+.main-content {
+  padding: 2rem;
+  /* Separator line removed as it's now on the info column */
+}
+
+/* Project List */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  /* Spacing between projects */
+}
+
+/* Project Item */
+.project-item {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 150px;
+  /* Image | Text | Meta */
+  gap: 2rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+/* Column 1: Image */
+.project-image-column {
+  width: 100%;
+}
+
+.project-image-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #e5e5e5;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Column 2: Text */
+.project-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-header-mobile {
+  display: none;
+}
+
+.project-header-desktop {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.project-id {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.project-title {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: 0.5px;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.project-read-more {
+  font-size: 0.9rem;
+  text-decoration: underline;
+  margin-top: auto;
+}
+
+/* Column 3: Meta */
+.project-meta-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: right;
+  gap: 0.2rem;
+  color: #555;
+}
+
+.meta-icon {
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    /* Stack vertically */
+  }
+
+  .info-column {
+    position: relative;
+    height: auto;
+    border-right: none;
+    border-top: 1px solid #e0e0e0;
+    order: 2;
+    /* Move to bottom on mobile */
+    padding: 2rem;
+  }
+
+  .main-content {
+    border-right: none;
+    padding: 1rem;
+  }
+
+  .project-item {
+    grid-template-columns: 1fr;
+    /* Stack project content */
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .project-header-desktop {
+    display: none;
+  }
+
+  .project-header-mobile {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-meta-column {
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: row;
+    gap: 1rem;
+    order: -1;
+    /* Move meta to top on mobile */
+    margin-bottom: 0.5rem;
+  }
+}
