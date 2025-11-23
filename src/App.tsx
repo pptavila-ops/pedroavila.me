@@ -1,15 +1,19 @@
-import InfoColumn from './components/InfoColumn';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
 import ProjectList from './components/ProjectList';
+import ProjectDetail from './components/ProjectDetail';
 
 function App() {
   console.log('App component rendering');
   return (
-    <div className="app-container">
-      <InfoColumn />
-      <main className="main-content">
-        <ProjectList />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<ProjectList />} />
+          <Route path="project/:id" element={<ProjectDetail />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

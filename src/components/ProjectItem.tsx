@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { Project } from '../data/projects';
 
 interface ProjectItemProps {
@@ -17,18 +18,18 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
             <div className="project-text-column">
                 <div className="project-header-mobile">
                     <span className="project-id">{project.id.toString().padStart(2, '0')}</span>
-                    <a href={project.link} className="project-title-link">
+                    <Link to={`/project/${project.id}`} className="project-title-link">
                         <h2 className="project-title">{project.title}</h2>
-                    </a>
+                    </Link>
                 </div>
                 <div className="project-header-desktop">
                     <span className="project-id">{project.id.toString().padStart(2, '0')}</span>
-                    <a href={project.link} className="project-title-link">
+                    <Link to={`/project/${project.id}`} className="project-title-link">
                         <h2 className="project-title">{project.title}</h2>
-                    </a>
+                    </Link>
                 </div>
                 <p className="project-description">{project.description}</p>
-                <a href={project.link} className="project-read-more">Read more</a>
+                <Link to={`/project/${project.id}`} className="project-read-more">Read more</Link>
             </div>
 
             <div className="project-meta-column">
