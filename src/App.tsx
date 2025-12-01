@@ -1,19 +1,17 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import ProjectList from './components/ProjectList';
-import ProjectDetail from './components/ProjectDetail';
+import React from 'react';
+import Header from './components/Header';
+import Intro from './components/Intro';
+import Logs from './components/Logs';
+import Footer from './components/Footer';
 
 function App() {
-  console.log('App component rendering');
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<ProjectList />} />
-          <Route path="project/:id" element={<ProjectDetail />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="app-container">
+      <Header />
+      <Intro />
+      <Logs />
+      <Footer />
+    </div>
   );
 }
 
