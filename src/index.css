@@ -1,99 +1,75 @@
+@import './styles/typography.css';
+
 :root {
-  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --color-text: #111;
-  --color-bg: #fff;
-  --color-link: #666;
-  --color-link-hover: #000;
-  --max-width: 600px;
-  --spacing: 1.5rem;
+  /* Site Background - Deep Zinc/Black */
+  --color-background: 240 10% 4%;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: var(--font-main);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.5;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
+  background-color: hsl(var(--color-background));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-a {
-  color: var(--color-link);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--color-link-hover);
+#root {
+  width: 100%;
 }
 
 .app-container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-/* Typography Utilities */
-h1,
-h2,
-h3 {
-  font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.date {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-  display: block;
-}
-
-/* ASCII Wave Animation */
-.ascii-container {
   width: 100%;
-  overflow: hidden;
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
+  max-width: 90rem;
+  /* Wide container for 2-col */
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Mobile first */
+  gap: 2rem;
 }
 
-.ascii-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.ascii-line {
-  font-family: monospace;
-  font-size: 6px;
-  line-height: 6px;
-  white-space: pre;
-  color: #333;
-  animation: wave-pan 3s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-@keyframes wave-pan {
-  0% {
-    transform: translateX(-20px);
+@media (min-width: 1024px) {
+  .app-container {
+    grid-template-columns: 24rem 1px 1fr;
+    /* Sidebar | Line | Content */
+    gap: 4rem;
+    /* 4rem gap on each side of line */
+    padding: 0 2rem 4rem;
+    align-items: stretch;
+    /* Stretch to allow line to fill height */
   }
 
-  100% {
-    transform: translateX(20px);
+  .col-divider {
+    width: 1px;
+    background-color: hsl(var(--text-muted-foreground) / 0.2);
+    height: 100%;
   }
+}
+
+/* Hide divider on mobile */
+.col-divider {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .col-divider {
+    display: block;
+  }
+}
+
+/* Scrollbar styling for content if needed, but body scroll is fine usually. 
+   If sidebar is sticky, main content scrolls naturally. */
+
+/* Selection Color */
+::selection {
+  background-color: hsl(var(--text-muted-foreground) / 0.3);
+  color: hsl(var(--text-foreground));
 }
