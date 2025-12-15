@@ -1,18 +1,18 @@
 import React from 'react';
 
 const asciiArt = `
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
-                                                                                                                                                
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                 
                                 ,,,,,,,,,,,,,,                                                                                                  
                               ,,.,.............,,                                                                                               
                         ,,,,,,,,..................,                                                                                             
@@ -82,26 +82,27 @@ const asciiArt = `
                                                                                                                        ,.........,.,,,,         
                                                                                                                             ,,......,,,         
                                                                                                                                                 
-                                                                                                                                                `;
+                                                                                                                                                 `;
+
 
 const AsciiWave: React.FC = () => {
-    const lines = asciiArt.split('\n');
+  const lines = asciiArt.split('\n');
 
-    return (
-        <div className="ascii-container">
-            <div className="ascii-wrapper">
-                {lines.map((line, index) => (
-                    <div
-                        key={index}
-                        className="ascii-line"
-                        style={{ animationDelay: `${index * 0.03}s` }}
-                    >
-                        {line}
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+  return (
+    <div className="ascii-container">
+      <div className="ascii-wrapper">
+        {lines.map((line, index) => (
+          <div
+            key={index}
+            className="ascii-line"
+            style={{ animationDelay: `${index * 0.03}s` }}
+          >
+            {line}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default AsciiWave;
