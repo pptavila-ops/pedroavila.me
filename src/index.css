@@ -1,75 +1,96 @@
-@import './styles/typography.css';
+@import "tailwindcss";
 
-:root {
-  /* Site Background - Deep Zinc/Black */
-  --color-background: 240 10% 4%;
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+
+  /* Colors defined as channels to support legacy hsl(var(...)) usage */
+  --text-background: 240 10% 4%;
+  --text-foreground: 210 40% 98%;
+  --text-muted-foreground: 215 20% 65%;
+
+  --spacing-container: 90rem;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@layer base {
+  body {
+    background-color: hsl(var(--text-background));
+    color: hsl(var(--text-foreground));
+    line-height: 1.625;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    width: 100%;
+  }
 }
 
-body {
-  background-color: hsl(var(--color-background));
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+@layer utilities {
+  .display-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    max-width: 42rem;
+    margin-bottom: 0;
+  }
+
+  .text-foreground {
+    color: hsl(var(--text-foreground));
+  }
+
+  .text-muted {
+    color: hsl(var(--text-muted-foreground));
+  }
+
+  .overline-text {
+    @apply text-sm font-bold tracking-wider uppercase opacity-50 mb-4;
+  }
+
+  .body-list {
+    @apply list-none p-0;
+  }
+
+  .body-list li {
+    @apply mb-2;
+  }
 }
 
-#root {
-  width: 100%;
-}
-
+/* Legacy layout classes - enabling gradual migration */
+/* These could be replaced by direct utility usage in components */
 .app-container {
-  width: 100%;
-  max-width: 90rem;
-  /* Wide container for 2-col */
-  margin: 0 auto;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  /* Mobile first */
-  gap: 2rem;
+  @apply w-full max-w-[90rem] mx-auto p-0 grid grid-cols-1 gap-8;
 }
 
 @media (min-width: 1024px) {
   .app-container {
     grid-template-columns: 24rem 1px 1fr;
-    /* Sidebar | Line | Content */
-    gap: 4rem;
-    /* 4rem gap on each side of line */
-    padding: 0 2rem 4rem;
-    align-items: stretch;
-    /* Stretch to allow line to fill height */
-  }
-
-  .col-divider {
-    width: 1px;
-    background-color: hsl(var(--text-muted-foreground) / 0.2);
-    height: 100%;
+    @apply gap-16 px-8 pb-16 items-stretch;
   }
 }
 
-/* Hide divider on mobile */
 .col-divider {
-  display: none;
+  @apply hidden w-px h-full lg:block;
+  background-color: hsl(var(--text-muted-foreground) / 0.2);
 }
 
-@media (min-width: 1024px) {
-  .col-divider {
-    display: block;
-  }
+.content-column {
+  @apply flex flex-col gap-16 py-9 pb-16;
 }
 
-/* Scrollbar styling for content if needed, but body scroll is fine usually. 
-   If sidebar is sticky, main content scrolls naturally. */
+.content-section {
+  @apply max-w-[42rem];
+}
 
-/* Selection Color */
-::selection {
-  background-color: hsl(var(--text-muted-foreground) / 0.3);
-  color: hsl(var(--text-foreground));
+.divider-section {
+  @apply py-16 border-t;
+  border-color: hsl(var(--text-muted-foreground) / 0.1);
+}
+
+.footer-section {
+  @apply py-8 border-t;
+  border-color: hsl(var(--text-muted-foreground) / 0.1);
 }

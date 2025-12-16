@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './index.css';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';

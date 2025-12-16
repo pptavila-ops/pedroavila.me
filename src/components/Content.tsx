@@ -1,27 +1,26 @@
 import React from 'react';
-import Principles from './Principles';
-import About from './About';
+
 import Footer from './Footer';
 import HowItWorks from './HowItWorks';
 
 const Content: React.FC = () => {
     return (
-        <main className="content-column" style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '6rem',
-            padding: '4rem 0 4rem 0'
-        }}>
+        <main className="content-column">
+            {/* Main Title */}
+            <h1 className="text-muted font-regular display-title">
+                Empowering Designers to Ship Real Production Code
+            </h1>
+
             {/* Context Section (Example Case Study) */}
-            <section style={{ maxWidth: '42rem' }}>
-                <p className="text-sm font-bold text-foreground" style={{ opacity: 0.5, letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '1rem' }}>Context</p>
+            <section className="content-section">
+                <p className="text-foreground overline-text">Context</p>
                 <p className="text-muted text-lg leading-relaxed">
-                    HelloFresh is a high-scale product organization where design quality and delivery speed are tightly coupled. Traditionally, designers handed off work to engineers, creating delays and translation loss.
+                    At HelloFresh — a high-scale, multi-team product org — design quality and delivery speed are tightly coupled. Traditionally, designers handed off work to engineers, creating delays and translation loss.
                 </p>
             </section>
 
-            <section style={{ maxWidth: '42rem' }}>
-                <p className="text-sm font-bold text-foreground" style={{ opacity: 0.5, letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '1rem' }}>My Intervention</p>
+            <section className="content-section">
+                <p className="text-foreground overline-text">My Intervention</p>
                 <p className="text-muted text-lg leading-relaxed">
                     My role focuses on collapsing this gap by giving designers tools, confidence, and systems needed to ship production-ready UI themselves.
                 </p>
@@ -30,23 +29,32 @@ const Content: React.FC = () => {
             {/* How It Works Diagram */}
             <HowItWorks />
 
-            <section style={{ maxWidth: '42rem' }}>
-                <p className="text-sm font-bold text-foreground" style={{ opacity: 0.5, letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '1rem' }}>Impact</p>
-                <ul className="text-muted text-lg leading-relaxed" style={{ listStyle: 'none', padding: 0 }}>
-                    <li style={{ marginBottom: '0.5rem' }}>— Faster iteration cycles with designers shipping directly</li>
-                    <li style={{ marginBottom: '0.5rem' }}>— Higher design fidelity in production</li>
-                    <li style={{ marginBottom: '0.5rem' }}>— Designers working closer to real constraints</li>
+            <section className="content-section">
+                <p className="text-foreground overline-text">Impact</p>
+                <ul className="text-muted text-lg leading-relaxed body-list">
+                    <li>— Designers shipping UI directly with engineering review, not handoff</li>
+                    <li>— Fewer design–dev feedback loops per feature</li>
+                    <li>— Design decisions made with real constraints from day one</li>
                 </ul>
             </section>
 
-            {/* Philosophy / Principles */}
-            <div style={{ padding: '4rem 0', borderTop: '1px solid hsl(var(--text-muted-foreground) / 0.1)' }}>
-                <Principles />
+            {/* Philosophy / Core Beliefs */}
+            <div className="divider-section">
+                <section className="content-section">
+                    <p className="text-accent overline-text">Core beliefs</p>
+                    <ul className="text-muted text-lg leading-relaxed body-list">
+                        <li>— Designers should understand the constraints of the medium they are designing for.</li>
+                        <li>— Design implementation provides better, more assertive UX.</li>
+                        <li>— Designers who code learn faster how to make components accessible.</li>
+                        <li>— Understanding the code helps to go from superficial to impactful.</li>
+                        <li>— If faced with resistance (other team members judging your ability to code), stay confident.</li>
+                    </ul>
+                </section>
             </div>
 
             {/* Footer */}
-            <div style={{ padding: '2rem 0', borderTop: '1px solid hsl(var(--text-muted-foreground) / 0.1)' }}>
-                <About />
+            <div className="footer-section">
+
                 <Footer />
             </div>
         </main>
