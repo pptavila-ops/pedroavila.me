@@ -1,99 +1,20 @@
-:root {
-  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --color-text: #111;
-  --color-bg: #fff;
-  --color-link: #666;
-  --color-link-hover: #000;
-  --max-width: 600px;
-  --spacing: 1.5rem;
+@import "tailwindcss";
+
+@theme {
+    --font-sans: 'Instrument Sans', system-ui, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: var(--font-main);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.5;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: var(--color-link);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--color-link-hover);
-}
-
-.app-container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-/* Typography Utilities */
-h1,
-h2,
-h3 {
-  font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.date {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-  display: block;
-}
-
-/* ASCII Wave Animation */
-.ascii-container {
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.ascii-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.ascii-line {
-  font-family: monospace;
-  font-size: 6px;
-  line-height: 6px;
-  white-space: pre;
-  color: #333;
-  animation: wave-pan 3s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-@keyframes wave-pan {
-  0% {
-    transform: translateX(-20px);
-  }
-
-  100% {
-    transform: translateX(20px);
-  }
+@layer base {
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Instrument Sans', system-ui, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }

@@ -1,18 +1,15 @@
-import React from 'react';
-import Header from './components/Header';
-import Intro from './components/Intro';
-import Logs from './components/Logs';
-import Footer from './components/Footer';
-
 function App() {
-  return (
-    <div className="app-container">
-      <Header />
-      <Intro />
-      <Logs />
-      <Footer />
-    </div>
-  );
+    return (
+        <main className="flex min-h-screen items-center justify-center bg-black text-white">
+            <p className="text-[32px] leading-[1.2] text-left font-bold tracking-tight">
+                Enabling designers to ship
+                <br />
+                production-ready code.
+                <br />
+                Currently @HelloFresh.
+            </p>
+        </main>
+    );
 }
 
 export default App;
