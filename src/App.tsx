@@ -1,7 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RainbowText from './components/RainbowText';
 import Tooltip from './components/Tooltip';
 import AsciiPortrait from './components/AsciiPortrait';
+
+const trendingUp = [
+    'Prototyping and writing production-ready code with AI',
+    'Design engineers who bridge design and development',
+    'Collaborative design systems built in code',
+    'Rapid experimentation and shipping fast',
+];
+
+const trendingDown = [
+    'Working on static Figma designs',
+    'Lengthy handoff processes between design and dev',
+    'Pixel-perfect specs that never match production',
+    'Designing in isolation without user feedback',
+];
 
 const workItems = [
     {
@@ -21,6 +35,40 @@ const workItems = [
 function App() {
     const [copied, setCopied] = useState(false);
     const [openIndex, setOpenIndex] = useState(0);
+    const [trendUpIndex, setTrendUpIndex] = useState(0);
+    const [trendDownIndex, setTrendDownIndex] = useState(0);
+    const [trendUpAnimating, setTrendUpAnimating] = useState(false);
+    const [trendDownAnimating, setTrendDownAnimating] = useState(false);
+
+    useEffect(() => {
+        // Trending up changes every 3s, trending down every 7s
+        // Offset by 1.5s so they never change at the same time
+        let downInterval: ReturnType<typeof setInterval>;
+
+        const upInterval = setInterval(() => {
+            setTrendUpAnimating(true);
+            setTimeout(() => {
+                setTrendUpIndex((i) => (i + 1) % trendingUp.length);
+                setTrendUpAnimating(false);
+            }, 300);
+        }, 4500);
+
+        const downTimeout = setTimeout(() => {
+            downInterval = setInterval(() => {
+                setTrendDownAnimating(true);
+                setTimeout(() => {
+                    setTrendDownIndex((i) => (i + 1) % trendingDown.length);
+                    setTrendDownAnimating(false);
+                }, 300);
+            }, 9000);
+        }, 2500);
+
+        return () => {
+            clearInterval(upInterval);
+            clearTimeout(downTimeout);
+            clearInterval(downInterval);
+        };
+    }, []);
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText('pptavila@gmail.com');
@@ -50,7 +98,7 @@ function App() {
                     </div>
                     <div className="flex flex-col justify-between self-stretch text-lg font-normal">
                         <p className="text-white/70 leading-relaxed">
-                            Hello, it's nice to have you here. I'm <span className="text-[#7DD3FC] font-bold">Pedro Ávila</span>, a <span className="text-[#6DB8FC] font-bold">Senior Product Designer</span> working in Design Operations in Berlin, Germany, with 9+ years of experience.
+                            Hello, it's nice to have you here. I'm Pedro Ávila <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block align-middle text-[#BAE6FD]" aria-hidden="true"><path d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM8.79883 13.5C8.46744 12.9484 7.84205 12.8364 7.40039 13.25C6.95859 13.6642 6.86894 14.4477 7.2002 15L8 14.25C7.24034 14.9622 7.20185 14.9994 7.2002 15.001L7.20215 15.0029L7.20508 15.0078C7.20709 15.0111 7.20915 15.016 7.21191 15.0205C7.21745 15.0295 7.2249 15.0413 7.2334 15.0547C7.25061 15.0818 7.27455 15.1177 7.30371 15.1611C7.36233 15.2484 7.4455 15.3673 7.55176 15.5059C7.76384 15.7824 8.07393 16.1465 8.47461 16.5107C9.27259 17.2361 10.4745 18 12 18C13.5255 18 14.7274 17.2362 15.5254 16.5107C15.9261 16.1465 16.2362 15.7824 16.4482 15.5059C16.5545 15.3673 16.6377 15.2484 16.6963 15.1611C16.7255 15.1177 16.7494 15.0818 16.7666 15.0547C16.7751 15.0412 16.7825 15.0295 16.7881 15.0205C16.7909 15.016 16.7929 15.0111 16.7949 15.0078L16.7979 15.0029L16.7998 15.001C16.7988 15 16.7672 14.9693 16 14.25L16.7998 15C17.1311 14.4477 17.0414 13.6642 16.5996 13.25C16.1578 12.8362 15.5315 12.9481 15.2002 13.5L15.2012 13.498V13.4971L15.1982 13.502C15.1923 13.5114 15.1813 13.5294 15.165 13.5537C15.1319 13.603 15.0779 13.6801 15.0049 13.7754C14.8576 13.9675 14.6361 14.2288 14.3496 14.4893C13.7725 15.0139 12.9745 15.5 12 15.5C11.0255 15.5 10.2275 15.0139 9.65039 14.4893C9.36396 14.2288 9.14241 13.9675 8.99512 13.7754C8.92207 13.6801 8.86806 13.603 8.83496 13.5537C8.81867 13.5294 8.80773 13.5114 8.80176 13.502L8.7998 13.499L8.79883 13.5ZM7.99512 7C6.89594 7.00003 6.00488 7.89545 6.00488 9C6.00488 10.1046 6.89594 11 7.99512 11H8.01465C9.11383 11 10.0049 10.1046 10.0049 9C10.0049 7.89545 9.11383 7.00003 8.01465 7H7.99512ZM15.9951 7C14.8959 7.00003 14.0049 7.89545 14.0049 9C14.0049 10.1046 14.8959 11 15.9951 11H16.0146C17.1138 11 18.0049 10.1046 18.0049 9C18.0049 7.89545 17.1138 7.00003 16.0146 7H15.9951Z" fill="currentColor"/></svg>, a Senior Product Designer with 9+ years of experience working in Design Operations in <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block align-middle text-[#3B82F6]" aria-hidden="true"><path d="M19.7305 2.60007C21.2645 2.12807 22.7025 3.5642 22.2305 5.09909L17.3652 20.9087C16.8343 22.632 14.4733 22.8282 13.666 21.2153L10.3154 14.5151L3.61523 11.1645C2.001 10.3574 2.19824 7.99495 3.92188 7.46432L19.7305 2.60007Z" fill="currentColor"/></svg> Berlin, Germany.
                         </p>
                     </div>
                 </div>
@@ -76,6 +124,40 @@ function App() {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" /><path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" /></svg>
                         CV
                     </a>
+                </div>
+
+                <hr className="border-white/20 my-6" />
+
+                <p className="text-xs font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">Current Trends</p>
+                <div className="flex flex-col gap-2 tracking-normal text-base font-normal">
+                    <div className="flex items-center gap-2 overflow-hidden">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 text-[#4ADE80]">
+                            <path d="M21 13C21 13.5523 20.5523 14 20 14C19.4477 14 19 13.5523 19 13V9.44043L14.8672 13.6387C14.7702 13.7372 14.692 13.817 14.6162 13.8848C13.4772 14.9043 11.7543 14.9043 10.6152 13.8848C10.5402 13.8176 10.4638 13.7398 10.3643 13.6387C10.2486 13.5212 10.2226 13.4962 10.2051 13.4805C9.8254 13.1407 9.25077 13.1406 8.8711 13.4805C8.85365 13.4961 8.82765 13.5221 8.7129 13.6387L4.7129 17.7012C4.32554 18.0946 3.6924 18.1 3.29883 17.7129C2.90542 17.3255 2.90001 16.6924 3.28711 16.2988L7.28809 12.2354C7.38189 12.1401 7.46176 12.0586 7.53809 11.9902C8.67714 10.9709 10.4001 10.9708 11.5391 11.9902C11.6155 12.0587 11.6948 12.1406 11.7891 12.2363C11.8995 12.3485 11.9302 12.3775 11.9492 12.3945C12.3289 12.7343 12.9026 12.7343 13.2822 12.3945C13.3005 12.3782 13.3287 12.3508 13.4414 12.2363L17.6133 8H14C13.4477 8 13 7.55228 13 7C13 6.44772 13.4477 6 14 6H20C20.2652 6 20.5205 6.10542 20.708 6.29297C20.8954 6.48048 21 6.73491 21 7V13Z" fill="currentColor"/>
+                        </svg>
+                        <span
+                            className="text-[#4ADE80] transition-all duration-300 ease-in-out"
+                            style={{
+                                transform: trendUpAnimating ? 'translateY(100%)' : 'translateY(0)',
+                                opacity: trendUpAnimating ? 0 : 1,
+                            }}
+                        >
+                            {trendingUp[trendUpIndex]}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-2 overflow-hidden">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 text-[#F87171]">
+                            <path d="M3.29883 6.28711C3.6924 5.90001 4.32554 5.90542 4.7129 6.29883L8.7129 10.3613C8.82789 10.4781 8.85356 10.5038 8.8711 10.5195C9.25077 10.8594 9.8254 10.8593 10.2051 10.5195C10.2226 10.5038 10.2486 10.4788 10.3643 10.3613C10.4639 10.2601 10.5402 10.1824 10.6152 10.1152C11.7543 9.09573 13.4772 9.09573 14.6162 10.1152C14.692 10.1831 14.7703 10.2629 14.8672 10.3613L19 14.5586V11C19 10.4478 19.4477 10 20 10C20.5523 10 21 10.4477 21 11V17C21 17.2651 20.8954 17.5195 20.708 17.707C20.5205 17.8946 20.2652 18 20 18H14C13.4477 18 13 17.5523 13 17C13 16.4477 13.4477 16 14 16H17.6133L13.4414 11.7637C13.3287 11.6492 13.3004 11.6218 13.2822 11.6055C12.9026 11.2657 12.3289 11.2657 11.9492 11.6055C11.9302 11.6225 11.8994 11.6516 11.7891 11.7637C11.6948 11.8594 11.6155 11.9413 11.5391 12.0098C10.4001 13.0292 8.67714 13.0291 7.53809 12.0098C7.46164 11.9413 7.38141 11.8594 7.28711 11.7637L3.28711 7.70118C2.90001 7.30761 2.90542 6.67447 3.29883 6.28711Z" fill="currentColor"/>
+                        </svg>
+                        <span
+                            className="text-[#F87171] transition-all duration-300 ease-in-out"
+                            style={{
+                                transform: trendDownAnimating ? 'translateY(100%)' : 'translateY(0)',
+                                opacity: trendDownAnimating ? 0 : 1,
+                            }}
+                        >
+                            {trendingDown[trendDownIndex]}
+                        </span>
+                    </div>
                 </div>
 
                 <hr className="border-white/20 my-6" />
