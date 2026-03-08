@@ -2,53 +2,172 @@ import { useState } from 'react';
 import RainbowText from './components/RainbowText';
 import Tooltip from './components/Tooltip';
 
+const caseStudies = [
+    {
+        id: 'design-transformation',
+        title: 'Leading Design Transformation at HelloFresh',
+        year: '2024–Now',
+        subtitle: 'Design Ops & Systems, 2024–2026',
+        intro: 'When I joined HelloFresh, the design org was scaling fast — but the way we worked hadn\'t caught up. Designers were duplicating effort across squads, reinventing components, and struggling to stay aligned. There was no shared language between design and engineering.',
+        sections: [
+            {
+                image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=1200&q=80',
+                imageAlt: 'Design system collaboration',
+                text: 'I started by mapping how design decisions flowed through the organization — from a designer\'s Figma file to what actually shipped in production. The gaps were enormous. What we needed wasn\'t just a design system; we needed a design operation.',
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80',
+                imageAlt: 'Team workshop',
+                text: 'Over the course of a year, we built the infrastructure for designers to ship production-ready code, established contribution models so the system could grow with the team, and created rituals that kept 30+ designers in sync without slowing anyone down.',
+            },
+            {
+                text: 'The result was a fundamentally different way of working — designers now contribute directly to the codebase, components are shared across all product teams, and the gap between what\'s designed and what\'s built has nearly disappeared.',
+            },
+        ],
+    },
+    {
+        id: 'pet-food',
+        title: 'The sole (but not lonely) designer of The Pets Table',
+        year: '2023–2025',
+        subtitle: 'Brand & Product Design, 2025',
+        intro: 'HelloFresh wanted to expand into pet food — a completely new vertical with no existing playbook. I was the sole designer responsible for taking this from zero to launch, defining everything from the brand identity to the end-to-end purchase experience.',
+        sections: [
+            {
+                image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80',
+                imageAlt: 'Pet food brand',
+                text: 'The challenge was designing a brand that felt connected to HelloFresh\'s DNA — fresh, approachable, quality-first — while standing on its own in the pet food space. I ran discovery workshops with pet owners, mapped the competitive landscape, and developed three distinct brand directions.',
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80',
+                imageAlt: 'Product packaging design',
+                text: 'From brand identity to packaging to the digital subscription flow, every touchpoint was designed to communicate one thing: this is real food made by people who care, not just another kibble brand. The product launched in two markets and exceeded first-quarter targets by 40%.',
+            },
+        ],
+    },
+    {
+        id: 'mvp',
+        title: 'Enabling Companies to Release their First Products as MVPs',
+        year: '2022–2024',
+        subtitle: 'Product Strategy & Design, 2022–2024',
+        intro: 'Before HelloFresh, I worked with early-stage startups helping them go from idea to first shipped product. The common trap: founders wanting to build everything before shipping anything. My role was to find the smallest version of the product that could prove the idea.',
+        sections: [
+            {
+                image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&q=80',
+                imageAlt: 'Product strategy whiteboard',
+                text: 'For each engagement, the process was the same: understand the core value proposition, identify the riskiest assumption, and design just enough product to test it. No extra features, no nice-to-haves, no "while we\'re at it" scope creep.',
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
+                imageAlt: 'Data dashboard',
+                text: 'Across six products, the pattern held: the teams that shipped a focused MVP in weeks learned more than those who spent months building in isolation. Three of those products went on to raise follow-on funding. Two are still in the market today.',
+            },
+        ],
+    },
+];
+
 function App() {
     const [copied, setCopied] = useState(false);
+    const [activeStudy, setActiveStudy] = useState(0);
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText('pptavila@gmail.com');
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
+
+    const study = caseStudies[activeStudy];
+
     return (
-        <main className="flex min-h-screen items-center justify-center bg-black text-white px-6 py-24 md:py-48">
-            <div className="max-w-xl text-[26px] md:text-[32px] leading-[1.2] text-left font-bold tracking-tight">
-                <p className="text-sm font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">Pedro Ávila</p>
-                <RainbowText>
+        <main className="flex min-h-screen bg-black text-white">
+            {/* Left Panel */}
+            <div className="w-full md:w-[40%] lg:w-[35%] md:fixed md:top-0 md:left-0 md:h-screen flex flex-col justify-between px-6 py-16 md:py-12 md:px-10 lg:px-12">
+                <div className="max-w-sm text-[26px] md:text-[24px] lg:text-[28px] leading-[1.2] text-left font-bold tracking-tight">
+                    <p className="text-sm font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">Pedro Ávila</p>
+                    <RainbowText>
+                        <p>
+                            Enabling designers to ship
+                            <br />
+                            production-ready code.
+                        </p>
+                    </RainbowText>
                     <p>
-                        Enabling designers to ship
-                        <br />
-                        production-ready code.
+                        Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.
                     </p>
-                </RainbowText>
-                <p>
-                    Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.
-                </p>
-                <hr className="border-white/20 my-6" />
-                <p className="text-lg md:text-xl font-medium leading-relaxed text-white/80">
-                    Senior Product Designer exploring where design is heading next and bringing as many people as I can with me.
-                </p>
-                <div className="mt-6 flex flex-col md:flex-row gap-3">
-                    <a href="https://www.linkedin.com/in/pptavila/" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2 text-base font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white">
-                        <svg width="18" height="18" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C68.4183 0 72 3.58172 72 8V64C72 68.4183 68.4183 72 64 72H8C3.58172 72 0 68.4183 0 64V8C0 3.58172 3.58172 0 8 0H64ZM11.0322 62H21.7695V27.333H11.0322V62ZM49.3828 26.2744C42.0263 26.2744 38.9297 32.0029 38.9297 32.0029V27.333H28.6338V62H38.9297V43.8018C38.9298 38.926 41.1747 36.0244 45.4707 36.0244C49.4197 36.0244 51.3153 38.8126 51.3154 43.8018V62H62V40.0508C61.9998 30.7644 56.7357 26.2745 49.3828 26.2744ZM16.3496 10C12.8423 10 10 12.8648 10 16.3975C10.0002 19.9299 12.8425 22.7939 16.3496 22.7939C19.8566 22.7938 22.697 19.9298 22.6973 16.3975C22.6973 12.8649 19.8568 10.0001 16.3496 10Z" fill="currentColor"/></svg>
+                    <hr className="border-white/20 my-6" />
+                    {/* Case Study Links */}
+                    <p className="text-xs font-medium uppercase tracking-widest text-[#8a8a8a] mt-8 mb-3">Recent Work</p>
+                    <nav className="flex flex-col">
+                        {caseStudies.map((cs, i) => (
+                            <button
+                                key={cs.id}
+                                onClick={() => setActiveStudy(i)}
+                                className={`flex items-baseline gap-3 text-left text-lg transition-colors cursor-pointer py-3 border-b ${activeStudy === i
+                                    ? 'text-white font-semibold border-white border-b-2'
+                                    : 'text-white/40 hover:text-white/70 border-white/10'
+                                    }`}
+                            >
+                                <span className={`flex-1 ${activeStudy === i ? 'font-semibold' : 'font-medium'}`}>{cs.title}</span>
+                                <span className="text-base font-normal text-white/50 shrink-0">{cs.year}</span>
+                            </button>
+                        ))}
+                    </nav>
+
+                </div>
+                <div>
+                    <hr className="border-white/20 mb-4" />
+                    <p className="text-sm font-medium text-[#8a8a8a] mb-4">Senior Product Designer based in Berlin.</p>
+                    <div className="flex gap-3">
+                    <a href="https://www.linkedin.com/in/pptavila/" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white">
+                        <svg width="16" height="16" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C68.4183 0 72 3.58172 72 8V64C72 68.4183 68.4183 72 64 72H8C3.58172 72 0 68.4183 0 64V8C0 3.58172 3.58172 0 8 0H64ZM11.0322 62H21.7695V27.333H11.0322V62ZM49.3828 26.2744C42.0263 26.2744 38.9297 32.0029 38.9297 32.0029V27.333H28.6338V62H38.9297V43.8018C38.9298 38.926 41.1747 36.0244 45.4707 36.0244C49.4197 36.0244 51.3153 38.8126 51.3154 43.8018V62H62V40.0508C61.9998 30.7644 56.7357 26.2745 49.3828 26.2744ZM16.3496 10C12.8423 10 10 12.8648 10 16.3975C10.0002 19.9299 12.8425 22.7939 16.3496 22.7939C19.8566 22.7938 22.697 19.9298 22.6973 16.3975C22.6973 12.8649 19.8568 10.0001 16.3496 10Z" fill="currentColor" /></svg>
                         LinkedIn
                     </a>
                     <Tooltip text="Click to copy">
-                    <button onClick={handleCopyEmail} className="grid w-full rounded-md border border-white/20 px-4 py-2 text-base font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white cursor-pointer">
-                        <span className={`col-start-1 row-start-1 inline-flex items-center justify-center gap-2 ${copied ? 'invisible' : ''}`}>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.30029 2.05493C9.54481 0.994373 12.083 0.724152 14.5005 1.28833C16.9179 1.85257 19.0736 3.21794 20.6167 5.16235C22.1598 7.1069 23.0002 9.51687 23.0005 11.9993V12.9993C23.0005 14.0599 22.5785 15.0783 21.8286 15.8284C21.0786 16.5782 20.0611 16.9992 19.0005 16.9993C17.9398 16.9993 16.9225 16.5783 16.1724 15.8284C16.0129 15.6689 15.8686 15.4972 15.7397 15.3157C14.8239 16.3479 13.489 17.0001 12.0005 17.0002C9.23913 17.0002 7.00059 14.7616 7.00049 12.0002C7.00049 9.23882 9.23906 7.00024 12.0005 7.00024C13.1262 7.00035 14.1648 7.37238 15.0005 8.00024V7.99927C15.0009 7.44736 15.4485 6.99927 16.0005 6.99927C16.5523 6.99948 17 7.44749 17.0005 7.99927V12.9993C17.0005 13.5297 17.2114 14.0392 17.5864 14.4143C17.9615 14.7892 18.4702 14.9993 19.0005 14.9993C19.5306 14.9992 20.0396 14.7891 20.4146 14.4143C20.7894 14.0393 21.0005 13.5295 21.0005 12.9993V11.9993C21.0002 9.96831 20.3128 7.99644 19.0503 6.40552C17.7877 4.81461 16.0233 3.69724 14.0454 3.2356C12.0676 2.77415 9.99104 2.9959 8.15479 3.86353C6.31864 4.73135 4.82936 6.19488 3.93018 8.01587C3.03105 9.83705 2.77516 11.9092 3.20264 13.8948C3.6303 15.8804 4.71648 17.6637 6.28564 18.9534C7.85493 20.2431 9.81522 20.9643 11.8462 20.9993C13.8768 21.034 15.8597 20.3805 17.4722 19.1458C17.9105 18.8105 18.5388 18.8932 18.8745 19.3313C19.2101 19.7695 19.1268 20.3977 18.689 20.7336C16.718 22.243 14.2932 23.0409 11.811 22.9983C9.32886 22.9555 6.93404 22.0745 5.01611 20.4983C3.09828 18.9221 1.77034 16.7434 1.24756 14.3167C0.72497 11.8899 1.03833 9.35706 2.13721 7.1311C3.23625 4.90529 5.05595 3.11562 7.30029 2.05493ZM12.0005 9.00024C10.3436 9.00024 9.00049 10.3434 9.00049 12.0002C9.00059 13.657 10.3437 15.0002 12.0005 15.0002C13.6571 15 15.0004 13.6569 15.0005 12.0002C15.0005 10.3435 13.6571 9.00049 12.0005 9.00024Z" fill="currentColor" /></svg>
-                            pptavila@gmail.com
-                        </span>
-                        <span className={`col-start-1 row-start-1 inline-flex items-center justify-center gap-2 ${copied ? '' : 'invisible'}`}>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0195 7.05028C18.41 6.65973 19.0439 6.65978 19.4345 7.05028C19.8247 7.44073 19.8247 8.07388 19.4345 8.46434L10.9501 16.9497C10.7626 17.1372 10.5073 17.2427 10.2421 17.2427C9.97706 17.2425 9.72251 17.1371 9.53508 16.9497L5.29289 12.7075C4.90237 12.317 4.90237 11.683 5.29289 11.2925C5.68336 10.9023 6.31649 10.9023 6.70696 11.2925L10.2421 14.8276L18.0195 7.05028Z" fill="currentColor" /></svg>
-                            Copied to clipboard
-                        </span>
-                    </button>
+                        <button onClick={handleCopyEmail} className="grid rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white cursor-pointer">
+                            <span className={`col-start-1 row-start-1 inline-flex items-center justify-center gap-2 ${copied ? 'invisible' : ''}`}>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.30029 2.05493C9.54481 0.994373 12.083 0.724152 14.5005 1.28833C16.9179 1.85257 19.0736 3.21794 20.6167 5.16235C22.1598 7.1069 23.0002 9.51687 23.0005 11.9993V12.9993C23.0005 14.0599 22.5785 15.0783 21.8286 15.8284C21.0786 16.5782 20.0611 16.9992 19.0005 16.9993C17.9398 16.9993 16.9225 16.5783 16.1724 15.8284C16.0129 15.6689 15.8686 15.4972 15.7397 15.3157C14.8239 16.3479 13.489 17.0001 12.0005 17.0002C9.23913 17.0002 7.00059 14.7616 7.00049 12.0002C7.00049 9.23882 9.23906 7.00024 12.0005 7.00024C13.1262 7.00035 14.1648 7.37238 15.0005 8.00024V7.99927C15.0009 7.44736 15.4485 6.99927 16.0005 6.99927C16.5523 6.99948 17 7.44749 17.0005 7.99927V12.9993C17.0005 13.5297 17.2114 14.0392 17.5864 14.4143C17.9615 14.7892 18.4702 14.9993 19.0005 14.9993C19.5306 14.9992 20.0396 14.7891 20.4146 14.4143C20.7894 14.0393 21.0005 13.5295 21.0005 12.9993V11.9993C21.0002 9.96831 20.3128 7.99644 19.0503 6.40552C17.7877 4.81461 16.0233 3.69724 14.0454 3.2356C12.0676 2.77415 9.99104 2.9959 8.15479 3.86353C6.31864 4.73135 4.82936 6.19488 3.93018 8.01587C3.03105 9.83705 2.77516 11.9092 3.20264 13.8948C3.6303 15.8804 4.71648 17.6637 6.28564 18.9534C7.85493 20.2431 9.81522 20.9643 11.8462 20.9993C13.8768 21.034 15.8597 20.3805 17.4722 19.1458C17.9105 18.8105 18.5388 18.8932 18.8745 19.3313C19.2101 19.7695 19.1268 20.3977 18.689 20.7336C16.718 22.243 14.2932 23.0409 11.811 22.9983C9.32886 22.9555 6.93404 22.0745 5.01611 20.4983C3.09828 18.9221 1.77034 16.7434 1.24756 14.3167C0.72497 11.8899 1.03833 9.35706 2.13721 7.1311C3.23625 4.90529 5.05595 3.11562 7.30029 2.05493ZM12.0005 9.00024C10.3436 9.00024 9.00049 10.3434 9.00049 12.0002C9.00059 13.657 10.3437 15.0002 12.0005 15.0002C13.6571 15 15.0004 13.6569 15.0005 12.0002C15.0005 10.3435 13.6571 9.00049 12.0005 9.00024Z" fill="currentColor" /></svg>
+                                Email
+                            </span>
+                            <span className={`col-start-1 row-start-1 inline-flex items-center justify-center gap-2 ${copied ? '' : 'invisible'}`}>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0195 7.05028C18.41 6.65973 19.0439 6.65978 19.4345 7.05028C19.8247 7.44073 19.8247 8.07388 19.4345 8.46434L10.9501 16.9497C10.7626 17.1372 10.5073 17.2427 10.2421 17.2427C9.97706 17.2425 9.72251 17.1371 9.53508 16.9497L5.29289 12.7075C4.90237 12.317 4.90237 11.683 5.29289 11.2925C5.68336 10.9023 6.31649 10.9023 6.70696 11.2925L10.2421 14.8276L18.0195 7.05028Z" fill="currentColor" /></svg>
+                                Copied
+                            </span>
+                        </button>
                     </Tooltip>
-                    <a href="/cv.pdf" download className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2 text-base font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" /><path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" /></svg>
-                        Download CV
+                    <a href="/cv.pdf" download className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" /><path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" /></svg>
+                        CV
                     </a>
+                    </div>
+                </div>
+            </div>
+
+            {/* Right Panel */}
+            <div className="hidden md:block md:ml-[40%] lg:ml-[35%] w-full md:w-[60%] lg:w-[65%] min-h-screen border-l border-white/10 bg-black">
+                <div className="px-10 lg:px-16 py-24">
+                    <p className="text-sm font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">{study.subtitle}</p>
+                    <h2 className="text-[28px] lg:text-[36px] font-bold leading-[1.15] tracking-tight text-white">
+                        {study.title}
+                    </h2>
+                    <p className="mt-6 text-[22px] lg:text-[26px] font-normal leading-[1.4] text-white/70">
+                        {study.intro}
+                    </p>
+
+                    {study.sections.map((section, i) => (
+                        <div key={i} className="mt-10">
+                            {section.image && (
+                                <div className="overflow-hidden rounded-lg mb-6">
+                                    <img
+                                        src={section.image}
+                                        alt={section.imageAlt}
+                                        className="w-full object-cover"
+                                    />
+                                </div>
+                            )}
+                            <p className="text-base font-normal leading-relaxed text-white/70">
+                                {section.text}
+                            </p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </main>

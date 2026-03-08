@@ -22,7 +22,7 @@ export default function Tooltip({ children, text }: TooltipProps) {
     return (
         <div
             ref={containerRef}
-            className="relative w-full md:w-auto"
+            className="relative"
             onMouseEnter={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
             onMouseMove={handleMouseMove}
