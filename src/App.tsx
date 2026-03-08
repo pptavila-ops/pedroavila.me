@@ -2,72 +2,24 @@ import { useState } from 'react';
 import RainbowText from './components/RainbowText';
 import Tooltip from './components/Tooltip';
 
-const caseStudies = [
+const workItems = [
     {
-        id: 'design-transformation',
-        title: 'Leading Design Transformation at HelloFresh',
-        year: '2024–Now',
-        subtitle: 'Design Ops & Systems, 2024–2026',
-        intro: 'When I joined HelloFresh, the design org was scaling fast — but the way we worked hadn\'t caught up. Designers were duplicating effort across squads, reinventing components, and struggling to stay aligned. There was no shared language between design and engineering.',
-        sections: [
-            {
-                image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=1200&q=80',
-                imageAlt: 'Design system collaboration',
-                text: 'I started by mapping how design decisions flowed through the organization — from a designer\'s Figma file to what actually shipped in production. The gaps were enormous. What we needed wasn\'t just a design system; we needed a design operation.',
-            },
-            {
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80',
-                imageAlt: 'Team workshop',
-                text: 'Over the course of a year, we built the infrastructure for designers to ship production-ready code, established contribution models so the system could grow with the team, and created rituals that kept 30+ designers in sync without slowing anyone down.',
-            },
-            {
-                text: 'The result was a fundamentally different way of working — designers now contribute directly to the codebase, components are shared across all product teams, and the gap between what\'s designed and what\'s built has nearly disappeared.',
-            },
-        ],
+        year: '2026 – now', title: 'Leading Design Transformation at HelloFresh', color: '#A78BFA',
+        description: 'Building skills for designers, researchers, and UX writers to prototype faster with design system components and ship production-ready code.',
     },
     {
-        id: 'pet-food',
-        title: 'The sole (but not lonely) designer of The Pets Table',
-        year: '2023–2025',
-        subtitle: 'Brand & Product Design, 2025',
-        intro: 'HelloFresh wanted to expand into pet food — a completely new vertical with no existing playbook. I was the sole designer responsible for taking this from zero to launch, defining everything from the brand identity to the end-to-end purchase experience.',
-        sections: [
-            {
-                image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80',
-                imageAlt: 'Pet food brand',
-                text: 'The challenge was designing a brand that felt connected to HelloFresh\'s DNA — fresh, approachable, quality-first — while standing on its own in the pet food space. I ran discovery workshops with pet owners, mapped the competitive landscape, and developed three distinct brand directions.',
-            },
-            {
-                image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80',
-                imageAlt: 'Product packaging design',
-                text: 'From brand identity to packaging to the digital subscription flow, every touchpoint was designed to communicate one thing: this is real food made by people who care, not just another kibble brand. The product launched in two markets and exceeded first-quarter targets by 40%.',
-            },
-        ],
+        year: '2023 – 2025', title: 'On being the sole designer of The Pets Table', color: '#8B6FD6',
+        description: 'Owned the end-to-end design for a new direct-to-consumer pet food brand, from discovery research through to a fully launched e-commerce experience.',
     },
     {
-        id: 'mvp',
-        title: 'Enabling Companies to Release their First Products as MVPs',
-        year: '2022–2024',
-        subtitle: 'Product Strategy & Design, 2022–2024',
-        intro: 'Before HelloFresh, I worked with early-stage startups helping them go from idea to first shipped product. The common trap: founders wanting to build everything before shipping anything. My role was to find the smallest version of the product that could prove the idea.',
-        sections: [
-            {
-                image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&q=80',
-                imageAlt: 'Product strategy whiteboard',
-                text: 'For each engagement, the process was the same: understand the core value proposition, identify the riskiest assumption, and design just enough product to test it. No extra features, no nice-to-haves, no "while we\'re at it" scope creep.',
-            },
-            {
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
-                imageAlt: 'Data dashboard',
-                text: 'Across six products, the pattern held: the teams that shipped a focused MVP in weeks learned more than those who spent months building in isolation. Three of those products went on to raise follow-on funding. Two are still in the market today.',
-            },
-        ],
+        year: '2021', title: 'Helping companies to test and release their MVPs', color: '#6E54B3',
+        description: 'Partnered with early-stage startups to shape their vision into testable prototypes, validating ideas quickly and shipping lean first versions to market.',
     },
 ];
 
 function App() {
     const [copied, setCopied] = useState(false);
-    const [activeStudy, setActiveStudy] = useState(0);
+    const [openIndex, setOpenIndex] = useState(0);
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText('pptavila@gmail.com');
@@ -75,48 +27,57 @@ function App() {
         setTimeout(() => setCopied(false), 2000);
     };
 
-    const study = caseStudies[activeStudy];
-
     return (
-        <main className="flex min-h-screen bg-black text-white">
-            {/* Left Panel */}
-            <div className="w-full md:w-[40%] lg:w-[35%] md:fixed md:top-0 md:left-0 md:h-screen flex flex-col justify-between px-6 py-16 md:py-12 md:px-10 lg:px-12">
-                <div className="max-w-sm text-[26px] md:text-[24px] lg:text-[28px] leading-[1.2] text-left font-bold tracking-tight">
-                    <p className="text-sm font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">Pedro Ávila</p>
-                    <RainbowText>
-                        <p>
-                            Enabling designers to ship
-                            <br />
-                            production-ready code.
-                        </p>
-                    </RainbowText>
+        <main className="flex min-h-screen items-center justify-center bg-black text-white px-6 py-24 md:py-48">
+            <div className="max-w-xl text-[26px] md:text-[32px] leading-[1.2] text-left font-bold tracking-tight">
+                <p className="text-sm font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">Pedro Ávila</p>
+                <RainbowText>
                     <p>
-                        Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.
+                        Enabling designers to ship
+                        <br />
+                        production-ready code.
                     </p>
-                    <hr className="border-white/20 my-6" />
-                    {/* Case Study Links */}
-                    <p className="text-xs font-medium uppercase tracking-widest text-[#8a8a8a] mt-8 mb-3">Recent Work</p>
-                    <nav className="flex flex-col">
-                        {caseStudies.map((cs, i) => (
-                            <button
-                                key={cs.id}
-                                onClick={() => setActiveStudy(i)}
-                                className={`flex items-baseline gap-3 text-left text-lg transition-colors cursor-pointer py-3 border-b ${activeStudy === i
-                                    ? 'text-white font-semibold border-white border-b-2'
-                                    : 'text-white/40 hover:text-white/70 border-white/10'
-                                    }`}
-                            >
-                                <span className={`flex-1 ${activeStudy === i ? 'font-semibold' : 'font-medium'}`}>{cs.title}</span>
-                                <span className="text-base font-normal text-white/50 shrink-0">{cs.year}</span>
-                            </button>
-                        ))}
-                    </nav>
+                </RainbowText>
+                <p>
+                    Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.
+                </p>
+                <hr className="border-white/20 my-6" />
 
+                <p className="text-xs font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">Recent Work</p>
+                <div className="flex flex-col gap-2 tracking-normal">
+                    {workItems.map((item, i) => {
+                        const isOpen = openIndex === i;
+                        return (
+                            <div key={i}>
+                                <button
+                                    onClick={() => setOpenIndex(isOpen ? -1 : i)}
+                                    className="w-full flex items-center justify-between text-left cursor-pointer"
+                                >
+                                    <p className="text-lg font-normal leading-relaxed">
+                                        <span className="font-semibold mr-3" style={{ color: item.color }}>{item.year}</span>
+                                        <span className="text-white/70 font-bold">{item.title}</span>
+                                    </p>
+                                    <svg
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        className={`text-white/40 shrink-0 ml-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                                    >
+                                        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+                                <div className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-40 opacity-100 mt-1' : 'max-h-0 opacity-0'}`}>
+                                    <p className="text-lg font-normal text-white/70">{item.description}</p>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
-                <div>
-                    <hr className="border-white/20 mb-4" />
-                    <p className="text-sm font-medium text-[#8a8a8a] mb-4">Senior Product Designer based in Berlin.</p>
-                    <div className="flex gap-3">
+
+                <hr className="border-white/20 my-6" />
+                <p className="text-sm font-medium text-[#8a8a8a] mb-4">Senior Product Designer based in Berlin.</p>
+                <div className="flex flex-col md:flex-row gap-3">
                     <a href="https://www.linkedin.com/in/pptavila/" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white">
                         <svg width="16" height="16" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C68.4183 0 72 3.58172 72 8V64C72 68.4183 68.4183 72 64 72H8C3.58172 72 0 68.4183 0 64V8C0 3.58172 3.58172 0 8 0H64ZM11.0322 62H21.7695V27.333H11.0322V62ZM49.3828 26.2744C42.0263 26.2744 38.9297 32.0029 38.9297 32.0029V27.333H28.6338V62H38.9297V43.8018C38.9298 38.926 41.1747 36.0244 45.4707 36.0244C49.4197 36.0244 51.3153 38.8126 51.3154 43.8018V62H62V40.0508C61.9998 30.7644 56.7357 26.2745 49.3828 26.2744ZM16.3496 10C12.8423 10 10 12.8648 10 16.3975C10.0002 19.9299 12.8425 22.7939 16.3496 22.7939C19.8566 22.7938 22.697 19.9298 22.6973 16.3975C22.6973 12.8649 19.8568 10.0001 16.3496 10Z" fill="currentColor" /></svg>
                         LinkedIn
@@ -137,37 +98,6 @@ function App() {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" /><path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" /></svg>
                         CV
                     </a>
-                    </div>
-                </div>
-            </div>
-
-            {/* Right Panel */}
-            <div className="hidden md:block md:ml-[40%] lg:ml-[35%] w-full md:w-[60%] lg:w-[65%] min-h-screen border-l border-white/10 bg-black">
-                <div className="px-10 lg:px-16 py-24">
-                    <p className="text-sm font-medium uppercase tracking-widest text-[#8a8a8a] mb-4">{study.subtitle}</p>
-                    <h2 className="text-[28px] lg:text-[36px] font-bold leading-[1.15] tracking-tight text-white">
-                        {study.title}
-                    </h2>
-                    <p className="mt-6 text-[22px] lg:text-[26px] font-normal leading-[1.4] text-white/70">
-                        {study.intro}
-                    </p>
-
-                    {study.sections.map((section, i) => (
-                        <div key={i} className="mt-10">
-                            {section.image && (
-                                <div className="overflow-hidden rounded-lg mb-6">
-                                    <img
-                                        src={section.image}
-                                        alt={section.imageAlt}
-                                        className="w-full object-cover"
-                                    />
-                                </div>
-                            )}
-                            <p className="text-base font-normal leading-relaxed text-white/70">
-                                {section.text}
-                            </p>
-                        </div>
-                    ))}
                 </div>
             </div>
         </main>
