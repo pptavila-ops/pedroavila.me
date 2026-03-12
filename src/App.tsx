@@ -11,6 +11,7 @@ function App() {
     const openStudy = useCallback((id: string) => {
         setActiveStudy(id);
         window.history.pushState({ study: id }, '', `/work/${id}`);
+        window.scrollTo(0, 0);
     }, []);
 
     const closeStudy = useCallback(() => {
@@ -45,20 +46,35 @@ function App() {
     return (
         <main className="flex min-h-screen bg-black text-white">
             {/* Left Panel — Bio */}
-            <div className="hidden md:flex md:w-[28%] lg:w-[24%] fixed top-0 left-0 h-screen flex-col justify-between px-8 lg:px-10 py-10">
+            <div className="hidden md:flex md:w-[32%] lg:w-[28%] fixed top-0 left-0 h-screen flex-col justify-between px-8 lg:px-10 py-10">
                 <div>
-                    <div className="flex gap-4 items-center">
-                        <div className="w-14 h-14 rounded-lg overflow-hidden shrink-0 bg-white/5">
-                            <AsciiPortrait />
-                        </div>
-                        <div>
-                            <p className="text-base font-semibold text-white">Pedro Ávila <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block align-middle text-[#7DD3FC]" aria-hidden="true"><path d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM8.79883 13.5C8.46744 12.9484 7.84205 12.8364 7.40039 13.25C6.95859 13.6642 6.86894 14.4477 7.2002 15L8 14.25C7.24034 14.9622 7.20185 14.9994 7.2002 15.001L7.20215 15.0029L7.20508 15.0078C7.20709 15.0111 7.20915 15.016 7.21191 15.0205C7.21745 15.0295 7.2249 15.0413 7.2334 15.0547C7.25061 15.0818 7.27455 15.1177 7.30371 15.1611C7.36233 15.2484 7.4455 15.3673 7.55176 15.5059C7.76384 15.7824 8.07393 16.1465 8.47461 16.5107C9.27259 17.2361 10.4745 18 12 18C13.5255 18 14.7274 17.2362 15.5254 16.5107C15.9261 16.1465 16.2362 15.7824 16.4482 15.5059C16.5545 15.3673 16.6377 15.2484 16.6963 15.1611C16.7255 15.1177 16.7494 15.0818 16.7666 15.0547C16.7751 15.0412 16.7825 15.0295 16.7881 15.0205C16.7909 15.016 16.7929 15.0111 16.7949 15.0078L16.7979 15.0029L16.7998 15.001C16.7988 15 16.7672 14.9693 16 14.25L16.7998 15C17.1311 14.4477 17.0414 13.6642 16.5996 13.25C16.1578 12.8362 15.5315 12.9481 15.2002 13.5L15.2012 13.498V13.4971L15.1982 13.502C15.1923 13.5114 15.1813 13.5294 15.165 13.5537C15.1319 13.603 15.0779 13.6801 15.0049 13.7754C14.8576 13.9675 14.6361 14.2288 14.3496 14.4893C13.7725 15.0139 12.9745 15.5 12 15.5C11.0255 15.5 10.2275 15.0139 9.65039 14.4893C9.36396 14.2288 9.14241 13.9675 8.99512 13.7754C8.92207 13.6801 8.86806 13.603 8.83496 13.5537C8.81867 13.5294 8.80773 13.5114 8.80176 13.502L8.7998 13.499L8.79883 13.5ZM7.99512 7C6.89594 7.00003 6.00488 7.89545 6.00488 9C6.00488 10.1046 6.89594 11 7.99512 11H8.01465C9.11383 11 10.0049 10.1046 10.0049 9C10.0049 7.89545 9.11383 7.00003 8.01465 7H7.99512ZM15.9951 7C14.8959 7.00003 14.0049 7.89545 14.0049 9C14.0049 10.1046 14.8959 11 15.9951 11H16.0146C17.1138 11 18.0049 10.1046 18.0049 9C18.0049 7.89545 17.1138 7.00003 16.0146 7H15.9951Z" fill="currentColor"/></svg></p>
-                            <p className="text-sm text-white/50">Senior Product Designer</p>
-                        </div>
-                    </div>
-                    <p className="text-sm font-normal text-white/60 leading-relaxed mt-6">
-                        9+ years of experience working in Design Operations in Berlin, Germany. Currently enabling designers to ship production-ready code at HelloFresh.
+                    <button onClick={closeStudy} className="text-[15px] font-semibold text-white hover:bg-white/10 rounded-md px-2 py-1 -ml-2 transition-colors cursor-pointer">Pedro Ávila</button>
+                    <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
+                        Senior Product Designer with 9+ years of experience currently working in Design Operations.
                     </p>
+                    <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
+                        Based in Berlin, Germany.
+                    </p>
+                    <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
+                        He/Him.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mt-6">
+                        {[
+                            { label: 'Design to Code', tip: 'Turning design decisions into production-ready components and features with the help of AI.' },
+                            { label: 'Design in Code', tip: 'Designing directly in code instead of static tools.' },
+                            { label: 'AI Skills', tip: 'Owner of the UX space for AI skills at HelloFresh — helping write new skills and improve existing ones.' },
+                            { label: 'UX Engineering', tip: 'Bridging the gap between design and front-end engineering.' },
+                            { label: 'Claude Code', tip: 'Building interfaces and prototypes with Claude as a coding partner.' },
+                            { label: 'Fast Prototyping', tip: 'Helping designers prototype in code, test ideas quickly, and share working prototypes in dedicated repositories.' },
+                            { label: 'Integrated Prototyping', tip: 'Prototyping full features with production design system components — zero development gap from prototype to shipped product.' },
+                            { label: 'Design Systems', tip: 'Scalable component libraries that keep teams aligned.' },
+                        ].map((tag) => (
+                            <Tooltip key={tag.label} text={tag.tip}>
+                                <span className="text-[13px] text-white/60 border border-white/15 rounded-md px-3 py-1 cursor-default">{tag.label}</span>
+                            </Tooltip>
+                        ))}
+                    </div>
                 </div>
 
                 <div>
@@ -88,25 +104,42 @@ function App() {
             </div>
 
             {/* Right Panel — Content */}
-            <div className="w-full md:ml-[28%] lg:ml-[24%] min-h-screen px-6 py-12 md:py-16 md:px-10 lg:px-14">
+            <div className="w-full md:ml-[34%] lg:ml-[30%] min-h-screen px-6 py-12 md:py-14 md:px-10 lg:px-14">
                 {study ? (
                     <div>
                         <button
                             onClick={closeStudy}
-                            className="text-sm text-white/50 hover:text-white transition-colors mb-8 cursor-pointer"
+                            className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-white hover:bg-white/10 rounded-md px-2 py-1 -ml-2 transition-colors mb-8 cursor-pointer"
                         >
-                            &larr; Back
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor"/></svg>
+                            Back
                         </button>
                         <h1 className="text-[28px] md:text-[36px] font-bold leading-[1.15] tracking-tight mt-4">
                             {study.title}
                         </h1>
-                        <p className="mt-8 text-lg font-normal leading-relaxed text-white/70">
+                        <p className="mt-8 text-xl md:text-2xl font-normal leading-relaxed text-white/70">
                             {study.intro}
                         </p>
                         {study.sections.map((section, i) => (
-                            <p key={i} className="mt-6 text-lg font-normal leading-relaxed text-white/70">
-                                {section.text}
-                            </p>
+                            <div key={i}>
+                                {'callout' in section && section.callout ? (
+                                    <p className="mt-10 mb-10 text-[24px] md:text-[28px] font-bold leading-[1.3] tracking-tight text-white">
+                                        {section.callout}
+                                    </p>
+                                ) : (
+                                    <p className="mt-6 text-lg font-normal leading-relaxed text-white/70">
+                                        {section.text}
+                                    </p>
+                                )}
+                                {section.image && (
+                                    <figure className="mt-6 mb-6">
+                                        <img src={section.image} alt={section.caption || ''} className="w-full rounded-xl" />
+                                        {section.caption && (
+                                            <figcaption className="mt-2 text-sm text-white/40 text-center">{section.caption}</figcaption>
+                                        )}
+                                    </figure>
+                                )}
+                            </div>
                         ))}
                     </div>
                 ) : (
@@ -127,22 +160,25 @@ function App() {
                                 <button
                                     key={cs.id}
                                     onClick={() => openStudy(cs.id)}
-                                    className="group relative block rounded-xl border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.04] transition-colors cursor-pointer text-left"
+                                    className="group cursor-pointer text-left"
                                 >
-                                    <div className="relative p-5 h-[200px] overflow-hidden">
-                                        <p className="text-sm font-normal leading-relaxed text-white/60">
-                                            {cs.intro}
-                                        </p>
-                                        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent pointer-events-none" />
-                                    </div>
-                                    <div className="px-5 pb-4">
-                                        <p className="text-sm font-semibold text-white/80">{cs.title}</p>
-                                    </div>
-                                    <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
-                                        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M17 14C17 14.5523 16.5523 15 16 15C15.4478 15 15 14.5523 15 14V10.4141L8.70708 16.707C8.31655 17.0976 7.68354 17.0976 7.29302 16.707C6.90249 16.3165 6.90249 15.6835 7.29302 15.293L13.586 9H10C9.44776 9 9.00005 8.55228 9.00005 8C9.00005 7.44772 9.44776 7 10 7H16C16.5523 7 17 7.44772 17 8V14Z" fill="black"/>
-                                            </svg>
+                                    <div className="relative rounded-xl border border-white/10 group-hover:border-white/20 transition-colors overflow-hidden p-5 flex flex-col h-[300px]">
+                                        <div className="flex-1 overflow-y-auto scrollbar-hide" style={{ maskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)' }}>
+                                            <p className="text-[15px] font-normal leading-relaxed text-white/60">
+                                                {cs.intro}
+                                            </p>
+                                        </div>
+                                        <div className="relative -mt-1">
+                                            <p className="text-base text-white/50">{cs.year}</p>
+                                            <p className="text-base font-bold text-white/80 mt-1">{cs.title}</p>
+                                            <p className="text-sm text-white/50 mt-1">@{cs.company}</p>
+                                        </div>
+                                        <div className="absolute top-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
+                                            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M17 14C17 14.5523 16.5523 15 16 15C15.4478 15 15 14.5523 15 14V10.4141L8.70708 16.707C8.31655 17.0976 7.68354 17.0976 7.29302 16.707C6.90249 16.3165 6.90249 15.6835 7.29302 15.293L13.586 9H10C9.44776 9 9.00005 8.55228 9.00005 8C9.00005 7.44772 9.44776 7 10 7H16C16.5523 7 17 7.44772 17 8V14Z" fill="black"/>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </button>

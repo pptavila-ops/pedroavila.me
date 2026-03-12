@@ -1,4 +1,4 @@
-import { useState, useRef, type ReactNode, type MouseEvent } from 'react';
+import { useState, useRef, useEffect, type ReactNode } from 'react';
 
 interface TooltipProps {
     children: ReactNode;
@@ -7,17 +7,48 @@ interface TooltipProps {
 
 export default function Tooltip({ children, text }: TooltipProps) {
     const [visible, setVisible] = useState(false);
-    const [pos, setPos] = useState({ x: 0, y: 0 });
+    const [tapped, setTapped] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const tooltipRef = useRef<HTMLDivElement>(null);
+    const [offset, setOffset] = useState(0);
 
-    const handleMouseMove = (e: MouseEvent) => {
-        if (!containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        setPos({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top,
-        });
+    const show = visible || tapped;
+
+    useEffect(() => {
+        if (!show || !tooltipRef.current) {
+            setOffset(0);
+            return;
+        }
+        const rect = tooltipRef.current.getBoundingClientRect();
+        if (rect.left < 8) {
+            setOffset(-rect.left + 8);
+        } else if (rect.right > window.innerWidth - 8) {
+            setOffset(-(rect.right - window.innerWidth + 8));
+        } else {
+            setOffset(0);
+        }
+    }, [show]);
+
+    const handleClick = () => {
+        if (window.matchMedia('(hover: none)').matches) {
+            setTapped((prev) => !prev);
+        }
     };
+
+    useEffect(() => {
+        if (!tapped) return;
+        const handleOutside = (e: globalThis.MouseEvent | TouchEvent) => {
+            if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+                setTapped(false);
+            }
+        };
+        document.addEventListener('mousedown', handleOutside);
+        document.addEventListener('touchstart', handleOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleOutside);
+            document.removeEventListener('touchstart', handleOutside);
+        };
+    }, [tapped]);
 
     return (
         <div
@@ -25,18 +56,19 @@ export default function Tooltip({ children, text }: TooltipProps) {
             className="relative"
             onMouseEnter={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
-            onMouseMove={handleMouseMove}
+            onClick={handleClick}
         >
             {children}
-            {visible && (
+            {show && (
                 <div
-                    className="absolute pointer-events-none"
-                    style={{ left: pos.x, top: pos.y - 12, transform: 'translate(-50%, -100%)' }}
+                    ref={tooltipRef}
+                    className="absolute z-20 pointer-events-none left-1/2 bottom-full mb-2"
+                    style={{ transform: `translateX(calc(-50% + ${offset}px))` }}
                 >
-                    <div className="whitespace-nowrap rounded-md bg-white px-3 py-1.5 text-sm font-bold text-black shadow-lg">
+                    <div className="w-[260px] text-center rounded-md bg-white px-3 py-1.5 text-sm font-normal text-black shadow-lg">
                         {text}
                     </div>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center" style={offset ? { transform: `translateX(${-offset}px)` } : undefined}>
                         <div className="h-0 w-0 border-x-[6px] border-x-transparent border-t-[6px] border-t-white" />
                     </div>
                 </div>
