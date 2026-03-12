@@ -31,6 +31,23 @@
         linear-gradient(black, black) padding-box,
         conic-gradient(from var(--shine-angle), rgba(255,255,255,0.15) 0%, rgba(255,255,255, var(--shine-bright)) 10%, rgba(255,255,255,0.15) 20%) border-box;
     animation: tag-shine 3s linear 5s 1 both;
+    transition: --shine-bright 0.3s ease;
+    &:hover {
+        --shine-bright: 0.6;
+    }
+}
+
+@keyframes music-tilt {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@utility music-tag {
+    &:hover .music-icon {
+        animation: music-tilt 2s ease-in-out infinite;
+    }
 }
 
 @keyframes float-up {

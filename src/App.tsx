@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import RainbowText from './components/RainbowText';
 import Tooltip from './components/Tooltip';
 import AsciiPortrait from './components/AsciiPortrait';
@@ -9,6 +9,7 @@ function App() {
     const [activeStudy, setActiveStudy] = useState<string | null>(null);
     const [shineKey, setShineKey] = useState(0);
     const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+    const musicRef = useRef<HTMLAudioElement>(null);
 
     const openStudy = useCallback((id: string) => {
         setHoveredCard(null);
@@ -79,9 +80,20 @@ function App() {
                             { label: 'No Knowledge Gap', tip: 'I ensure all designers share a similar understanding of new design-to-code workflows through guides, 101 sessions, and a culture that fosters curiosity instead of overwhelm.' },
                         ].map((tag) => (
                             <Tooltip key={`${tag.label}-${shineKey}`} text={tag.tip}>
-                                <span className="text-[13px] text-white/60 rounded-md px-3 py-1 cursor-default animate-tag-shine">{tag.label}</span>
+                                <span className="text-[13px] text-white/60 hover:text-white rounded-md px-3 py-1 cursor-default animate-tag-shine hover:border-white/40 transition-colors">{tag.label}</span>
                             </Tooltip>
                         ))}
+                        <Tooltip
+                            key={`music-${shineKey}`}
+                            text="Also been learning music production and experimenting with sounds and synthesizers I enjoy."
+                            onMouseEnter={() => musicRef.current?.play().catch(() => {})}
+                            onMouseLeave={() => { if (musicRef.current) { musicRef.current.pause(); musicRef.current.currentTime = 0; } }}
+                        >
+                            <span className="text-[13px] text-white/60 hover:text-white rounded-md px-3 py-1 cursor-default animate-tag-shine hover:border-white/40 transition-colors music-tag">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="music-icon inline -mt-0.5 mr-1"><path d="M21.1045 2.00488C21.3856 1.97729 21.6149 2.06946 21.8174 2.26367C22.1485 2.5815 22.1645 2.92212 22.165 3.35254C22.1683 6.07735 22.1675 8.80251 22.167 11.5273L22.166 13.8408C22.1657 14.2859 22.1768 15.2001 22.0908 15.6182C21.9229 16.4204 21.5302 17.1583 20.958 17.7451C19.3002 19.4327 16.69 19.4929 15 17.8184C14.1915 17.0239 13.7359 15.9373 13.7363 14.8037C13.7402 13.7027 14.1798 12.6479 14.959 11.8701C16.4623 10.3708 18.0717 10.612 20.0312 10.6162V4.26758C19.4567 4.37696 18.8356 4.46318 18.2539 4.55957L14.6094 5.16406C13.2872 5.38224 11.7371 5.691 10.4277 5.85449L10.4297 7.9209V14.5762L10.4307 16.4854C10.4311 17.1197 10.4614 17.8093 10.3213 18.4248C10.141 19.1947 9.7506 19.8999 9.19336 20.4609C8.41153 21.2532 7.3435 21.6989 6.23047 21.6973C3.83578 21.7062 1.9946 19.8611 2 17.4668C2.01223 16.3691 2.46034 15.3213 3.24512 14.5537C4.74122 13.0726 6.36228 13.3306 8.29688 13.3359V7.79395L8.29492 6.05859C8.29476 5.71154 8.29851 5.37878 8.31055 5.03027C8.32611 4.5825 8.60316 4.16471 9.05469 4.04688C9.61136 3.90166 10.2306 3.82483 10.8057 3.72949L13.7764 3.22559L18.4609 2.44043C19.2992 2.29886 20.2702 2.10991 21.1045 2.00488ZM6.79492 15.415C6.65123 15.4148 6.1514 15.4111 6.02441 15.4326C5.42914 15.494 4.92507 15.7286 4.54102 16.1982C4.19695 16.6123 4.03597 17.1483 4.09375 17.6836C4.21261 18.8571 5.25037 19.6382 6.4043 19.5703C7.0601 19.4434 7.5276 19.2303 7.92969 18.6621C8.35231 18.0647 8.29918 17.3628 8.29785 16.6602L8.29395 15.4199L6.79492 15.415ZM18.0703 12.8018C17.3917 12.8417 16.9115 13.008 16.4443 13.5352C16.0862 13.9358 15.9022 14.4625 15.9326 14.999C15.97 15.5542 16.2261 16.0718 16.6455 16.4375C17.0182 16.7595 17.4885 16.947 17.9805 16.9707C18.6225 16.9233 19.151 16.7277 19.5791 16.2295C20.1374 15.5798 20.0862 14.9469 20.0859 14.1504L20.085 12.7988C19.431 12.7982 18.72 12.7843 18.0703 12.8018Z" fill="currentColor"/></svg>
+                                Music Production
+                            </span>
+                        </Tooltip>
                     </div>
                 </div>
 
@@ -221,9 +233,19 @@ function App() {
                                 </button>
                             ))}
                         </div>
+
+                        <div className="border-t border-white/10 mt-20 pt-10">
+                            <p className="text-[15px] italic text-white/40 leading-relaxed">
+                                Is this a poem, or a portfolio?<br />
+                                A mix of form, something not to hide—<br />
+                                Is it both? A collection of my work<br />
+                                And a snapshot of my mind
+                            </p>
+                        </div>
                     </div>
                 )}
             </div>
+            <audio ref={musicRef} src="/Taramramram.mp3" loop preload="auto" />
         </main>
     );
 }

@@ -3,9 +3,11 @@ import { useState, useRef, useEffect, type ReactNode } from 'react';
 interface TooltipProps {
     children: ReactNode;
     text: string;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
-export default function Tooltip({ children, text }: TooltipProps) {
+export default function Tooltip({ children, text, onMouseEnter: onEnter, onMouseLeave: onLeave }: TooltipProps) {
     const [visible, setVisible] = useState(false);
     const [tapped, setTapped] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -54,8 +56,8 @@ export default function Tooltip({ children, text }: TooltipProps) {
         <div
             ref={containerRef}
             className="relative"
-            onMouseEnter={() => setVisible(true)}
-            onMouseLeave={() => setVisible(false)}
+            onMouseEnter={() => { setVisible(true); onEnter?.(); }}
+            onMouseLeave={() => { setVisible(false); onLeave?.(); }}
             onClick={handleClick}
         >
             {children}
