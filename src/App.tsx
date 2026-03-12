@@ -7,15 +7,18 @@ import { caseStudies } from './data/caseStudies';
 function App() {
     const [copied, setCopied] = useState(false);
     const [activeStudy, setActiveStudy] = useState<string | null>(null);
+    const [shineKey, setShineKey] = useState(0);
 
     const openStudy = useCallback((id: string) => {
         setActiveStudy(id);
+        setShineKey((k) => k + 1);
         window.history.pushState({ study: id }, '', `/work/${id}`);
         window.scrollTo(0, 0);
     }, []);
 
     const closeStudy = useCallback(() => {
         setActiveStudy(null);
+        setShineKey((k) => k + 1);
         window.history.pushState(null, '', '/');
     }, []);
 
@@ -24,6 +27,7 @@ function App() {
             const path = window.location.pathname;
             const match = path.match(/^\/work\/(.+)$/);
             setActiveStudy(match ? match[1] : null);
+            setShineKey((k) => k + 1);
         };
         window.addEventListener('popstate', handlePopState);
 
@@ -70,8 +74,8 @@ function App() {
                             { label: 'Integrated Prototyping', tip: 'Prototyping full features with production design system components — zero development gap from prototype to shipped product.' },
                             { label: 'Design Systems', tip: 'Scalable component libraries that keep teams aligned.' },
                         ].map((tag) => (
-                            <Tooltip key={tag.label} text={tag.tip}>
-                                <span className="text-[13px] text-white/60 border border-white/15 rounded-md px-3 py-1 cursor-default">{tag.label}</span>
+                            <Tooltip key={`${tag.label}-${shineKey}`} text={tag.tip}>
+                                <span className="text-[13px] text-white/60 rounded-md px-3 py-1 cursor-default animate-tag-shine">{tag.label}</span>
                             </Tooltip>
                         ))}
                     </div>

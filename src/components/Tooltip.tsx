@@ -65,7 +65,7 @@ export default function Tooltip({ children, text }: TooltipProps) {
                     className="absolute z-20 pointer-events-none left-1/2 bottom-full mb-2"
                     style={{ transform: `translateX(calc(-50% + ${offset}px))` }}
                 >
-                    <div className="w-[260px] text-center rounded-md bg-white px-3 py-1.5 text-sm font-normal text-black shadow-lg">
+                    <div className="w-[260px] text-center rounded-md bg-white px-4 py-3 text-sm font-normal text-black shadow-lg">
                         {text}
                     </div>
                     <div className="flex justify-center" style={offset ? { transform: `translateX(${-offset}px)` } : undefined}>

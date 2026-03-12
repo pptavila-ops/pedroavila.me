@@ -4,6 +4,35 @@
     --font-sans: 'Instrument Sans', system-ui, sans-serif;
 }
 
+@property --shine-angle {
+    syntax: '<angle>';
+    initial-value: -90deg;
+    inherits: false;
+}
+
+@keyframes tag-shine {
+    0% { --shine-angle: -90deg; --shine-bright: 0.15; }
+    10% { --shine-angle: -90deg; --shine-bright: 0.15; }
+    40% { --shine-angle: 0deg; --shine-bright: 0.4; }
+    70% { --shine-angle: 90deg; --shine-bright: 0.5; }
+    90% { --shine-angle: 140deg; --shine-bright: 0.15; }
+    100% { --shine-angle: 140deg; --shine-bright: 0.15; }
+}
+
+@property --shine-bright {
+    syntax: '<number>';
+    initial-value: 0.15;
+    inherits: false;
+}
+
+@utility animate-tag-shine {
+    border: 1px solid transparent;
+    background:
+        linear-gradient(black, black) padding-box,
+        conic-gradient(from var(--shine-angle), rgba(255,255,255,0.15) 0%, rgba(255,255,255, var(--shine-bright)) 10%, rgba(255,255,255,0.15) 20%) border-box;
+    animation: tag-shine 3s linear 5s 1 both;
+}
+
 @utility scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
