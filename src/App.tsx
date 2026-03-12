@@ -73,6 +73,8 @@ function App() {
                             { label: 'Fast Prototyping', tip: 'Helping designers prototype in code, test ideas quickly, and share working prototypes in dedicated repositories.' },
                             { label: 'Integrated Prototyping', tip: 'Prototyping full features with production design system components — zero development gap from prototype to shipped product.' },
                             { label: 'Design Systems', tip: 'Scalable component libraries that keep teams aligned.' },
+                            { label: 'Design Ops', tip: 'Making design system components, prototyping workflows, and code delivery tools available and accessible to every designer in the org.' },
+                            { label: 'No Knowledge Gap', tip: 'I ensure all designers share a similar understanding of new design-to-code workflows through guides, 101 sessions, and a culture that fosters curiosity instead of overwhelm.' },
                         ].map((tag) => (
                             <Tooltip key={`${tag.label}-${shineKey}`} text={tag.tip}>
                                 <span className="text-[13px] text-white/60 rounded-md px-3 py-1 cursor-default animate-tag-shine">{tag.label}</span>
