@@ -8,8 +8,10 @@ function App() {
     const [copied, setCopied] = useState(false);
     const [activeStudy, setActiveStudy] = useState<string | null>(null);
     const [shineKey, setShineKey] = useState(0);
+    const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
     const openStudy = useCallback((id: string) => {
+        setHoveredCard(null);
         setActiveStudy(id);
         setShineKey((k) => k + 1);
         window.history.pushState({ study: id }, '', `/work/${id}`);
@@ -166,9 +168,38 @@ function App() {
                                 <button
                                     key={cs.id}
                                     onClick={() => openStudy(cs.id)}
-                                    className="group cursor-pointer text-left"
+                                    onMouseEnter={() => (cs.id === 'movix' || cs.id === 'design-transformation') ? setHoveredCard(cs.id) : undefined}
+                                    onMouseLeave={() => (cs.id === 'movix' || cs.id === 'design-transformation') ? setHoveredCard(null) : undefined}
+                                    className={`group cursor-pointer text-left relative ${hoveredCard === cs.id ? 'z-30' : ''}`}
                                 >
-                                    <div className="relative rounded-xl border border-white/10 group-hover:border-white/20 transition-colors overflow-hidden p-5 flex flex-col h-[300px]">
+                                    {/* Hover image to the side */}
+                                    {cs.id === 'design-transformation' && (
+                                        <img
+                                            src="/intodesign.png"
+                                            alt=""
+                                            className="absolute w-48 h-[280px] object-cover rounded-lg border border-white/20 transition-all duration-300 ease-out pointer-events-none z-20"
+                                            style={{
+                                                top: '50%',
+                                                left: hoveredCard === cs.id ? 'calc(100% - 4px)' : '100%',
+                                                transform: 'translateY(-50%) rotate(3deg)',
+                                                opacity: hoveredCard === cs.id ? 1 : 0,
+                                            }}
+                                        />
+                                    )}
+                                    {cs.id === 'movix' && (
+                                        <img
+                                            src="/movix-home.jpg"
+                                            alt=""
+                                            className="absolute w-48 h-[280px] object-cover rounded-lg border border-white/20 transition-all duration-300 ease-out pointer-events-none z-20"
+                                            style={{
+                                                top: '50%',
+                                                left: hoveredCard === cs.id ? 'calc(100% - 4px)' : '100%',
+                                                transform: 'translateY(-50%) rotate(3deg)',
+                                                opacity: hoveredCard === cs.id ? 1 : 0,
+                                            }}
+                                        />
+                                    )}
+                                    <div className="relative rounded-xl border border-white/10 group-hover:border-white/20 transition-colors overflow-hidden p-5 flex flex-col h-[300px] bg-black z-10">
                                         <div className="flex-1 overflow-y-auto scrollbar-hide" style={{ maskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)' }}>
                                             <p className="text-[15px] font-normal leading-relaxed text-white/60">
                                                 {cs.intro}
