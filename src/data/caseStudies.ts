@@ -16,7 +16,7 @@ export const caseStudies: CaseStudy[] = [
     {
         id: 'design-transformation',
         title: 'Leading Design Workflow Transformation',
-        year: '2026',
+        year: '2026 – Now',
         company: 'HelloFresh',
         image: '/card-hover.png',
         intro: 'When I joined HelloFresh, the design org was scaling fast — but the way we worked hadn\'t caught up. Designers were duplicating effort across squads, reinventing components, and struggling to stay aligned. There was no shared language between design and engineering. I started by mapping how design decisions flowed through the organization — from a designer\'s Figma file to what actually shipped in production. The gaps were enormous. What we needed wasn\'t just a design system; we needed a design operation.',
