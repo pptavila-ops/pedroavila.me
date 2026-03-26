@@ -31,7 +31,7 @@ export const caseStudies: CaseStudy[] = [
     },
     {
         id: 'pets-table',
-        title: 'Leading the UX of HelloFresh\'s First Pet Food Brand',
+        title: 'Designing HelloFresh\'s Pet Food Brand',
         year: '2023 – 2025',
         company: 'The Pets Table',
         intro: 'HelloFresh wanted to expand into pet food — a completely new vertical with no existing playbook. I was the sole designer responsible for taking this from zero to launch, defining everything from the brand identity to the end-to-end purchase experience. The challenge was designing a brand that felt connected to HelloFresh\'s DNA — fresh, approachable, quality-first — while standing on its own in the pet food space.',
@@ -46,7 +46,7 @@ export const caseStudies: CaseStudy[] = [
     },
     {
         id: 'mvp',
-        title: 'Helping Companies Ship Their MVPs',
+        title: 'Helping Early Startups Ship Their MVPs',
         year: '2021',
         company: 'MVP Factory',
         intro: 'Before HelloFresh, I worked with early-stage startups helping them go from idea to first shipped product. The common trap: founders wanting to build everything before shipping anything. My role was to find the smallest version of the product that could prove the idea. For each engagement, the process was the same: understand the core value proposition, identify the riskiest assumption, and design just enough product to test it.',
