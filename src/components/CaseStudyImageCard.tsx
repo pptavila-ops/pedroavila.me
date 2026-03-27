@@ -1,5 +1,3 @@
-import RainbowText from './RainbowText';
-
 interface CaseStudyImageCardItem {
     id: string;
     year: string;
@@ -86,11 +84,9 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
 export function CaseStudyImageCard({ onOpenStudy }: Props) {
     return (
         <div className="border-t border-white/10 mt-16 pt-14">
-            <RainbowText>
-                <p className="text-[28px] md:text-[32px] font-bold tracking-tight leading-[1.2]">
-                    Oh nice, you found some of my personal projects.
-                </p>
-            </RainbowText>
+            <p className="text-[28px] md:text-[32px] font-bold tracking-tight leading-[1.2] text-white">
+                This is where I keep some personal projects.
+            </p>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
                 {items.map((item) => (
                     <Card key={item.id} item={item} onOpenStudy={onOpenStudy} />

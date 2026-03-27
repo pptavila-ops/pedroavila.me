@@ -1,5 +1,7 @@
+import { useState, useEffect, useRef } from 'react';
 import type { RichCaseStudy } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
+import { StickyHeader } from './StickyHeader';
 
 interface OtherStudy {
     id: string;
@@ -17,10 +19,28 @@ interface Props {
 }
 
 export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }: Props) {
+    const [scrolled, setScrolled] = useState(false);
+    const backButtonRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        setScrolled(false);
+        const el = backButtonRef.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => setScrolled(!entry.isIntersecting),
+            { threshold: 0 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [study.id]);
+
     return (
         <div>
+            <StickyHeader title={study.title} visible={scrolled} onBack={onBack} />
+
             {/* Back */}
             <button
+                ref={backButtonRef}
                 onClick={onBack}
                 className="inline-flex items-center gap-1.5 text-sm text-white/50 hover:text-white transition-colors cursor-pointer"
             >
