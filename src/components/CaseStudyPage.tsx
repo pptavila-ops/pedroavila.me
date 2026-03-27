@@ -72,7 +72,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                     {study.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-3">
                             {study.tags.map((tag) => (
-                                <span key={tag} className="text-[12px] text-white/60 border border-white/20 rounded-full px-3 py-0.5">
+                                <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
                                     {tag}
                                 </span>
                             ))}
