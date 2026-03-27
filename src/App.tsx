@@ -1,9 +1,13 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import RainbowText from './components/RainbowText';
+import { CaseStudyImageCard } from './components/CaseStudyImageCard';
 import Tooltip from './components/Tooltip';
 import AsciiPortrait from './components/AsciiPortrait';
 import { caseStudies } from './data/caseStudies';
 import { CardGrid } from './components/CardGrid';
+import { CaseStudyPage } from './components/CaseStudyPage';
+import { templateCaseStudy } from './data/templateCaseStudy';
+import { richCaseStudies } from './data/richCaseStudies';
 
 function App() {
     const [copied, setCopied] = useState(false);
@@ -50,6 +54,7 @@ function App() {
     };
 
     const study = activeStudy ? caseStudies.find((cs) => cs.id === activeStudy) : null;
+    const richStudy = activeStudy ? richCaseStudies.find((cs) => cs.id === activeStudy) : null;
 
     return (
         <main className="flex min-h-screen bg-black text-white">
@@ -75,7 +80,7 @@ function App() {
                             { label: 'UX Engineering', tip: 'I bridge the gap between design and front-end engineering across the organization.' },
                             { label: 'Claude Code', tip: 'I build interfaces and prototypes with Claude as a coding partner.' },
                             { label: 'Fast Prototyping', tip: 'I help designers prototype in code, test ideas quickly, and share working prototypes in dedicated repositories.' },
-{ label: 'Design Systems', tip: 'I build and manage scalable component libraries and design tokens that keep teams aligned.' },
+                            { label: 'Design Systems', tip: 'I build and manage scalable component libraries and design tokens that keep teams aligned.' },
                             { label: 'Design Ops', tip: 'I make design system components, prototyping workflows, and code delivery tools available and accessible to every designer in the org.' },
                             { label: 'Designer Enablement', tip: 'I ensure all designers share a similar understanding of new design-to-code workflows through guides, 101 sessions, and a culture that fosters curiosity instead of overwhelm.' },
                         ].map((tag) => (
@@ -86,11 +91,11 @@ function App() {
                         <Tooltip
                             key={`music-${shineKey}`}
                             text="I've also been learning music production and experimenting with sounds and synthesizers I enjoy."
-                            onMouseEnter={() => musicRef.current?.play().catch(() => {})}
+                            onMouseEnter={() => musicRef.current?.play().catch(() => { })}
                             onMouseLeave={() => { if (musicRef.current) { musicRef.current.pause(); musicRef.current.currentTime = 0; } }}
                         >
                             <span className="text-[13px] text-white/60 hover:text-white rounded-md px-3 py-1 cursor-default animate-tag-shine hover:border-white/40 transition-colors music-tag">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="music-icon inline -mt-0.5 mr-1"><path d="M21.1045 2.00488C21.3856 1.97729 21.6149 2.06946 21.8174 2.26367C22.1485 2.5815 22.1645 2.92212 22.165 3.35254C22.1683 6.07735 22.1675 8.80251 22.167 11.5273L22.166 13.8408C22.1657 14.2859 22.1768 15.2001 22.0908 15.6182C21.9229 16.4204 21.5302 17.1583 20.958 17.7451C19.3002 19.4327 16.69 19.4929 15 17.8184C14.1915 17.0239 13.7359 15.9373 13.7363 14.8037C13.7402 13.7027 14.1798 12.6479 14.959 11.8701C16.4623 10.3708 18.0717 10.612 20.0312 10.6162V4.26758C19.4567 4.37696 18.8356 4.46318 18.2539 4.55957L14.6094 5.16406C13.2872 5.38224 11.7371 5.691 10.4277 5.85449L10.4297 7.9209V14.5762L10.4307 16.4854C10.4311 17.1197 10.4614 17.8093 10.3213 18.4248C10.141 19.1947 9.7506 19.8999 9.19336 20.4609C8.41153 21.2532 7.3435 21.6989 6.23047 21.6973C3.83578 21.7062 1.9946 19.8611 2 17.4668C2.01223 16.3691 2.46034 15.3213 3.24512 14.5537C4.74122 13.0726 6.36228 13.3306 8.29688 13.3359V7.79395L8.29492 6.05859C8.29476 5.71154 8.29851 5.37878 8.31055 5.03027C8.32611 4.5825 8.60316 4.16471 9.05469 4.04688C9.61136 3.90166 10.2306 3.82483 10.8057 3.72949L13.7764 3.22559L18.4609 2.44043C19.2992 2.29886 20.2702 2.10991 21.1045 2.00488ZM6.79492 15.415C6.65123 15.4148 6.1514 15.4111 6.02441 15.4326C5.42914 15.494 4.92507 15.7286 4.54102 16.1982C4.19695 16.6123 4.03597 17.1483 4.09375 17.6836C4.21261 18.8571 5.25037 19.6382 6.4043 19.5703C7.0601 19.4434 7.5276 19.2303 7.92969 18.6621C8.35231 18.0647 8.29918 17.3628 8.29785 16.6602L8.29395 15.4199L6.79492 15.415ZM18.0703 12.8018C17.3917 12.8417 16.9115 13.008 16.4443 13.5352C16.0862 13.9358 15.9022 14.4625 15.9326 14.999C15.97 15.5542 16.2261 16.0718 16.6455 16.4375C17.0182 16.7595 17.4885 16.947 17.9805 16.9707C18.6225 16.9233 19.151 16.7277 19.5791 16.2295C20.1374 15.5798 20.0862 14.9469 20.0859 14.1504L20.085 12.7988C19.431 12.7982 18.72 12.7843 18.0703 12.8018Z" fill="currentColor"/></svg>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="music-icon inline -mt-0.5 mr-1"><path d="M21.1045 2.00488C21.3856 1.97729 21.6149 2.06946 21.8174 2.26367C22.1485 2.5815 22.1645 2.92212 22.165 3.35254C22.1683 6.07735 22.1675 8.80251 22.167 11.5273L22.166 13.8408C22.1657 14.2859 22.1768 15.2001 22.0908 15.6182C21.9229 16.4204 21.5302 17.1583 20.958 17.7451C19.3002 19.4327 16.69 19.4929 15 17.8184C14.1915 17.0239 13.7359 15.9373 13.7363 14.8037C13.7402 13.7027 14.1798 12.6479 14.959 11.8701C16.4623 10.3708 18.0717 10.612 20.0312 10.6162V4.26758C19.4567 4.37696 18.8356 4.46318 18.2539 4.55957L14.6094 5.16406C13.2872 5.38224 11.7371 5.691 10.4277 5.85449L10.4297 7.9209V14.5762L10.4307 16.4854C10.4311 17.1197 10.4614 17.8093 10.3213 18.4248C10.141 19.1947 9.7506 19.8999 9.19336 20.4609C8.41153 21.2532 7.3435 21.6989 6.23047 21.6973C3.83578 21.7062 1.9946 19.8611 2 17.4668C2.01223 16.3691 2.46034 15.3213 3.24512 14.5537C4.74122 13.0726 6.36228 13.3306 8.29688 13.3359V7.79395L8.29492 6.05859C8.29476 5.71154 8.29851 5.37878 8.31055 5.03027C8.32611 4.5825 8.60316 4.16471 9.05469 4.04688C9.61136 3.90166 10.2306 3.82483 10.8057 3.72949L13.7764 3.22559L18.4609 2.44043C19.2992 2.29886 20.2702 2.10991 21.1045 2.00488ZM6.79492 15.415C6.65123 15.4148 6.1514 15.4111 6.02441 15.4326C5.42914 15.494 4.92507 15.7286 4.54102 16.1982C4.19695 16.6123 4.03597 17.1483 4.09375 17.6836C4.21261 18.8571 5.25037 19.6382 6.4043 19.5703C7.0601 19.4434 7.5276 19.2303 7.92969 18.6621C8.35231 18.0647 8.29918 17.3628 8.29785 16.6602L8.29395 15.4199L6.79492 15.415ZM18.0703 12.8018C17.3917 12.8417 16.9115 13.008 16.4443 13.5352C16.0862 13.9358 15.9022 14.4625 15.9326 14.999C15.97 15.5542 16.2261 16.0718 16.6455 16.4375C17.0182 16.7595 17.4885 16.947 17.9805 16.9707C18.6225 16.9233 19.151 16.7277 19.5791 16.2295C20.1374 15.5798 20.0862 14.9469 20.0859 14.1504L20.085 12.7988C19.431 12.7982 18.72 12.7843 18.0703 12.8018Z" fill="currentColor" /></svg>
                                 Music Production
                             </span>
                         </Tooltip>
@@ -145,14 +150,31 @@ function App() {
                     </div>
                 </div>
 
-                {study ? (
+                {activeStudy === 'template' ? (
+                    <CaseStudyPage
+                        study={templateCaseStudy}
+                        onBack={closeStudy}
+                        otherStudies={caseStudies}
+                        onOpenStudy={openStudy}
+                    />
+                ) : richStudy ? (
+                    <CaseStudyPage
+                        study={richStudy}
+                        onBack={closeStudy}
+                        otherStudies={[
+                                ...richCaseStudies.filter((cs) => cs.id !== richStudy.id),
+                                ...caseStudies.filter((cs) => !richCaseStudies.some((r) => r.id === cs.id)),
+                            ]}
+                        onOpenStudy={openStudy}
+                    />
+                ) : study ? (
                     <div>
                         {/* Back */}
                         <button
                             onClick={closeStudy}
                             className="inline-flex items-center gap-1.5 text-sm text-white/50 hover:text-white transition-colors cursor-pointer"
                         >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor" /></svg>
                             Back
                         </button>
 
@@ -222,11 +244,13 @@ function App() {
                         <div className="border-t border-white/10 mt-20 pt-10">
                             <p className="text-[15px] text-white/60 leading-relaxed">
                                 Is this a poem, or a portfolio?<br />
-                                A mix of form, something not to hide—<br />
+                                A mix of form, something not to hide<br />
                                 Is it both? A collection of my work<br />
                                 And a snapshot of my mind
                             </p>
                         </div>
+
+                        <CaseStudyImageCard onOpenStudy={openStudy} />
                     </div>
                 )}
             </div>
