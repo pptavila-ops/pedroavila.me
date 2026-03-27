@@ -109,7 +109,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                         return (
                             <div key={i} className="mt-14 mb-6 flex items-center gap-4">
                                 {section.label && (
-                                    <span className="text-xs font-semibold uppercase tracking-widest text-white/30 flex-shrink-0">
+                                    <span className="text-xs font-semibold uppercase tracking-widest text-white/60 flex-shrink-0">
                                         {section.label}
                                     </span>
                                 )}
