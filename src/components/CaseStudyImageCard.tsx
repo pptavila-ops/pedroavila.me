@@ -72,7 +72,7 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
         </>
     );
 
-    const sharedClass = "group cursor-pointer text-left relative overflow-hidden rounded-xl border border-white/10 hover:border-white/20 transition-colors bg-black";
+    const sharedClass = "group cursor-pointer text-left relative overflow-hidden rounded-xl border border-white/10 hover:border-white/20 transition-colors bg-black flex flex-col";
 
     if (item.href) {
         return (
