@@ -187,7 +187,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         role: 'Product Designer & Founder',
         cover: '/stella/screen-08-home-v2.png',
         intro: 'StellaTimer is a meditation timer I designed and am building from scratch — for people who actually meditate. Not for people browsing 100,000 guided tracks or collecting social streaks. Just a reliable timer, a daily affirmation, and silence.',
-        tags: ['iOS App', 'React Native', 'Design System', 'Product Design'],
+        tags: ['iOS App', 'React Native', 'Design System', 'Product Design', 'OOUX'],
         sections: [
             {
                 type: 'divider',
