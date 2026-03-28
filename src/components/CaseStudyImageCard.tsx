@@ -18,6 +18,14 @@ const items: CaseStudyImageCardItem[] = [
         cover: '/treks-header.gif',
     },
     {
+        id: 'stella-timer',
+        year: '2026',
+        category: 'iOS App · Design System',
+        title: 'StellaTimer',
+        description: 'A meditation timer for people who actually meditate. No social, no library, no bloat.',
+        cover: '/stella/screen-08-home-v2.png',
+    },
+    {
         id: 'c',
         year: 'Ongoing',
         category: 'Personal',

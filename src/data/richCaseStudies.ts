@@ -178,4 +178,98 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
         ],
     },
+    {
+        id: 'stella-timer',
+        personal: true,
+        title: 'StellaTimer — A Meditation App That Gets Out of the Way',
+        year: '2026',
+        company: 'Stellabs',
+        role: 'Product Designer & Founder',
+        cover: '/stella/screen-08-home-v2.png',
+        intro: 'StellaTimer is a meditation timer I designed and am building from scratch — for people who actually meditate. Not for people browsing 100,000 guided tracks or collecting social streaks. Just a reliable timer, a daily affirmation, and silence.',
+        tags: ['iOS App', 'React Native', 'Design System', 'Product Design'],
+        sections: [
+            {
+                type: 'divider',
+                label: 'The Problem',
+            },
+            {
+                type: 'callout',
+                content: '"When TIMER is in your name and you can\'t even keep time, what\'s the point." — Real review of Insight Timer',
+            },
+            {
+                type: 'text',
+                content: 'I started with a research phase: reading hundreds of real user reviews of Insight Timer, Headspace, and Calm on Reddit and the App Store. The pattern was impossible to ignore. Apps that started as simple timers had evolved into bloated social networks. The timer — the one thing users came for — was buried three taps deep behind discovery feeds, upsell prompts, and community features nobody asked for.',
+            },
+            {
+                type: 'text',
+                content: 'Users wanted one thing: sit down, set a timer, hear a gentle bell. The apps had made this nearly impossible. So I made a list of everything StellaTimer would never do, and that list became the product.',
+            },
+            {
+                type: 'divider',
+                label: 'Product Principles',
+            },
+            {
+                type: 'text',
+                content: 'I codified the research into ten hard constraints — not aspirational goals but non-negotiable rules. No social features. No content library. No aggressive gamification. No paywall on the timer itself. No medical claims. No guided audio. The app would be offline-first, with a timer engine that uses timestamp deltas instead of setInterval, so it works reliably when backgrounded. Reliability is the product.',
+            },
+            {
+                type: 'image',
+                src: '/stella/screen-01-home.png',
+                caption: 'The home screen — an affirmation as the emotional anchor, one tap to begin',
+            },
+            {
+                type: 'divider',
+                label: 'Object-Oriented UX',
+            },
+            {
+                type: 'text',
+                content: 'Before touching any screen design, I mapped the entire product using OOUX — Object-Oriented UX. I identified the core objects: Affirmation, MeditationConfig, Session, DayLog, and Stats. I defined their attributes, their relationships, and the boundaries of responsibility between them. This gave me a system I could reason about, not just a set of screens. The Affirmation, for example, has no knowledge of Sessions. The Session has no knowledge of the Calendar. Clean separations that made every design decision easier.',
+            },
+            {
+                type: 'divider',
+                label: 'The Design System',
+            },
+            {
+                type: 'text',
+                content: 'I built a full token architecture from scratch: Global tokens → Brand tokens → Alias tokens (day/night) → Component tokens. The app has two complete themes — day and night — with semantic aliases that let components reference "surface-primary" instead of a hardcoded color. I built a live React storybook for design review, with all components rendered against both themes. Every component was specced before a single line of React Native was written.',
+            },
+            {
+                type: 'image',
+                src: '/stella/screen-02-meditate-list.png',
+                caption: 'The meditation list — 8 curated presets, filterable by type, with a custom timer builder',
+            },
+            {
+                type: 'divider',
+                label: 'The Features',
+            },
+            {
+                type: 'text',
+                content: 'The app has five tabs: Home, Meditate, Sound, Calendar, and Settings. Home shows a daily affirmation — a first-person "I" statement, rotating through 200 originals across 7 languages — plus favorited presets. The Meditate tab lists 8 curated presets and lets users create their own configurations: duration, warm-up time, interval bells, meditation type. The Calendar shows a private, non-competitive journey view with streak, weekly time, and monthly time.',
+            },
+            {
+                type: 'image',
+                src: '/stella/screen-03-config-builder.png',
+                caption: 'The custom timer builder — users set duration, warm-up, interval bells, and meditation type',
+            },
+            {
+                type: 'image',
+                src: '/stella/screen-04-stats-calendar.png',
+                caption: '"Your Journey" — a private, warm calendar for reflection, not comparison',
+            },
+            {
+                type: 'image',
+                src: '/stella/screen-07-active-timer-warmup.png',
+                caption: 'The active timer during warm-up — minimal, dark, distraction-free',
+            },
+            {
+                type: 'divider',
+                label: 'What\'s Next',
+            },
+            {
+                type: 'text',
+                content: 'The backend is production-ready: Supabase auth, session storage, profile management, trial tracking, and bell overrides are all complete. The React Native build is next. I\'m building this one screen at a time, starting with the timer itself — because if the timer isn\'t perfect, nothing else matters.',
+            },
+        ],
+    },
 ];
