@@ -175,21 +175,19 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'two-column':
                         return (
-                            <div key={i} className={`mt-8 flex flex-col md:flex-row gap-6 items-start ${section.imageLeft ? '' : 'md:flex-row-reverse'}`}>
-                                <figure className="md:w-1/2 flex-shrink-0">
-                                    <img
-                                        src={section.image}
-                                        alt={section.caption || ''}
-                                        className="w-full rounded-xl"
-                                    />
-                                    {section.caption && (
-                                        <figcaption className="mt-2 text-sm text-white/40">{section.caption}</figcaption>
-                                    )}
-                                </figure>
-                                <p className="md:w-1/2 text-[16px] font-normal leading-relaxed text-white/60 md:pt-2">
-                                    {section.content}
-                                </p>
-                            </div>
+                            <figure key={i} className="mt-8">
+                                <img
+                                    src={section.image}
+                                    alt={section.caption || ''}
+                                    className="w-full rounded-xl"
+                                />
+                                {section.caption && (
+                                    <figcaption className="mt-3 text-sm text-white/40 text-center">{section.caption}</figcaption>
+                                )}
+                                {section.content && (
+                                    <p className="mt-4 text-[16px] font-normal leading-relaxed text-white/60">{section.content}</p>
+                                )}
+                            </figure>
                         );
 
                     default:
