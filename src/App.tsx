@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import RainbowText from './components/RainbowText';
 import { CaseStudyImageCard } from './components/CaseStudyImageCard';
+import { BrandCarousel } from './components/BrandCarousel';
 import Tooltip from './components/Tooltip';
 import AsciiPortrait from './components/AsciiPortrait';
 import { caseStudies } from './data/caseStudies';
@@ -162,7 +163,7 @@ function App() {
                         study={richStudy}
                         onBack={closeStudy}
                         otherStudies={[
-                                ...richCaseStudies.filter((cs) => cs.id !== richStudy.id),
+                                ...richCaseStudies.filter((cs) => cs.id !== richStudy.id && !cs.personal),
                                 ...caseStudies.filter((cs) => !richCaseStudies.some((r) => r.id === cs.id)),
                             ]}
                         onOpenStudy={openStudy}
@@ -241,7 +242,11 @@ function App() {
                             layout="list"
                         />
 
-                        <div className="border-t border-white/10 mt-20 pt-10">
+                        <BrandCarousel />
+
+                        <CaseStudyImageCard onOpenStudy={openStudy} />
+
+                        <div className="border-t border-white/10 mt-16 pt-10">
                             <p className="text-[15px] text-white/60 leading-relaxed">
                                 Is this a poem, or a portfolio?<br />
                                 A mix of form, something not to hide<br />
@@ -249,8 +254,6 @@ function App() {
                                 And a snapshot of my mind
                             </p>
                         </div>
-
-                        <CaseStudyImageCard onOpenStudy={openStudy} />
                     </div>
                 )}
             </div>

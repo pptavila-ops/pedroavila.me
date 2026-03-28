@@ -107,6 +107,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'trexs',
+        personal: true,
         title: 'Trexs — A Device for Transmitting Experiences',
         year: '2016',
         company: 'Personal Project',

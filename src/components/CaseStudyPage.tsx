@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import type { RichCaseStudy } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { StickyHeader } from './StickyHeader';
+import { BrandCarousel } from './BrandCarousel';
 
 interface OtherStudy {
     id: string;
@@ -228,8 +229,12 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                 </div>
             )}
 
-            {/* Poem */}
-            <div className="border-t border-white/10 mt-20 pt-10">
+            <BrandCarousel />
+
+            <CaseStudyImageCard onOpenStudy={onOpenStudy} />
+
+            {/* Poem — last */}
+            <div className="border-t border-white/10 mt-16 pt-10">
                 <p className="text-[15px] text-white/60 leading-relaxed">
                     Is this a poem, or a portfolio?<br />
                     A mix of form, something not to hide<br />
@@ -237,8 +242,6 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                     And a snapshot of my mind
                 </p>
             </div>
-
-            <CaseStudyImageCard onOpenStudy={onOpenStudy} />
 
             <div className="h-20" />
         </div>

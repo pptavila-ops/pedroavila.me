@@ -17,6 +17,7 @@ export interface RichCaseStudy {
     intro: string;
     tags: string[];
     sections: RichSection[];
+    personal?: boolean;
 }
 
 export const templateCaseStudy: RichCaseStudy = {
