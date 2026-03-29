@@ -58,6 +58,11 @@ export const richCaseStudies: RichCaseStudy[] = [
                 ],
             },
             {
+                type: 'image',
+                src: '/techsprint.jpg',
+                caption: 'Design sprint sessions with stakeholders',
+            },
+            {
                 type: 'divider',
                 label: 'The Work',
             },
