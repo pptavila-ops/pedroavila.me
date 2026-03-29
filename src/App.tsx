@@ -29,6 +29,7 @@ function App() {
         setActiveStudy(null);
         setShineKey((k) => k + 1);
         window.history.pushState(null, '', '/');
+        window.scrollTo(0, 0);
     }, []);
 
     useEffect(() => {
