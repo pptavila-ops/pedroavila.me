@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import type { RichCaseStudy } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { StickyHeader } from './StickyHeader';
@@ -21,10 +21,12 @@ interface Props {
 
 export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }: Props) {
     const [scrolled, setScrolled] = useState(false);
+    const [coverIndex, setCoverIndex] = useState(0);
     const backButtonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         setScrolled(false);
+        setCoverIndex(0);
         const el = backButtonRef.current;
         if (!el) return;
         const observer = new IntersectionObserver(
@@ -34,6 +36,18 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
         observer.observe(el);
         return () => observer.disconnect();
     }, [study.id]);
+
+    const advanceCover = useCallback(() => {
+        if (study.coverImages && study.coverImages.length > 1) {
+            setCoverIndex((i) => (i + 1) % study.coverImages!.length);
+        }
+    }, [study.coverImages]);
+
+    useEffect(() => {
+        if (!study.coverImages || study.coverImages.length <= 1) return;
+        const timer = setInterval(advanceCover, 3000);
+        return () => clearInterval(timer);
+    }, [study.coverImages, advanceCover]);
 
     return (
         <div>
@@ -53,11 +67,30 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
             {/* Cover image — full bleed */}
             <div className="relative mt-6 h-[320px] md:h-[420px] overflow-hidden rounded-xl">
-                <img
-                    src={study.cover}
-                    alt=""
-                    className="w-full h-full object-cover"
-                />
+                {study.coverImages && study.coverImages.length > 1 ? (
+                    <>
+                        {study.coverImages.map((src, i) => (
+                            <img
+                                key={src}
+                                src={src}
+                                alt=""
+                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out"
+                                style={{ opacity: i === coverIndex ? 1 : 0, filter: 'brightness(2.2) contrast(1.1)' }}
+                            />
+                        ))}
+                        <button
+                            onClick={advanceCover}
+                            className="absolute inset-0 w-full h-full cursor-pointer z-10"
+                            aria-label="Next image"
+                        />
+                    </>
+                ) : (
+                    <img
+                        src={study.cover}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                )}
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 {/* Title overlay */}
@@ -166,7 +199,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                     className="w-full rounded-xl"
                                 />
                                 {section.caption && (
-                                    <figcaption className="mt-3 text-sm text-white/40 text-center">
+                                    <figcaption className="mt-3 text-[15px] text-white/60 text-center">
                                         {section.caption}
                                     </figcaption>
                                 )}
@@ -182,12 +215,26 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                     className="w-full rounded-xl"
                                 />
                                 {section.caption && (
-                                    <figcaption className="mt-3 text-sm text-white/40 text-center">{section.caption}</figcaption>
+                                    <figcaption className="mt-3 text-[15px] text-white/60 text-center">{section.caption}</figcaption>
                                 )}
                                 {section.content && (
                                     <p className="mt-4 text-[16px] font-normal leading-relaxed text-white/60">{section.content}</p>
                                 )}
                             </figure>
+                        );
+
+                    case 'download':
+                        return (
+                            <div key={i} className="mt-8">
+                                <a
+                                    href={section.href}
+                                    download
+                                    className="inline-flex items-center gap-2 rounded-md border border-white/20 px-4 py-2.5 text-sm font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                                >
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" /><path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" /></svg>
+                                    {section.label}
+                                </a>
+                            </div>
                         );
 
                     default:

@@ -5,7 +5,8 @@ export type RichSection =
     | { type: 'impact'; items: { value: string; label: string; description: string }[] }
     | { type: 'process'; steps: { title: string; description: string }[] }
     | { type: 'two-column'; image: string; content: string; imageLeft?: boolean; caption?: string }
-    | { type: 'divider'; label?: string };
+    | { type: 'divider'; label?: string }
+    | { type: 'download'; label: string; href: string };
 
 export interface RichCaseStudy {
     id: string;
@@ -14,6 +15,7 @@ export interface RichCaseStudy {
     company: string;
     role: string;
     cover: string;
+    coverImages?: string[];
     intro: string;
     tags: string[];
     sections: RichSection[];

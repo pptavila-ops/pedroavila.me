@@ -277,4 +277,252 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
         ],
     },
+    {
+        id: 'c',
+        personal: true,
+        title: 'C.',
+        year: '2015',
+        company: 'University of Brasília',
+        role: 'Designer & Translator',
+        cover: '/c/header/1.jpg',
+        coverImages: [
+            '/c/header/1.jpg',
+            '/c/header/3.jpg',
+            '/c/header/4.jpg',
+            '/c/header/5.jpg',
+            '/c/header/6.jpg',
+        ],
+        intro: 'C. is a bilingual object book about the Brazilian military dictatorship — in Portuguese and German. This was my Bachelor\'s conclusion work at the University of Brasília. It is an attempt to give life back to the historic memory of the Brazilian military dictatorship that occurred between 1964 and 1985.',
+        tags: ['Object Book', 'Graphic Design', 'Typography', 'Bilingual', 'UnB'],
+        sections: [
+            {
+                type: 'callout',
+                content: 'An object book is a way of extracting the books\' ordinary linearity by presenting a form that is closer to the reader and demands his maximum perception, while searching for a stronger interactivity with people. An object book brings life to literature.',
+            },
+            {
+                type: 'text',
+                content: 'C. contains an introduction and 5 short stories about the Brazilian dictatorship originally written in Portuguese by Bernardo Kucinski and translated into German by me.',
+            },
+            {
+                type: 'image',
+                src: '/c/a1c4c132230975.567c3fbc020af.jpg',
+                caption: 'Table of contents — stories listed in German and Portuguese',
+            },
+            {
+                type: 'text',
+                content: 'The short stories talk about love, loss, abuse and death between 1964 and 1985. They were originally released by Bernardo Kucinski in the book Você Vai Voltar Pra Mim e Outros Contos.',
+            },
+            {
+                type: 'image',
+                src: '/c/111cd332230975.5674becc48c4d.jpg',
+                caption: 'The book — hand-bound with hand-stitched binding',
+            },
+            {
+                type: 'divider',
+                label: 'The Box',
+            },
+            {
+                type: 'text',
+                content: 'The book is hidden inside a box — under a fake bottom, which was sprayed in black and magenta. The spray ink gave the box the roughness of a dictatorship.',
+            },
+            {
+                type: 'image',
+                src: '/c/e694ab32230975.567c3ba2677c0.jpg',
+                caption: 'The box — containing the book, the posters, and the CD',
+            },
+            {
+                type: 'callout',
+                content: 'The tower — to protect us — is on the lid of the box.',
+            },
+            {
+                type: 'image',
+                src: '/c/tower.png',
+                caption: 'The tower — magenta stencil on the lid of the black box',
+            },
+            {
+                type: 'text',
+                content: 'The tower and the snake come from a myth told in the city of Cascavel, which means Rattlesnake. It is said that there\'s a big snake that lives underground in the city. That\'s why they built a tower with the image of Our Lady — to protect their citizens and remind them the snake is still there and may reappear.',
+            },
+            {
+                type: 'callout',
+                content: 'In my work, the Rattlesnake is the dictatorship — which Brazilians tend to hide and pretend never happened. The tower is the objects we must create to face our country\'s memory, in order to prevent the snake from coming to the surface.',
+            },
+            {
+                type: 'callout',
+                content: 'The snake — the dictatorship — is inside the box after the fake bottom, under the book itself. The fake bottom has the intention to make the reader discover the historical memory by themselves.',
+            },
+            {
+                type: 'image',
+                src: '/c/snake.jpg',
+                caption: 'The snake — spray-painted in magenta on the fake bottom of the box',
+            },
+            {
+                type: 'divider',
+                label: 'The Book',
+            },
+            {
+                type: 'text',
+                content: 'The book was printed on tracing and pólen paper so that both texts — German and Portuguese — could be simultaneously read.',
+            },
+            {
+                type: 'image',
+                src: '/c/35e81632230975.5674becc47af6.jpg',
+                caption: 'Tracing paper over pólen — German and Portuguese layered into one reading',
+            },
+            {
+                type: 'text',
+                content: 'I chose Rockwell font family because of its slab serifs. This way text lines are perceived as blocks, so German and Portuguese sentences could be put one above the other to create the simultaneous reading effect. Font family choice was of utmost importance in order to bring a new experience that is also comfortable to look at.',
+            },
+            {
+                type: 'image',
+                src: '/c/rockwell-r.png',
+                caption: 'Rockwell — slab serifs create clear horizontal blocks between languages',
+            },
+            {
+                type: 'text',
+                content: 'Rockwell\'s slab serifs and tracing paper helped create a new way of interacting with the bilingual texts. The Portuguese text is printed in black — the original. The German translation is printed in magenta — the personal layer of translation and perspective.',
+            },
+            {
+                type: 'image',
+                src: '/c/rockwell-bilingual.png',
+                caption: 'Portuguese and German interleaved — two languages, one reading',
+            },
+            {
+                type: 'image',
+                src: '/c/2ec09a32230975.567c3fbc0361c.jpg',
+                caption: 'German text in magenta over the Portuguese original',
+            },
+            {
+                type: 'divider',
+                label: 'Picture Interventions',
+            },
+            {
+                type: 'text',
+                content: 'Picture interventions were positioned over actual photos from the dictatorship to try to resignify the memory.',
+            },
+            {
+                type: 'image',
+                src: '/c/8d01a332230975.567c3fbc00e4b.jpg',
+                caption: 'Intervention drawings — dragonflies over soldiers with bayonets',
+            },
+            {
+                type: 'image',
+                src: '/c/08a95132230975.5692da24dbebc.jpg',
+                caption: 'A bouquet of flowers over a protest photograph',
+            },
+            {
+                type: 'image',
+                src: '/c/ecc26532230975.5674becc49d9b.jpg',
+                caption: 'Stripes over a crowd dispersed by police',
+            },
+            {
+                type: 'image',
+                src: '/c/559fde32230975.567c3fbbf011a.jpg',
+                caption: 'A racetrack pattern over a cavalry charge',
+            },
+            {
+                type: 'image',
+                src: '/c/61c7c532230975.567c43de5c2e4-2.jpg',
+                caption: 'Intervention over the mass at Igreja da Candelária, 1968',
+            },
+            {
+                type: 'divider',
+                label: 'The Posters',
+            },
+            {
+                type: 'text',
+                content: 'Inside the box there are two posters containing the names of some of the people who disappeared or were murdered during the dictatorship — according to the National Commission of Truth. The stars on the posters show if the person was killed (filled star) or disappeared (star outline). They are based on data visualization graphics.',
+            },
+            {
+                type: 'image',
+                src: '/c/0ea03632230975.5674c05283f05.png',
+                caption: 'The posters — data visualization of names from the National Commission of Truth',
+            },
+            {
+                type: 'image',
+                src: '/c/5a5eb232230975.567c3fbbf3f4c.jpg',
+                caption: 'The full set — box, book, posters',
+            },
+            {
+                type: 'text',
+                content: 'A CD was also recorded. It contains the short stories read in German — by me — and in Portuguese — by my friend Beatriz Chaves.',
+            },
+            {
+                type: 'image',
+                src: '/c/ad9d7332230975.567c43de5d7fa-2.jpg',
+                caption: 'The CD — short stories in German and Portuguese',
+            },
+            {
+                type: 'divider',
+                label: 'Why Magenta?',
+            },
+            {
+                type: 'text',
+                content: 'Just like a photo restorer, I think some past memories are too dark to look at. Maybe that\'s a reason why Brazilians tend to forget their historic past. So I thought: if I put an extremely contrasting color over this memory, maybe people would look at it and learn from it.',
+            },
+            {
+                type: 'image',
+                src: '/c/magenta.png',
+                caption: 'Magenta — the color of confrontation',
+            },
+            {
+                type: 'callout',
+                content: '"Four years ago a sad looking man searched after C. — a photo restorer. He wanted the restorer to relive his mother back in his memory. She had died years ago, and he had only one photo of her — dead in a coffin. That man wanted a photo in which his mother appeared full of life. I asked him to describe her hair, her lips and her eyes. From the description, I took his mother off the coffin. I drew on her a beautiful dress. I opened her eyes. Fifteen days later the man came back and when he saw the picture he cried." — From the exposition Cicatriz (Scar) by Rosângela Rennó',
+            },
+            {
+                type: 'divider',
+                label: 'die Erinnerungskultur',
+            },
+            {
+                type: 'callout',
+                content: 'die Erinnerungskultur — the culture of memory',
+            },
+            {
+                type: 'text',
+                content: 'This work is fundamentally inspired by the German concept of Erinnerungskultur. The German language is the element that made possible the transition from ideas to actual products. The process of translating the words was also the process of translating the thoughts.',
+            },
+            {
+                type: 'divider',
+                label: 'Making',
+            },
+            {
+                type: 'image',
+                src: '/c/WP_20151115_16_15_53_Pro---copia.jpg',
+                caption: 'Working on the box — spray paint and stencils',
+            },
+            {
+                type: 'image',
+                src: '/c/c4d9b532230975.567c4bbd7bad7.jpg',
+                caption: 'Materials — ink, spray, and paper',
+            },
+            {
+                type: 'image',
+                src: '/c/1fb47132230975.567c3fbbeee78.jpg',
+                caption: 'Testing the magenta stencil on the box',
+            },
+            {
+                type: 'image',
+                src: '/c/d9855332230975.567c3339072a3.jpg',
+                caption: 'The snake stencil being cut',
+            },
+            {
+                type: 'image',
+                src: '/c/947e4632230975.567c44868d249.jpg',
+                caption: 'Aerial view — reference for the data visualization posters',
+            },
+            {
+                type: 'divider',
+                label: 'Credits',
+            },
+            {
+                type: 'text',
+                content: 'The short stories were taken from the book Você Vai Voltar Pra Mim e outros contos, edited by Cosac Naify and written originally in Portuguese by Bernardo Kucinski. The photographs used in the interventions were taken by Evandro Teixeira in Rio de Janeiro during the Brazilian military dictatorship.',
+            },
+            {
+                type: 'download',
+                label: 'Download the written memorial (PDF)',
+                href: '/c/memorial.pdf',
+            },
+        ],
+    },
 ];

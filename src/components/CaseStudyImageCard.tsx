@@ -27,11 +27,11 @@ const items: CaseStudyImageCardItem[] = [
     },
     {
         id: 'c',
-        year: 'Ongoing',
-        category: 'Personal',
-        title: 'C',
-        description: 'An ongoing collection of things I find interesting.',
-        href: 'https://pedro5.cargo.site/C',
+        year: '2015',
+        category: 'Object Book · Graphic Design',
+        title: 'C.',
+        description: 'A bilingual object book about memory and the Brazilian Military Dictatorship.',
+        cover: '/c/header/3.jpg',
     },
 ];
 
