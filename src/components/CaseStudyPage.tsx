@@ -239,7 +239,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                     Is it both? A collection of my work<br />
                     And a snapshot of my mind
                 </p>
-                <p className="text-[13px] text-white/60 flex-shrink-0">© Pedro Ávila 2026</p>
+                <p className="text-[15px] text-white/60 flex-shrink-0">© Pedro Ávila 2026</p>
             </div>
 
             <div className="h-20" />
