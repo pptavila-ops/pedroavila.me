@@ -232,7 +232,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
             <CaseStudyImageCard onOpenStudy={onOpenStudy} />
 
             {/* Poem — last */}
-            <div className="border-t border-white/10 mt-16 pt-10 flex items-end justify-between gap-8">
+            <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
                 <p className="text-[15px] text-white/60 leading-relaxed">
                     Is this a poem, or a portfolio?<br />
                     A mix of form, something not to hide<br />
