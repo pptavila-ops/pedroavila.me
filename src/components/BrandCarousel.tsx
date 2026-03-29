@@ -11,6 +11,8 @@ const logos = [
     { src: '/brands/mvpfactory.png', alt: 'MVP Factory', height: 44 },
     { src: '/brands/ilia.svg', alt: 'Ilia Digital', height: 28 },
     { src: '/brands/tpt.png', alt: 'TPT', height: 44 },
+    { src: '/brands/r2.svg', alt: 'R2', height: 52 },
+    { src: '/brands/inframerica.png', alt: 'Inframerica', height: 28 },
 ];
 
 export function BrandCarousel() {
@@ -52,7 +54,7 @@ export function BrandCarousel() {
                 Track is position:absolute so it NEVER contributes to layout width.
                 Gradient divs are also absolute — purely visual, zero layout impact.
             */}
-            <div style={{ overflow: 'hidden', position: 'relative', height: '44px', contain: 'layout' }}>
+            <div style={{ overflow: 'hidden', position: 'relative', height: '60px', contain: 'layout' }}>
                 <div
                     ref={trackRef}
                     style={{
