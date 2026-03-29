@@ -254,7 +254,7 @@ function App() {
                                 Is it both? A collection of my work<br />
                                 And a snapshot of my mind
                             </p>
-                            <p className="text-[13px] text-white/30 flex-shrink-0">© Pedro Ávila 2026</p>
+                            <p className="text-[13px] text-white/60 flex-shrink-0">© Pedro Ávila 2026</p>
                         </div>
                     </div>
                 )}
