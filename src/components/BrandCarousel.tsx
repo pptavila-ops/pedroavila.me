@@ -22,7 +22,7 @@ export function BrandCarousel() {
 
         let start: number | null = null;
         let rafId: number;
-        const speed = 0.07;
+        const speed = 0.03;
         let offset = 0;
 
         const getHalfWidth = () => track.scrollWidth / 2;
