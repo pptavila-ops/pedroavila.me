@@ -154,18 +154,18 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
     switch (slide.type) {
         case 'cover':
             return (
-                <div className="relative block w-full rounded-xl overflow-hidden">
-                    {/* Image in normal flow — gives the container its width */}
+                // Height on the container — all children are absolute, nothing can overflow below
+                <div className="relative w-full h-[460px] md:h-[520px] rounded-xl overflow-hidden">
                     <img
                         src={slide.bg}
                         alt=""
-                        className="block w-full h-[460px] md:h-[520px] object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                         style={{ filter: 'brightness(2.2) contrast(1.1)' }}
                         draggable={false}
                     />
-                    {/* Overlays */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 px-7 pb-8">
+                    {/* Text uses flex justify-end to sit at bottom without overflowing */}
+                    <div className="absolute inset-0 flex flex-col justify-end px-7 pb-8">
                         {slide.subtitle && (
                             <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
                         )}
