@@ -154,37 +154,40 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
     switch (slide.type) {
         case 'cover':
             return (
-                // Height on the container — all children are absolute, nothing can overflow below
-                <div className="relative w-full h-[460px] md:h-[520px] rounded-xl overflow-hidden">
-                    <img
-                        src={slide.bg}
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-cover"
-                        style={{ filter: 'brightness(2.2) contrast(1.1)' }}
-                        draggable={false}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                    {/* Text uses flex justify-end to sit at bottom without overflowing */}
-                    <div className="absolute inset-0 flex flex-col justify-end px-7 pb-8">
-                        {slide.subtitle && (
-                            <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
-                        )}
-                        <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-                            {slide.title}
-                        </h1>
-                        {slide.tags && (
-                            <div className="flex flex-wrap gap-2 mt-4">
-                                {slide.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="text-sm border border-white/30 rounded-full px-3 py-1 text-white/80"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
+                // Outer div is a normal block element — gets full width naturally from parent
+                <div className="bg-black rounded-xl overflow-hidden">
+                    {/* aspect-ratio gives this div a definite height based on its natural width */}
+                    <div className="relative aspect-[16/9]">
+                        <img
+                            src={slide.bg}
+                            alt=""
+                            className="absolute inset-0 w-full h-full object-cover"
+                            style={{ filter: 'brightness(2.2) contrast(1.1)' }}
+                            draggable={false}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                        <div className="absolute inset-0 flex flex-col justify-end px-7 pb-6">
+                            {slide.subtitle && (
+                                <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
+                            )}
+                            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+                                {slide.title}
+                            </h1>
+                        </div>
                     </div>
+                    {/* Tags in normal flow — no overflow risk */}
+                    {slide.tags && (
+                        <div className="flex flex-wrap gap-2 px-7 pt-5 pb-6">
+                            {slide.tags.map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="text-sm border border-white/30 rounded-full px-3 py-1 text-white/80"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
                 </div>
             );
 
