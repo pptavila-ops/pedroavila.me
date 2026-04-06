@@ -117,7 +117,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
 
             {/* Slide viewport */}
             <div
-                className="relative rounded-xl overflow-hidden cursor-pointer touch-none"
+                className="relative w-full rounded-xl overflow-hidden cursor-pointer touch-none"
                 onPointerDown={handlePointerDown}
                 onPointerUp={handlePointerUp}
                 onPointerCancel={handlePointerCancel}
@@ -148,7 +148,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
     switch (slide.type) {
         case 'cover':
             return (
-                <div className="relative h-[460px] md:h-[520px] bg-black">
+                <div className="relative w-full h-[460px] md:h-[520px] bg-black">
                     <img
                         src={slide.bg}
                         alt=""
