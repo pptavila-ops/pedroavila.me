@@ -384,7 +384,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/rockwell-bilingual.png',
+                src: '/c/rockwell-bilingual2.png',
                 caption: 'Portuguese and German interleaved — two languages, one reading',
             },
             {
@@ -578,7 +578,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                image: '/c/rockwell-bilingual.png',
+                image: '/c/rockwell-bilingual2.png',
                 caption: 'Portuguese and German interleaved — two languages, one reading',
                 text: 'Rockwell\'s slab serifs and tracing paper created a new bilingual reading experience. Portuguese in black — the original. German in magenta — the personal layer of translation.',
             },
