@@ -40,7 +40,6 @@ export function CaseStudyStories({ study, onBack }: Props) {
         return () => clearInterval(id);
     }, [paused, current, goTo]);
 
-    // Keyboard navigation
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             if (e.key === 'ArrowRight') goTo(current + 1);
@@ -59,7 +58,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
         }, 300);
     }, []);
 
-    const handlePointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const handlePointerUp = useCallback((e: React.PointerEvent<HTMLElement>) => {
         if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
         if (isHoldingRef.current) {
             isHoldingRef.current = false;
@@ -83,9 +82,10 @@ export function CaseStudyStories({ study, onBack }: Props) {
     }, []);
 
     const slide = slides[current];
+    const isCover = slide.type === 'cover';
 
     return (
-        <div className="w-full select-none">
+        <div className="select-none">
             {/* Back + title */}
             <div className="flex items-center gap-3 mb-4">
                 <button
@@ -119,28 +119,62 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 ))}
             </div>
 
-            {/* Slide viewport — neutral passthrough, no overflow-hidden here */}
-            <div
-                className="relative w-full cursor-pointer touch-none"
-                onPointerDown={handlePointerDown}
-                onPointerUp={handlePointerUp}
-                onPointerCancel={handlePointerCancel}
-            >
-                {/* Pause overlay */}
-                {paused && (
-                    <div className="absolute top-4 right-4 z-20 bg-black/60 rounded-full px-3 py-1 text-xs text-white/60">
-                        Paused
+            {/* Cover slide — rendered as a direct block child, same pattern as CaseStudyPage header */}
+            {isCover ? (
+                <div
+                    className="relative h-[320px] md:h-[420px] overflow-hidden rounded-xl cursor-pointer touch-none"
+                    onPointerDown={handlePointerDown}
+                    onPointerUp={handlePointerUp}
+                    onPointerCancel={handlePointerCancel}
+                >
+                    <img
+                        src={slide.bg}
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover"
+                        style={{ filter: 'brightness(2.2) contrast(1.1)' }}
+                        draggable={false}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 px-7 pb-7">
+                        {slide.subtitle && (
+                            <div className="flex items-center gap-2 text-sm text-white/60 mb-2">
+                                {slide.subtitle}
+                            </div>
+                        )}
+                        <h1 className="text-[26px] md:text-[36px] font-bold leading-[1.15] tracking-tight text-white">
+                            {slide.title}
+                        </h1>
+                        {slide.tags && (
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                {slide.tags.map((tag) => (
+                                    <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </div>
-                )}
-
-                <SlideRenderer slide={slide} />
-
-                {/* Tap zones */}
-                <div className="absolute inset-0 flex z-10 pointer-events-none">
-                    <div className="w-[35%] h-full pointer-events-auto" />
-                    <div className="w-[65%] h-full pointer-events-auto" />
                 </div>
-            </div>
+            ) : (
+                /* All other slides — inside a relative wrapper for tap zones */
+                <div
+                    className="relative cursor-pointer touch-none"
+                    onPointerDown={handlePointerDown}
+                    onPointerUp={handlePointerUp}
+                    onPointerCancel={handlePointerCancel}
+                >
+                    {paused && (
+                        <div className="absolute top-4 right-4 z-20 bg-black/60 rounded-full px-3 py-1 text-xs text-white/60">
+                            Paused
+                        </div>
+                    )}
+                    <SlideRenderer slide={slide} />
+                    <div className="absolute inset-0 flex z-10 pointer-events-none">
+                        <div className="w-[35%] h-full pointer-events-auto" />
+                        <div className="w-[65%] h-full pointer-events-auto" />
+                    </div>
+                </div>
+            )}
 
             {/* Slide counter */}
             <div className="mt-3 text-xs text-white/30 text-right">
@@ -152,45 +186,6 @@ export function CaseStudyStories({ study, onBack }: Props) {
 
 function SlideRenderer({ slide }: { slide: StoriesSlide }) {
     switch (slide.type) {
-        case 'cover':
-            return (
-                // Outer div is a normal block element — gets full width naturally from parent
-                <div className="bg-black rounded-xl overflow-hidden">
-                    {/* aspect-ratio gives this div a definite height based on its natural width */}
-                    <div className="relative aspect-[16/9]">
-                        <img
-                            src={slide.bg}
-                            alt=""
-                            className="absolute inset-0 w-full h-full object-cover"
-                            style={{ filter: 'brightness(2.2) contrast(1.1)' }}
-                            draggable={false}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                        <div className="absolute inset-0 flex flex-col justify-end px-7 pb-6">
-                            {slide.subtitle && (
-                                <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
-                            )}
-                            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-                                {slide.title}
-                            </h1>
-                        </div>
-                    </div>
-                    {/* Tags in normal flow — no overflow risk */}
-                    {slide.tags && (
-                        <div className="flex flex-wrap gap-2 px-7 pt-5 pb-6">
-                            {slide.tags.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="text-sm border border-white/30 rounded-full px-3 py-1 text-white/80"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    )}
-                </div>
-            );
-
         case 'image':
             return (
                 <div className="w-full bg-black rounded-xl overflow-hidden">
@@ -206,7 +201,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
                             )}
                         </div>
                     )}
-                    <figure className={slide.text || slide.quote ? '' : 'pt-0'}>
+                    <figure>
                         <img
                             src={slide.image}
                             alt={slide.caption || ''}
