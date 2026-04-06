@@ -85,7 +85,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
     const slide = slides[current];
 
     return (
-        <div className="select-none">
+        <div className="w-full select-none">
             {/* Back + title */}
             <div className="flex items-center gap-3 mb-4">
                 <button
@@ -119,9 +119,9 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 ))}
             </div>
 
-            {/* Slide viewport */}
+            {/* Slide viewport — neutral passthrough, no overflow-hidden here */}
             <div
-                className="relative w-full rounded-xl overflow-hidden cursor-pointer touch-none"
+                className="relative w-full cursor-pointer touch-none"
                 onPointerDown={handlePointerDown}
                 onPointerUp={handlePointerUp}
                 onPointerCancel={handlePointerCancel}
@@ -135,9 +135,11 @@ export function CaseStudyStories({ study, onBack }: Props) {
 
                 <SlideRenderer slide={slide} />
 
-                {/* Tap zone hints — left/right invisible hit areas */}
-                <div className="absolute inset-y-0 left-0 w-[35%] z-10" />
-                <div className="absolute inset-y-0 right-0 w-[65%] z-10" />
+                {/* Tap zones */}
+                <div className="absolute inset-0 flex z-10 pointer-events-none">
+                    <div className="w-[35%] h-full pointer-events-auto" />
+                    <div className="w-[65%] h-full pointer-events-auto" />
+                </div>
             </div>
 
             {/* Slide counter */}
@@ -152,7 +154,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
     switch (slide.type) {
         case 'cover':
             return (
-                <div className="relative block">
+                <div className="relative block w-full rounded-xl overflow-hidden">
                     {/* Image in normal flow — gives the container its width */}
                     <img
                         src={slide.bg}
@@ -188,7 +190,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
 
         case 'image':
             return (
-                <div className="bg-black">
+                <div className="w-full bg-black rounded-xl overflow-hidden">
                     {(slide.text || slide.quote) && (
                         <div className="px-7 pt-7 pb-4 space-y-4">
                             {slide.text && (
@@ -219,7 +221,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
 
         case 'quote':
             return (
-                <div className="bg-black px-7 py-10 flex flex-col gap-6 min-h-[400px] justify-center">
+                <div className="w-full bg-black rounded-xl px-7 py-10 flex flex-col gap-6 min-h-[400px] justify-center">
                     {slide.image && (
                         <img src={slide.image} alt="" className="w-full rounded-xl" draggable={false} />
                     )}
@@ -234,7 +236,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
 
         case 'gallery':
             return (
-                <div className="bg-black px-7 py-7">
+                <div className="w-full bg-black rounded-xl px-7 py-7">
                     {slide.text && (
                         <p className="text-[16px] text-white/70 leading-relaxed mb-5">{slide.text}</p>
                     )}
@@ -254,7 +256,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
 
         case 'text':
             return (
-                <div className="bg-black px-7 py-10 min-h-[400px]">
+                <div className="w-full bg-black rounded-xl px-7 py-10 min-h-[400px]">
                     {slide.title && (
                         <h2 className="text-2xl font-bold text-white mb-6">{slide.title}</h2>
                     )}
