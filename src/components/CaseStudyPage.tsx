@@ -74,7 +74,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                 key={src}
                                 src={src}
                                 alt=""
-                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out"
+                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
                                 style={{ opacity: i === coverIndex ? 1 : 0, filter: 'brightness(2.2) contrast(1.1)' }}
                             />
                         ))}
