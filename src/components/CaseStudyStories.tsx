@@ -119,40 +119,36 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 ))}
             </div>
 
-            {/* Cover slide — rendered as a direct block child, same pattern as CaseStudyPage header */}
+            {/* Cover slide — viewport wrapper with in-flow img to establish width */}
             {isCover ? (
                 <div
-                    className="relative h-[320px] md:h-[420px] overflow-hidden rounded-xl cursor-pointer touch-none"
+                    className="relative cursor-pointer touch-none rounded-xl overflow-hidden"
                     onPointerDown={handlePointerDown}
                     onPointerUp={handlePointerUp}
                     onPointerCancel={handlePointerCancel}
                 >
+                    {/* img in normal flow — this is what gives the container its width */}
                     <img
                         src={slide.bg}
                         alt=""
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="block w-full h-[320px] md:h-[420px] object-cover"
                         style={{ filter: 'brightness(2.2) contrast(1.1)' }}
                         draggable={false}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-                    <div className="absolute bottom-0 left-0 px-7 pb-7">
+                    {/* Overlays — subtitle + title only, no tags, so they won't overflow */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 px-7 pb-7 pointer-events-none">
                         {slide.subtitle && (
-                            <div className="flex items-center gap-2 text-sm text-white/60 mb-2">
-                                {slide.subtitle}
-                            </div>
+                            <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
                         )}
                         <h1 className="text-[26px] md:text-[36px] font-bold leading-[1.15] tracking-tight text-white">
                             {slide.title}
                         </h1>
-                        {slide.tags && (
-                            <div className="flex flex-wrap gap-2 mt-3">
-                                {slide.tags.map((tag) => (
-                                    <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
+                    </div>
+                    {/* Tap zones */}
+                    <div className="absolute inset-0 flex z-10">
+                        <div className="w-[35%] h-full" />
+                        <div className="w-[65%] h-full" />
                     </div>
                 </div>
             ) : (
@@ -173,6 +169,17 @@ export function CaseStudyStories({ study, onBack }: Props) {
                         <div className="w-[35%] h-full pointer-events-auto" />
                         <div className="w-[65%] h-full pointer-events-auto" />
                     </div>
+                </div>
+            )}
+
+            {/* Cover tags — normal flow below image, can never overflow */}
+            {isCover && slide.tags && (
+                <div className="flex flex-wrap gap-2 pt-5 pb-1">
+                    {slide.tags.map((tag) => (
+                        <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
+                            {tag}
+                        </span>
+                    ))}
                 </div>
             )}
 
