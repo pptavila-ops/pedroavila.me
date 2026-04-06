@@ -8,6 +8,22 @@ export type RichSection =
     | { type: 'divider'; label?: string }
     | { type: 'download'; label: string; href: string };
 
+export type StoriesSlide = {
+    type: 'cover' | 'text' | 'image' | 'quote' | 'gallery';
+    /** Full-bleed background image (cover slides) */
+    bg?: string;
+    title?: string;
+    subtitle?: string;
+    tags?: string[];
+    /** Inline image (image / gallery slides) */
+    image?: string;
+    images?: string[];
+    caption?: string;
+    text?: string;
+    quote?: string;
+    download?: { label: string; href: string };
+};
+
 export interface RichCaseStudy {
     id: string;
     title: string;
@@ -20,6 +36,8 @@ export interface RichCaseStudy {
     tags: string[];
     sections: RichSection[];
     personal?: boolean;
+    /** When present, the study opens as an Instagram-Stories-style viewer */
+    slides?: StoriesSlide[];
 }
 
 export const templateCaseStudy: RichCaseStudy = {

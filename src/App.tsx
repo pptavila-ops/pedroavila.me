@@ -7,6 +7,7 @@ import AsciiPortrait from './components/AsciiPortrait';
 import { caseStudies } from './data/caseStudies';
 import { CardGrid } from './components/CardGrid';
 import { CaseStudyPage } from './components/CaseStudyPage';
+import { CaseStudyStories } from './components/CaseStudyStories';
 import { templateCaseStudy } from './data/templateCaseStudy';
 import { richCaseStudies } from './data/richCaseStudies';
 
@@ -160,15 +161,19 @@ function App() {
                         onOpenStudy={openStudy}
                     />
                 ) : richStudy ? (
-                    <CaseStudyPage
-                        study={richStudy}
-                        onBack={closeStudy}
-                        otherStudies={[
+                    richStudy.slides ? (
+                        <CaseStudyStories study={richStudy} onBack={closeStudy} />
+                    ) : (
+                        <CaseStudyPage
+                            study={richStudy}
+                            onBack={closeStudy}
+                            otherStudies={[
                                 ...richCaseStudies.filter((cs) => cs.id !== richStudy.id && !cs.personal),
                                 ...caseStudies.filter((cs) => !richCaseStudies.some((r) => r.id === cs.id)),
                             ]}
-                        onOpenStudy={openStudy}
-                    />
+                            onOpenStudy={openStudy}
+                        />
+                    )
                 ) : study ? (
                     <div>
                         {/* Back */}
