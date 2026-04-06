@@ -58,7 +58,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
         }, 300);
     }, []);
 
-    const handlePointerUp = useCallback((e: React.PointerEvent<HTMLElement>) => {
+    const handlePointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
         if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
         if (isHoldingRef.current) {
             isHoldingRef.current = false;
@@ -80,9 +80,6 @@ export function CaseStudyStories({ study, onBack }: Props) {
             setPaused(false);
         }
     }, []);
-
-    const slide = slides[current];
-    const isCover = slide.type === 'cover';
 
     return (
         <div className="select-none">
@@ -111,77 +108,31 @@ export function CaseStudyStories({ study, onBack }: Props) {
                     >
                         <div
                             className="h-full bg-white rounded-full"
-                            style={{
-                                width: i < current ? '100%' : i === current ? `${progress * 100}%` : '0%',
-                            }}
+                            style={{ width: i < current ? '100%' : i === current ? `${progress * 100}%` : '0%' }}
                         />
                     </div>
                 ))}
             </div>
 
-            {/* Cover slide — viewport wrapper with in-flow img to establish width */}
-            {isCover ? (
-                <div
-                    className="relative cursor-pointer touch-none rounded-xl overflow-hidden"
-                    onPointerDown={handlePointerDown}
-                    onPointerUp={handlePointerUp}
-                    onPointerCancel={handlePointerCancel}
-                >
-                    {/* img in normal flow — this is what gives the container its width */}
-                    <img
-                        src={slide.bg}
-                        alt=""
-                        className="block w-full h-[320px] md:h-[420px] object-cover"
-                        style={{ filter: 'brightness(2.2) contrast(1.1)' }}
-                        draggable={false}
-                    />
-                    {/* Overlays — subtitle + title only, no tags, so they won't overflow */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 px-7 pb-7 pointer-events-none">
-                        {slide.subtitle && (
-                            <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
-                        )}
-                        <h1 className="text-[26px] md:text-[36px] font-bold leading-[1.15] tracking-tight text-white">
-                            {slide.title}
-                        </h1>
+            {/* Single viewport wrapper — identical for every slide type */}
+            <div
+                className="relative w-full cursor-pointer touch-none"
+                onPointerDown={handlePointerDown}
+                onPointerUp={handlePointerUp}
+                onPointerCancel={handlePointerCancel}
+            >
+                {paused && (
+                    <div className="absolute top-4 right-4 z-20 bg-black/60 rounded-full px-3 py-1 text-xs text-white/60 pointer-events-none">
+                        Paused
                     </div>
-                    {/* Tap zones */}
-                    <div className="absolute inset-0 flex z-10">
-                        <div className="w-[35%] h-full" />
-                        <div className="w-[65%] h-full" />
-                    </div>
+                )}
+                <SlideRenderer slide={slides[current]} />
+                {/* Tap zones */}
+                <div className="absolute inset-0 flex z-10 pointer-events-none">
+                    <div className="w-[35%] h-full pointer-events-auto" />
+                    <div className="w-[65%] h-full pointer-events-auto" />
                 </div>
-            ) : (
-                /* All other slides — inside a relative wrapper for tap zones */
-                <div
-                    className="relative cursor-pointer touch-none"
-                    onPointerDown={handlePointerDown}
-                    onPointerUp={handlePointerUp}
-                    onPointerCancel={handlePointerCancel}
-                >
-                    {paused && (
-                        <div className="absolute top-4 right-4 z-20 bg-black/60 rounded-full px-3 py-1 text-xs text-white/60">
-                            Paused
-                        </div>
-                    )}
-                    <SlideRenderer slide={slide} />
-                    <div className="absolute inset-0 flex z-10 pointer-events-none">
-                        <div className="w-[35%] h-full pointer-events-auto" />
-                        <div className="w-[65%] h-full pointer-events-auto" />
-                    </div>
-                </div>
-            )}
-
-            {/* Cover tags — normal flow below image, can never overflow */}
-            {isCover && slide.tags && (
-                <div className="flex flex-wrap gap-2 pt-5 pb-1">
-                    {slide.tags.map((tag) => (
-                        <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            )}
+            </div>
 
             {/* Slide counter */}
             <div className="mt-3 text-xs text-white/30 text-right">
@@ -193,6 +144,39 @@ export function CaseStudyStories({ study, onBack }: Props) {
 
 function SlideRenderer({ slide }: { slide: StoriesSlide }) {
     switch (slide.type) {
+        case 'cover':
+            return (
+                <div className="relative w-full bg-black rounded-xl overflow-hidden">
+                    {/* In-flow img establishes the container width */}
+                    <img
+                        src={slide.bg}
+                        alt=""
+                        className="block w-full h-[320px] md:h-[420px] object-cover"
+                        style={{ filter: 'brightness(2.2) contrast(1.1)' }}
+                        draggable={false}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
+                    {/* absolute inset-0 + flex justify-end keeps overlay strictly within image bounds */}
+                    <div className="absolute inset-0 flex flex-col justify-end px-7 pb-6 overflow-hidden pointer-events-none">
+                        {slide.subtitle && (
+                            <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
+                        )}
+                        <h1 className="text-[26px] md:text-[36px] font-bold leading-tight text-white">
+                            {slide.title}
+                        </h1>
+                        {slide.tags && (
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                {slide.tags.map((tag) => (
+                                    <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+
         case 'image':
             return (
                 <div className="w-full bg-black rounded-xl overflow-hidden">
