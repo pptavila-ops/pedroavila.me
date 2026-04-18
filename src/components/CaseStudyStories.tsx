@@ -296,7 +296,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 
         case 'text':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 overflow-hidden">
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 overflow-hidden flex flex-col">
                     {slide.title && (
                         <h2 className="text-2xl font-bold text-white mb-6">{slide.title}</h2>
                     )}
@@ -304,18 +304,20 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                         <p className="text-[16px] md:text-[17px] text-white/70 leading-relaxed">{slide.text}</p>
                     )}
                     {slide.download && (
-                        <a
-                            href={slide.download.href}
-                            download
-                            onClick={(e) => e.stopPropagation()}
-                            className="mt-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white border border-white/20 hover:border-white/40 rounded-md px-4 py-2.5 transition-colors"
-                        >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" />
-                                <path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" />
-                            </svg>
-                            {slide.download.label}
-                        </a>
+                        <div className="mt-8 flex justify-center">
+                            <a
+                                href={slide.download.href}
+                                download
+                                onClick={(e) => e.stopPropagation()}
+                                className="relative z-20 inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" />
+                                    <path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" />
+                                </svg>
+                                {slide.download.label}
+                            </a>
+                        </div>
                     )}
                 </div>
             );
