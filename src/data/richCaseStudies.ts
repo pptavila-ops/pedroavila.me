@@ -534,6 +534,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     '/c/header/5.jpg',
                 ],
                 quote: 'C. is a bilingual object book in German and Portuguese about the historic and tragic memory of the Brazilian military dictatorship (1964–1985).',
+                tags: ['Object Book', 'Graphic Design', 'Typography', 'Bilingual', 'UnB'],
             },
             // 1
             {
@@ -545,8 +546,8 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 text: 'An object book is a way of extracting the book\'s ordinary linearity by presenting a form that is closer to the reader and demands maximum perception, while searching for stronger interactivity.',
-                quote: 'The book is inside a memory box. The tower — to protect us — is on the lid of the box.',
                 image: '/c/tower.png',
+                caption: 'The book is inside a memory box. The tower — to protect us — is on the lid of the box.',
             },
             // 3
             {

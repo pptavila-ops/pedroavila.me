@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import type { RichCaseStudy, StoriesSlide } from '../data/templateCaseStudy';
 
 const SLIDE_DURATION = 8000;
+const COVER_DURATION = 14000;
 
 interface Props {
     study: RichCaseStudy;
@@ -41,8 +42,9 @@ export function CaseStudyStories({ study, onBack }: Props) {
     useEffect(() => {
         if (paused) return;
         const id = setInterval(() => {
+            const duration = current === 0 ? COVER_DURATION : SLIDE_DURATION;
             const total = elapsedRef.current + (Date.now() - startRef.current);
-            const p = Math.min(total / SLIDE_DURATION, 1);
+            const p = Math.min(total / duration, 1);
             setProgress(p);
             if (p >= 1) goTo(current + 1);
         }, 50);
@@ -325,11 +327,20 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
                     }}
                 />
             ))}
-            {/* Blockquote — vertically centered, left-aligned */}
-            <div className="absolute inset-0 flex flex-col justify-center px-7 md:px-9 pointer-events-none">
+            {/* Content — vertically centered, left-aligned */}
+            <div className="absolute inset-0 flex flex-col justify-center gap-5 px-7 md:px-9 pointer-events-none">
                 <blockquote className="text-[20px] md:text-[23px] font-semibold text-white leading-[1.55]">
                     {slide.quote}
                 </blockquote>
+                {slide.tags && (
+                    <div className="flex flex-wrap gap-2">
+                        {slide.tags.map((tag) => (
+                            <span key={tag} className="text-[13px] text-white/70 border border-white/30 rounded-full px-3 py-1">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );
