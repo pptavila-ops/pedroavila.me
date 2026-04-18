@@ -194,36 +194,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
 function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: number; total: number }) {
     switch (slide.type) {
         case 'cover':
-            return (
-                <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden">
-                    <img
-                        src={slide.bg}
-                        alt=""
-                        className="block w-full h-full object-cover"
-                        style={{ filter: 'brightness(2.2) contrast(1.1)' }}
-                        draggable={false}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
-                    {/* absolute inset-0 + flex justify-end keeps overlay strictly within image bounds */}
-                    <div className="absolute inset-0 flex flex-col justify-end px-7 pb-6 overflow-hidden pointer-events-none">
-                        {slide.subtitle && (
-                            <p className="text-sm text-white/60 mb-2">{slide.subtitle}</p>
-                        )}
-                        <h1 className="text-[26px] md:text-[36px] font-bold leading-tight text-white">
-                            {slide.title}
-                        </h1>
-                        {slide.tags && (
-                            <div className="flex flex-wrap gap-2 mt-3">
-                                {slide.tags.map((tag) => (
-                                    <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
-            );
+            return <CoverSlide slide={slide} />;
 
         case 'image':
             return (
@@ -325,4 +296,43 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
         default:
             return null;
     }
+}
+
+function CoverSlide({ slide }: { slide: StoriesSlide }) {
+    const images = slide.images ?? [];
+    const [idx, setIdx] = useState(0);
+
+    useEffect(() => {
+        if (images.length < 2) return;
+        const t = setInterval(() => setIdx(i => (i + 1) % images.length), 3500);
+        return () => clearInterval(t);
+    }, [images.length]);
+
+    return (
+        <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden">
+            {/* Crossfading blurred background images */}
+            {images.map((src, i) => (
+                <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    draggable={false}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{
+                        filter: 'blur(8px) brightness(0.32)',
+                        transform: 'scale(1.1)',
+                        opacity: i === idx ? 1 : 0,
+                        transition: 'opacity 1.5s ease-in-out',
+                        pointerEvents: 'none',
+                    }}
+                />
+            ))}
+            {/* Blockquote — vertically centered, left-aligned */}
+            <div className="absolute inset-0 flex flex-col justify-center px-7 md:px-9 pointer-events-none">
+                <blockquote className="text-[20px] md:text-[23px] font-semibold text-white leading-[1.55] pl-5 border-l-2 border-white/50">
+                    {slide.quote}
+                </blockquote>
+            </div>
+        </div>
+    );
 }
