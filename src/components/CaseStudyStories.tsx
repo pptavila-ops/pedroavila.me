@@ -128,11 +128,6 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 className="relative w-full h-[460px] md:h-[560px] touch-none"
                 onPointerCancel={handlePointerCancel}
             >
-                {paused && (
-                    <div className="absolute top-4 right-4 z-20 bg-black/60 rounded-full px-3 py-1 text-xs text-white/60 pointer-events-none">
-                        Paused
-                    </div>
-                )}
                 {/* Slide content — full a11y, no pointer capture */}
                 <div aria-live="polite" aria-atomic="true" className="w-full h-full">
                     <SlideRenderer slide={slides[current]} index={current} total={slides.length} />
@@ -161,8 +156,36 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 />
             </div>
 
+            {/* Pause / Play */}
+            <div className="mt-3 flex justify-center">
+                <button
+                    onClick={() => {
+                        if (paused) {
+                            startRef.current = Date.now();
+                            setPaused(false);
+                        } else {
+                            elapsedRef.current += Date.now() - startRef.current;
+                            setPaused(true);
+                        }
+                    }}
+                    aria-label={paused ? 'Play' : 'Pause'}
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-white/20 text-white/50 hover:text-white hover:border-white/40 hover:bg-white/10 transition-colors cursor-pointer"
+                >
+                    {paused ? (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M5.80859 4.17847C6.09977 4.14106 6.3758 4.22513 6.63379 4.33374C6.89347 4.4431 7.20883 4.61107 7.58789 4.81323L17.5732 10.1394C17.5793 10.1423 17.5858 10.145 17.5918 10.1482C18.0114 10.372 18.3567 10.5564 18.6123 10.7244C18.8636 10.8895 19.1053 11.087 19.2363 11.3708C19.4203 11.7695 19.4202 12.23 19.2363 12.6287C19.1052 12.9125 18.863 13.1097 18.6113 13.2751C18.3551 13.4436 18.0089 13.6288 17.5879 13.8533L7.58789 19.1863C7.20845 19.3886 6.89351 19.5575 6.63379 19.6667C6.37553 19.7753 6.09964 19.8575 5.80859 19.8201C5.39435 19.7666 5.01986 19.5438 4.77734 19.2029C4.60713 18.9635 4.55099 18.6801 4.52539 18.4011C4.49969 18.1207 4.5 17.7634 4.5 17.3337V6.66675C4.5 6.23687 4.49967 5.8791 4.52539 5.59839C4.551 5.31943 4.60708 5.03602 4.77734 4.79663C5.01985 4.45578 5.39432 4.2319 5.80859 4.17847Z" fill="currentColor"/>
+                        </svg>
+                    ) : (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M14 5.5V18.5C14 18.9647 14 19.197 14.0384 19.3902C14.1962 20.1836 14.816 20.8041 15.6094 20.9619C15.8026 21.0003 16.0349 21.0003 16.4996 21.0003C16.9642 21.0003 17.1974 21.0003 17.3906 20.9619C18.184 20.8041 18.8041 20.1836 18.9619 19.3902C19 19.1987 19 18.9687 19 18.5122V5.48777C19 5.03125 19 4.80087 18.9619 4.60938C18.8041 3.81599 18.1836 3.19624 17.3902 3.03843C17.197 3 16.9647 3 16.5 3C16.0353 3 15.8026 3 15.6094 3.03843C14.816 3.19624 14.1962 3.81599 14.0384 4.60938C14 4.80257 14 5.03534 14 5.5Z" fill="currentColor"/>
+                            <path d="M5 5.5V18.5C5 18.9647 5 19.197 5.03843 19.3902C5.19624 20.1836 5.81599 20.8041 6.60938 20.9619C6.80257 21.0003 7.0349 21.0003 7.49956 21.0003C7.96421 21.0003 8.19743 21.0003 8.39062 20.9619C9.18401 20.8041 9.8041 20.1836 9.96191 19.3902C10 19.1987 10 18.9687 10 18.5122V5.48777C10 5.03125 10 4.80087 9.96191 4.60938C9.8041 3.81599 9.18356 3.19624 8.39018 3.03843C8.19698 3 7.96465 3 7.5 3C7.03535 3 6.80257 3 6.60938 3.03843C5.81599 3.19624 5.19624 3.81599 5.03843 4.60938C5 4.80257 5 5.03534 5 5.5Z" fill="currentColor"/>
+                        </svg>
+                    )}
+                </button>
+            </div>
+
             {/* Prev / counter / Next */}
-            <div className="mt-3 flex items-center justify-between">
+            <div className="mt-2 flex items-center justify-between">
                 {current > 0 ? (
                     <button
                         onClick={() => goTo(current - 1)}
