@@ -212,7 +212,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                         </div>
                     )}
                     <figure className="flex-1 min-h-0 flex flex-col px-5 md:px-7">
-                        <div className="flex-1 min-h-0 flex items-start justify-center">
+                        <div className={`flex-1 min-h-0 flex justify-center ${(slide.text || slide.quote) ? 'items-start' : 'items-center'}`}>
                             <img
                                 src={slide.image}
                                 alt={slide.caption || ''}
