@@ -319,7 +319,7 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
                     draggable={false}
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{
-                        filter: 'blur(3px) brightness(0.45)',
+                        filter: 'blur(2px) brightness(0.6)',
                         transform: 'scale(1.1)',
                         opacity: i === idx ? 1 : 0,
                         transition: 'opacity 1.5s ease-in-out',

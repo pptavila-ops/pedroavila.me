@@ -529,11 +529,9 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'cover',
                 images: [
-                    '/c/header/1.jpg',
                     '/c/header/3.jpg',
                     '/c/header/4.jpg',
                     '/c/header/5.jpg',
-                    '/c/header/6.jpg',
                 ],
                 quote: 'C. is a bilingual object book in German and Portuguese about the historic and tragic memory of the Brazilian military dictatorship (1964–1985).',
             },
