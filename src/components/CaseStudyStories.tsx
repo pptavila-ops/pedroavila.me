@@ -219,7 +219,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             draggable={false}
                         />
                         {slide.caption && (
-                            <figcaption className="pt-4 pb-3 md:pt-5 md:pb-4 text-sm text-white/70 text-center flex-shrink-0 w-full">
+                            <figcaption className="pt-4 pb-3 md:pt-5 md:pb-4 text-[15px] text-white/70 text-center flex-shrink-0 w-full">
                                 {slide.caption}
                             </figcaption>
                         )}
