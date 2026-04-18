@@ -526,13 +526,6 @@ export const richCaseStudies: RichCaseStudy[] = [
         ],
         slides: [
             {
-                type: 'cover',
-                bg: '/c/header/1.jpg',
-                title: 'C.',
-                subtitle: '2015 · University of Brasília',
-                tags: ['Object Book', 'Graphic Design', 'Typography', 'Bilingual', 'UnB'],
-            },
-            {
                 type: 'quote',
                 quote: 'An object book is a way of extracting the books\' ordinary linearity by presenting a form that is closer to the reader and demands his maximum perception, while searching for a stronger interactivity with people. An object book brings life to literature.',
             },

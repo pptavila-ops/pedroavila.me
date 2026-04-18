@@ -9,10 +9,19 @@ interface Props {
 }
 
 export function CaseStudyStories({ study, onBack }: Props) {
-    const slides = study.slides!;
+    const slides = study.slides!.flatMap((slide) =>
+        slide.type === 'gallery' && slide.images
+            ? slide.images.map((img, i) => ({
+                type: 'image' as const,
+                image: img,
+                text: i === 0 ? slide.text : undefined,
+              }))
+            : [slide]
+    );
     const [current, setCurrent] = useState(0);
     const [progress, setProgress] = useState(0);
     const [paused, setPaused] = useState(false);
+    const [hoveredZone, setHoveredZone] = useState<'left' | 'right' | null>(null);
 
     const startRef = useRef(Date.now());
     const elapsedRef = useRef(0);
@@ -43,7 +52,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             if (e.key === 'ArrowRight') goTo(current + 1);
-            if (e.key === 'ArrowLeft') goTo(current - 1);
+            if (e.key === 'ArrowLeft' && current > 0) goTo(current - 1);
         };
         window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
@@ -58,7 +67,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
         }, 300);
     }, []);
 
-    const handlePointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const makePointerUp = useCallback((direction: 'prev' | 'next') => () => {
         if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
         if (isHoldingRef.current) {
             isHoldingRef.current = false;
@@ -66,11 +75,9 @@ export function CaseStudyStories({ study, onBack }: Props) {
             setPaused(false);
             return;
         }
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        if (x < rect.width * 0.35) goTo(current - 1);
-        else goTo(current + 1);
-    }, [current, goTo]);
+        if (direction === 'prev' && current > 0) goTo(current - 1);
+        if (direction === 'next' && current < slides.length - 1) goTo(current + 1);
+    }, [current, slides.length, goTo]);
 
     const handlePointerCancel = useCallback(() => {
         if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
@@ -87,7 +94,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
             <div className="flex items-center gap-3 mb-4">
                 <button
                     onClick={onBack}
-                    className="inline-flex items-center gap-1.5 text-sm text-white/50 hover:text-white transition-colors cursor-pointer flex-shrink-0"
+                    className="inline-flex items-center gap-1.5 text-sm text-white/50 hover:text-white hover:bg-white/10 rounded-md px-2 py-1 -ml-2 transition-colors cursor-pointer flex-shrink-0"
                 >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor" />
@@ -116,9 +123,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
 
             {/* Single viewport wrapper — identical for every slide type */}
             <div
-                className="relative w-full cursor-pointer touch-none"
-                onPointerDown={handlePointerDown}
-                onPointerUp={handlePointerUp}
+                className="relative w-full h-[460px] md:h-[560px] touch-none"
                 onPointerCancel={handlePointerCancel}
             >
                 {paused && (
@@ -126,32 +131,75 @@ export function CaseStudyStories({ study, onBack }: Props) {
                         Paused
                     </div>
                 )}
-                <SlideRenderer slide={slides[current]} />
-                {/* Tap zones */}
-                <div className="absolute inset-0 flex z-10 pointer-events-none">
-                    <div className="w-[35%] h-full pointer-events-auto" />
-                    <div className="w-[65%] h-full pointer-events-auto" />
+                {/* Slide content — full a11y, no pointer capture */}
+                <div aria-live="polite" aria-atomic="true" className="w-full h-full">
+                    <SlideRenderer slide={slides[current]} index={current} total={slides.length} />
                 </div>
+                {/* Left tap zone — prev */}
+                <div
+                    className="absolute inset-y-0 left-0 w-[30%] z-10 cursor-pointer"
+                    onPointerDown={handlePointerDown}
+                    onPointerUp={makePointerUp('prev')}
+                    onMouseEnter={() => setHoveredZone('left')}
+                    onMouseLeave={() => setHoveredZone(null)}
+                    role="button"
+                    aria-label="Previous slide"
+                    tabIndex={-1}
+                />
+                {/* Right tap zone — next */}
+                <div
+                    className="absolute inset-y-0 right-0 w-[30%] z-10 cursor-pointer"
+                    onPointerDown={handlePointerDown}
+                    onPointerUp={makePointerUp('next')}
+                    onMouseEnter={() => setHoveredZone('right')}
+                    onMouseLeave={() => setHoveredZone(null)}
+                    role="button"
+                    aria-label="Next slide"
+                    tabIndex={-1}
+                />
             </div>
 
-            {/* Slide counter */}
-            <div className="mt-3 text-xs text-white/30 text-right">
-                {current + 1} / {slides.length}
+            {/* Prev / counter / Next */}
+            <div className="mt-3 flex items-center justify-between">
+                {current > 0 ? (
+                    <button
+                        onClick={() => goTo(current - 1)}
+                        className={`inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -ml-2 transition-colors cursor-pointer flex-shrink-0 ${hoveredZone === 'left' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
+                    >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor" />
+                        </svg>
+                        Previous
+                    </button>
+                ) : <span />}
+                <span className="text-xs text-white/60">
+                    {current + 1} / {slides.length}
+                </span>
+                {current < slides.length - 1 ? (
+                    <button
+                        onClick={() => goTo(current + 1)}
+                        className={`inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -mr-2 transition-colors cursor-pointer flex-shrink-0 ${hoveredZone === 'right' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
+                    >
+                        Next
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M13.707 5.29295C13.3165 4.90243 12.6835 4.90243 12.293 5.29295C11.9024 5.68348 11.9024 6.31649 12.293 6.70702L16.5859 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H16.5859L12.293 17.293C11.9024 17.6835 11.9024 18.3165 12.293 18.707C12.6835 19.0975 13.3165 19.0975 13.707 18.707L19.707 12.707C20.0975 12.3165 20.0975 11.6835 19.707 11.293L13.707 5.29295Z" fill="currentColor" />
+                        </svg>
+                    </button>
+                ) : <span />}
             </div>
         </div>
     );
 }
 
-function SlideRenderer({ slide }: { slide: StoriesSlide }) {
+function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: number; total: number }) {
     switch (slide.type) {
         case 'cover':
             return (
-                <div className="relative w-full bg-black rounded-xl overflow-hidden">
-                    {/* In-flow img establishes the container width */}
+                <div className="relative w-full h-[320px] md:h-[420px] bg-black rounded-2xl overflow-hidden">
                     <img
                         src={slide.bg}
                         alt=""
-                        className="block w-full h-[320px] md:h-[420px] object-cover"
+                        className="block w-full h-full object-cover"
                         style={{ filter: 'brightness(2.2) contrast(1.1)' }}
                         draggable={false}
                     />
@@ -179,11 +227,11 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
 
         case 'image':
             return (
-                <div className="w-full bg-black rounded-xl overflow-hidden">
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl overflow-hidden flex flex-col">
                     {(slide.text || slide.quote) && (
-                        <div className="px-7 pt-7 pb-4 space-y-4">
+                        <div className="px-5 pt-5 pb-3 md:px-7 md:pt-7 md:pb-4 space-y-3 md:space-y-4 flex-shrink-0">
                             {slide.text && (
-                                <p className="text-[16px] text-white/70 leading-relaxed">{slide.text}</p>
+                                <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{slide.text}</p>
                             )}
                             {slide.quote && (
                                 <p className="text-[18px] md:text-[20px] font-semibold text-white/90 leading-[1.4] pl-4 border-l-2 border-white/25">
@@ -192,15 +240,15 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
                             )}
                         </div>
                     )}
-                    <figure>
+                    <figure className="flex-1 min-h-0 flex flex-col px-5 md:px-7">
                         <img
                             src={slide.image}
                             alt={slide.caption || ''}
-                            className="w-full"
+                            className="w-full flex-1 min-h-0 object-contain rounded-2xl"
                             draggable={false}
                         />
                         {slide.caption && (
-                            <figcaption className="px-7 py-3 text-sm text-white/40 text-center">
+                            <figcaption className="pt-2 pb-3 md:pt-3 md:pb-4 text-sm text-white/70 text-center flex-shrink-0">
                                 {slide.caption}
                             </figcaption>
                         )}
@@ -210,32 +258,33 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
 
         case 'quote':
             return (
-                <div className="w-full bg-black rounded-xl px-7 py-10 flex flex-col gap-6 min-h-[400px] justify-center">
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 flex flex-col gap-5 md:gap-6 justify-center overflow-hidden">
                     {slide.image && (
-                        <img src={slide.image} alt="" className="w-full rounded-xl" draggable={false} />
+                        <img src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" draggable={false} />
                     )}
-                    <p className="text-[20px] md:text-[24px] font-semibold text-white/90 leading-[1.45]">
+                    <blockquote className="text-[20px] md:text-[24px] font-semibold text-white/90 leading-[1.45]">
                         {slide.quote}
-                    </p>
+                    </blockquote>
                     {slide.text && (
-                        <p className="text-[15px] text-white/50 leading-relaxed">{slide.text}</p>
+                        <p className="text-[15px] text-white/60 leading-relaxed">{slide.text}</p>
                     )}
                 </div>
             );
 
         case 'gallery':
             return (
-                <div className="w-full bg-black rounded-xl px-7 py-7">
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-5 md:px-7 md:py-7 flex flex-col overflow-hidden">
                     {slide.text && (
-                        <p className="text-[16px] text-white/70 leading-relaxed mb-5">{slide.text}</p>
+                        <p className="text-[16px] text-white/70 leading-relaxed mb-4 md:mb-5 flex-shrink-0">{slide.text}</p>
                     )}
-                    <div className="grid grid-cols-2 gap-2">
+                    <div role="list" className="grid grid-cols-2 gap-2 flex-1 min-h-0">
                         {slide.images?.map((src, i) => (
                             <img
                                 key={i}
+                                role="listitem"
                                 src={src}
-                                alt=""
-                                className="w-full rounded-lg object-cover aspect-[4/3]"
+                                alt={`Image ${i + 1}`}
+                                className="w-full h-full rounded-2xl object-cover"
                                 draggable={false}
                             />
                         ))}
@@ -245,7 +294,7 @@ function SlideRenderer({ slide }: { slide: StoriesSlide }) {
 
         case 'text':
             return (
-                <div className="w-full bg-black rounded-xl px-7 py-10 min-h-[400px]">
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 overflow-hidden">
                     {slide.title && (
                         <h2 className="text-2xl font-bold text-white mb-6">{slide.title}</h2>
                     )}
