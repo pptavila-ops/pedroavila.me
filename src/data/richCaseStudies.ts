@@ -572,6 +572,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 image: '/c/8d01a332230975.567c3fbc00e4b.jpg',
+                caption: 'Simultaneous reading came from an idea of improving language learning by reading.',
             },
             // 7
             {
