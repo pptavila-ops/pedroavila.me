@@ -525,6 +525,13 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
         ],
         slides: [
+            // 0 — Cover
+            {
+                type: 'cover',
+                bg: '/c/header/1.jpg',
+                title: 'C.',
+                subtitle: 'C. is a bilingual object book in German and Portuguese about the historic and tragic memory of the Brazilian military dictatorship (1964–1985).',
+            },
             // 1
             {
                 type: 'image',

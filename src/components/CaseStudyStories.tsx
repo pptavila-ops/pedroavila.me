@@ -195,7 +195,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
     switch (slide.type) {
         case 'cover':
             return (
-                <div className="relative w-full h-[320px] md:h-[420px] bg-black rounded-2xl overflow-hidden">
+                <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden">
                     <img
                         src={slide.bg}
                         alt=""
