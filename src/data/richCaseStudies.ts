@@ -542,6 +542,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 text: 'C. contains 5 short stories originally written in Brazilian Portuguese by Bernardo Kucinski and translated into German by Pedro Ávila.',
                 image: '/c/a1c4c132230975.567c3fbc020af.jpg',
                 caption: 'The intro: The Tower and the Rattlesnake was written by me.',
+                imageFilter: 'contrast(1.05) brightness(1.02)',
             },
             // 2
             {
@@ -569,7 +570,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 text: 'In my work, the Rattlesnake, found on the real bottom of the box, is the dictatorship, which Brazilians tend to hide and pretend it never happened.',
                 image: '/c/snake.jpg',
-                caption: 'The snake as the dictatorship.',
+                caption: 'The snake as the dictatorship. I used stencil technique to make the box feel crude and raw.',
             },
             // 6
             {
@@ -647,11 +648,29 @@ export const richCaseStudies: RichCaseStudy[] = [
                 text: 'Some memories are too dark to look at — maybe that\'s why Brazilians tend to forget their past. What if an extremely contrasting color made people stop and look?',
                 image: '/c/magenta.png',
             },
+            // 14
+            {
+                type: 'quote',
+                title: 'This work is fundamentally inspired by the German word:',
+                quote: 'die Erinnerungskultur — the culture of memory',
+            },
+            // 15
+            { type: 'image', image: '/c/35e81632230975.5674becc47af6.jpg' },
+            // 16
+            { type: 'image', image: '/c/111cd332230975.5674becc48c4d.jpg' },
+            // 17
+            { type: 'image', image: '/c/WP_20151115_16_15_53_Pro---copia.jpg' },
+            // 18
+            { type: 'image', image: '/c/0ea03632230975.5674c05283f05.png' },
+            // 19
+            { type: 'image', image: '/c/5a5eb232230975.567c3fbbf3f4c.jpg' },
+            // 20
+            { type: 'image', image: '/c/d9855332230975.567c3339072a3.jpg' },
             // Credits
             {
                 type: 'text',
                 title: 'Credits',
-                text: 'Short stories from Você Vai Voltar Pra Mim e outros contos by Bernardo Kucinski, edited by Cosac Naify. Photographs by Evandro Teixeira, Rio de Janeiro.',
+                text: 'Short stories from "Você Vai Voltar Pra Mim e outros contos" by Bernardo Kucinski, edited by Cosac Naify. Photographs by Evandro Teixeira.',
                 download: { label: 'Download the written memorial (PDF)', href: '/c/memorial.pdf' },
             },
         ],

@@ -165,10 +165,10 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 />
                 {/* Right tap zone — next */}
                 <div
-                    className="absolute inset-y-0 right-0 w-[30%] z-10 cursor-pointer"
+                    className={`absolute inset-y-0 right-0 w-[30%] z-10 ${current < slides.length - 1 ? 'cursor-pointer' : 'cursor-default'}`}
                     onPointerDown={handlePointerDown}
                     onPointerUp={makePointerUp('next')}
-                    onMouseEnter={() => setHoveredZone('right')}
+                    onMouseEnter={() => { if (current < slides.length - 1) setHoveredZone('right'); }}
                     onMouseLeave={() => setHoveredZone(null)}
                     role="button"
                     aria-label="Next slide"
@@ -192,7 +192,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 <span className="text-xs text-white/60">
                     {current + 1} / {slides.length}
                 </span>
-                {current < slides.length - 1 && (
+                {current < slides.length - 1 ? (
                     <button
                         onClick={() => goTo(current + 1)}
                         className={`absolute right-0 inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -mr-2 transition-colors cursor-pointer ${hoveredZone === 'right' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
@@ -201,6 +201,16 @@ export function CaseStudyStories({ study, onBack }: Props) {
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M13.707 5.29295C13.3165 4.90243 12.6835 4.90243 12.293 5.29295C11.9024 5.68348 11.9024 6.31649 12.293 6.70702L16.5859 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H16.5859L12.293 17.293C11.9024 17.6835 11.9024 18.3165 12.293 18.707C12.6835 19.0975 13.3165 19.0975 13.707 18.707L19.707 12.707C20.0975 12.3165 20.0975 11.6835 19.707 11.293L13.707 5.29295Z" fill="currentColor" />
                         </svg>
+                    </button>
+                ) : (
+                    <button
+                        onClick={(e) => { e.stopPropagation(); goTo(0); }}
+                        className="absolute right-0 inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -mr-2 transition-colors cursor-pointer text-white/50 hover:text-white hover:bg-white/10"
+                    >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M20 14C20 11.7909 18.2092 10 16 10H5.41411L7.70708 12.293C8.0976 12.6835 8.0976 13.3166 7.70708 13.7071C7.31655 14.0976 6.68354 14.0976 6.29302 13.7071L2.29302 9.70708C1.90249 9.31655 1.90249 8.68354 2.29302 8.29302L6.29302 4.29302C6.68354 3.90249 7.31655 3.90249 7.70708 4.29302C8.0976 4.68354 8.0976 5.31655 7.70708 5.70708L5.41411 8.00005H16C19.3138 8.00005 22 10.6863 22 14C22 17.3138 19.3138 20 16 20H11C10.4478 20 10 19.5523 10 19C10 18.4478 10.4478 18 11 18H16C18.2092 18 20 16.2092 20 14Z" fill="currentColor"/>
+                        </svg>
+                        Restart
                     </button>
                 )}
             </div>
@@ -234,7 +244,8 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             <img
                                 src={slide.image}
                                 alt={slide.caption || ''}
-                                className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
+                                className="max-w-[55%] md:max-w-[80%] min-h-0 flex-shrink object-contain rounded-2xl"
+                                style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
                             />
                             {slide.caption && (
@@ -263,11 +274,12 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             )}
                         </div>
                     )}
-                    <figure className={`flex-1 min-h-0 flex flex-col items-center px-5 md:px-7 ${(slide.title || slide.text || slide.quote) ? 'justify-start' : 'justify-center'}`}>
+                    <figure className="flex-1 min-h-0 flex flex-col items-center justify-center px-5 md:px-7">
                         <img
                             src={slide.image}
                             alt={slide.caption || ''}
                             className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
+                            style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                             draggable={false}
                         />
                         {slide.caption && (
@@ -283,7 +295,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
             return (
                 <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 flex flex-col gap-5 md:gap-6 justify-center overflow-hidden">
                     {slide.image && (
-                        <img src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" draggable={false} />
+                        <img src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }} draggable={false} />
                     )}
                     {slide.title && (
                         <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{slide.title}</p>
@@ -311,6 +323,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                                 src={src}
                                 alt={`Image ${i + 1}`}
                                 className={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'object-contain' : 'h-full object-cover'}`}
+                                style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
                             />
                         ))}

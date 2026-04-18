@@ -28,6 +28,8 @@ export type StoriesSlide = {
     duration?: number;
     /** 'split' = text left / image right on desktop, stacked on mobile */
     layout?: 'split';
+    /** Override the default CSS filter applied to the image */
+    imageFilter?: string;
 };
 
 export interface RichCaseStudy {
