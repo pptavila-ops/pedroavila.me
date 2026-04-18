@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { RichCaseStudy, StoriesSlide } from '../data/templateCaseStudy';
 
-const SLIDE_DURATION = 8000;
-const COVER_DURATION = 14000;
+const SLIDE_DURATION = 11000;
+const COVER_DURATION = 16000;
 
 interface Props {
     study: RichCaseStudy;
@@ -92,7 +92,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
 
     return (
         <div className="select-none">
-            {/* Back + title */}
+            {/* Back + title + pause */}
             <div className="flex items-center gap-3 mb-4">
                 <button
                     onClick={onBack}
@@ -104,7 +104,31 @@ export function CaseStudyStories({ study, onBack }: Props) {
                     Back
                 </button>
                 <span className="text-sm text-white/30">·</span>
-                <span className="text-sm text-white/50 truncate">{study.title}</span>
+                <span className="text-sm text-white/50 truncate flex-1">{study.title}</span>
+                <button
+                    onClick={() => {
+                        if (paused) {
+                            startRef.current = Date.now();
+                            setPaused(false);
+                        } else {
+                            elapsedRef.current += Date.now() - startRef.current;
+                            setPaused(true);
+                        }
+                    }}
+                    aria-label={paused ? 'Play' : 'Pause'}
+                    className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-white/20 text-white/50 hover:text-white hover:border-white/40 hover:bg-white/10 transition-colors cursor-pointer flex-shrink-0"
+                >
+                    {paused ? (
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{transform: 'translateX(1px)'}}>
+                            <path d="M5.80859 4.17847C6.09977 4.14106 6.3758 4.22513 6.63379 4.33374C6.89347 4.4431 7.20883 4.61107 7.58789 4.81323L17.5732 10.1394C17.5793 10.1423 17.5858 10.145 17.5918 10.1482C18.0114 10.372 18.3567 10.5564 18.6123 10.7244C18.8636 10.8895 19.1053 11.087 19.2363 11.3708C19.4203 11.7695 19.4202 12.23 19.2363 12.6287C19.1052 12.9125 18.863 13.1097 18.6113 13.2751C18.3551 13.4436 18.0089 13.6288 17.5879 13.8533L7.58789 19.1863C7.20845 19.3886 6.89351 19.5575 6.63379 19.6667C6.37553 19.7753 6.09964 19.8575 5.80859 19.8201C5.39435 19.7666 5.01986 19.5438 4.77734 19.2029C4.60713 18.9635 4.55099 18.6801 4.52539 18.4011C4.49969 18.1207 4.5 17.7634 4.5 17.3337V6.66675C4.5 6.23687 4.49967 5.8791 4.52539 5.59839C4.551 5.31943 4.60708 5.03602 4.77734 4.79663C5.01985 4.45578 5.39432 4.2319 5.80859 4.17847Z" fill="currentColor"/>
+                        </svg>
+                    ) : (
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M14 5.5V18.5C14 18.9647 14 19.197 14.0384 19.3902C14.1962 20.1836 14.816 20.8041 15.6094 20.9619C15.8026 21.0003 16.0349 21.0003 16.4996 21.0003C16.9642 21.0003 17.1974 21.0003 17.3906 20.9619C18.184 20.8041 18.8041 20.1836 18.9619 19.3902C19 19.1987 19 18.9687 19 18.5122V5.48777C19 5.03125 19 4.80087 18.9619 4.60938C18.8041 3.81599 18.1836 3.19624 17.3902 3.03843C17.197 3 16.9647 3 16.5 3C16.0353 3 15.8026 3 15.6094 3.03843C14.816 3.19624 14.1962 3.81599 14.0384 4.60938C14 4.80257 14 5.03534 14 5.5Z" fill="currentColor"/>
+                            <path d="M5 5.5V18.5C5 18.9647 5 19.197 5.03843 19.3902C5.19624 20.1836 5.81599 20.8041 6.60938 20.9619C6.80257 21.0003 7.0349 21.0003 7.49956 21.0003C7.96421 21.0003 8.19743 21.0003 8.39062 20.9619C9.18401 20.8041 9.8041 20.1836 9.96191 19.3902C10 19.1987 10 18.9687 10 18.5122V5.48777C10 5.03125 10 4.80087 9.96191 4.60938C9.8041 3.81599 9.18356 3.19624 8.39018 3.03843C8.19698 3 7.96465 3 7.5 3C7.03535 3 6.80257 3 6.60938 3.03843C5.81599 3.19624 5.19624 3.81599 5.03843 4.60938C5 4.80257 5 5.03534 5 5.5Z" fill="currentColor"/>
+                        </svg>
+                    )}
+                </button>
             </div>
 
             {/* Progress bars */}
@@ -156,61 +180,33 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 />
             </div>
 
-            {/* Pause / Play */}
-            <div className="mt-3 flex justify-center">
-                <button
-                    onClick={() => {
-                        if (paused) {
-                            startRef.current = Date.now();
-                            setPaused(false);
-                        } else {
-                            elapsedRef.current += Date.now() - startRef.current;
-                            setPaused(true);
-                        }
-                    }}
-                    aria-label={paused ? 'Play' : 'Pause'}
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-white/20 text-white/50 hover:text-white hover:border-white/40 hover:bg-white/10 transition-colors cursor-pointer"
-                >
-                    {paused ? (
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M5.80859 4.17847C6.09977 4.14106 6.3758 4.22513 6.63379 4.33374C6.89347 4.4431 7.20883 4.61107 7.58789 4.81323L17.5732 10.1394C17.5793 10.1423 17.5858 10.145 17.5918 10.1482C18.0114 10.372 18.3567 10.5564 18.6123 10.7244C18.8636 10.8895 19.1053 11.087 19.2363 11.3708C19.4203 11.7695 19.4202 12.23 19.2363 12.6287C19.1052 12.9125 18.863 13.1097 18.6113 13.2751C18.3551 13.4436 18.0089 13.6288 17.5879 13.8533L7.58789 19.1863C7.20845 19.3886 6.89351 19.5575 6.63379 19.6667C6.37553 19.7753 6.09964 19.8575 5.80859 19.8201C5.39435 19.7666 5.01986 19.5438 4.77734 19.2029C4.60713 18.9635 4.55099 18.6801 4.52539 18.4011C4.49969 18.1207 4.5 17.7634 4.5 17.3337V6.66675C4.5 6.23687 4.49967 5.8791 4.52539 5.59839C4.551 5.31943 4.60708 5.03602 4.77734 4.79663C5.01985 4.45578 5.39432 4.2319 5.80859 4.17847Z" fill="currentColor"/>
-                        </svg>
-                    ) : (
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M14 5.5V18.5C14 18.9647 14 19.197 14.0384 19.3902C14.1962 20.1836 14.816 20.8041 15.6094 20.9619C15.8026 21.0003 16.0349 21.0003 16.4996 21.0003C16.9642 21.0003 17.1974 21.0003 17.3906 20.9619C18.184 20.8041 18.8041 20.1836 18.9619 19.3902C19 19.1987 19 18.9687 19 18.5122V5.48777C19 5.03125 19 4.80087 18.9619 4.60938C18.8041 3.81599 18.1836 3.19624 17.3902 3.03843C17.197 3 16.9647 3 16.5 3C16.0353 3 15.8026 3 15.6094 3.03843C14.816 3.19624 14.1962 3.81599 14.0384 4.60938C14 4.80257 14 5.03534 14 5.5Z" fill="currentColor"/>
-                            <path d="M5 5.5V18.5C5 18.9647 5 19.197 5.03843 19.3902C5.19624 20.1836 5.81599 20.8041 6.60938 20.9619C6.80257 21.0003 7.0349 21.0003 7.49956 21.0003C7.96421 21.0003 8.19743 21.0003 8.39062 20.9619C9.18401 20.8041 9.8041 20.1836 9.96191 19.3902C10 19.1987 10 18.9687 10 18.5122V5.48777C10 5.03125 10 4.80087 9.96191 4.60938C9.8041 3.81599 9.18356 3.19624 8.39018 3.03843C8.19698 3 7.96465 3 7.5 3C7.03535 3 6.80257 3 6.60938 3.03843C5.81599 3.19624 5.19624 3.81599 5.03843 4.60938C5 4.80257 5 5.03534 5 5.5Z" fill="currentColor"/>
-                        </svg>
-                    )}
-                </button>
-            </div>
-
             {/* Prev / counter / Next */}
-            <div className="mt-2 flex items-center justify-between">
-                {current > 0 ? (
+            <div className="mt-2 relative flex items-center justify-center">
+                {current > 0 && (
                     <button
                         onClick={() => goTo(current - 1)}
-                        className={`inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -ml-2 transition-colors cursor-pointer flex-shrink-0 ${hoveredZone === 'left' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
+                        className={`absolute left-0 inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -ml-2 transition-colors cursor-pointer ${hoveredZone === 'left' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
                     >
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor" />
                         </svg>
                         Previous
                     </button>
-                ) : <span />}
+                )}
                 <span className="text-xs text-white/60">
                     {current + 1} / {slides.length}
                 </span>
-                {current < slides.length - 1 ? (
+                {current < slides.length - 1 && (
                     <button
                         onClick={() => goTo(current + 1)}
-                        className={`inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -mr-2 transition-colors cursor-pointer flex-shrink-0 ${hoveredZone === 'right' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
+                        className={`absolute right-0 inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -mr-2 transition-colors cursor-pointer ${hoveredZone === 'right' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
                     >
                         Next
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M13.707 5.29295C13.3165 4.90243 12.6835 4.90243 12.293 5.29295C11.9024 5.68348 11.9024 6.31649 12.293 6.70702L16.5859 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H16.5859L12.293 17.293C11.9024 17.6835 11.9024 18.3165 12.293 18.707C12.6835 19.0975 13.3165 19.0975 13.707 18.707L19.707 12.707C20.0975 12.3165 20.0975 11.6835 19.707 11.293L13.707 5.29295Z" fill="currentColor" />
                         </svg>
                     </button>
-                ) : <span />}
+                )}
             </div>
         </div>
     );

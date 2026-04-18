@@ -541,11 +541,12 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 text: 'C. contains 5 short stories originally written in Brazilian Portuguese by Bernardo Kucinski and translated into German by Pedro Ávila.',
                 image: '/c/a1c4c132230975.567c3fbc020af.jpg',
+                caption: 'The intro: The Tower and the Rattlesnake was written by me.',
             },
             // 2
             {
                 type: 'image',
-                text: 'An object book is a way of extracting the book\'s ordinary linearity by presenting a form that is closer to the reader and demands maximum perception, while searching for stronger interactivity.',
+                text: 'An object book breaks the ordinary linearity of reading — demanding perception and inviting interactivity.',
                 image: '/c/tower.png',
                 caption: 'The book is inside a memory box. The tower — to protect us — is on the lid of the box.',
             },
