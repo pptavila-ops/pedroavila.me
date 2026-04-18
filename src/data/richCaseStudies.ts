@@ -525,93 +525,69 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
         ],
         slides: [
-            {
-                type: 'quote',
-                quote: 'An object book is a way of extracting the books\' ordinary linearity by presenting a form that is closer to the reader and demands his maximum perception, while searching for a stronger interactivity with people. An object book brings life to literature.',
-            },
+            // 1
             {
                 type: 'image',
+                text: 'C. contains 5 short stories originally written in Brazilian Portuguese by Bernardo Kucinski and translated into German by Pedro Ávila.',
                 image: '/c/a1c4c132230975.567c3fbc020af.jpg',
-                caption: 'Table of contents — stories listed in German and Portuguese',
-                text: 'C. contains an introduction and 5 short stories about the Brazilian dictatorship, originally written in Portuguese by Bernardo Kucinski and translated into German by Pedro Ávila.',
             },
+            // 2
             {
                 type: 'image',
-                image: '/c/111cd332230975.5674becc48c4d.jpg',
-                caption: 'The book — hand-bound with hand-stitched binding',
-            },
-            {
-                type: 'image',
-                image: '/c/e694ab32230975.567c3ba2677c0.jpg',
-                caption: 'The box — containing the book, the posters, and the CD',
-                text: 'The book is hidden inside a box — under a fake bottom, sprayed in black and magenta. The spray ink gave the box the roughness of a dictatorship.',
-            },
-            {
-                type: 'image',
+                text: 'An object book is a way of extracting the book\'s ordinary linearity by presenting a form that is closer to the reader and demands maximum perception, while searching for stronger interactivity.',
+                quote: 'The book is inside a memory box. The tower — to protect us — is on the lid of the box.',
                 image: '/c/tower.png',
-                caption: 'The tower — magenta stencil on the lid of the black box',
-                quote: 'The tower — to protect us — is on the lid of the box.',
             },
-            {
-                type: 'quote',
-                quote: 'In my work, the Rattlesnake is the dictatorship — which Brazilians tend to hide and pretend never happened. The tower is the objects we must create to face our country\'s memory.',
-                text: 'The tower and snake come from a myth told in the city of Cascavel — Rattlesnake. A big snake lives underground, and a tower with Our Lady was built to protect citizens and remind them the snake is still there.',
-            },
+            // 3
             {
                 type: 'image',
-                image: '/c/snake.jpg',
-                caption: 'The snake — spray-painted in magenta on the fake bottom of the box',
-                quote: 'The fake bottom makes the reader discover the historical memory by themselves.',
+                text: 'The book is inside a fake bottom of a memory box.',
+                image: '/c/e694ab32230975.567c3ba2677c0.jpg',
+                caption: 'When the box is open, only a CD with the audiobook and two posters can be seen.',
             },
+            // 4
             {
                 type: 'image',
-                image: '/c/35e81632230975.5674becc47af6.jpg',
-                caption: 'Tracing paper over pólen — German and Portuguese layered into one reading',
-                text: 'The book was printed on tracing and pólen paper so that both texts — German and Portuguese — could be simultaneously read.',
+                text: 'The reader has to find the book (memory) hidden under a fake bottom.',
+                image: '/c/d494ed32230975.567c43de5aefb-2.jpg',
             },
+            // 5
             {
                 type: 'image',
-                image: '/c/rockwell-bilingual2.png',
-                caption: 'Portuguese and German interleaved — two languages, one reading',
-                text: 'Rockwell\'s slab serifs and tracing paper created a new bilingual reading experience. Portuguese in black — the original. German in magenta — the personal layer of translation.',
+                image: '/c/2ec09a32230975.567c3fbc0361c.jpg',
+                caption: 'Tracing paper was used to make both languages readable at the same time.',
             },
-            {
-                type: 'gallery',
-                text: 'Picture interventions positioned over actual photos from the dictatorship — to resignify the memory.',
-                images: [
-                    '/c/8d01a332230975.567c3fbc00e4b.jpg',
-                    '/c/08a95132230975.5692da24dbebc.jpg',
-                    '/c/ecc26532230975.5674becc49d9b.jpg',
-                    '/c/559fde32230975.567c3fbbf011a.jpg',
-                    '/c/61c7c532230975.567c43de5c2e4-2.jpg',
-                ],
-            },
+            // 6
             {
                 type: 'image',
-                image: '/c/0ea03632230975.5674c05283f05.png',
-                caption: 'The posters — data visualization of names from the National Commission of Truth',
-                text: 'Inside the box there are two posters containing the names of people who disappeared or were murdered during the dictatorship. Stars show if the person was killed (filled) or disappeared (outline).',
+                image: '/c/8d01a332230975.567c3fbc00e4b.jpg',
             },
+            // 7
             {
-                type: 'quote',
-                quote: 'Just like a photo restorer, I think some past memories are too dark to look at. So I thought: if I put an extremely contrasting color over this memory, maybe people would look at it and learn from it.',
-                image: '/c/magenta.png',
+                type: 'image',
+                text: 'Magenta interventions in historical pictures were an attempt to keep this memory relevant and visible.',
+                image: '/c/08a95132230975.5692da24dbebc.jpg',
+                caption: 'Cavalry invading the mass for student Edson Luís at Candelária Church (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
+            // 8
             {
-                type: 'quote',
-                quote: 'die Erinnerungskultur — the culture of memory',
-                text: 'This work is fundamentally inspired by the German concept of Erinnerungskultur. The German language is the element that made possible the transition from ideas to actual products. The process of translating the words was also the process of translating the thoughts.',
+                type: 'image',
+                image: '/c/61c7c532230975.567c43de5c2e4-2.jpg',
+                caption: 'Police repression at Candelária (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
+            // 9
             {
-                type: 'gallery',
-                text: 'Making.',
-                images: [
-                    '/c/WP_20151115_16_15_53_Pro---copia.jpg',
-                    '/c/c4d9b532230975.567c4bbd7bad7.jpg',
-                    '/c/1fb47132230975.567c3fbbeee78.jpg',
-                    '/c/d9855332230975.567c3339072a3.jpg',
-                ],
+                type: 'image',
+                image: '/c/947e4632230975.567c44868d249.jpg',
+                caption: 'Original: Students and military forces clash by Evandro Teixeira (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
+            // 10
+            {
+                type: 'image',
+                image: '/c/ad9d7332230975.567c43de5d7fa-2.jpg',
+                caption: 'Original: Bayonets and Dragonflies by Evandro Teixeira (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
+            },
+            // Credits
             {
                 type: 'text',
                 title: 'Credits',
