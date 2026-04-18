@@ -553,7 +553,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 3
             {
                 type: 'image',
-                text: 'The book is inside a fake bottom of a memory box.',
+                text: 'The book is under a fake bottom of a memory box.',
                 image: '/c/e694ab32230975.567c3ba2677c0.jpg',
                 caption: 'When the box is open, only a CD with the audiobook and two posters can be seen.',
             },
@@ -562,8 +562,23 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 text: 'The reader has to find the book (memory) hidden under a fake bottom.',
                 image: '/c/d494ed32230975.567c43de5aefb-2.jpg',
+                caption: 'When I handed this to 5 people, 1 could not find the book inside the box.',
             },
             // 5
+            {
+                type: 'image',
+                text: 'In my work, the Rattlesnake, found on the real bottom of the box, is the dictatorship, which Brazilians tend to hide and pretend it never happened.',
+                image: '/c/snake.jpg',
+                caption: 'The snake as the dictatorship.',
+            },
+            // 6
+            {
+                type: 'quote',
+                title: 'The tower and the snake metaphor',
+                quote: 'The tower and the snake come from a myth told in the city Cascavel, which means Rattlesnake. It is said that there\'s a big snake that lives in the underground of the city. That\'s why they built a tower with the image of Our Lady. To protect their citizens and remember them the snake is still there and may reappear.',
+                duration: 18000,
+            },
+            // 7
             {
                 type: 'image',
                 image: '/c/2ec09a32230975.567c3fbc0361c.jpg',
@@ -578,7 +593,18 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 7
             {
                 type: 'image',
-                text: 'Magenta interventions in historical pictures were an attempt to keep this memory relevant and visible.',
+                text: 'Rockwell\'s slab serifs make text lines read as solid blocks — allowing German and Portuguese sentences to stack and be read simultaneously, while remaining comfortable to look at.',
+                image: '/c/rockwell-r.png',
+            },
+            // 8
+            {
+                type: 'image',
+                image: '/c/rockwell-bilingual2.png',
+            },
+            // 8
+            {
+                type: 'image',
+                text: 'Magenta interventions in historical pictures were created as an attempt to keep this memory relevant and visible.',
                 image: '/c/08a95132230975.5692da24dbebc.jpg',
                 caption: 'Original: Cavalry invading the mass for student Edson Luís at Candelária Church (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
@@ -599,6 +625,27 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 image: '/c/ad9d7332230975.567c43de5d7fa-2.jpg',
                 caption: 'Original: Bayonets and Dragonflies by Evandro Teixeira (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
+            },
+            // 11
+            {
+                type: 'image',
+                text: 'The two posters inside the box contain the names of some of the people who disappeared or were murdered during the dictatorship — according to the National Commission of Truth.',
+                image: '/c/559fde32230975.567c3fbbf011a.jpg',
+                caption: 'I tried to replicate the Brazilian flag.',
+            },
+            // 12
+            {
+                type: 'gallery',
+                columns: 1,
+                images: ['/c/0cfd0732230975.56749b4b88c28.png', '/c/58acc432230975.56749b4b869d0.png'],
+            },
+            // 13
+            {
+                type: 'image',
+                layout: 'split',
+                title: 'Why magenta?',
+                text: 'Some memories are too dark to look at — maybe that\'s why Brazilians tend to forget their past. What if an extremely contrasting color made people stop and look?',
+                image: '/c/magenta.png',
             },
             // Credits
             {

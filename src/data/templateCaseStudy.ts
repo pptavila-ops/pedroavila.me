@@ -22,6 +22,12 @@ export type StoriesSlide = {
     text?: string;
     quote?: string;
     download?: { label: string; href: string };
+    /** Number of columns for gallery slides (default: 2) */
+    columns?: number;
+    /** Override auto-advance duration in ms for this slide */
+    duration?: number;
+    /** 'split' = text left / image right on desktop, stacked on mobile */
+    layout?: 'split';
 };
 
 export interface RichCaseStudy {

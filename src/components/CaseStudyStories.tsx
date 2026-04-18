@@ -10,15 +10,7 @@ interface Props {
 }
 
 export function CaseStudyStories({ study, onBack }: Props) {
-    const slides = study.slides!.flatMap((slide) =>
-        slide.type === 'gallery' && slide.images
-            ? slide.images.map((img, i) => ({
-                type: 'image' as const,
-                image: img,
-                text: i === 0 ? slide.text : undefined,
-              }))
-            : [slide]
-    );
+    const slides = study.slides!;
     const [current, setCurrent] = useState(0);
     const [progress, setProgress] = useState(0);
     const [paused, setPaused] = useState(false);
@@ -28,6 +20,11 @@ export function CaseStudyStories({ study, onBack }: Props) {
     const elapsedRef = useRef(0);
     const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const isHoldingRef = useRef(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        containerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }, []);
 
     const goTo = useCallback((index: number) => {
         if (index < 0) { onBack(); return; }
@@ -35,14 +32,13 @@ export function CaseStudyStories({ study, onBack }: Props) {
         setCurrent(index);
         setProgress(0);
         elapsedRef.current = 0;
-        startRef.current = Date.now();
-        setPaused(false);
-    }, [slides.length, onBack]);
+        if (!paused) startRef.current = Date.now();
+    }, [slides.length, onBack, paused]);
 
     useEffect(() => {
         if (paused) return;
         const id = setInterval(() => {
-            const duration = current === 0 ? COVER_DURATION : SLIDE_DURATION;
+            const duration = slides[current]?.duration ?? (current === 0 ? COVER_DURATION : SLIDE_DURATION);
             const total = elapsedRef.current + (Date.now() - startRef.current);
             const p = Math.min(total / duration, 1);
             setProgress(p);
@@ -91,7 +87,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
     }, []);
 
     return (
-        <div className="select-none">
+        <div ref={containerRef} className="select-none">
             {/* Back + title + pause */}
             <div className="flex items-center gap-3 mb-4">
                 <button
@@ -181,7 +177,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
             </div>
 
             {/* Prev / counter / Next */}
-            <div className="mt-2 relative flex items-center justify-center">
+            <div className="mt-5 relative flex items-center justify-center">
                 {current > 0 && (
                     <button
                         onClick={() => goTo(current - 1)}
@@ -218,10 +214,45 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
             return <CoverSlide slide={slide} />;
 
         case 'image':
+            if (slide.layout === 'split') {
+                return (
+                    <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl overflow-hidden flex flex-col md:flex-row">
+                        {/* Text column */}
+                        <div className="flex flex-col justify-center px-5 pt-5 pb-3 md:px-7 md:py-8 md:w-1/2 md:flex-shrink-0 space-y-3 md:space-y-4">
+                            {slide.title && (
+                                <h2 className="text-[22px] md:text-[26px] font-bold text-white leading-[1.2]">{slide.title}</h2>
+                            )}
+                            {slide.text && (
+                                <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{slide.text}</p>
+                            )}
+                            {slide.quote && (
+                                <p className="text-[18px] md:text-[20px] font-semibold text-white/90 leading-[1.4]">{slide.quote}</p>
+                            )}
+                        </div>
+                        {/* Image column */}
+                        <figure className="flex-1 min-h-0 flex flex-col items-center justify-center px-5 pb-5 md:px-7 md:py-7">
+                            <img
+                                src={slide.image}
+                                alt={slide.caption || ''}
+                                className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
+                                draggable={false}
+                            />
+                            {slide.caption && (
+                                <figcaption className="pt-3 text-[14px] text-white/70 text-center flex-shrink-0 w-full">
+                                    {slide.caption}
+                                </figcaption>
+                            )}
+                        </figure>
+                    </div>
+                );
+            }
             return (
                 <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl overflow-hidden flex flex-col">
-                    {(slide.text || slide.quote) && (
+                    {(slide.title || slide.text || slide.quote) && (
                         <div className="px-5 pt-5 pb-3 md:px-7 md:pt-7 md:pb-4 space-y-3 md:space-y-4 flex-shrink-0">
+                            {slide.title && (
+                                <h2 className="text-[22px] md:text-[26px] font-bold text-white leading-[1.2]">{slide.title}</h2>
+                            )}
                             {slide.text && (
                                 <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{slide.text}</p>
                             )}
@@ -232,7 +263,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             )}
                         </div>
                     )}
-                    <figure className={`flex-1 min-h-0 flex flex-col items-center px-5 md:px-7 ${(slide.text || slide.quote) ? 'justify-start' : 'justify-center'}`}>
+                    <figure className={`flex-1 min-h-0 flex flex-col items-center px-5 md:px-7 ${(slide.title || slide.text || slide.quote) ? 'justify-start' : 'justify-center'}`}>
                         <img
                             src={slide.image}
                             alt={slide.caption || ''}
@@ -254,6 +285,9 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                     {slide.image && (
                         <img src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" draggable={false} />
                     )}
+                    {slide.title && (
+                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{slide.title}</p>
+                    )}
                     <blockquote className="text-[20px] md:text-[24px] font-semibold text-white/90 leading-[1.45]">
                         {slide.quote}
                     </blockquote>
@@ -269,14 +303,14 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                     {slide.text && (
                         <p className="text-[16px] text-white/70 leading-relaxed mb-4 md:mb-5 flex-shrink-0">{slide.text}</p>
                     )}
-                    <div role="list" className="grid grid-cols-2 gap-2 flex-1 min-h-0">
+                    <div role="list" className={`flex-1 min-h-0 ${(slide.columns ?? 2) === 1 ? 'flex flex-col gap-2 justify-center' : 'grid grid-cols-2 gap-2'}`}>
                         {slide.images?.map((src, i) => (
                             <img
                                 key={i}
                                 role="listitem"
                                 src={src}
                                 alt={`Image ${i + 1}`}
-                                className="w-full h-full rounded-2xl object-cover"
+                                className={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'object-contain' : 'h-full object-cover'}`}
                                 draggable={false}
                             />
                         ))}
