@@ -211,17 +211,15 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             )}
                         </div>
                     )}
-                    <figure className="flex-1 min-h-0 flex flex-col px-5 md:px-7">
-                        <div className={`flex-1 min-h-0 flex justify-center ${(slide.text || slide.quote) ? 'items-start' : 'items-center'}`}>
-                            <img
-                                src={slide.image}
-                                alt={slide.caption || ''}
-                                className="max-w-full max-h-full object-contain rounded-2xl"
-                                draggable={false}
-                            />
-                        </div>
+                    <figure className={`flex-1 min-h-0 flex flex-col items-center px-5 md:px-7 ${(slide.text || slide.quote) ? 'justify-start' : 'justify-center'}`}>
+                        <img
+                            src={slide.image}
+                            alt={slide.caption || ''}
+                            className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
+                            draggable={false}
+                        />
                         {slide.caption && (
-                            <figcaption className="pt-2 pb-3 md:pt-3 md:pb-4 text-sm text-white/70 text-center flex-shrink-0">
+                            <figcaption className="pt-4 pb-3 md:pt-5 md:pb-4 text-sm text-white/70 text-center flex-shrink-0 w-full">
                                 {slide.caption}
                             </figcaption>
                         )}

@@ -577,7 +577,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 text: 'Magenta interventions in historical pictures were an attempt to keep this memory relevant and visible.',
                 image: '/c/08a95132230975.5692da24dbebc.jpg',
-                caption: 'Cavalry invading the mass for student Edson Luís at Candelária Church (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
+                caption: 'Original: Cavalry invading the mass for student Edson Luís at Candelária Church (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
             // 8
             {
