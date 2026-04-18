@@ -205,14 +205,14 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                                 <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{slide.text}</p>
                             )}
                             {slide.quote && (
-                                <p className="text-[18px] md:text-[20px] font-semibold text-white/90 leading-[1.4] pl-4 border-l-2 border-white/25">
+                                <p className="text-[18px] md:text-[20px] font-semibold text-white/90 leading-[1.4]">
                                     {slide.quote}
                                 </p>
                             )}
                         </div>
                     )}
                     <figure className="flex-1 min-h-0 flex flex-col px-5 md:px-7">
-                        <div className="flex-1 min-h-0 flex items-center justify-center">
+                        <div className="flex-1 min-h-0 flex items-start justify-center">
                             <img
                                 src={slide.image}
                                 alt={slide.caption || ''}
@@ -319,7 +319,7 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
                     draggable={false}
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{
-                        filter: 'blur(8px) brightness(0.32)',
+                        filter: 'blur(3px) brightness(0.45)',
                         transform: 'scale(1.1)',
                         opacity: i === idx ? 1 : 0,
                         transition: 'opacity 1.5s ease-in-out',
@@ -329,7 +329,7 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
             ))}
             {/* Blockquote — vertically centered, left-aligned */}
             <div className="absolute inset-0 flex flex-col justify-center px-7 md:px-9 pointer-events-none">
-                <blockquote className="text-[20px] md:text-[23px] font-semibold text-white leading-[1.55] pl-5 border-l-2 border-white/50">
+                <blockquote className="text-[20px] md:text-[23px] font-semibold text-white leading-[1.55]">
                     {slide.quote}
                 </blockquote>
             </div>
