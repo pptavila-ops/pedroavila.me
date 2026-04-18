@@ -583,7 +583,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 image: '/c/61c7c532230975.567c43de5c2e4-2.jpg',
-                caption: 'Police repression at Candelária (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
+                caption: 'Original: Police repression at Candelária (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
             // 9
             {
