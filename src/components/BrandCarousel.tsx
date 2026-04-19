@@ -1,5 +1,3 @@
-import { useEffect, useRef } from 'react';
-
 const logos = [
     { src: '/brands/hellofresh.png', alt: 'HelloFresh', height: 28 },
     { src: '/brands/henkel.png', alt: 'Henkel', height: 44 },
@@ -16,54 +14,29 @@ const logos = [
 ];
 
 export function BrandCarousel() {
-    const trackRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const track = trackRef.current;
-        if (!track) return;
-
-        let start: number | null = null;
-        let rafId: number;
-        const speed = 0.05;
-        let offset = 0;
-
-        const getHalfWidth = () => track.scrollWidth / 2;
-
-        const step = (ts: number) => {
-            if (start === null) start = ts;
-            const elapsed = ts - start;
-            start = ts;
-            offset += speed * elapsed;
-            if (offset >= getHalfWidth()) offset = 0;
-            track.style.transform = `translateX(-${offset}px)`;
-            rafId = requestAnimationFrame(step);
-        };
-
-        rafId = requestAnimationFrame(step);
-        return () => cancelAnimationFrame(rafId);
-    }, []);
-
     return (
         <div className="border-t border-white/10 mt-16 pt-10">
             <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-8">
                 Some companies I've already worked for
             </p>
 
-            {/*
-                Outer div: overflow hidden, width auto (= 100% of parent block).
-                Track is position:absolute so it NEVER contributes to layout width.
-                Gradient divs are also absolute — purely visual, zero layout impact.
-            */}
-            <div style={{ overflow: 'hidden', position: 'relative', height: '60px', contain: 'layout' }}>
+            <style>{`
+                @keyframes brand-scroll {
+                    from { transform: translateX(0); }
+                    to   { transform: translateX(-50%); }
+                }
+                .brand-track {
+                    animation: brand-scroll 28s linear infinite;
+                }
+            `}</style>
+
+            <div style={{ overflow: 'hidden', position: 'relative', height: '60px' }}>
                 <div
-                    ref={trackRef}
+                    className="brand-track"
                     style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '56px',
+                        width: 'max-content',
                         willChange: 'transform',
                     }}
                 >
@@ -79,6 +52,7 @@ export function BrandCarousel() {
                                 flexShrink: 0,
                                 filter: 'brightness(0) invert(1)',
                                 opacity: 0.35,
+                                marginRight: '56px',
                             }}
                         />
                     ))}

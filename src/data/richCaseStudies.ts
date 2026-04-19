@@ -576,7 +576,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'quote',
                 title: 'The tower and the snake metaphor',
-                quote: 'The tower and the snake come from a myth told in the city Cascavel, which means Rattlesnake. It is said that there\'s a big snake that lives in the underground of the city. That\'s why they built a tower with the image of Our Lady. To protect their citizens and remember them the snake is still there and may reappear.',
+                quote: 'The tower and the snake come from a myth told in the city Cascavel, which means Rattlesnake. It is said that there\'s a big snake that lives in the underground of the city. That\'s why they built a tower with the image of Our Lady. To protect their citizens and remind them the snake is still there and may reappear.',
                 duration: 18000,
             },
             // 7
