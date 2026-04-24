@@ -15,11 +15,9 @@ function App() {
     const [copied, setCopied] = useState(false);
     const [activeStudy, setActiveStudy] = useState<string | null>(null);
     const [shineKey, setShineKey] = useState(0);
-    const [hoveredCard, setHoveredCard] = useState<string | null>(null);
     const musicRef = useRef<HTMLAudioElement>(null);
 
     const openStudy = useCallback((id: string) => {
-        setHoveredCard(null);
         setActiveStudy(id);
         setShineKey((k) => k + 1);
         window.history.pushState({ study: id }, '', `/work/${id}`);
@@ -133,8 +131,8 @@ function App() {
 
             {/* Right Panel — Content */}
             <div className="w-full md:ml-[32%] lg:ml-[28%] min-h-screen px-7 py-10 md:py-14 md:px-10 lg:px-14">
-                {/* Mobile header — hidden on md+ where left panel is visible */}
-                <div className="md:hidden mb-10 pb-8 border-b border-white/10">
+                {/* Mobile header — hidden on md+ where left panel is visible, and hidden when a case study is open */}
+                <div className={`md:hidden mb-10 pb-8 border-b border-white/10 ${activeStudy ? 'hidden' : ''}`}>
                     <p className="text-[15px] font-semibold text-white">Pedro Ávila</p>
                     <p className="text-[14px] text-white/60 mt-1 leading-relaxed">Senior Product Designer · Berlin</p>
                     <div className="flex gap-3 mt-5">
@@ -242,8 +240,6 @@ function App() {
 
                         <CardGrid
                             caseStudies={caseStudies}
-                            hoveredCard={hoveredCard}
-                            setHoveredCard={setHoveredCard}
                             openStudy={openStudy}
                             layout="list"
                         />

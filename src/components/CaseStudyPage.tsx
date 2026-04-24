@@ -237,6 +237,38 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                             </div>
                         );
 
+                    case 'chart':
+                        return (
+                            <div key={i} className="mt-10">
+                                {section.title && (
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-6">{section.title}</p>
+                                )}
+                                <div className="flex flex-col gap-5">
+                                    {section.bars.map((bar, j) => (
+                                        <div key={j} className="flex flex-col gap-2">
+                                            <div className="flex items-baseline justify-between gap-4">
+                                                <div className="flex items-baseline gap-2.5">
+                                                    <span className="text-[26px] md:text-[30px] font-bold text-white leading-none tracking-tight">{bar.label}</span>
+                                                    <span className="text-[13px] font-semibold text-white/50">{bar.sublabel}</span>
+                                                </div>
+                                                <span className="text-[13px] text-white/35 text-right hidden md:block">{bar.description}</span>
+                                            </div>
+                                            <div className="h-[6px] w-full bg-white/8 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full rounded-full"
+                                                    style={{ width: `${bar.pct}%`, background: bar.color }}
+                                                />
+                                            </div>
+                                            <span className="text-[13px] text-white/35 md:hidden">{bar.description}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                {section.caption && (
+                                    <p className="mt-5 text-[13px] text-white/30 text-center">{section.caption}</p>
+                                )}
+                            </div>
+                        );
+
                     default:
                         return null;
                 }

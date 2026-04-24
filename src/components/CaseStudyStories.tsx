@@ -13,7 +13,8 @@ export function CaseStudyStories({ study, onBack }: Props) {
     const slides = study.slides!;
     const [current, setCurrent] = useState(0);
     const [progress, setProgress] = useState(0);
-    const [paused, setPaused] = useState(false);
+    // Work case studies default to paused (no auto-advance). Personal studies autoplay.
+    const [paused, setPaused] = useState(!study.personal);
     const [hoveredZone, setHoveredZone] = useState<'left' | 'right' | null>(null);
 
     const startRef = useRef(Date.now());
@@ -218,6 +219,16 @@ export function CaseStudyStories({ study, onBack }: Props) {
     );
 }
 
+function StatCard({ value, label, description }: { value: string; label: string; description: string }) {
+    return (
+        <div className="rounded-xl border border-white/10 p-3 md:p-5 flex flex-col gap-1.5">
+            <p className="text-[28px] md:text-[40px] font-bold leading-none text-white tracking-tight">{value}</p>
+            <p className="text-[13px] md:text-[14px] font-semibold text-white/70">{label}</p>
+            <p className="text-[15px] text-white/50 leading-relaxed hidden md:block">{description}</p>
+        </div>
+    );
+}
+
 function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: number; total: number }) {
     switch (slide.type) {
         case 'cover':
@@ -300,7 +311,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                     {slide.title && (
                         <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{slide.title}</p>
                     )}
-                    <blockquote className="text-[20px] md:text-[24px] font-semibold text-white/90 leading-[1.45]">
+                    <blockquote className={`${slide.large ? 'text-[30px] md:text-[40px] leading-[1.3]' : 'text-[20px] md:text-[24px] leading-[1.45]'} font-semibold text-white/90`}>
                         {slide.quote}
                     </blockquote>
                     {slide.text && (
@@ -315,14 +326,14 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                     {slide.text && (
                         <p className="text-[16px] text-white/70 leading-relaxed mb-4 md:mb-5 flex-shrink-0">{slide.text}</p>
                     )}
-                    <div role="list" className={`flex-1 min-h-0 ${(slide.columns ?? 2) === 1 ? 'flex flex-col gap-2 justify-center' : 'grid grid-cols-2 gap-2'}`}>
+                    <div role="list" className={`flex-1 min-h-0 ${(slide.columns ?? 2) === 1 ? 'flex flex-col gap-2' : 'grid grid-cols-2 gap-2'}`}>
                         {slide.images?.map((src, i) => (
                             <img
                                 key={i}
                                 role="listitem"
                                 src={src}
                                 alt={`Image ${i + 1}`}
-                                className={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'object-contain' : 'h-full object-cover'}`}
+                                className={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'flex-1 min-h-0 object-cover' : 'h-full object-cover'}`}
                                 style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
                             />
@@ -356,6 +367,70 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             </a>
                         </div>
                     )}
+                </div>
+            );
+
+        case 'stats':
+            return (
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-7 md:py-8 flex flex-col overflow-hidden">
+                    {slide.title && (
+                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium mb-4 flex-shrink-0">{slide.title}</p>
+                    )}
+                    <div className="flex-1 min-h-0 grid grid-cols-2 gap-3 content-start">
+                        {slide.items?.map((item, i) => (
+                            <StatCard key={i} value={item.value} label={item.label} description={item.description} />
+                        ))}
+                    </div>
+                </div>
+            );
+
+        case 'steps':
+            return (
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-7 md:py-8 flex flex-col overflow-hidden">
+                    {slide.title && (
+                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium mb-4 flex-shrink-0">{slide.title}</p>
+                    )}
+                    <div className="flex-1 min-h-0 flex flex-col gap-0 overflow-hidden">
+                        {slide.steps?.map((step, j) => (
+                            <div key={j} className="flex gap-5">
+                                <div className="flex flex-col items-center flex-shrink-0">
+                                    <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-semibold text-white/50 flex-shrink-0">
+                                        {j + 1}
+                                    </div>
+                                    {j < (slide.steps?.length ?? 0) - 1 && (
+                                        <div className="w-px flex-1 bg-white/10 my-1" />
+                                    )}
+                                </div>
+                                <div className="pb-5">
+                                    <p className="text-[15px] font-semibold text-white/80 leading-none mt-1.5">{step.title}</p>
+                                    <p className="text-[14px] font-normal text-white/50 leading-relaxed mt-2">{step.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+
+        case 'intro':
+            return (
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-8 md:py-9 flex flex-col overflow-hidden">
+                    {slide.title && (
+                        <h2 className="text-[20px] md:text-[28px] font-bold text-white leading-[1.15] mb-5 md:mb-8 flex-shrink-0 pr-8">{slide.title}</h2>
+                    )}
+                    <div className="flex-1 min-h-0 flex flex-col gap-5 md:gap-8 overflow-y-auto">
+                        {slide.blocks?.map((block, i) => (
+                            <div key={i} className="flex flex-col md:flex-row md:gap-10 gap-2">
+                                <div className="md:w-[34%] flex-shrink-0">
+                                    <p className="text-[18px] md:text-[22px] font-medium text-white/85 leading-none">+ {block.label}</p>
+                                </div>
+                                <div className="md:flex-1 space-y-2.5 md:space-y-3">
+                                    {block.paragraphs.map((p, j) => (
+                                        <p key={j} className="text-[14px] md:text-[16px] text-white/65 leading-relaxed">{p}</p>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             );
 

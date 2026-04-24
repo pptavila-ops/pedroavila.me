@@ -30,10 +30,13 @@ export function BrandCarousel() {
                 }
             `}</style>
 
-            <div style={{ overflow: 'hidden', position: 'relative', height: '60px' }}>
+            <div style={{ overflow: 'hidden', position: 'relative', height: '60px', contain: 'layout' }}>
                 <div
                     className="brand-track"
                     style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
                         display: 'flex',
                         alignItems: 'center',
                         width: 'max-content',

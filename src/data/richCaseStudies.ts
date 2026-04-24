@@ -2,7 +2,564 @@ import type { RichCaseStudy } from './templateCaseStudy';
 
 export const richCaseStudies: RichCaseStudy[] = [
     {
+        id: 'design-transformation',
+        title: 'AI Enablement at Scale',
+        year: 'Jan – Apr 2026',
+        company: 'HelloFresh',
+        role: 'Sr. Product Designer · Consumer Acceleration',
+        cover: '/card-hover.png',
+        intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering — using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
+        tags: ['AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
+        sections: [
+            {
+                type: 'impact',
+                items: [
+                    { value: '8', label: 'UX commands shipped', description: 'A full specx-ux suite covering prototype creation, iteration, testing, publishing, and design-to-code.' },
+                    { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly — setting a precedent that spread company-wide.' },
+                    { value: '5', label: 'HF brands supported', description: 'Commands and workflows built to work across HelloFresh, GoodChop, The Pets Table, Factor, and more.' },
+                    { value: '4 months', label: 'Jan – Apr 2026', description: 'From individual exploration to a team-wide movement, a new toolchain, and a new standard.' },
+                ],
+            },
+            {
+                type: 'divider',
+                label: 'The Problem',
+            },
+            {
+                type: 'callout',
+                content: 'HelloFresh had a distributed UX team spanning five brands — each with its own codebase, its own engineering team, and its own gap between what was designed and what actually shipped.',
+            },
+            {
+                type: 'text',
+                content: 'The translation layer between design and engineering was slow and lossy. Designers filed tickets. Engineers interpreted specs. Things changed. By the time a feature shipped, it had passed through so many hands that the original intent was often diluted. There was no direct path from a design decision to production code — and no shared infrastructure to make that path shorter.',
+            },
+            {
+                type: 'text',
+                content: 'Consumer Acceleration was tasked with closing this gap. The bet was AI — specifically Claude Code as the interface between UX intention and production reality. My role was to explore what that could actually look like in practice, and then make it real for the whole team.',
+            },
+            {
+                type: 'divider',
+                label: 'UX Quality with Claude Code',
+            },
+            {
+                type: 'text',
+                content: 'The first thing I built was a public-facing guide — published at ux-quality-with-claudecode.preview.hellofresh.io — teaching designers how to fix UX defects and implement improvements directly in the codebase without waiting on engineering.',
+            },
+            {
+                type: 'image',
+                src: '/card-hover.png',
+                caption: 'UX Quality with Claude Code — the public guide for designers working directly in production.',
+            },
+            {
+                type: 'text',
+                content: 'The workflow had two modes: prevention and recovery. Prevention meant checking design readiness against Zest, the HelloFresh design system, before a spec went to dev. Recovery meant using Claude to make targeted code changes in an existing feature, then requesting a developer review. Both modes were documented, walkthrough-ready, and safe — the guardrails were designed for designers, not engineers.',
+            },
+            {
+                type: 'callout',
+                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that spread across the wider team.',
+            },
+            {
+                type: 'divider',
+                label: 'Spec-Machine · specx-ux',
+            },
+            {
+                type: 'text',
+                content: 'Spec-Machine was HelloFresh\'s internal AI toolchain — a hub where teams published commands that others could use. I contributed to building and shipping the specx-ux plugin: a growing suite of UX-specific commands that covered the full design workflow.',
+            },
+            {
+                type: 'process',
+                steps: [
+                    {
+                        title: '/create-prototype',
+                        description: 'Generate production-quality HTML prototypes from text, Figma exports, screenshots, or existing HTML — in minutes, across all five HF brands.',
+                    },
+                    {
+                        title: '/iterate-prototype',
+                        description: 'Spin up a live local server with a side-panel feedback interface. Describe a change in plain language; Claude applies it in real time.',
+                    },
+                    {
+                        title: '/test-prototype',
+                        description: 'Run a prototype through emulated user personas to surface usability issues before a single test session is scheduled.',
+                    },
+                    {
+                        title: '/design-change-web and /design-change-rn',
+                        description: 'Implement UI changes directly in React (web) and React Native using Prototype Metadata — the bridge between design intent and production code.',
+                    },
+                    {
+                        title: '/update-prototype and /push-prototype',
+                        description: 'Update and publish prototypes to the Prototypes Playground on Vercel, shared across squads and brands.',
+                    },
+                    {
+                        title: '/ux-preflight',
+                        description: 'Automated environment check and guided setup — so every designer could get running with Claude Code without needing an engineer to help.',
+                    },
+                ],
+            },
+            {
+                type: 'divider',
+                label: 'Prototypes Playground',
+            },
+            {
+                type: 'text',
+                content: 'One of the recurring problems with AI-generated prototypes was that they lived on individual machines — shared in Slack, opened once, then lost. The Prototypes Playground was the answer: a shared GitHub repository connected to a Vercel deployment where designers published and referenced prototypes across squads.',
+            },
+            {
+                type: 'image',
+                src: '/card-hover.png',
+                caption: 'Prototypes Playground — a shared Vercel environment for AI-generated prototypes across all HF brands.',
+            },
+            {
+                type: 'text',
+                content: 'Any designer could push a prototype to the Playground using /push-prototype and immediately share a stable URL. Squads used these URLs in Confluence, Jira tickets, and usability test sessions. It made AI prototyping feel like a real part of the workflow — not a side experiment.',
+            },
+            {
+                type: 'divider',
+                label: 'Community & Culture',
+            },
+            {
+                type: 'text',
+                content: 'Tools and documentation only go so far. The more durable change came from building a culture around them. I transformed our existing bi-weekly UX Gen meeting into UX AI Office Hours — an open forum where designers, researchers, and writers could bring real questions, share experiments in progress, and learn from each other in real time.',
+            },
+            {
+                type: 'text',
+                content: 'Sessions included a full walkthrough of the Prototype-to-Code workflow, live demos of specx-ux commands, and external speakers — including a Senior Product Designer from Shopify sharing their own AI practice. I also introduced the "UX-Gen" JIRA label to track all AI-assisted design work across the company, which created the first real visibility into what was actually being built with these tools.',
+            },
+            {
+                type: 'text',
+                content: 'Alongside this, I pioneered using Claude for Object-Oriented UX documentation — generating per-object markdown files, relationship maps, and interactive HTML diagrams directly from the codebase. The goal was to reduce the amount of documentation that lived only in someone\'s head, and share the method with the team so it could scale.',
+            },
+            {
+                type: 'divider',
+                label: 'Ripple Effects',
+            },
+            {
+                type: 'text',
+                content: 'The impact reached well beyond the UX team. What started as designer-focused tooling spread across disciplines as each team found its own way in.',
+            },
+            {
+                type: 'chart',
+                title: 'Adoption across disciplines',
+                bars: [
+                    {
+                        label: 'Product Designers',
+                        sublabel: 'design → code',
+                        description: 'Merging production code, Zest components, React Native variants, accessibility fixes',
+                        pct: 100,
+                        color: 'hsl(180, 65%, 58%)',
+                    },
+                    {
+                        label: 'UX Writers',
+                        sublabel: '11 AI commands',
+                        description: 'Content review, auditing, and creation integrated directly into Spec-Machine',
+                        pct: 82,
+                        color: 'hsl(270, 65%, 65%)',
+                    },
+                    {
+                        label: 'Motion Designers',
+                        sublabel: 'code-native tokens',
+                        description: 'Creating and implementing motion tokens in code — replacing ProtoPie and After Effects',
+                        pct: 65,
+                        color: 'hsl(320, 65%, 62%)',
+                    },
+                    {
+                        label: 'Engineers',
+                        sublabel: 'AI-powered QA',
+                        description: 'Co-built accessibility scanners and illustration audits powered by Claude',
+                        pct: 48,
+                        color: 'hsl(30, 65%, 60%)',
+                    },
+                ],
+                caption: 'Relative adoption depth — based on volume and variety of AI workflow use per discipline.',
+            },
+            {
+                type: 'divider',
+                label: 'Into Design Systems · Berlin',
+            },
+            {
+                type: 'text',
+                content: 'In February 2026, I presented at the Into Design Systems meetup hosted at HelloFresh\'s Berlin office — sharing our AI-enabled design system work publicly for the first time. The audience included designers from Deutsche Bank and Inverse Digital. HelloFresh also sponsored the Into Design Systems Conference 2026 on March 19–20, focused on AI workflows, Claude Code, Figma MCP, and real-world design systems practice.',
+            },
+            {
+                type: 'image',
+                src: '/card-hover.png',
+                caption: 'Into Design Systems meetup · Parterre, Ritterstraße · Berlin · February 2026.',
+            },
+            {
+                type: 'divider',
+                label: 'Outcome',
+            },
+            {
+                type: 'callout',
+                content: 'What started as individual exploration became a team-wide movement — and a new standard for how designers at HelloFresh ship. The infrastructure, the toolchain, the culture, and the precedent are all still running.',
+            },
+            {
+                type: 'text',
+                content: 'The most lasting signal: designers across the company began merging production code as a normal part of their job — not as an exception. Not because they were told to, but because the tools made it possible and the community made it feel safe. That shift, from design being a handoff layer to design being a direct contributor to what ships, is the thing I\'m most proud of.',
+            },
+        ],
+    },
+    {
+        id: 'pets-table',
+        title: 'Designing The Pets Table from the ground up',
+        year: '2023 – 2025',
+        company: 'The Pets Table',
+        role: 'Product Designer → Sr. Product Designer',
+        cover: '/card-hover.png',
+        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the funnel, post-checkout, and member experience. Tight deadlines and shared infrastructure meant every decision was a negotiation between innovation, speed, and system reuse.',
+        tags: ['Product Design', 'UX Research', 'Design Systems', 'Subscription'],
+        sections: [
+            {
+                type: 'text',
+                content: 'This case study is best viewed as stories.',
+            },
+        ],
+        slides: [
+            // 0 — Cover
+            {
+                type: 'cover',
+                images: ['/card-hover.png', '/card-hover.png', '/card-hover.png'],
+                quote: 'A new subscription brand, built one negotiation at a time.',
+                tags: ['Product Design', 'UX Research', 'Design Systems', 'Subscription'],
+            },
+            // 1 — Intro (structured problem + contribution)
+            {
+                type: 'intro',
+                title: 'A new subscription brand inside HelloFresh',
+                blocks: [
+                    {
+                        label: 'The space',
+                        paragraphs: [
+                            'The Pets Table launched in 2023 as HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem.',
+                            'Tight deadlines, limited engineering, shared infrastructure. A product that still had to feel like its own.',
+                        ],
+                    },
+                    {
+                        label: 'My contribution',
+                        paragraphs: [
+                            'Three years as the sole product designer. Owned the full funnel, checkout, post-conversion, and member experience.',
+                            'Shipped measurable CVR wins, built the Figma foundation, ran DIY research, and pioneered design-to-code workflows that later spread across HelloFresh brands.',
+                        ],
+                    },
+                ],
+            },
+            // 3 — 2023 Launch foundations (steps)
+            {
+                type: 'steps',
+                title: '2023 · Launch foundations',
+                steps: [
+                    {
+                        title: 'Funnel & Onboarding',
+                        description: 'Designed the core acquisition funnel — quiz, plan selection, checkout — from MVP through post-launch iterations.',
+                    },
+                    {
+                        title: 'Custom Zest-compliant nav',
+                        description: 'Replaced TPT\'s dependency on HelloFresh\'s generic header with a brand-owned, Zest-compliant navigation.',
+                    },
+                    {
+                        title: 'Multi-Pet OOUX',
+                        description: 'Led the OOUX process — mapping objects, relationships, and flows for multi-pet support.',
+                    },
+                    {
+                        title: 'Figma MasterFlow & library',
+                        description: 'Established canonical references. TPT became one of the most Zest-compliant brands at HF.',
+                    },
+                ],
+            },
+            // 4 — Custom navigation (image + text)
+            {
+                type: 'image',
+                title: 'A brand-owned navigation',
+                text: 'Built in lockstep with engineering. A Zest-compliant header that gave TPT its own identity inside the HF ecosystem.',
+                image: '/card-hover.png',
+                caption: 'Custom navigation shipped as part of launch.',
+            },
+            // 5 — 2024 Depth & research (text)
+            {
+                type: 'text',
+                title: '2024 · Depth & research',
+                text: 'Scaled continuous feedback with Sprig and Usabilla, co-ran DIY research and usability testing, and shipped a steady stream of conversion wins across the funnel.',
+            },
+            // 6 — Delay & Advance (split)
+            {
+                type: 'image',
+                layout: 'split',
+                title: 'Delay & Advance Delivery',
+                text: 'Designed and validated a new delivery scheduling feature through DIY usability testing — then expanded into variable cadences and a subscribable add-ons store.',
+                image: '/card-hover.png',
+                caption: 'Usability-tested before a single line of production code.',
+            },
+            // 7 — CVR wins (stats)
+            {
+                type: 'stats',
+                title: 'Conversion wins',
+                items: [
+                    { value: '+3.4%', label: 'Goals question', description: 'Funnel 2.0 — added a goals question to the quiz and redesigned the plans page.' },
+                    { value: '+3.3%', label: 'Social proof', description: 'Added social proof to the delivery page in the acquisition funnel.' },
+                    { value: '+20%', label: 'Free items', description: 'Redesigned free-items treatment on the order summary. Adopted by Good Chop.' },
+                    { value: '$0.7M', label: 'TCVA', description: 'Air-dried cadence test — revenue uplift from cadence experimentation.' },
+                ],
+            },
+            // 8 — 2025 Design-led (text)
+            {
+                type: 'text',
+                title: '2025 · Design-led initiatives',
+                text: 'Moved beyond optimization: a lean loyalty concept via CRM, a compliant cancellation page adopted across brands, a Framer-based landing page test, and Quick Actions on the dashboard that influenced the core HelloFresh roadmap.',
+            },
+            // 9 — Quick Actions (image + text)
+            {
+                type: 'image',
+                title: 'Quick Actions on Dashboard',
+                text: 'A small-surface redesign on TPT that shaped the way the broader HelloFresh RAF experience evolved.',
+                image: '/card-hover.png',
+                caption: 'TPT patterns influencing the core HF roadmap.',
+            },
+            // 10 — Zestification with Claude Code (large quote)
+            {
+                type: 'quote',
+                quote: 'I became the first designer at HelloFresh to ship design-system components directly to production.',
+                large: true,
+            },
+            // 11 — Cross-brand impact (text)
+            {
+                type: 'text',
+                title: 'Beyond The Pets Table',
+                text: 'Free Items adopted by Good Chop. Cancellation UX adopted across brands. Figma structure adopted cross-team. AI design-to-code workflows seeding a company-wide movement. Contributions into Factor B2B UX.',
+            },
+            // 12 — Outcome (quote)
+            {
+                type: 'quote',
+                title: 'Outcome',
+                quote: 'Three years. One designer. A brand with its own voice inside HelloFresh — and a playbook other brands borrowed from.',
+            },
+            // 13 — Stats (final)
+            {
+                type: 'stats',
+                title: 'Impact',
+                items: [
+                    { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full UX from launch through 2025 — funnel, checkout, and member experience.' },
+                    { value: '6+', label: 'Shipped CVR wins', description: 'Measurable conversion improvements across the acquisition and checkout funnel.' },
+                    { value: '1st', label: 'Designer in code', description: 'First designer at HelloFresh to implement Zest components directly in production.' },
+                    { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh.' },
+                ],
+            },
+        ],
+    },
+    {
         id: 'movix',
+        title: 'Designing a Home Financing App for Brazil',
+        year: '2018 – 2019',
+        company: 'Móvix',
+        role: 'Product Designer',
+        cover: '/movix-home.jpg',
+        intro: 'Móvix was an MVP built to help Brazilians finance a house through CAIXA, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
+        tags: ['Product Design', 'Mobile', 'UX Research', 'Prototyping'],
+        sections: [
+            {
+                type: 'impact',
+                items: [
+                    { value: '2', label: 'Platforms launched', description: 'Published on both the App Store and Google Play after 9 months of design and development.' },
+                    { value: '9mo', label: 'Idea to launch', description: 'Full end-to-end project from discovery to a live product used by real customers.' },
+                    { value: '15–60', label: 'Age range tested', description: 'Users of all ages and tech literacy levels tested the app at a major financing fair in Brasília.' },
+                    { value: '1st', label: 'Digital simulation tool', description: 'One of the first apps to let Brazilians simulate, save, and share home financing results on mobile.' },
+                ],
+            },
+            {
+                type: 'divider',
+                label: 'The Problem',
+            },
+            {
+                type: 'callout',
+                content: 'In a market where every process is as traditional as 10 years ago, Móvix was an important step toward changing how people finance their homes.',
+            },
+            {
+                type: 'text',
+                content: 'Financing a home through CAIXA meant dealing with dense paperwork, in-person appointments, and zero visibility into your application status. Most Brazilians had no way to understand how much they could borrow, what their monthly payments would look like, or where their process stood — unless they had a broker walking them through it in person.',
+            },
+            {
+                type: 'divider',
+                label: 'Design Process',
+            },
+            {
+                type: 'process',
+                steps: [
+                    {
+                        title: 'Stakeholder Alignment via Design Sprints',
+                        description: 'Everyone had different opinions on what mattered most. We started with design sprints to align stakeholders around a common vision and find a shared path forward before touching any screens.',
+                    },
+                    {
+                        title: 'Wireframes & UI Design',
+                        description: 'I designed wireframes, high-fidelity UI, and prototypes alongside designer Jenny Soares, keeping the brand identity consistent across all flows while solving for low tech literacy.',
+                    },
+                    {
+                        title: 'User Testing at Scale',
+                        description: 'We tested the app with real users at a major home financing fair in Brasília — observing people aged 15 to 60 using it in a real-world context. These sessions shaped many of our final decisions.',
+                    },
+                    {
+                        title: 'Iteration & Launch',
+                        description: 'We shared test feedback directly with developers and product owners in structured sessions, iterated on the design, and shipped to both the App Store and Google Play.',
+                    },
+                ],
+            },
+            {
+                type: 'image',
+                src: '/techsprint.jpg',
+                caption: 'Design sprint sessions with stakeholders',
+            },
+            {
+                type: 'divider',
+                label: 'The Work',
+            },
+            {
+                type: 'text',
+                content: 'The target audience had little experience with financing, so simplicity was non-negotiable. We designed a card-based home screen with clear entry points into the three main flows: simulation, financing, and follow-up. A small animated speech bubble guide — built with Lottie — walked users through each step of the simulation.',
+            },
+            {
+                type: 'image',
+                src: '/movix-home.jpg',
+                caption: 'Home cards in a logical and understandable order',
+            },
+            {
+                type: 'callout',
+                content: 'The use of cards on the home screen helped us guide people through Móvix\'s experience.',
+            },
+            {
+                type: 'two-column',
+                image: '/movix-saved.png',
+                content: 'Before Móvix, every simulation result had to be thrown away if not printed. We designed a saved simulations feature that let users store, compare, and share results — a small change that made the entire experience feel personal and trustworthy.',
+                imageLeft: true,
+                caption: 'Saved simulations give people the opportunity to compare',
+            },
+            {
+                type: 'text',
+                content: 'The financing flow let users start directly from a saved simulation, upload documentation via phone camera, and track their process alongside all participants — removing the need for in-person visits just to check a status.',
+            },
+            {
+                type: 'image',
+                src: '/movix-testing.jpg',
+                caption: 'Testing Móvix with real users at a financing fair in Brasília',
+            },
+            {
+                type: 'image',
+                src: '/movix-team.jpg',
+                caption: 'Designer Jenny Soares and I at the financing fair',
+            },
+            {
+                type: 'divider',
+                label: 'Outcome',
+            },
+            {
+                type: 'text',
+                content: 'Móvix was published on the App Store and Google Play after a 9-month project by AIS Digital. Watching people of every age — many of whom had never used a financial app — successfully navigate the simulation flow at the fair was the clearest signal that we had built the right thing in the right way.',
+            },
+        ],
+        slides: [
+            // 0 — Cover
+            {
+                type: 'cover',
+                images: ['/movix-home.jpg', '/techsprint.jpg', '/movix-testing.jpg'],
+                quote: 'Making home financing feel human — for the first time.',
+                tags: ['Product Design', 'Mobile', 'UX Research', 'Prototyping'],
+            },
+            // 1 — The Problem (quote callout)
+            {
+                type: 'quote',
+                title: 'The Problem',
+                quote: 'In a market where every process is as traditional as 10 years ago, Móvix was an important step toward changing how people finance their homes.',
+            },
+            // 2 — Problem context
+            {
+                type: 'text',
+                title: 'Financing a home in Brazil',
+                text: 'Dense paperwork, in-person appointments, zero visibility. Most Brazilians had no way to understand what they could borrow — without a broker walking them through it in person.',
+            },
+            // 3 — Design Sprint image
+            {
+                type: 'image',
+                text: 'We started with design sprints to align stakeholders around a shared vision before touching any screens.',
+                image: '/techsprint.jpg',
+                caption: 'Design sprint sessions with stakeholders',
+                imageFilter: 'contrast(1.1) brightness(1.05)',
+            },
+            // 4 — Process steps
+            {
+                type: 'steps',
+                title: 'Design Process',
+                steps: [
+                    {
+                        title: 'Stakeholder Alignment via Design Sprints',
+                        description: 'Align everyone around a shared vision before any screens.',
+                    },
+                    {
+                        title: 'Wireframes & UI Design',
+                        description: 'High-fidelity UI and prototypes alongside Jenny Soares.',
+                    },
+                    {
+                        title: 'User Testing at Scale',
+                        description: 'Tested with ages 15–60 at a major financing fair in Brasília.',
+                    },
+                    {
+                        title: 'Iteration & Launch',
+                        description: 'Structured feedback sessions. Shipped to App Store and Google Play.',
+                    },
+                ],
+            },
+            // 5 — Home screen
+            {
+                type: 'image',
+                text: 'A card-based home screen with clear entry points into the three main flows: simulation, financing, and follow-up.',
+                image: '/movix-home.jpg',
+                caption: 'Home cards in a logical and understandable order',
+                imageFilter: 'contrast(1.05) brightness(1.05)',
+            },
+            // 6 — Cards callout
+            {
+                type: 'quote',
+                quote: 'The use of cards on the home screen helped us guide people through Móvix\'s experience.',
+            },
+            // 7 — Saved simulations (split layout)
+            {
+                type: 'image',
+                layout: 'split',
+                title: 'Saved Simulations',
+                text: 'Before Móvix, simulations had to be printed or discarded. We designed a feature to store, compare, and share results — making it feel personal.',
+                image: '/movix-saved.png',
+                caption: 'Saved simulations give people the opportunity to compare',
+            },
+            // 8 — Testing
+            {
+                type: 'image',
+                text: 'We tested with real users at a major home financing fair in Brasília — ages 15 to 60, in a real-world context.',
+                image: '/movix-testing.jpg',
+                caption: 'Testing Móvix with real users at a financing fair in Brasília',
+                imageFilter: 'contrast(1.05) brightness(1.05)',
+            },
+            // 9 — Team photo
+            {
+                type: 'image',
+                image: '/movix-team.jpg',
+                caption: 'Designer Jenny Soares and I at the financing fair',
+                imageFilter: 'contrast(1.05) brightness(1.05)',
+            },
+            // 10 — Outcome
+            {
+                type: 'quote',
+                title: 'Outcome',
+                quote: 'Watching people of every age navigate the simulation flow successfully was the clearest signal we\'d built the right thing.',
+            },
+            // 11 — Impact stats (last)
+            {
+                type: 'stats',
+                title: 'Impact',
+                items: [
+                    { value: '2', label: 'Platforms launched', description: 'Published on the App Store and Google Play after 9 months.' },
+                    { value: '9 months', label: 'Idea to launch', description: 'End-to-end from first sketch to a live product with real users.' },
+                    { value: '15–60', label: 'Ages tested', description: 'Users of all tech literacy levels at a real financing fair.' },
+                    { value: '1st', label: 'Digital sim tool', description: 'One of the first apps to let Brazilians simulate home financing on mobile.' },
+                ],
+            },
+        ],
+    },
+    {
+        id: 'movix-classic',
         title: 'Designing a Home Financing App for Brazil',
         year: '2018 – 2019',
         company: 'Móvix',
@@ -653,6 +1210,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'quote',
                 title: 'This work is fundamentally inspired by the German word:',
                 quote: 'die Erinnerungskultur — the culture of memory',
+                large: true,
             },
             // 15
             { type: 'image', image: '/c/35e81632230975.5674becc47af6.jpg' },

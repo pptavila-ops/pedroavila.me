@@ -6,10 +6,11 @@ export type RichSection =
     | { type: 'process'; steps: { title: string; description: string }[] }
     | { type: 'two-column'; image: string; content: string; imageLeft?: boolean; caption?: string }
     | { type: 'divider'; label?: string }
-    | { type: 'download'; label: string; href: string };
+    | { type: 'download'; label: string; href: string }
+    | { type: 'chart'; title?: string; caption?: string; bars: { label: string; sublabel: string; description: string; pct: number; color: string }[] };
 
 export type StoriesSlide = {
-    type: 'cover' | 'text' | 'image' | 'quote' | 'gallery';
+    type: 'cover' | 'text' | 'image' | 'quote' | 'gallery' | 'stats' | 'steps' | 'intro';
     /** Full-bleed background image (cover slides) */
     bg?: string;
     title?: string;
@@ -30,6 +31,14 @@ export type StoriesSlide = {
     layout?: 'split';
     /** Override the default CSS filter applied to the image */
     imageFilter?: string;
+    /** Render the quote in a larger, more dramatic font (for short, impactful quotes) */
+    large?: boolean;
+    /** Impact metric cards for stats slides — same style as CaseStudyPage impact section */
+    items?: { value: string; label: string; description: string }[];
+    /** Process steps with numbered circles for steps slides */
+    steps?: { title: string; description: string }[];
+    /** Labeled blocks for intro slides — each has a label (left) and paragraphs (right) */
+    blocks?: { label: string; paragraphs: string[] }[];
 };
 
 export interface RichCaseStudy {
