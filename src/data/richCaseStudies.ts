@@ -3,10 +3,10 @@ import type { RichCaseStudy } from './templateCaseStudy';
 export const richCaseStudies: RichCaseStudy[] = [
     {
         id: 'design-transformation',
-        title: 'AI Enablement at Scale',
+        title: 'Leading Design Workflow Transformation With the Help of AI',
         year: 'Jan – Apr 2026',
         company: 'HelloFresh',
-        role: 'Sr. Product Designer · Consumer Acceleration',
+        role: 'Consumer Acceleration',
         cover: '/card-hover.png',
         intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering — using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
         tags: ['AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],

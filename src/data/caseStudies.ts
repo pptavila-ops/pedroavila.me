@@ -15,11 +15,11 @@ interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
     {
         id: 'design-transformation',
-        title: 'Leading Design Workflow Transformation',
+        title: 'Leading Design Workflow Transformation With the Help of AI',
         year: '2026 – Now',
         company: 'HelloFresh',
         image: '/card-hover.png',
-        intro: 'When I joined HelloFresh, the design org was scaling fast — but the way we worked hadn\'t caught up. Designers were duplicating effort across squads, reinventing components, and struggling to stay aligned. There was no shared language between design and engineering. I started by mapping how design decisions flowed through the organization — from a designer\'s Figma file to what actually shipped in production. The gaps were enormous. What we needed wasn\'t just a design system; we needed a design operation.',
+        intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering — using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
         sections: [
             {
                 text: 'Over the course of a year, we built the infrastructure for designers to ship production-ready code, established contribution models so the system could grow with the team, and created rituals that kept 30+ designers in sync without slowing anyone down.',

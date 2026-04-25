@@ -3,7 +3,6 @@ import RainbowText from './components/RainbowText';
 import { CaseStudyImageCard } from './components/CaseStudyImageCard';
 import { BrandCarousel } from './components/BrandCarousel';
 import Tooltip from './components/Tooltip';
-import AsciiPortrait from './components/AsciiPortrait';
 import { caseStudies } from './data/caseStudies';
 import { CardGrid } from './components/CardGrid';
 import { CaseStudyPage } from './components/CaseStudyPage';
@@ -229,13 +228,12 @@ function App() {
                     <div>
                         <RainbowText>
                             <p className="text-[38px] md:text-[42px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
-                                <span className="lg:hidden">Enabling<br />designers to ship<br />production-<br />ready code.</span>
+                                <span className="lg:hidden">Enabling designers to ship production-ready code.</span>
                                 <span className="hidden lg:inline">Enabling designers to ship<br />production-ready code.</span>
                             </p>
                         </RainbowText>
                         <p className="text-[38px] md:text-[42px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
-                            <span className="lg:hidden">Currently<br />@<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.</span>
-                            <span className="hidden lg:inline">Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.</span>
+                            Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.
                         </p>
 
                         <CardGrid

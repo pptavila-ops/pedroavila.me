@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { RichCaseStudy } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { StickyHeader } from './StickyHeader';
@@ -21,12 +21,10 @@ interface Props {
 
 export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }: Props) {
     const [scrolled, setScrolled] = useState(false);
-    const [coverIndex, setCoverIndex] = useState(0);
     const backButtonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         setScrolled(false);
-        setCoverIndex(0);
         const el = backButtonRef.current;
         if (!el) return;
         const observer = new IntersectionObserver(
@@ -36,18 +34,6 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
         observer.observe(el);
         return () => observer.disconnect();
     }, [study.id]);
-
-    const advanceCover = useCallback(() => {
-        if (study.coverImages && study.coverImages.length > 1) {
-            setCoverIndex((i) => (i + 1) % study.coverImages!.length);
-        }
-    }, [study.coverImages]);
-
-    useEffect(() => {
-        if (!study.coverImages || study.coverImages.length <= 1) return;
-        const timer = setInterval(advanceCover, 3000);
-        return () => clearInterval(timer);
-    }, [study.coverImages, advanceCover]);
 
     return (
         <div>
@@ -65,54 +51,31 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                 Back
             </button>
 
-            {/* Cover image — full bleed */}
-            <div className="relative mt-6 h-[320px] md:h-[420px] overflow-hidden rounded-xl">
-                {study.coverImages && study.coverImages.length > 1 ? (
-                    <>
-                        {study.coverImages.map((src, i) => (
-                            <img
-                                key={src}
-                                src={src}
-                                alt=""
-                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
-                                style={{ opacity: i === coverIndex ? 1 : 0, filter: 'brightness(2.2) contrast(1.1)' }}
-                            />
-                        ))}
-                        <button
-                            onClick={advanceCover}
-                            className="absolute inset-0 w-full h-full cursor-pointer z-10"
-                            aria-label="Next image"
-                        />
-                    </>
-                ) : (
-                    <img
-                        src={study.cover}
-                        alt=""
-                        className="w-full h-full object-cover"
-                    />
-                )}
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-                {/* Title overlay */}
-                <div className="absolute bottom-0 left-0 px-7 pb-7">
-                    <div className="flex items-center gap-2 text-sm text-white/60 mb-2">
-                        <span>{study.year}</span>
-                        <span>·</span>
-                        <span>@{study.company}</span>
-                    </div>
-                    <h1 className="text-[26px] md:text-[36px] font-bold leading-[1.15] tracking-tight text-white">
-                        {study.title}
-                    </h1>
-                    {study.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mt-3">
-                            {study.tags.map((tag) => (
-                                <span key={tag} className="text-[13px] text-white/80 border border-white/30 rounded-full px-3 py-1">
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
+            {/* Header — text only, left-aligned */}
+            <div className="mt-8">
+                <h1 className="text-[32px] md:text-[44px] font-bold leading-[1.15] text-white font-serif">
+                    {study.title}
+                </h1>
+                <div className="flex items-center gap-2 text-[15px] text-white/60 mt-3">
+                    <span>{study.year}</span>
+                    <span>·</span>
+                    <span>@{study.company}</span>
+                    {study.role && (
+                        <>
+                            <span>·</span>
+                            <span>{study.role}</span>
+                        </>
                     )}
                 </div>
+                {study.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-4">
+                        {study.tags.map((tag) => (
+                            <span key={tag} className="text-[13px] text-white/55 border border-white/15 rounded-full px-3 py-1">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* Intro */}
@@ -132,35 +95,35 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'callout':
                         return (
-                            <div key={i} className="my-10 pl-5 border-l-2 border-white/25">
-                                <p className="text-[20px] md:text-[24px] font-semibold leading-[1.4] text-white/90">
-                                    {section.content}
-                                </p>
-                            </div>
+                            <p key={i} className="my-14 text-[28px] md:text-[38px] font-bold leading-[1.3] font-serif text-white">
+                                {section.content}
+                            </p>
                         );
 
                     case 'divider':
                         return (
-                            <div key={i} className="mt-14 mb-6 flex items-center gap-4">
+                            <div key={i} className="mt-16 mb-8">
                                 {section.label && (
-                                    <span className="text-xs font-semibold uppercase tracking-widest text-white/60 flex-shrink-0">
-                                        {section.label}
-                                    </span>
+                                    <>
+                                        <h2 className="text-[28px] md:text-[36px] font-bold text-white leading-none font-serif pb-5">
+                                            {section.label}
+                                        </h2>
+                                        <div className="border-b border-white/15" />
+                                    </>
                                 )}
-                                <div className="flex-1 h-px bg-white/10" />
                             </div>
                         );
 
                     case 'impact':
                         return (
-                            <div key={i} className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
-                                {section.items.map((item, j) => (
-                                    <div key={j} className="rounded-xl border border-white/10 p-5 flex flex-col">
-                                        <p className="text-[32px] md:text-[36px] font-bold leading-none text-white tracking-tight">
+                            <div key={i} className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8">
+                                {section.items.map((item) => (
+                                    <div key={item.label} className="flex flex-col border-t border-white/15 pt-4">
+                                        <p className="text-[40px] md:text-[48px] font-bold leading-none text-white tracking-tight">
                                             {item.value}
                                         </p>
-                                        <p className="text-sm font-semibold text-white/70 mt-2">{item.label}</p>
-                                        <p className="text-[15px] text-white/40 mt-1.5 leading-relaxed">{item.description}</p>
+                                        <p className="text-[13px] font-semibold text-white/60 mt-2.5 uppercase tracking-wide">{item.label}</p>
+                                        <p className="text-[14px] text-white/50 mt-2 leading-relaxed hidden md:block">{item.description}</p>
                                     </div>
                                 ))}
                             </div>
@@ -170,7 +133,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                         return (
                             <div key={i} className="mt-8 flex flex-col gap-0">
                                 {section.steps.map((step, j) => (
-                                    <div key={j} className="flex gap-5 group">
+                                    <div key={step.title} className="flex gap-5 group">
                                         {/* Step number + line */}
                                         <div className="flex flex-col items-center flex-shrink-0">
                                             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-semibold text-white/50 flex-shrink-0">
@@ -181,9 +144,9 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                             )}
                                         </div>
                                         {/* Content */}
-                                        <div className={`pb-8 ${j === section.steps.length - 1 ? '' : ''}`}>
+                                        <div className={j < section.steps.length - 1 ? 'pb-8' : ''}>
                                             <p className="text-[15px] font-semibold text-white/80 leading-none mt-1.5">{step.title}</p>
-                                            <p className="text-[15px] font-normal text-white/50 leading-relaxed mt-2">{step.description}</p>
+                                            <p className="text-[15px] font-normal text-white/55 leading-relaxed mt-2">{step.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -197,9 +160,10 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                     src={section.src}
                                     alt={section.caption || ''}
                                     className="w-full rounded-xl"
+                                    loading="lazy"
                                 />
                                 {section.caption && (
-                                    <figcaption className="mt-3 text-[15px] text-white/60 text-center">
+                                    <figcaption className="mt-3 text-[15px] text-white/55 text-center">
                                         {section.caption}
                                     </figcaption>
                                 )}
@@ -208,19 +172,22 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'two-column':
                         return (
-                            <figure key={i} className="mt-8">
-                                <img
-                                    src={section.image}
-                                    alt={section.caption || ''}
-                                    className="w-full rounded-xl"
-                                />
-                                {section.caption && (
-                                    <figcaption className="mt-3 text-[15px] text-white/60 text-center">{section.caption}</figcaption>
-                                )}
+                            <div key={i} className="mt-8 flex flex-col md:flex-row md:items-center md:gap-8 gap-4">
+                                <figure className={`md:w-1/2 flex-shrink-0 ${section.imageLeft === false ? 'md:order-2' : ''}`}>
+                                    <img
+                                        src={section.image}
+                                        alt={section.caption || ''}
+                                        className="w-full rounded-xl"
+                                        loading="lazy"
+                                    />
+                                    {section.caption && (
+                                        <figcaption className="mt-2 text-[14px] text-white/55 text-center">{section.caption}</figcaption>
+                                    )}
+                                </figure>
                                 {section.content && (
-                                    <p className="mt-4 text-[16px] font-normal leading-relaxed text-white/60">{section.content}</p>
+                                    <p className={`text-[16px] font-normal leading-relaxed text-white/60 md:flex-1 ${section.imageLeft === false ? 'md:order-1' : ''}`}>{section.content}</p>
                                 )}
-                            </figure>
+                            </div>
                         );
 
                     case 'download':
@@ -241,30 +208,30 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                         return (
                             <div key={i} className="mt-10">
                                 {section.title && (
-                                    <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-6">{section.title}</p>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-6">{section.title}</p>
                                 )}
                                 <div className="flex flex-col gap-5">
-                                    {section.bars.map((bar, j) => (
-                                        <div key={j} className="flex flex-col gap-2">
+                                    {section.bars.map((bar) => (
+                                        <div key={bar.label} className="flex flex-col gap-2">
                                             <div className="flex items-baseline justify-between gap-4">
                                                 <div className="flex items-baseline gap-2.5">
                                                     <span className="text-[26px] md:text-[30px] font-bold text-white leading-none tracking-tight">{bar.label}</span>
-                                                    <span className="text-[13px] font-semibold text-white/50">{bar.sublabel}</span>
+                                                    <span className="text-[13px] font-semibold text-white/55">{bar.sublabel}</span>
                                                 </div>
-                                                <span className="text-[13px] text-white/35 text-right hidden md:block">{bar.description}</span>
+                                                <span className="text-[13px] text-white/55 text-right hidden md:block">{bar.description}</span>
                                             </div>
-                                            <div className="h-[6px] w-full bg-white/8 rounded-full overflow-hidden">
+                                            <div className="h-[6px] w-full bg-white/10 rounded-full overflow-hidden">
                                                 <div
                                                     className="h-full rounded-full"
                                                     style={{ width: `${bar.pct}%`, background: bar.color }}
                                                 />
                                             </div>
-                                            <span className="text-[13px] text-white/35 md:hidden">{bar.description}</span>
+                                            <span className="text-[13px] text-white/55 md:hidden">{bar.description}</span>
                                         </div>
                                     ))}
                                 </div>
                                 {section.caption && (
-                                    <p className="mt-5 text-[13px] text-white/30 text-center">{section.caption}</p>
+                                    <p className="mt-5 text-[13px] text-white/50 text-center">{section.caption}</p>
                                 )}
                             </div>
                         );
@@ -278,7 +245,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
             {otherStudies.length > 0 && (
                 <div className="mt-20 pt-10 border-t border-white/10">
                     <p className="text-xs font-semibold uppercase tracking-widest text-white/30">Explore other case studies</p>
-                    <div className="mt-5 grid grid-cols-3 gap-3 items-start">
+                    <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 items-start">
                         {otherStudies.map((cs) => (
                             <button
                                 key={cs.id}
