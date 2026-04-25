@@ -4,29 +4,65 @@ export const richCaseStudies: RichCaseStudy[] = [
     {
         id: 'design-transformation',
         title: 'Leading Design Workflow Transformation With the Help of AI',
-        year: 'Jan – Apr 2026',
+        year: 'Jan 2026 – Now',
         company: 'HelloFresh',
         role: 'Consumer Acceleration',
         cover: '/card-hover.png',
         intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering — using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
-        tags: ['AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
+        tags: ['Consumer Acceleration', 'Design Operations', 'AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
         sections: [
             {
                 type: 'impact',
                 items: [
-                    { value: '8', label: 'UX commands shipped', description: 'A full specx-ux suite covering prototype creation, iteration, testing, publishing, and design-to-code.' },
                     { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly — setting a precedent that spread company-wide.' },
-                    { value: '5', label: 'HF brands supported', description: 'Commands and workflows built to work across HelloFresh, GoodChop, The Pets Table, Factor, and more.' },
-                    { value: '4 months', label: 'Jan – Apr 2026', description: 'From individual exploration to a team-wide movement, a new toolchain, and a new standard.' },
+                    { value: '8', label: 'UX commands shipped', description: 'A full specx-ux suite covering prototype creation, iteration, testing, publishing, and design-to-code.' },
+                    { value: '9', label: 'HelloFresh Brands affected', description: 'The new design-to-code workflow changed how features are built across all nine HelloFresh brands — giving each one faster, higher-fidelity output and less engineering overhead.', logos: [
+                        { src: '/brands/hellofresh-full.svg', alt: 'HelloFresh', height: 22 },
+                        { src: '/brands/greenchef.svg', alt: 'Green Chef', height: 28 },
+                        { src: '/brands/factor.svg', alt: 'Factor', height: 26 },
+                        { src: '/brands/everyplate.svg', alt: 'EveryPlate', height: 18 },
+                        { src: '/brands/chefsplate.svg', alt: "Chef's Plate", height: 34 },
+                        { src: '/brands/goodchop.svg', alt: 'Good Chop', height: 28 },
+                        { src: '/brands/petstable.svg', alt: 'The Pets Table', height: 20 },
+                        { src: '/brands/factor-full.svg', alt: 'Factor_', height: 18 },
+                        { src: '/brands/hellofresh-hf.png', alt: 'HelloFresh HF', height: 22 },
+                    ] },
+                    { value: '26+', label: 'Designers Supported', description: 'Enabled designers across the organisation to prototype with code and work directly in production — moving beyond static handoffs to a workflow where designers ship their own changes.' },
                 ],
             },
             {
                 type: 'divider',
-                label: 'The Problem',
+                label: 'How It Started',
+            },
+            {
+                type: 'text',
+                content: 'Before joining the Consumer Acceleration team, I was working on The Pets Table — HelloFresh\'s pet food brand. It was there that I shipped my first feature directly into production code, without engineering support.',
             },
             {
                 type: 'callout',
-                content: 'HelloFresh had a distributed UX team spanning five brands — each with its own codebase, its own engineering team, and its own gap between what was designed and what actually shipped.',
+                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that spread across the wider team.',
+            },
+            {
+                type: 'image',
+                src: '/petstable-breed.png',
+                caption: 'The breed-specific message feature',
+                width: '80%',
+            },
+            {
+                type: 'text',
+                content: 'The feature showed a personalised message based on the dog breed selected by the user during onboarding. We had data on the top 11 most-selected breeds — Golden Retriever, Labrador, French Bulldog, and others — and each received a tailored message with social proof and a meal count. Every other breed fell back to a general message. The goal was simple: increase conversion by making the experience feel personal at exactly the right moment.',
+            },
+            {
+                type: 'text',
+                content: 'I wrote the tickets, refined them with the team, joined the sprint, and implemented all five myself — from the conditional logic to the copy variants to the production merge. This was just one of the features I shipped end-to-end, but moments like this made the case for everything that came next.',
+            },
+            {
+                type: 'divider',
+                label: 'The Problem at HelloFresh (or in UX in general)',
+            },
+            {
+                type: 'callout',
+                content: 'HelloFresh had a distributed UX team spanning nine brands — each with its own codebase, its own engineering team, and its own gap between what was designed and what actually shipped.',
             },
             {
                 type: 'text',
@@ -54,10 +90,6 @@ export const richCaseStudies: RichCaseStudy[] = [
                 content: 'The workflow had two modes: prevention and recovery. Prevention meant checking design readiness against Zest, the HelloFresh design system, before a spec went to dev. Recovery meant using Claude to make targeted code changes in an existing feature, then requesting a developer review. Both modes were documented, walkthrough-ready, and safe — the guardrails were designed for designers, not engineers.',
             },
             {
-                type: 'callout',
-                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that spread across the wider team.',
-            },
-            {
                 type: 'divider',
                 label: 'Spec-Machine · specx-ux',
             },
@@ -70,7 +102,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 steps: [
                     {
                         title: '/create-prototype',
-                        description: 'Generate production-quality HTML prototypes from text, Figma exports, screenshots, or existing HTML — in minutes, across all five HF brands.',
+                        description: 'Generate production-quality HTML prototypes from text, Figma exports, screenshots, or existing HTML — in minutes, across all 9 HF brands.',
                     },
                     {
                         title: '/iterate-prototype',

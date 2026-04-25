@@ -1,8 +1,8 @@
 export type RichSection =
     | { type: 'text'; content: string }
     | { type: 'callout'; content: string }
-    | { type: 'image'; src: string; caption?: string }
-    | { type: 'impact'; items: { value: string; label: string; description: string }[] }
+    | { type: 'image'; src: string; caption?: string; width?: string }
+    | { type: 'impact'; title?: string; items: { value: string; label: string; description: string; logos?: { src: string; alt: string; height: number }[] }[] }
     | { type: 'process'; steps: { title: string; description: string }[] }
     | { type: 'two-column'; image: string; content: string; imageLeft?: boolean; caption?: string }
     | { type: 'divider'; label?: string }

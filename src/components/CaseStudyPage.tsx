@@ -53,24 +53,18 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
             {/* Header — text only, left-aligned */}
             <div className="mt-8">
-                <h1 className="text-[32px] md:text-[44px] font-bold leading-[1.15] text-white font-serif">
+                <h1 className="text-[32px] md:text-[44px] font-bold leading-[1.15] text-white font-serif tracking-normal">
                     {study.title}
                 </h1>
                 <div className="flex items-center gap-2 text-[15px] text-white/60 mt-3">
                     <span>{study.year}</span>
                     <span>·</span>
                     <span>@{study.company}</span>
-                    {study.role && (
-                        <>
-                            <span>·</span>
-                            <span>{study.role}</span>
-                        </>
-                    )}
                 </div>
                 {study.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-4">
                         {study.tags.map((tag) => (
-                            <span key={tag} className="text-[13px] text-white/55 border border-white/15 rounded-full px-3 py-1">
+                            <span key={tag} className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">
                                 {tag}
                             </span>
                         ))}
@@ -95,7 +89,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'callout':
                         return (
-                            <p key={i} className="my-14 text-[28px] md:text-[38px] font-bold leading-[1.3] font-serif text-white">
+                            <p key={i} className="my-14 text-[28px] md:text-[38px] font-bold leading-[1.3] font-serif text-white tracking-normal">
                                 {section.content}
                             </p>
                         );
@@ -105,7 +99,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                             <div key={i} className="mt-16 mb-8">
                                 {section.label && (
                                     <>
-                                        <h2 className="text-[28px] md:text-[36px] font-bold text-white leading-none font-serif pb-5">
+                                        <h2 className="text-[28px] md:text-[36px] font-bold text-white leading-none font-serif pb-5 tracking-normal">
                                             {section.label}
                                         </h2>
                                         <div className="border-b border-white/15" />
@@ -116,16 +110,51 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'impact':
                         return (
-                            <div key={i} className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8">
-                                {section.items.map((item) => (
-                                    <div key={item.label} className="flex flex-col border-t border-white/15 pt-4">
-                                        <p className="text-[40px] md:text-[48px] font-bold leading-none text-white tracking-tight">
-                                            {item.value}
-                                        </p>
-                                        <p className="text-[13px] font-semibold text-white/60 mt-2.5 uppercase tracking-wide">{item.label}</p>
-                                        <p className="text-[14px] text-white/50 mt-2 leading-relaxed hidden md:block">{item.description}</p>
+                            <div key={i} className="mt-16">
+                                {section.title && (
+                                    <div className="mb-6">
+                                        <p className="text-sm font-semibold uppercase tracking-widest text-white/70 mb-4">{section.title}</p>
+                                        <div className="border-b border-white/15" />
                                     </div>
-                                ))}
+                                )}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {section.items.map((item) => (
+                                        <div key={item.label} className="rounded-2xl border border-white/10 p-8 flex flex-col min-h-[260px]">
+                                            {item.logos ? (
+                                                <div className="flex items-center gap-4">
+                                                    <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal flex-shrink-0">
+                                                        {item.value}
+                                                    </p>
+                                                    <div className="flex-1 overflow-hidden relative h-[72px] md:h-[88px]">
+                                                        <div
+                                                            className="animate-hf-brand-scroll"
+                                                            style={{ display: 'flex', alignItems: 'center', width: 'max-content', height: '100%', willChange: 'transform' }}
+                                                        >
+                                                            {[...item.logos, ...item.logos].map((logo, j) => (
+                                                                <img
+                                                                    key={j}
+                                                                    src={logo.src}
+                                                                    alt={logo.alt}
+                                                                    style={{ height: `${logo.height}px`, width: 'auto', objectFit: 'contain', flexShrink: 0, filter: 'brightness(0) invert(1)', opacity: 0.4, marginRight: '28px' }}
+                                                                />
+                                                            ))}
+                                                        </div>
+                                                        <div style={{ position: 'absolute', top: 0, left: 0, width: '32px', height: '100%', background: 'linear-gradient(to right, #000, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+                                                        <div style={{ position: 'absolute', top: 0, right: 0, width: '32px', height: '100%', background: 'linear-gradient(to left, #000, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal">
+                                                    {item.value}
+                                                </p>
+                                            )}
+                                            <div className="mt-auto pt-8">
+                                                <p className="text-[17px] md:text-[19px] font-bold text-white leading-snug">{item.label}</p>
+                                                <p className="text-[16px] md:text-[17px] text-white/55 mt-2 leading-relaxed">{item.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         );
 
@@ -159,7 +188,8 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                 <img
                                     src={section.src}
                                     alt={section.caption || ''}
-                                    className="w-full rounded-xl"
+                                    className="rounded-xl mx-auto block"
+                                    style={section.width ? { width: section.width } : { width: '100%' }}
                                     loading="lazy"
                                 />
                                 {section.caption && (
