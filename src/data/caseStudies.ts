@@ -31,16 +31,16 @@ export const caseStudies: CaseStudy[] = [
     },
     {
         id: 'pets-table',
-        title: 'Designing HelloFresh\'s Pet Food Brand',
+        title: 'Designing The Pets Table from the Ground Up',
         year: '2023 – 2025',
         company: 'The Pets Table',
-        intro: 'HelloFresh wanted to expand into pet food — a completely new vertical with no existing playbook. I was the sole designer responsible for taking this from zero to launch, defining everything from the brand identity to the end-to-end purchase experience. The challenge was designing a brand that felt connected to HelloFresh\'s DNA — fresh, approachable, quality-first — while standing on its own in the pet food space.',
+        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Every decision was a negotiation between innovation, speed, and system reuse.',
         sections: [
             {
-                text: 'I ran discovery workshops with pet owners, mapped the competitive landscape, and developed three distinct brand directions.',
+                text: 'I shaped the end-to-end product experience across three years — from the acquisition funnel and checkout through to delivery management, pet profile, and retention.',
             },
             {
-                text: 'From brand identity to packaging to the digital subscription flow, every touchpoint was designed to communicate one thing: this is real food made by people who care, not just another kibble brand. The product launched in two markets and exceeded first-quarter targets by 40%.',
+                text: 'Along the way: measurable CVR wins, DIY research programs, Figma foundations adopted cross-team, and AI-assisted design-to-code workflows that set a new bar across HelloFresh.',
             },
         ],
     },

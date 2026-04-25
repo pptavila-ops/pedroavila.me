@@ -50,7 +50,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The feature showed a personalised message based on the dog breed selected by the user during onboarding. We had data on the top 11 most-selected breeds — Golden Retriever, Labrador, French Bulldog, and others — and each received a tailored message with social proof and a meal count. Every other breed fell back to a general message. The goal was simple: increase conversion by making the experience feel personal at exactly the right moment.',
+                content: 'The feature showed a personalised message based on the dog breed selected by the user during onboarding. We had data on the top 11 most-selected breeds — Golden Retriever, Labrador, French Bulldog, and others — and each received a tailored message with social proof and a meal count. Every other breed fell back to a general message. The goal was simple: increase conversion by making the experience feel personal at exactly the right moment. Pulling it off required more than prompting an AI — it meant genuinely understanding React, TypeScript, and how conditional rendering works in a production codebase.',
             },
             {
                 type: 'text',
@@ -231,147 +231,159 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'pets-table',
-        title: 'Designing The Pets Table from the ground up',
+        title: 'Designing The Pets Table from the Ground Up',
         year: '2023 – 2025',
-        company: 'The Pets Table',
+        company: 'The Pets Table · HelloFresh',
         role: 'Product Designer → Sr. Product Designer',
         cover: '/card-hover.png',
-        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the funnel, post-checkout, and member experience. Tight deadlines and shared infrastructure meant every decision was a negotiation between innovation, speed, and system reuse.',
-        tags: ['Product Design', 'UX Research', 'Design Systems', 'Subscription'],
+        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Tight deadlines, shared infrastructure, and limited engineering bandwidth meant every decision was a negotiation between innovation, speed, and system reuse.',
+        tags: ['Product Design', 'UX Research', 'Design Systems', 'Conversion Optimisation', 'Design-to-Code'],
         sections: [
             {
-                type: 'text',
-                content: 'This case study is best viewed as stories.',
-            },
-        ],
-        slides: [
-            // 0 — Cover
-            {
-                type: 'cover',
-                images: ['/card-hover.png', '/card-hover.png', '/card-hover.png'],
-                quote: 'A new subscription brand, built one negotiation at a time.',
-                tags: ['Product Design', 'UX Research', 'Design Systems', 'Subscription'],
-            },
-            // 1 — Intro (structured problem + contribution)
-            {
-                type: 'intro',
-                title: 'A new subscription brand inside HelloFresh',
-                blocks: [
-                    {
-                        label: 'The space',
-                        paragraphs: [
-                            'The Pets Table launched in 2023 as HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem.',
-                            'Tight deadlines, limited engineering, shared infrastructure. A product that still had to feel like its own.',
-                        ],
-                    },
-                    {
-                        label: 'My contribution',
-                        paragraphs: [
-                            'Three years as the sole product designer. Owned the full funnel, checkout, post-conversion, and member experience.',
-                            'Shipped measurable CVR wins, built the Figma foundation, ran DIY research, and pioneered design-to-code workflows that later spread across HelloFresh brands.',
-                        ],
-                    },
+                type: 'impact',
+                items: [
+                    { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full product UX from launch through 2025 — funnel, checkout, post-checkout, and member experience.' },
+                    { value: '+20%', label: 'mCVR on order summary', description: 'Redesigned free-items treatment on the order summary page. The pattern was later adopted by Good Chop.' },
+                    { value: '$0.7M', label: 'TCVA', description: 'Revenue uplift from the air-dried cadence test — a design-led experiment that shaped subscription strategy.' },
+                    { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh — including cancellation UX and Figma structure.' },
                 ],
             },
-            // 3 — 2023 Launch foundations (steps)
             {
-                type: 'steps',
-                title: '2023 · Launch foundations',
+                type: 'divider',
+                label: 'The Context',
+            },
+            {
+                type: 'text',
+                content: 'The Pets Table launched in 2023 as HelloFresh\'s fresh, human-grade dog food subscription — a New Ventures brand built almost from scratch inside the HelloFresh ecosystem. Operating under the constraints of a new venture meant tight deadlines, limited engineering bandwidth, and a product that needed to stand on its own while sharing infrastructure with HelloFresh.',
+            },
+            {
+                type: 'callout',
+                content: 'I had to be highly strategic: deciding when to push for innovation, when to negotiate for impactful small changes, and when to lean on cross-brand learnings to move fast.',
+            },
+            {
+                type: 'text',
+                content: 'Over three years I shaped TPT\'s end-to-end product experience — from the acquisition funnel through to delivery management, pet profile, and member retention. I ran user research, built design systems foundations, drove measurable conversion improvements, and eventually pioneered AI-assisted design-to-code workflows that set a new bar across HelloFresh.',
+            },
+            {
+                type: 'divider',
+                label: '2023 · Launch & Foundations',
+            },
+            {
+                type: 'text',
+                content: 'I joined TPT at a critical moment: the brand was launching and needed a full product design foundation built quickly. From day one, the work was about establishing quality standards, not just shipping screens.',
+            },
+            {
+                type: 'process',
                 steps: [
                     {
-                        title: 'Funnel & Onboarding',
-                        description: 'Designed the core acquisition funnel — quiz, plan selection, checkout — from MVP through post-launch iterations.',
+                        title: 'Funnel & Onboarding Design',
+                        description: 'Designed and refined the core acquisition funnel — the quiz, plan selection, and checkout — from early MVP through post-launch iterations. Every step was built with conversion and clarity in mind.',
                     },
                     {
-                        title: 'Custom Zest-compliant nav',
-                        description: 'Replaced TPT\'s dependency on HelloFresh\'s generic header with a brand-owned, Zest-compliant navigation.',
+                        title: 'Custom Zest-Compliant Navigation',
+                        description: 'Worked alongside engineering to replace TPT\'s dependency on HelloFresh\'s generic navigation with a custom, Zest-compliant header — giving the brand its own visual identity inside the HF ecosystem.',
                     },
                     {
-                        title: 'Multi-Pet OOUX',
-                        description: 'Led the OOUX process — mapping objects, relationships, and flows for multi-pet support.',
+                        title: 'Multi-Pet Support — OOUX',
+                        description: 'Initiated the OOUX process for multi-pet support — mapping objects, relationships, and flows before any screen design began. This gave the team a shared system to reason about, not just a set of wireframes.',
                     },
                     {
-                        title: 'Figma MasterFlow & library',
-                        description: 'Established canonical references. TPT became one of the most Zest-compliant brands at HF.',
+                        title: 'Figma MasterFlow & Component Library',
+                        description: 'Established TPT\'s Figma MasterFlow and component library as canonical references. TPT became one of the most Zest-compliant brands at HelloFresh from launch — a standard I maintained throughout.',
                     },
                 ],
             },
-            // 4 — Custom navigation (image + text)
             {
-                type: 'image',
-                title: 'A brand-owned navigation',
-                text: 'Built in lockstep with engineering. A Zest-compliant header that gave TPT its own identity inside the HF ecosystem.',
-                image: '/card-hover.png',
-                caption: 'Custom navigation shipped as part of launch.',
+                type: 'divider',
+                label: '2024 · Depth, Research & Conversion Wins',
             },
-            // 5 — 2024 Depth & research (text)
             {
                 type: 'text',
-                title: '2024 · Depth & research',
-                text: 'Scaled continuous feedback with Sprig and Usabilla, co-ran DIY research and usability testing, and shipped a steady stream of conversion wins across the funnel.',
+                content: 'With foundations in place, 2024 was about depth — running proper research programs, validating new features before build, and shipping a steady stream of measurable improvements across the funnel.',
             },
-            // 6 — Delay & Advance (split)
             {
-                type: 'image',
-                layout: 'split',
-                title: 'Delay & Advance Delivery',
-                text: 'Designed and validated a new delivery scheduling feature through DIY usability testing — then expanded into variable cadences and a subscribable add-ons store.',
-                image: '/card-hover.png',
-                caption: 'Usability-tested before a single line of production code.',
+                type: 'text',
+                content: 'I designed and validated a new delivery scheduling feature through DIY usability testing, expanded it into variable cadences, and built a subscribable add-ons store. I also scaled continuous feedback systems using Sprig and Usabilla — creating the first real infrastructure for ongoing user insight at TPT.',
             },
-            // 7 — CVR wins (stats)
             {
-                type: 'stats',
-                title: 'Conversion wins',
+                type: 'impact',
+                title: 'Conversion wins · 2024',
                 items: [
-                    { value: '+3.4%', label: 'Goals question', description: 'Funnel 2.0 — added a goals question to the quiz and redesigned the plans page.' },
-                    { value: '+3.3%', label: 'Social proof', description: 'Added social proof to the delivery page in the acquisition funnel.' },
-                    { value: '+20%', label: 'Free items', description: 'Redesigned free-items treatment on the order summary. Adopted by Good Chop.' },
-                    { value: '$0.7M', label: 'TCVA', description: 'Air-dried cadence test — revenue uplift from cadence experimentation.' },
+                    { value: '+3.4%', label: 'CVR — Goals question', description: 'Added a goals question to the quiz and redesigned the plans page as part of Funnel 2.0.' },
+                    { value: '+3.3%', label: 'CVR — Social proof', description: 'Introduced social proof on the delivery page in the acquisition funnel.' },
+                    { value: '+0.7%', label: 'CVR — Plan transparency', description: 'Improved plan selection clarity — surfacing key information at the right moment.' },
+                    { value: '+1.2%', label: 'CVR — Two-step loading', description: 'A subtle UX pattern change on the checkout loading state that reduced drop-off.' },
                 ],
             },
-            // 8 — 2025 Design-led (text)
             {
                 type: 'text',
-                title: '2025 · Design-led initiatives',
-                text: 'Moved beyond optimization: a lean loyalty concept via CRM, a compliant cancellation page adopted across brands, a Framer-based landing page test, and Quick Actions on the dashboard that influenced the core HelloFresh roadmap.',
+                content: 'I also introduced an improved Figma handoff structure during this period — a more systematic approach to organising files for engineering collaboration that was later adopted by other teams across HelloFresh.',
             },
-            // 9 — Quick Actions (image + text)
             {
-                type: 'image',
-                title: 'Quick Actions on Dashboard',
-                text: 'A small-surface redesign on TPT that shaped the way the broader HelloFresh RAF experience evolved.',
-                image: '/card-hover.png',
-                caption: 'TPT patterns influencing the core HF roadmap.',
+                type: 'divider',
+                label: '2025 · Design-Led Initiatives & AI',
             },
-            // 10 — Zestification with Claude Code (large quote)
-            {
-                type: 'quote',
-                quote: 'I became the first designer at HelloFresh to ship design-system components directly to production.',
-                large: true,
-            },
-            // 11 — Cross-brand impact (text)
             {
                 type: 'text',
-                title: 'Beyond The Pets Table',
-                text: 'Free Items adopted by Good Chop. Cancellation UX adopted across brands. Figma structure adopted cross-team. AI design-to-code workflows seeding a company-wide movement. Contributions into Factor B2B UX.',
+                content: 'By 2025, my work at TPT had moved beyond optimisation. I was driving design-led initiatives, influencing the core HelloFresh roadmap, and beginning to pioneer new ways of working with AI-assisted tools.',
             },
-            // 12 — Outcome (quote)
             {
-                type: 'quote',
-                title: 'Outcome',
-                quote: 'Three years. One designer. A brand with its own voice inside HelloFresh — and a playbook other brands borrowed from.',
+                type: 'callout',
+                content: 'Quick Actions on the Dashboard — a small-surface redesign on TPT — shaped the way the broader HelloFresh Refer-a-Friend experience evolved. A local insight became a cross-brand pattern.',
             },
-            // 13 — Stats (final)
             {
-                type: 'stats',
-                title: 'Impact',
+                type: 'text',
+                content: 'Other initiatives from this period: a lean loyalty concept delivered through CRM and landing pages, a compliant cancellation page that was adopted across brands, a Framer-based landing page test exploring a Contentful replacement, and a surcharge pricing UX for premium protein tiers.',
+            },
+            {
+                type: 'impact',
+                title: 'Design-led results · 2025',
                 items: [
-                    { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full UX from launch through 2025 — funnel, checkout, and member experience.' },
-                    { value: '6+', label: 'Shipped CVR wins', description: 'Measurable conversion improvements across the acquisition and checkout funnel.' },
-                    { value: '1st', label: 'Designer in code', description: 'First designer at HelloFresh to implement Zest components directly in production.' },
-                    { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh.' },
+                    { value: '+20%', label: 'mCVR — Free items', description: 'Redesigned the free-items treatment on the order summary. The pattern was adopted by Good Chop.' },
+                    { value: '$0.7M', label: 'TCVA — Cadence test', description: 'Revenue uplift from the air-dried cadence experiment — a TPT-first test that informed subscription strategy.' },
+                    { value: '1st', label: 'Designer in code', description: 'Became the first designer at HelloFresh to implement Zest design system components directly in production code.' },
+                    { value: '3+', label: 'Brands adopted TPT patterns', description: 'Free Items, cancellation UX, and Figma structure each crossed over to Good Chop, Factor, and core HF.' },
                 ],
+            },
+            {
+                type: 'divider',
+                label: 'Pioneering Design-to-Code',
+            },
+            {
+                type: 'text',
+                content: 'Toward the end of my time at TPT, I began using Claude Code to implement design system components directly in the production codebase. The breed-specific message feature — 11 personalised copy variants for the most-selected dog breeds, conditional logic, real social proof data — was one of the first features I shipped end-to-end without an engineering handoff.',
+            },
+            {
+                type: 'callout',
+                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that eventually grew into a team-wide movement under Consumer Acceleration.',
+            },
+            {
+                type: 'text',
+                content: 'This wasn\'t about replacing engineers. It was about removing the gap between design intent and what ships — taking ownership of the full quality of what I designed, all the way to the user.',
+            },
+            {
+                type: 'divider',
+                label: 'Beyond The Pets Table',
+            },
+            {
+                type: 'text',
+                content: 'Some of the most lasting impact from three years at TPT wasn\'t on TPT itself. The Free Items redesign was adopted by Good Chop. The cancellation UX spread across brands. The Figma handoff structure was picked up cross-team. Research programs and Sprig scaling influenced multiple teams. And the AI design-to-code experiments seeded what became a company-wide movement.',
+            },
+            {
+                type: 'text',
+                content: 'I also contributed to Factor\'s B2B UX during this period — bringing TPT learnings and cross-brand pattern thinking to a very different product context.',
+            },
+            {
+                type: 'divider',
+                label: 'Outcome',
+            },
+            {
+                type: 'callout',
+                content: 'Three years. One designer. A brand with its own voice inside HelloFresh — and a playbook that other brands borrowed from.',
+            },
+            {
+                type: 'text',
+                content: 'What I\'m most proud of isn\'t any single metric. It\'s the discipline of working at pace without cutting corners — shipping fast but maintaining quality, running real research under real constraints, and treating every negotiation for engineering time as a design decision in itself. TPT taught me how to operate with ambiguity, advocate for users with data, and build things that outlast the sprint they ship in.',
             },
         ],
     },
