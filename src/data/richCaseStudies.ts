@@ -74,7 +74,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'UX Quality with Claude Code',
+                label: 'Main goal: UX Quality',
             },
             {
                 type: 'text',

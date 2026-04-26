@@ -53,7 +53,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
             {/* Header — text only, left-aligned */}
             <div className="mt-8">
-                <h1 className="text-[32px] md:text-[44px] font-bold leading-[1.15] text-white font-serif tracking-normal">
+                <h1 className="text-[32px] md:text-[44px] font-bold leading-[1.15] text-white tracking-normal">
                     {study.title}
                 </h1>
                 <div className="flex items-center gap-2 text-[15px] text-white/60 mt-3">
@@ -99,7 +99,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                             <div key={i} className="mt-16 mb-8">
                                 {section.label && (
                                     <>
-                                        <h2 className="text-[28px] md:text-[36px] font-bold text-white leading-none font-serif pb-5 tracking-normal">
+                                        <h2 className="text-[28px] md:text-[36px] font-bold text-white leading-none pb-5 tracking-normal">
                                             {section.label}
                                         </h2>
                                         <div className="border-b border-white/15" />
