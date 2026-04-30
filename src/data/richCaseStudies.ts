@@ -236,25 +236,41 @@ export const richCaseStudies: RichCaseStudy[] = [
         company: 'The Pets Table · HelloFresh',
         role: 'Product Designer → Sr. Product Designer',
         cover: '/card-hover.png',
-        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Tight deadlines, shared infrastructure, and limited engineering bandwidth meant every decision was a negotiation between innovation, speed, and system reuse.',
-        tags: ['Product Design', 'UX Research', 'Design Systems', 'Conversion Optimisation', 'Design-to-Code'],
+        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.',
+        tags: ['Product Design', 'UX Research', 'OOUX', 'Growth', 'Retention', 'Design-to-Code'],
         sections: [
             {
                 type: 'impact',
                 items: [
                     { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full product UX from launch through 2025 — funnel, checkout, post-checkout, and member experience.' },
-                    { value: '+20%', label: 'mCVR on order summary', description: 'Redesigned free-items treatment on the order summary page. The pattern was later adopted by Good Chop.' },
-                    { value: '$0.7M', label: 'TCVA', description: 'Revenue uplift from the air-dried cadence test — a design-led experiment that shaped subscription strategy.' },
                     { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh — including cancellation UX and Figma structure.' },
+                    { value: 'Pioneer', label: 'Design-to-Code Workflows', description: 'TPT was where I started my design-to-code journey — experimenting with features in production, building the knowledge to bridge the gap between design intent and engineering output.' },
+                    { value: 'CVR +', label: 'Uplifts as main goal', description: 'Growth was our primary target. I drove conversion improvements across the funnel — adding goals and allergen questions, refining UX flows, introducing two-step loading states, and layering in social proof at key moments.' },
                 ],
             },
             {
                 type: 'divider',
-                label: 'The Context',
+                label: 'From White Label to Own Identity',
             },
             {
                 type: 'text',
-                content: 'The Pets Table launched in 2023 as HelloFresh\'s fresh, human-grade dog food subscription — a New Ventures brand built almost from scratch inside the HelloFresh ecosystem. Operating under the constraints of a new venture meant tight deadlines, limited engineering bandwidth, and a product that needed to stand on its own while sharing infrastructure with HelloFresh.',
+                content: 'The Pets Table was HelloFresh\'s first pet food brand. Before TPT, HelloFresh already had a white-label front-end solution shared across its new brands — Factor, Green Chef, Chef\'s Plate, Every Plate, and Good Chop all launched using this common infrastructure. I\'d been working within that system myself, focused on meal selection and post-checkout experience for those brands.',
+            },
+            {
+                type: 'image',
+                src: '/whitelabel-comparison.png',
+                caption: 'The white-label post-checkout shell shared across Factor, Chef\'s Plate, EveryPlate, Good Chop, and others — and how The Pets Table started',
+                shrink: true,
+            },
+            {
+                type: 'text',
+                content: 'Adapting the white-label to pet food meant working with fundamentally different constraints. The existing system was built around humans choosing weekly meals; TPT needed to handle pet profiles, breed-specific content, multi-pet households, and an add-ons model that had no equivalent elsewhere. That gap drove a gradual divergence — a redesigned add-ons store entry point, quick actions on the delivery dashboard, and dedicated pet navigation were all features the white-label was never designed for. Several of those solutions eventually made their way back, adopted and adapted by other brands.',
+            },
+            {
+                type: 'image',
+                src: '/petstable-dashboard.png',
+                caption: 'The Pets Table dashboard — branching out from the white-label with pet-specific UX: improved add-ons access, quick actions, and pet navigation',
+                shrink: true,
             },
             {
                 type: 'callout',
@@ -270,7 +286,18 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'I joined TPT at a critical moment: the brand was launching and needed a full product design foundation built quickly. From day one, the work was about establishing quality standards, not just shipping screens.',
+                content: 'I joined TPT at a critical moment: the brand was launching and needed a full product design foundation built quickly. The first major bet was the quiz — competitors like Nom Nom and The Farmer\'s Dog had made it a cornerstone of the pet food experience, a way to personalise the product and build trust before asking for a purchase. No HelloFresh brand had ever launched with a quiz before. We made it the entry point for TPT, and the results validated the approach: the quiz became the template that all other HelloFresh brands eventually adopted.',
+            },
+            {
+                type: 'image',
+                src: '/tpt-quiz-desktop.png',
+            },
+            {
+                type: 'image',
+                src: '/tpt-quiz.png',
+                caption: 'The Pets Table quiz — a first for HelloFresh, later adopted across all brands',
+                shrink: true,
+                compact: true,
             },
             {
                 type: 'process',
@@ -280,12 +307,12 @@ export const richCaseStudies: RichCaseStudy[] = [
                         description: 'Designed and refined the core acquisition funnel — the quiz, plan selection, and checkout — from early MVP through post-launch iterations. Every step was built with conversion and clarity in mind.',
                     },
                     {
-                        title: 'Custom Zest-Compliant Navigation',
-                        description: 'Worked alongside engineering to replace TPT\'s dependency on HelloFresh\'s generic navigation with a custom, Zest-compliant header — giving the brand its own visual identity inside the HF ecosystem.',
+                        title: 'Zest-Compliant UI',
+                        description: 'Zest is HelloFresh\'s multi-brand design system. Because TPT and Zest were born at the same time, we became the first HelloFresh brand to reach full compliance — something only possible with a brand built from scratch.',
                     },
                     {
-                        title: 'Multi-Pet Support — OOUX',
-                        description: 'Initiated the OOUX process for multi-pet support — mapping objects, relationships, and flows before any screen design began. This gave the team a shared system to reason about, not just a set of wireframes.',
+                        title: 'Object-Oriented UX',
+                        description: 'I used OOUX to map the core objects of the system — the dog, the delivery, the meals — before touching any screen design. Understanding those relationships upfront let me design complex features with confidence, for example: multi-pet support, adjustable daily calories, and flexible delivery cadences.',
                     },
                     {
                         title: 'Figma MasterFlow & Component Library',
@@ -294,8 +321,13 @@ export const richCaseStudies: RichCaseStudy[] = [
                 ],
             },
             {
+                type: 'image',
+                src: '/tpt-ooux.png',
+                caption: 'Some of my OOUX Mapping and Explorations',
+            },
+            {
                 type: 'divider',
-                label: '2024 · Depth, Research & Conversion Wins',
+                label: 'Research and Experimentation as a Habit',
             },
             {
                 type: 'text',
@@ -311,39 +343,13 @@ export const richCaseStudies: RichCaseStudy[] = [
                 items: [
                     { value: '+3.4%', label: 'CVR — Goals question', description: 'Added a goals question to the quiz and redesigned the plans page as part of Funnel 2.0.' },
                     { value: '+3.3%', label: 'CVR — Social proof', description: 'Introduced social proof on the delivery page in the acquisition funnel.' },
-                    { value: '+0.7%', label: 'CVR — Plan transparency', description: 'Improved plan selection clarity — surfacing key information at the right moment.' },
+                    { value: '+20%', label: 'mCVR — Free items', description: 'Added free items to the order summary — we weren\'t showing them before. Pattern later adopted by Good Chop.' },
                     { value: '+1.2%', label: 'CVR — Two-step loading', description: 'A subtle UX pattern change on the checkout loading state that reduced drop-off.' },
                 ],
             },
             {
                 type: 'text',
                 content: 'I also introduced an improved Figma handoff structure during this period — a more systematic approach to organising files for engineering collaboration that was later adopted by other teams across HelloFresh.',
-            },
-            {
-                type: 'divider',
-                label: '2025 · Design-Led Initiatives & AI',
-            },
-            {
-                type: 'text',
-                content: 'By 2025, my work at TPT had moved beyond optimisation. I was driving design-led initiatives, influencing the core HelloFresh roadmap, and beginning to pioneer new ways of working with AI-assisted tools.',
-            },
-            {
-                type: 'callout',
-                content: 'Quick Actions on the Dashboard — a small-surface redesign on TPT — shaped the way the broader HelloFresh Refer-a-Friend experience evolved. A local insight became a cross-brand pattern.',
-            },
-            {
-                type: 'text',
-                content: 'Other initiatives from this period: a lean loyalty concept delivered through CRM and landing pages, a compliant cancellation page that was adopted across brands, a Framer-based landing page test exploring a Contentful replacement, and a surcharge pricing UX for premium protein tiers.',
-            },
-            {
-                type: 'impact',
-                title: 'Design-led results · 2025',
-                items: [
-                    { value: '+20%', label: 'mCVR — Free items', description: 'Redesigned the free-items treatment on the order summary. The pattern was adopted by Good Chop.' },
-                    { value: '$0.7M', label: 'TCVA — Cadence test', description: 'Revenue uplift from the air-dried cadence experiment — a TPT-first test that informed subscription strategy.' },
-                    { value: '1st', label: 'Designer in code', description: 'Became the first designer at HelloFresh to implement Zest design system components directly in production code.' },
-                    { value: '3+', label: 'Brands adopted TPT patterns', description: 'Free Items, cancellation UX, and Figma structure each crossed over to Good Chop, Factor, and core HF.' },
-                ],
             },
             {
                 type: 'divider',

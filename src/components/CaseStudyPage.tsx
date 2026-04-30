@@ -3,6 +3,7 @@ import type { RichCaseStudy } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { StickyHeader } from './StickyHeader';
 import { BrandCarousel } from './BrandCarousel';
+import { ImpactCards } from './ImpactCards';
 
 interface OtherStudy {
     id: string;
@@ -99,7 +100,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                             <div key={i} className="mt-16 mb-8">
                                 {section.label && (
                                     <>
-                                        <h2 className="text-[28px] md:text-[36px] font-bold text-white leading-none pb-5 tracking-normal">
+                                        <h2 className="text-[22px] md:text-[28px] font-bold text-white leading-none pb-5 tracking-normal">
                                             {section.label}
                                         </h2>
                                         <div className="border-b border-white/15" />
@@ -109,54 +110,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                         );
 
                     case 'impact':
-                        return (
-                            <div key={i} className="mt-16">
-                                {section.title && (
-                                    <div className="mb-6">
-                                        <p className="text-sm font-semibold uppercase tracking-widest text-white/70 mb-4">{section.title}</p>
-                                        <div className="border-b border-white/15" />
-                                    </div>
-                                )}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {section.items.map((item) => (
-                                        <div key={item.label} className="rounded-2xl border border-white/10 p-8 flex flex-col min-h-[260px]">
-                                            {item.logos ? (
-                                                <div className="flex items-center gap-4">
-                                                    <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal flex-shrink-0">
-                                                        {item.value}
-                                                    </p>
-                                                    <div className="flex-1 overflow-hidden relative h-[72px] md:h-[88px]">
-                                                        <div
-                                                            className="animate-hf-brand-scroll"
-                                                            style={{ display: 'flex', alignItems: 'center', width: 'max-content', height: '100%', willChange: 'transform' }}
-                                                        >
-                                                            {[...item.logos, ...item.logos].map((logo, j) => (
-                                                                <img
-                                                                    key={j}
-                                                                    src={logo.src}
-                                                                    alt={logo.alt}
-                                                                    style={{ height: `${logo.height}px`, width: 'auto', objectFit: 'contain', flexShrink: 0, filter: 'brightness(0) invert(1)', opacity: 0.4, marginRight: '28px' }}
-                                                                />
-                                                            ))}
-                                                        </div>
-                                                        <div style={{ position: 'absolute', top: 0, left: 0, width: '32px', height: '100%', background: 'linear-gradient(to right, #000, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-                                                        <div style={{ position: 'absolute', top: 0, right: 0, width: '32px', height: '100%', background: 'linear-gradient(to left, #000, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal">
-                                                    {item.value}
-                                                </p>
-                                            )}
-                                            <div className="mt-auto pt-8">
-                                                <p className="text-[17px] md:text-[19px] font-bold text-white leading-snug">{item.label}</p>
-                                                <p className="text-[16px] md:text-[17px] text-white/55 mt-2 leading-relaxed">{item.description}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        );
+                        return <ImpactCards key={i} items={section.items} title={section.title} />;
 
                     case 'process':
                         return (
@@ -184,12 +138,11 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'image':
                         return (
-                            <figure key={i} className="mt-8">
+                            <figure key={i} className={`${section.compact ? 'mt-2' : 'mt-8'} ${section.shrink ? 'md:w-4/5 md:mx-auto' : ''}`}>
                                 <img
                                     src={section.src}
                                     alt={section.caption || ''}
-                                    className="rounded-xl mx-auto block"
-                                    style={section.width ? { width: section.width } : { width: '100%' }}
+                                    className="rounded-xl mx-auto block w-full"
                                     loading="lazy"
                                 />
                                 {section.caption && (
@@ -274,13 +227,13 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
             {/* Other case studies */}
             {otherStudies.length > 0 && (
                 <div className="mt-20 pt-10 border-t border-white/10">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-white/30">Explore other case studies</p>
-                    <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 items-start">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-white/60">Explore other case studies</p>
+                    <div className="mt-5 flex gap-3 overflow-x-auto scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible items-start">
                         {otherStudies.map((cs) => (
                             <button
                                 key={cs.id}
                                 onClick={() => onOpenStudy?.(cs.id)}
-                                className="group cursor-pointer text-left relative"
+                                className="group cursor-pointer text-left relative flex-shrink-0 w-[80vw] md:w-auto"
                             >
                                 <div className="rounded-xl border border-white/10 group-hover:border-white/20 transition-colors px-5 pt-5 pb-5 flex flex-col bg-black h-[200px]">
                                     <div className="text-sm text-white/50 flex-shrink-0">{cs.year}</div>
