@@ -14,7 +14,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'impact',
                 items: [
-                    { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly — setting a precedent that spread company-wide.' },
+                    { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production — setting a precedent that grew into an organisation-wide movement under the Consumer Acceleration team.' },
                     { value: '8', label: 'UX commands shipped', description: 'A full specx-ux suite covering prototype creation, iteration, testing, publishing, and design-to-code.' },
                     { value: '9', label: 'HelloFresh Brands affected', description: 'The new design-to-code workflow changed how features are built across all nine HelloFresh brands — giving each one faster, higher-fidelity output and less engineering overhead.', logos: [
                         { src: '/brands/hellofresh-full.svg', alt: 'HelloFresh', height: 22 },
@@ -40,7 +40,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that spread across the wider team.',
+                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that eventually grew into an organisation-wide movement under the Consumer Acceleration team.',
             },
             {
                 type: 'image',
@@ -281,6 +281,11 @@ export const richCaseStudies: RichCaseStudy[] = [
                 content: 'Over three years I shaped TPT\'s end-to-end product experience — from the acquisition funnel through to delivery management, pet profile, and member retention. I ran user research, built design systems foundations, drove measurable conversion improvements, and eventually pioneered AI-assisted design-to-code workflows that set a new bar across HelloFresh.',
             },
             {
+                type: 'image',
+                src: '/tpt-plans.png',
+                caption: 'The main plans page we kept iterating on since when the brand was launched.',
+            },
+            {
                 type: 'divider',
                 label: '2023 · Launch & Foundations',
             },
@@ -308,7 +313,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: 'Zest-Compliant UI',
-                        description: 'Zest is HelloFresh\'s multi-brand design system. Because TPT and Zest were born at the same time, we became the first HelloFresh brand to reach full compliance — something only possible with a brand built from scratch.',
+                        description: 'Zest (HelloFresh\'s newest design system) is their multi-brand system. Because TPT and Zest were born at the same time, we became the first HelloFresh brand to reach full compliance — something only possible with a brand built from scratch.',
                     },
                     {
                         title: 'Object-Oriented UX',
@@ -331,11 +336,17 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'With foundations in place, 2024 was about depth — running proper research programs, validating new features before build, and shipping a steady stream of measurable improvements across the funnel.',
+                content: 'With foundations in place, 2024 was about depth — running proper research programs, validating new features before build, and shipping a steady stream of measurable improvements across the funnel. We ran numerous A/B tests throughout, which gave us the data to decide which features were worth keeping and which ones to drop.',
+            },
+            {
+                type: 'image',
+                src: '/tpt-two-step-loading.png',
+                caption: 'Two-step loading: a feature to prepare users before seeing the plans page.',
             },
             {
                 type: 'text',
-                content: 'I designed and validated a new delivery scheduling feature through DIY usability testing, expanded it into variable cadences, and built a subscribable add-ons store. I also scaled continuous feedback systems using Sprig and Usabilla — creating the first real infrastructure for ongoing user insight at TPT.',
+                html: true,
+                content: 'New features were validated through user research and usability testing before a single line was built. We also scaled ongoing insight with <a href="https://sprig.com/" target="_blank" rel="noopener noreferrer" class="underline text-white/70 hover:text-white transition-colors">Sprig</a> — leveraging screen recordings, heatmaps, and surveys to understand real behaviour across the funnel and feed the next round of improvements.',
             },
             {
                 type: 'impact',
@@ -343,41 +354,40 @@ export const richCaseStudies: RichCaseStudy[] = [
                 items: [
                     { value: '+3.4%', label: 'CVR — Goals question', description: 'Added a goals question to the quiz and redesigned the plans page as part of Funnel 2.0.' },
                     { value: '+3.3%', label: 'CVR — Social proof', description: 'Introduced social proof on the delivery page in the acquisition funnel.' },
-                    { value: '+20%', label: 'mCVR — Free items', description: 'Added free items to the order summary — we weren\'t showing them before. Pattern later adopted by Good Chop.' },
                     { value: '+1.2%', label: 'CVR — Two-step loading', description: 'A subtle UX pattern change on the checkout loading state that reduced drop-off.' },
+                    { value: '+20%', label: 'mCVR — Free items', description: 'Added free items to the order summary — we weren\'t showing them before. Pattern later adopted by Good Chop.' },
                 ],
             },
             {
-                type: 'text',
-                content: 'I also introduced an improved Figma handoff structure during this period — a more systematic approach to organising files for engineering collaboration that was later adopted by other teams across HelloFresh.',
+                type: 'image',
+                src: '/tpt-free-items.png',
+                caption: 'A low-hanging fruit: displaying free items in the order summary resulted in a very high increase in micro-conversion from this page to the payment page.',
             },
             {
                 type: 'divider',
                 label: 'Pioneering Design-to-Code',
             },
             {
-                type: 'text',
-                content: 'Toward the end of my time at TPT, I began using Claude Code to implement design system components directly in the production codebase. The breed-specific message feature — 11 personalised copy variants for the most-selected dog breeds, conditional logic, real social proof data — was one of the first features I shipped end-to-end without an engineering handoff.',
+                type: 'callout',
+                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that eventually grew into an organisation-wide movement under the Consumer Acceleration team.',
             },
             {
-                type: 'callout',
-                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that eventually grew into a team-wide movement under Consumer Acceleration.',
+                type: 'text',
+                content: 'Toward the end of my time at TPT, I began implementing features directly in the production codebase. It started with AI agents in Cursor, and as the company grew in AI maturity it evolved into a more structured workflow — using Claude Code alongside Spec-Machine, a shared repository of skills built for our stack.',
+            },
+            {
+                type: 'text',
+                content: 'The breed-specific message feature — 11 personalised copy variants for the most-selected dog breeds, conditional logic, real social proof data — was one of the first I shipped end-to-end without an engineering handoff.',
+            },
+            {
+                type: 'image',
+                src: '/petstable-breed.png',
+                caption: 'The breed-specific message feature',
+                shrink: true,
             },
             {
                 type: 'text',
                 content: 'This wasn\'t about replacing engineers. It was about removing the gap between design intent and what ships — taking ownership of the full quality of what I designed, all the way to the user.',
-            },
-            {
-                type: 'divider',
-                label: 'Beyond The Pets Table',
-            },
-            {
-                type: 'text',
-                content: 'Some of the most lasting impact from three years at TPT wasn\'t on TPT itself. The Free Items redesign was adopted by Good Chop. The cancellation UX spread across brands. The Figma handoff structure was picked up cross-team. Research programs and Sprig scaling influenced multiple teams. And the AI design-to-code experiments seeded what became a company-wide movement.',
-            },
-            {
-                type: 'text',
-                content: 'I also contributed to Factor\'s B2B UX during this period — bringing TPT learnings and cross-brand pattern thinking to a very different product context.',
             },
             {
                 type: 'divider',
@@ -389,7 +399,21 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'What I\'m most proud of isn\'t any single metric. It\'s the discipline of working at pace without cutting corners — shipping fast but maintaining quality, running real research under real constraints, and treating every negotiation for engineering time as a design decision in itself. TPT taught me how to operate with ambiguity, advocate for users with data, and build things that outlast the sprint they ship in.',
+                content: 'What I\'m most proud of isn\'t any single metric. It\'s the discipline of working at pace without cutting corners — shipping fast but maintaining quality, running real research under real constraints, and treating every negotiation for engineering time as a design decision in itself. TPT taught me how to operate with ambiguity, advocate for users with data, and keep iterating based on what the numbers tell you rather than what you assumed at the start.',
+            },
+            {
+                type: 'image',
+                src: '/tpt-meals.png',
+                caption: 'The meal selection page.',
+            },
+            {
+                type: 'text',
+                content: 'Iterations are ongoing. The latest ones focus on helping customers choose their recipes with more confidence — the recipe detail page is now more interactive and informative, featuring key ingredients and customer reviews.',
+            },
+            {
+                type: 'image',
+                src: '/tpt-recipe-detail.png',
+                caption: 'The new recipe detail page.',
             },
         ],
     },

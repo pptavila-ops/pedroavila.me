@@ -1,5 +1,5 @@
 export type RichSection =
-    | { type: 'text'; content: string }
+    | { type: 'text'; content: string; html?: boolean }
     | { type: 'callout'; content: string }
     | { type: 'image'; src: string; caption?: string; width?: string }
     | { type: 'impact'; title?: string; items: { value: string; label: string; description: string; logos?: { src: string; alt: string; height: number }[] }[] }

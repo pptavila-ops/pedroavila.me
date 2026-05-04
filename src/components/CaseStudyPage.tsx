@@ -82,7 +82,9 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
             {study.sections.map((section, i) => {
                 switch (section.type) {
                     case 'text':
-                        return (
+                        return section.html ? (
+                            <p key={i} className="mt-8 text-[16px] md:text-[17px] font-normal leading-relaxed text-white/60" dangerouslySetInnerHTML={{ __html: section.content }} />
+                        ) : (
                             <p key={i} className="mt-8 text-[16px] md:text-[17px] font-normal leading-relaxed text-white/60">
                                 {section.content}
                             </p>
