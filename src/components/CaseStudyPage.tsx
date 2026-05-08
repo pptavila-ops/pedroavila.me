@@ -3,6 +3,8 @@ import type { RichCaseStudy } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { StickyHeader } from './StickyHeader';
 import { BrandCarousel } from './BrandCarousel';
+import { DesignProcessDiagram } from './DesignProcessDiagram';
+import { CurrentDesignProcessDiagram } from './CurrentDesignProcessDiagram';
 import { ImpactCards } from './ImpactCards';
 
 interface OtherStudy {
@@ -116,7 +118,10 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'process':
                         return (
-                            <div key={i} className="mt-8 flex flex-col gap-0">
+                            <div key={i} className="mt-16 flex flex-col gap-0">
+                                {section.title && (
+                                    <p className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-8">{section.title}</p>
+                                )}
                                 {section.steps.map((step, j) => (
                                     <div key={step.title} className="flex gap-5 group">
                                         {/* Step number + line */}
@@ -193,17 +198,15 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                         return (
                             <div key={i} className="mt-10">
                                 {section.title && (
-                                    <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-6">{section.title}</p>
+                                    <p className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-8">{section.title}</p>
                                 )}
-                                <div className="flex flex-col gap-5">
+                                <div className="flex flex-col gap-8">
                                     {section.bars.map((bar) => (
-                                        <div key={bar.label} className="flex flex-col gap-2">
+                                        <div key={bar.label} className="flex flex-col gap-3">
                                             <div className="flex items-baseline justify-between gap-4">
                                                 <div className="flex items-baseline gap-2.5">
                                                     <span className="text-[26px] md:text-[30px] font-bold text-white leading-none tracking-tight">{bar.label}</span>
-                                                    <span className="text-[13px] font-semibold text-white/55">{bar.sublabel}</span>
                                                 </div>
-                                                <span className="text-[13px] text-white/55 text-right hidden md:block">{bar.description}</span>
                                             </div>
                                             <div className="h-[6px] w-full bg-white/10 rounded-full overflow-hidden">
                                                 <div
@@ -211,7 +214,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                                     style={{ width: `${bar.pct}%`, background: bar.color }}
                                                 />
                                             </div>
-                                            <span className="text-[13px] text-white/55 md:hidden">{bar.description}</span>
+                                            <span className="text-[16px] md:text-[17px] text-white/55">{bar.description}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -220,6 +223,12 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                 )}
                             </div>
                         );
+
+                    case 'design-process-diagram':
+                        return <DesignProcessDiagram key={i} />;
+
+                    case 'current-design-process-diagram':
+                        return <CurrentDesignProcessDiagram key={i} />;
 
                     default:
                         return null;

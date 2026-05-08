@@ -14,8 +14,8 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'impact',
                 items: [
-                    { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production — setting a precedent that grew into an organisation-wide movement under the Consumer Acceleration team.' },
-                    { value: '8', label: 'UX commands shipped', description: 'A full specx-ux suite covering prototype creation, iteration, testing, publishing, and design-to-code.' },
+                    { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production — setting a precedent that grew into an organisation-wide movement.' },
+                    { value: 'Skills', label: 'Agents, commands & partials', description: 'A full UX AI suite covering prototype creation, iteration, testing, publishing, and design-to-code workflows.' },
                     { value: '9', label: 'HelloFresh Brands affected', description: 'The new design-to-code workflow changed how features are built across all nine HelloFresh brands — giving each one faster, higher-fidelity output and less engineering overhead.', logos: [
                         { src: '/brands/hellofresh-full.svg', alt: 'HelloFresh', height: 22 },
                         { src: '/brands/greenchef.svg', alt: 'Green Chef', height: 28 },
@@ -46,11 +46,15 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/petstable-breed.png',
                 caption: 'The breed-specific message feature',
-                width: '80%',
+                shrink: true,
             },
             {
                 type: 'text',
-                content: 'The feature showed a personalised message based on the dog breed selected by the user during onboarding. We had data on the top 11 most-selected breeds — Golden Retriever, Labrador, French Bulldog, and others — and each received a tailored message with social proof and a meal count. Every other breed fell back to a general message. The goal was simple: increase conversion by making the experience feel personal at exactly the right moment. Pulling it off required more than prompting an AI — it meant genuinely understanding React, TypeScript, and how conditional rendering works in a production codebase.',
+                content: 'The feature showed a personalised message based on the dog breed selected during onboarding. The top 11 breeds — Golden Retriever, Labrador, French Bulldog, and others — each got a tailored message with social proof and a meal count; the rest fell back to a general one. The goal: increase conversion by making the experience feel personal at exactly the right moment.',
+            },
+            {
+                type: 'callout',
+                content: 'Pulling it off required more than prompting an AI — it meant genuinely understanding React, TypeScript, and how conditional rendering works in a production codebase.',
             },
             {
                 type: 'text',
@@ -58,47 +62,50 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'The Problem at HelloFresh (or in UX in general)',
-            },
-            {
-                type: 'callout',
-                content: 'HelloFresh had a distributed UX team spanning nine brands — each with its own codebase, its own engineering team, and its own gap between what was designed and what actually shipped.',
+                label: 'The Design-to-Code Gap',
             },
             {
                 type: 'text',
-                content: 'The translation layer between design and engineering was slow and lossy. Designers filed tickets. Engineers interpreted specs. Things changed. By the time a feature shipped, it had passed through so many hands that the original intent was often diluted. There was no direct path from a design decision to production code — and no shared infrastructure to make that path shorter.',
+                content: 'HelloFresh\'s UX team spanned nine brands — each with its own codebase, its own engineering team, and its own gap between what was designed and what shipped.',
+            },
+            {
+                type: 'text',
+                content: 'The handoff was slow and lossy: designers filed tickets, engineers interpreted specs, and intent diluted with every hand it passed through. There was no direct path from a design decision to production — and no shared infrastructure to make one.',
+            },
+            {
+                type: 'design-process-diagram',
             },
             {
                 type: 'text',
                 content: 'Consumer Acceleration was tasked with closing this gap. The bet was AI — specifically Claude Code as the interface between UX intention and production reality. My role was to explore what that could actually look like in practice, and then make it real for the whole team.',
             },
             {
+                type: 'callout',
+                content: 'Following my own experiments shipping code, I was able to move the design team toward a new standard: we own the UI — not just in static designs, but directly in the product.',
+            },
+            {
+                type: 'current-design-process-diagram',
+            },
+            {
                 type: 'divider',
-                label: 'Main goal: UX Quality',
+                label: 'Spec-Machine: the AI brain of our UX.',
             },
             {
                 type: 'text',
-                content: 'The first thing I built was a public-facing guide — published at ux-quality-with-claudecode.preview.hellofresh.io — teaching designers how to fix UX defects and implement improvements directly in the codebase without waiting on engineering.',
+                content: 'Spec-Machine is HelloFresh\'s internal AI repository — a shared hub where teams collaborate, publish commands, and improve the context available to AI agents across the company. Built primarily around Claude Code, it gives every team a way to contribute to and benefit from a growing library of skills. I contributed to building and shipping the specx-ux plugin: a growing suite of UX-specific commands covering the full design workflow.',
+            },
+            {
+                type: 'callout',
+                content: 'As the owner of the UX Space Inside Spec-Machine, I\'ve developed new workflows for prototyping, user testing, publishing, and implementing designs directly into production with a set of agents and skills.',
             },
             {
                 type: 'image',
-                src: '/card-hover.png',
-                caption: 'UX Quality with Claude Code — the public guide for designers working directly in production.',
-            },
-            {
-                type: 'text',
-                content: 'The workflow had two modes: prevention and recovery. Prevention meant checking design readiness against Zest, the HelloFresh design system, before a spec went to dev. Recovery meant using Claude to make targeted code changes in an existing feature, then requesting a developer review. Both modes were documented, walkthrough-ready, and safe — the guardrails were designed for designers, not engineers.',
-            },
-            {
-                type: 'divider',
-                label: 'Spec-Machine · specx-ux',
-            },
-            {
-                type: 'text',
-                content: 'Spec-Machine was HelloFresh\'s internal AI toolchain — a hub where teams published commands that others could use. I contributed to building and shipping the specx-ux plugin: a growing suite of UX-specific commands that covered the full design workflow.',
+                src: '/ai-prototype.png',
+                caption: 'Production-like prototype created with prototyping agent in Claude Code.',
             },
             {
                 type: 'process',
+                title: 'Some of the commands created for UX',
                 steps: [
                     {
                         title: '/create-prototype',
@@ -127,6 +134,40 @@ export const richCaseStudies: RichCaseStudy[] = [
                 ],
             },
             {
+                type: 'callout',
+                content: 'Prototypes can be created as free-form, balanced, or strict — varying how closely they adhere to the design system. They\'re also convertible between thresholds, so a free-form exploration can be tightened into something production-ready.',
+            },
+            {
+                type: 'image',
+                src: '/freeformvsstrict.png',
+                caption: 'An example of a free-form prototype transformed into strict.',
+            },
+            {
+                type: 'divider',
+                label: 'Main goal: UX Quality',
+            },
+            {
+                type: 'text',
+                content: 'With the increasing pace of AI-assisted prototyping, there was a real risk that Zest — HelloFresh\'s design system — would get left behind, its rules and consistency disregarded when it came to implementation. My main focus was to keep the UX quality of what we ship: teaching designers how to create prototypes that match production, and making targeted fixes directly in the code.',
+            },
+            {
+                type: 'image',
+                src: '/ux-quality.png',
+                caption: 'UX Quality with Claude Code — the public guide for designers working directly in production.',
+            },
+            {
+                type: 'callout',
+                content: 'The workflow for UX quality addressed both prevention and recovery issues that might come up with rapid prototyping.',
+            },
+            {
+                type: 'text',
+                content: 'Prevention meant checking design readiness against Zest, the HelloFresh design system, before a spec went to dev. Recovery meant using Claude to make targeted code changes in an existing feature, then requesting a developer review.',
+            },
+            {
+                type: 'text',
+                content: 'Both prevention and recovery were supported by commands I created and improved over time. AI commands let designers be confident they were shipping something that adhered to the design system, and other commands could — in a single prompt — fix a UI bug and open a pull request ready for review.',
+            },
+            {
                 type: 'divider',
                 label: 'Prototypes Playground',
             },
@@ -136,7 +177,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/card-hover.png',
+                src: '/prototypes-playground.png',
                 caption: 'Prototypes Playground — a shared Vercel environment for AI-generated prototypes across all HF brands.',
             },
             {
@@ -149,15 +190,16 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Tools and documentation only go so far. The more durable change came from building a culture around them. I transformed our existing bi-weekly UX Gen meeting into UX AI Office Hours — an open forum where designers, researchers, and writers could bring real questions, share experiments in progress, and learn from each other in real time.',
+                content: 'Tools and documentation only go so far. The more durable change came from building a culture around them. I\'ve established regular sessions for an audience that includes designers, researchers, and product managers — an open space to share explorations.',
             },
             {
-                type: 'text',
-                content: 'Sessions included a full walkthrough of the Prototype-to-Code workflow, live demos of specx-ux commands, and external speakers — including a Senior Product Designer from Shopify sharing their own AI practice. I also introduced the "UX-Gen" JIRA label to track all AI-assisted design work across the company, which created the first real visibility into what was actually being built with these tools.',
+                type: 'callout',
+                content: 'I\'ve established UX AI Office Hours 💫 that happen biweekly, where everyone can join and get their questions answered.',
             },
             {
-                type: 'text',
-                content: 'Alongside this, I pioneered using Claude for Object-Oriented UX documentation — generating per-object markdown files, relationship maps, and interactive HTML diagrams directly from the codebase. The goal was to reduce the amount of documentation that lived only in someone\'s head, and share the method with the team so it could scale.',
+                type: 'image',
+                src: '/trainings.png',
+                caption: 'Some of the trainings I did to teach people how to prototype using the new workflows.',
             },
             {
                 type: 'divider',
@@ -174,14 +216,14 @@ export const richCaseStudies: RichCaseStudy[] = [
                     {
                         label: 'Product Designers',
                         sublabel: 'design → code',
-                        description: 'Merging production code, Zest components, React Native variants, accessibility fixes',
+                        description: 'Creating AI prototypes, merging production code, Zest components, React Native variants, accessibility fixes',
                         pct: 100,
                         color: 'hsl(180, 65%, 58%)',
                     },
                     {
                         label: 'UX Writers',
                         sublabel: '11 AI commands',
-                        description: 'Content review, auditing, and creation integrated directly into Spec-Machine',
+                        description: 'Content review, auditing, and creation integrated directly into Spec-Machine and prototyping workflow',
                         pct: 82,
                         color: 'hsl(270, 65%, 65%)',
                     },
@@ -195,25 +237,31 @@ export const richCaseStudies: RichCaseStudy[] = [
                     {
                         label: 'Engineers',
                         sublabel: 'AI-powered QA',
-                        description: 'Co-built accessibility scanners and illustration audits powered by Claude',
+                        description: 'Getting a more strategic voice by being able to present business ideas in rapid generated prototypes while also supporting AI implementation of designs directly into production code.',
                         pct: 48,
                         color: 'hsl(30, 65%, 60%)',
                     },
+                    {
+                        label: 'Product Managers',
+                        sublabel: 'AI prototypes',
+                        description: 'Presenting and evaluating ideas with AI prototypes rather than text-only product requirements documents',
+                        pct: 88,
+                        color: 'hsl(55, 65%, 60%)',
+                    },
                 ],
-                caption: 'Relative adoption depth — based on volume and variety of AI workflow use per discipline.',
             },
             {
                 type: 'divider',
-                label: 'Into Design Systems · Berlin',
+                label: 'Into Design Systems in Berlin',
             },
             {
                 type: 'text',
-                content: 'In February 2026, I presented at the Into Design Systems meetup hosted at HelloFresh\'s Berlin office — sharing our AI-enabled design system work publicly for the first time. The audience included designers from Deutsche Bank and Inverse Digital. HelloFresh also sponsored the Into Design Systems Conference 2026 on March 19–20, focused on AI workflows, Claude Code, Figma MCP, and real-world design systems practice.',
+                content: 'In February 2026, I presented at the Into Design Systems meetup hosted at HelloFresh\'s Berlin office — sharing our AI-enabled design system work publicly for the first time.',
             },
             {
                 type: 'image',
-                src: '/card-hover.png',
-                caption: 'Into Design Systems meetup · Parterre, Ritterstraße · Berlin · February 2026.',
+                src: '/into.png',
+                caption: 'Into Design Systems Meetup at HelloFresh in February 2026.',
             },
             {
                 type: 'divider',

@@ -50,7 +50,7 @@ export function ImpactCards({ items, title }: ImpactCardsProps) {
                                 {item.value}
                             </p>
                         )}
-                        <div className="mt-auto pt-8">
+                        <div className="mt-8">
                             <p className="text-[17px] md:text-[19px] font-bold text-white leading-snug">{item.label}</p>
                             <p className="text-[16px] md:text-[17px] text-white/55 mt-2 leading-relaxed">{item.description}</p>
                         </div>

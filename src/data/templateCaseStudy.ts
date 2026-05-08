@@ -3,11 +3,13 @@ export type RichSection =
     | { type: 'callout'; content: string }
     | { type: 'image'; src: string; caption?: string; width?: string }
     | { type: 'impact'; title?: string; items: { value: string; label: string; description: string; logos?: { src: string; alt: string; height: number }[] }[] }
-    | { type: 'process'; steps: { title: string; description: string }[] }
+    | { type: 'process'; title?: string; steps: { title: string; description: string }[] }
     | { type: 'two-column'; image: string; content: string; imageLeft?: boolean; caption?: string }
     | { type: 'divider'; label?: string }
     | { type: 'download'; label: string; href: string }
-    | { type: 'chart'; title?: string; caption?: string; bars: { label: string; sublabel: string; description: string; pct: number; color: string }[] };
+    | { type: 'chart'; title?: string; caption?: string; bars: { label: string; sublabel: string; description: string; pct: number; color: string }[] }
+    | { type: 'design-process-diagram' }
+    | { type: 'current-design-process-diagram' };
 
 export type StoriesSlide = {
     type: 'cover' | 'text' | 'image' | 'quote' | 'gallery' | 'stats' | 'steps' | 'intro';
