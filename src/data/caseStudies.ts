@@ -46,16 +46,16 @@ export const caseStudies: CaseStudy[] = [
     },
     {
         id: 'mvp',
-        title: 'Helping Early Startups Ship Their MVPs',
-        year: '2021',
+        title: 'Validating an AI Hair Analysis Concept',
+        year: '2022',
         company: 'MVP Factory',
-        intro: 'Before HelloFresh, I worked with early-stage startups helping them go from idea to first shipped product. The common trap: founders wanting to build everything before shipping anything. My role was to find the smallest version of the product that could prove the idea. For each engagement, the process was the same: understand the core value proposition, identify the riskiest assumption, and design just enough product to test it.',
+        intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app — before committing to building it. I led the research end-to-end: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
         sections: [
             {
-                text: 'No extra features, no nice-to-haves, no "while we\'re at it" scope creep.',
+                text: 'My role was purely research. A Schwarzkopf designer had already built a working prototype. My job was to put it in front of ten women in Germany and come back with honest answers.',
             },
             {
-                text: 'Across six products, the pattern held: the teams that shipped a focused MVP in weeks learned more than those who spent months building in isolation. Three of those products went on to raise follow-on funding. Two are still in the market today.',
+                text: 'The report gave Schwarzkopf a clear view of where the concept worked, where it needed work, and what would need to be true for users to trust it at scale.',
             },
         ],
     },
@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'movix',
         title: 'Designing a Home Financing App for Brazil',
         year: '2018 – 2019',
-        company: 'Móvix',
+        company: 'CAIXA',
         intro: 'Móvix was an MVP built to help Brazilians finance a house through CAIXA, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
         sections: [
             {

@@ -5,6 +5,7 @@ import { StickyHeader } from './StickyHeader';
 import { BrandCarousel } from './BrandCarousel';
 import { DesignProcessDiagram } from './DesignProcessDiagram';
 import { CurrentDesignProcessDiagram } from './CurrentDesignProcessDiagram';
+import { SpecMachineDiagram } from './SpecMachineDiagram';
 import { ImpactCards } from './ImpactCards';
 
 interface OtherStudy {
@@ -62,7 +63,11 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                 <div className="flex items-center gap-2 text-[15px] text-white/60 mt-3">
                     <span>{study.year}</span>
                     <span>·</span>
-                    <span>@{study.company}</span>
+                    {study.companyUrl ? (
+                        <a href={study.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">@{study.company}</a>
+                    ) : (
+                        <span>@{study.company}</span>
+                    )}
                 </div>
                 {study.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-4">
@@ -76,9 +81,13 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
             </div>
 
             {/* Intro */}
-            <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70">
-                {study.intro}
-            </p>
+            {study.introHtml ? (
+                <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70" dangerouslySetInnerHTML={{ __html: study.intro }} />
+            ) : (
+                <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70">
+                    {study.intro}
+                </p>
+            )}
 
             {/* Sections */}
             {study.sections.map((section, i) => {
@@ -141,6 +150,25 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                     </div>
                                 ))}
                             </div>
+                        );
+
+                    case 'video':
+                        return (
+                            <figure key={i} className="mt-16 flex flex-col items-center">
+                                <video
+                                    src={section.src}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className="rounded-xl block w-full max-w-[280px]"
+                                />
+                                {section.caption && (
+                                    <figcaption className="mt-6 text-[15px] text-white/55 text-center">
+                                        {section.caption}
+                                    </figcaption>
+                                )}
+                            </figure>
                         );
 
                     case 'image':
@@ -229,6 +257,9 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'current-design-process-diagram':
                         return <CurrentDesignProcessDiagram key={i} />;
+
+                    case 'spec-machine-diagram':
+                        return <SpecMachineDiagram key={i} />;
 
                     default:
                         return null;

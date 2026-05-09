@@ -45,7 +45,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/petstable-breed.png',
-                caption: 'The breed-specific message feature',
+                caption: 'The breed-specific message feature — the first feature I implemented fully in production as a designer',
                 shrink: true,
             },
             {
@@ -54,11 +54,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'Pulling it off required more than prompting an AI — it meant genuinely understanding React, TypeScript, and how conditional rendering works in a production codebase.',
-            },
-            {
-                type: 'text',
-                content: 'I wrote the tickets, refined them with the team, joined the sprint, and implemented all five myself — from the conditional logic to the copy variants to the production merge. This was just one of the features I shipped end-to-end, but moments like this made the case for everything that came next.',
+                content: 'Pulling it off required more than prompting an AI — it meant understanding a bit of React, TypeScript, and how conditional rendering works in a production codebase.',
             },
             {
                 type: 'divider',
@@ -95,6 +91,9 @@ export const richCaseStudies: RichCaseStudy[] = [
                 content: 'Spec-Machine is HelloFresh\'s internal AI repository — a shared hub where teams collaborate, publish commands, and improve the context available to AI agents across the company. Built primarily around Claude Code, it gives every team a way to contribute to and benefit from a growing library of skills. I contributed to building and shipping the specx-ux plugin: a growing suite of UX-specific commands covering the full design workflow.',
             },
             {
+                type: 'spec-machine-diagram',
+            },
+            {
                 type: 'callout',
                 content: 'As the owner of the UX Space Inside Spec-Machine, I\'ve developed new workflows for prototyping, user testing, publishing, and implementing designs directly into production with a set of agents and skills.',
             },
@@ -105,7 +104,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'process',
-                title: 'Some of the commands created for UX',
+                title: 'Some of the commands I created for UX',
                 steps: [
                     {
                         title: '/create-prototype',
@@ -469,10 +468,12 @@ export const richCaseStudies: RichCaseStudy[] = [
         id: 'movix',
         title: 'Designing a Home Financing App for Brazil',
         year: '2018 – 2019',
-        company: 'Móvix',
+        company: 'CAIXA',
+        companyUrl: 'https://www.caixa.gov.br/voce/Paginas/default.aspx',
         role: 'Product Designer',
         cover: '/movix-home.jpg',
-        intro: 'Móvix was an MVP built to help Brazilians finance a house through CAIXA, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
+        intro: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
+        introHtml: true,
         tags: ['Product Design', 'Mobile', 'UX Research', 'Prototyping'],
         sections: [
             {
@@ -491,6 +492,10 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'callout',
                 content: 'In a market where every process is as traditional as 10 years ago, Móvix was an important step toward changing how people finance their homes.',
+            },
+            {
+                type: 'image',
+                src: '/movixintro.png',
             },
             {
                 type: 'text',
@@ -531,13 +536,18 @@ export const richCaseStudies: RichCaseStudy[] = [
                 label: 'The Work',
             },
             {
-                type: 'text',
-                content: 'The target audience had little experience with financing, so simplicity was non-negotiable. We designed a card-based home screen with clear entry points into the three main flows: simulation, financing, and follow-up. A small animated speech bubble guide — built with Lottie — walked users through each step of the simulation.',
+                type: 'callout',
+                content: 'The first thing we focused on was translating CAIXA\'s paperwork questions into a digital format — a quiz.',
             },
             {
-                type: 'image',
-                src: '/movix-home.jpg',
-                caption: 'Home cards in a logical and understandable order',
+                type: 'text',
+                content: 'The target audience had little experience with financing. We designed a card-based home screen with three entry points — and because the simulation alone required dozens of questions, we added an animated avatar guide built with Lottie to keep people from dropping off.',
+            },
+            {
+                type: 'video',
+                src: '/movix-guide.mp4',
+                caption: 'The animated guide helped users navigate through the many required questions without dropping off',
+                shrink: true,
             },
             {
                 type: 'callout',
@@ -738,6 +748,148 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'text',
                 content: 'The backend is production-ready: Supabase auth, session storage, profile management, trial tracking, and bell overrides are all complete. The React Native build is next. I\'m building this one screen at a time, starting with the timer itself — because if the timer isn\'t perfect, nothing else matters.',
+            },
+        ],
+    },
+    {
+        id: 'mvp',
+        title: 'Validating an AI Hair Analysis Concept',
+        year: '2022',
+        company: 'MVP Factory',
+        role: 'UX Researcher',
+        cover: '/wf-hair-score.png',
+        intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app — before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
+        tags: ['UX Research', 'User Interviews', 'Concept Testing', 'Dovetail'],
+        sections: [
+            {
+                type: 'impact',
+                items: [
+                    { value: '10', label: 'Women interviewed', description: 'Moderated sessions with women across Germany, conducted alongside another German UX Researcher.' },
+                    { value: 'Full', label: 'Research ownership', description: 'I owned the entire research process — from screening criteria and script to synthesis and final report.' },
+                    { value: 'Synthesis', label: 'Clustered in Dovetail', description: 'All sessions were tagged, clustered, and synthesised in Dovetail to surface themes and patterns across participants.' },
+                    { value: 'Report', label: 'Go / No-go to Henkel', description: 'The deliverable was a research report helping Schwarzkopf decide whether to fully invest in the concept.' },
+                ],
+            },
+            {
+                type: 'divider',
+                label: 'The Brief',
+            },
+            {
+                type: 'text',
+                content: 'MVP Factory was working with Schwarzkopf — part of Henkel — on an early-stage concept: an app that would use AI to analyse a user\'s hair and recommend the right products. Before any serious development investment, they needed to know if the idea had legs. Would real users engage with it? Would they trust a camera and an algorithm to diagnose their hair?',
+            },
+            {
+                type: 'text',
+                content: 'My brief was not to design anything. A Schwarzkopf designer had already built a working prototype. My job was to put it in front of ten women in Germany and come back with honest answers.',
+            },
+            {
+                type: 'callout',
+                content: 'The prototype was not mine. That boundary was the whole point — I was there to listen, not to defend a design.',
+            },
+            {
+                type: 'divider',
+                label: 'The Prototype',
+            },
+            {
+                type: 'text',
+                content: 'The flow had three stages. First, a short quiz to capture hair context — whether the user bleaches, the curl pattern, hair goals. Then a camera step: the app asked users to take photos of their hair so the AI could analyse its condition. Finally, based on the quiz and the analysis, the app generated a hair score and explained the results with product recommendations from the Schwarzkopf range.',
+            },
+            {
+                type: 'image',
+                src: '/wf-quiz.png',
+                caption: 'Stage 1 — Short quiz to capture hair profile: texture, treatments, goals',
+                shrink: true,
+            },
+            {
+                type: 'image',
+                src: '/wf-camera.png',
+                caption: 'Stage 2 — Camera capture: users photograph their hair for AI analysis',
+                shrink: true,
+            },
+            {
+                type: 'image',
+                src: '/wf-hair-score.png',
+                caption: 'Stage 3 — Hair score: a number, a breakdown, and an explanation of what\'s behind it',
+                shrink: true,
+            },
+            {
+                type: 'image',
+                src: '/wf-recommendations.png',
+                caption: 'Stage 4 — Product recommendations: Schwarzkopf products matched to the hair diagnosis',
+                shrink: true,
+            },
+            {
+                type: 'divider',
+                label: 'Research Design',
+            },
+            {
+                type: 'process',
+                steps: [
+                    {
+                        title: 'Screening Criteria',
+                        description: 'I defined the participant profile to reflect the real target audience — women in Germany with varying hair types, treatments, and product habits. The screening ensured diversity in hair condition and familiarity with beauty apps, while filtering out anyone too close to the industry.',
+                    },
+                    {
+                        title: 'Research Script',
+                        description: 'I wrote the full moderated interview script: a warm-up to understand existing hair care habits, a prototype walkthrough with think-aloud prompts, and a debrief with direct attitudinal questions. The goal was to separate first-impression reactions from considered opinions.',
+                    },
+                    {
+                        title: 'Moderated Sessions',
+                        description: 'Ten one-on-one sessions conducted remotely. Participants were asked to walk through the prototype while narrating their thoughts. I probed on trust, privacy, and whether the output felt credible — not just whether the UI was clear.',
+                    },
+                    {
+                        title: 'Synthesis in Dovetail',
+                        description: 'All sessions were tagged and affinity-clustered in Dovetail. Themes emerged around the camera step, trust in the score, expectations about product quality, and willingness to pay. Dovetail let me show stakeholders exact quote evidence for every insight.',
+                    },
+                    {
+                        title: 'Final Report',
+                        description: 'I wrote and delivered a full research report to Schwarzkopf and Henkel — structured around the key research questions, the evidence, and a clear recommendation on whether the concept was ready to develop.',
+                    },
+                ],
+            },
+            {
+                type: 'divider',
+                label: 'Key Insights',
+            },
+            {
+                type: 'text',
+                content: 'The quiz step was the easiest part of the experience. Every participant moved through it without hesitation — they were used to this kind of onboarding from beauty brands and found the questions relevant and trustworthy.',
+            },
+            {
+                type: 'callout',
+                content: '"I like that it\'s asking me — it feels like it actually cares about my hair before judging it." — Participant, Berlin',
+            },
+            {
+                type: 'text',
+                content: 'The camera step was the biggest point of friction. Privacy was an immediate concern for most participants. They weren\'t opposed to the idea, but they needed the app to explain clearly what happened to the photos — were they stored, sent to a server, analysed locally? Without that information, hesitation was strong.',
+            },
+            {
+                type: 'callout',
+                content: '"I\'d do it, but I want to know where my photos go. If it\'s just on my phone, fine — if it goes to Schwarzkopf\'s database, I want to know that first." — Participant, Munich',
+            },
+            {
+                type: 'text',
+                content: 'The hair score itself polarised the room. Participants who felt the score matched their self-perception found it credible and useful. Those who didn\'t found the whole concept suspect. This pointed to a core challenge: AI hair analysis needs to feel accurate before it can feel trustworthy — and accuracy perception is shaped by whether the result aligns with what users already believe about their hair.',
+            },
+            {
+                type: 'callout',
+                content: '"If it says my hair is damaged and I know it is, I believe it. If it gives me a high score when my hair is clearly a mess, I\'ll delete the app." — Participant, Hamburg',
+            },
+            {
+                type: 'text',
+                content: 'Product recommendations were the step with the clearest positive signal. Most participants said they\'d be open to trying products recommended through this flow — especially if the recommendation explained the reasoning. The connection between "here\'s your problem" and "here\'s the product that addresses it" felt more credible than a generic best-seller list.',
+            },
+            {
+                type: 'divider',
+                label: 'Outcome',
+            },
+            {
+                type: 'text',
+                content: 'The report gave Schwarzkopf a clear view of where the concept worked, where it needed work, and what would need to be true for users to trust it at scale. The privacy gap around the camera step was flagged as a prerequisite — not a nice-to-have — for any serious launch. The quiz and recommendation flows had strong signal and could move forward largely unchanged.',
+            },
+            {
+                type: 'text',
+                content: 'What I\'m proud of in this project isn\'t a design decision or a shipped screen. It\'s the discipline of staying in the research role — of observing without steering, of separating what participants said from what I wished they\'d said, and of writing a report honest enough to be genuinely useful to the people receiving it.',
             },
         ],
     },
