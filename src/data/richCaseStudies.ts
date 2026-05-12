@@ -776,15 +776,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'MVP Factory was working with Schwarzkopf — part of Henkel — on an early-stage concept: an app that would use AI to analyse a user\'s hair and recommend the right products. Before any serious development investment, they needed to know if the idea had legs. Would real users engage with it? Would they trust a camera and an algorithm to diagnose their hair?',
+                content: 'MVP Factory was partnering with Schwarzkopf — part of Henkel — to validate an early-stage AI hair analysis concept. Before committing to development, they needed a clear answer: would real users trust an app to analyse their hair and recommend the right products? My role was to find out — recruiting and interviewing 10 women across Germany, then delivering a research report with a clear recommendation.',
             },
             {
-                type: 'text',
-                content: 'My brief was not to design anything. A Schwarzkopf designer had already built a working prototype. My job was to put it in front of ten women in Germany and come back with honest answers.',
-            },
-            {
-                type: 'callout',
-                content: 'The prototype was not mine. That boundary was the whole point — I was there to listen, not to defend a design.',
+                type: 'image',
+                src: '/schwarzkopf-0.png',
+                caption: 'The 10 interviewed women were spread across Germany.',
             },
             {
                 type: 'divider',
@@ -792,31 +789,35 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The flow had three stages. First, a short quiz to capture hair context — whether the user bleaches, the curl pattern, hair goals. Then a camera step: the app asked users to take photos of their hair so the AI could analyse its condition. Finally, based on the quiz and the analysis, the app generated a hair score and explained the results with product recommendations from the Schwarzkopf range.',
+                content: 'The flow had three stages. First, a short quiz to capture hair context — whether the user bleaches, the curl pattern, hair goals. Then a camera step: the app asked users to take photos of their hair so the AI could analyse its condition.',
             },
             {
                 type: 'image',
-                src: '/wf-quiz.png',
-                caption: 'Stage 1 — Short quiz to capture hair profile: texture, treatments, goals',
-                shrink: true,
+                src: '/schwarzkopf-1.png',
+                caption: 'The prototype started with a quiz and a photo of the hair.',
+            },
+            {
+                type: 'badge',
+                icon: '🔒',
+                content: 'Shown as lo-fi — tested on a full high-fidelity prototype under NDA.',
+            },
+            {
+                type: 'callout',
+                content: 'I was handed a ready Figma prototype — my job was to put it in front of 10 women in Germany, interview them, and deliver a validation research report.',
+            },
+            {
+                type: 'text',
+                content: 'Finally, based on the quiz and the analysis, the app generated a hair score and explained the results with product recommendations from the Schwarzkopf range.',
             },
             {
                 type: 'image',
-                src: '/wf-camera.png',
-                caption: 'Stage 2 — Camera capture: users photograph their hair for AI analysis',
-                shrink: true,
+                src: '/schwarzkopf-2.png',
+                caption: 'Hair-score screen and final product recommendation.',
             },
             {
-                type: 'image',
-                src: '/wf-hair-score.png',
-                caption: 'Stage 3 — Hair score: a number, a breakdown, and an explanation of what\'s behind it',
-                shrink: true,
-            },
-            {
-                type: 'image',
-                src: '/wf-recommendations.png',
-                caption: 'Stage 4 — Product recommendations: Schwarzkopf products matched to the hair diagnosis',
-                shrink: true,
+                type: 'badge',
+                icon: '🔒',
+                content: 'Shown as lo-fi — tested on a full high-fidelity prototype under NDA.',
             },
             {
                 type: 'divider',
@@ -834,8 +835,8 @@ export const richCaseStudies: RichCaseStudy[] = [
                         description: 'I wrote the full moderated interview script: a warm-up to understand existing hair care habits, a prototype walkthrough with think-aloud prompts, and a debrief with direct attitudinal questions. The goal was to separate first-impression reactions from considered opinions.',
                     },
                     {
-                        title: 'Moderated Sessions',
-                        description: 'Ten one-on-one sessions conducted remotely. Participants were asked to walk through the prototype while narrating their thoughts. I probed on trust, privacy, and whether the output felt credible — not just whether the UI was clear.',
+                        title: 'Moderated Sessions with German Interviewer',
+                        description: 'Ten one-on-one sessions conducted remotely. A native German interviewer led each session while participants walked through the prototype narrating their thoughts — I was present as a note-taker and stepped in with additional questions on trust, privacy, and whether the output felt credible, not just whether the UI was clear.',
                     },
                     {
                         title: 'Synthesis in Dovetail',
@@ -849,47 +850,16 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Key Insights',
-            },
-            {
-                type: 'text',
-                content: 'The quiz step was the easiest part of the experience. Every participant moved through it without hesitation — they were used to this kind of onboarding from beauty brands and found the questions relevant and trustworthy.',
-            },
-            {
-                type: 'callout',
-                content: '"I like that it\'s asking me — it feels like it actually cares about my hair before judging it." — Participant, Berlin',
-            },
-            {
-                type: 'text',
-                content: 'The camera step was the biggest point of friction. Privacy was an immediate concern for most participants. They weren\'t opposed to the idea, but they needed the app to explain clearly what happened to the photos — were they stored, sent to a server, analysed locally? Without that information, hesitation was strong.',
-            },
-            {
-                type: 'callout',
-                content: '"I\'d do it, but I want to know where my photos go. If it\'s just on my phone, fine — if it goes to Schwarzkopf\'s database, I want to know that first." — Participant, Munich',
-            },
-            {
-                type: 'text',
-                content: 'The hair score itself polarised the room. Participants who felt the score matched their self-perception found it credible and useful. Those who didn\'t found the whole concept suspect. This pointed to a core challenge: AI hair analysis needs to feel accurate before it can feel trustworthy — and accuracy perception is shaped by whether the result aligns with what users already believe about their hair.',
-            },
-            {
-                type: 'callout',
-                content: '"If it says my hair is damaged and I know it is, I believe it. If it gives me a high score when my hair is clearly a mess, I\'ll delete the app." — Participant, Hamburg',
-            },
-            {
-                type: 'text',
-                content: 'Product recommendations were the step with the clearest positive signal. Most participants said they\'d be open to trying products recommended through this flow — especially if the recommendation explained the reasoning. The connection between "here\'s your problem" and "here\'s the product that addresses it" felt more credible than a generic best-seller list.',
-            },
-            {
-                type: 'divider',
                 label: 'Outcome',
             },
             {
                 type: 'text',
-                content: 'The report gave Schwarzkopf a clear view of where the concept worked, where it needed work, and what would need to be true for users to trust it at scale. The privacy gap around the camera step was flagged as a prerequisite — not a nice-to-have — for any serious launch. The quiz and recommendation flows had strong signal and could move forward largely unchanged.',
+                type: 'callout',
+                content: 'What I\'m proud of in this project isn\'t a UI design decision or a shipped screen. It\'s the discipline of staying in the research role.',
             },
             {
                 type: 'text',
-                content: 'What I\'m proud of in this project isn\'t a design decision or a shipped screen. It\'s the discipline of staying in the research role — of observing without steering, of separating what participants said from what I wished they\'d said, and of writing a report honest enough to be genuinely useful to the people receiving it.',
+                content: 'Observing without steering, separating what participants said from what I wished they\'d said, and writing a report honest enough to actually be useful to the people receiving it.',
             },
         ],
     },

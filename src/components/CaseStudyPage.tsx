@@ -7,6 +7,7 @@ import { DesignProcessDiagram } from './DesignProcessDiagram';
 import { CurrentDesignProcessDiagram } from './CurrentDesignProcessDiagram';
 import { SpecMachineDiagram } from './SpecMachineDiagram';
 import { ImpactCards } from './ImpactCards';
+import { AnimatedSentence } from './AnimatedSentence';
 
 interface OtherStudy {
     id: string;
@@ -251,6 +252,19 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                 )}
                             </div>
                         );
+
+                    case 'badge':
+                        return (
+                            <div key={i} className="mt-4 flex justify-center">
+                                <div className="w-fit text-[15px] text-blue-300/80 bg-blue-500/10 border border-blue-400/20 px-3 py-1.5 rounded-lg">
+                                    {section.icon && <span className="text-[18px] mr-2">{section.icon}</span>}
+                                    {section.content}
+                                </div>
+                            </div>
+                        );
+
+                    case 'animated-sentence':
+                        return <AnimatedSentence key={i} prefix={section.prefix} phrases={section.phrases} />;
 
                     case 'design-process-diagram':
                         return <DesignProcessDiagram key={i} />;
