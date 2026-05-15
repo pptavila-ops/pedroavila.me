@@ -703,6 +703,70 @@ export const richCaseStudies: RichCaseStudy[] = [
                 content: 'Trexs isn\'t a product. It\'s a question with a handle. Speculative design taught me that the most important design work isn\'t always about solving problems — sometimes it\'s about making the right problems visible. This project shaped how I think about every interface I\'ve designed since: who is the experience for, and what does it ask of the person receiving it?',
             },
         ],
+        slides: [
+            // 0 — Cover
+            {
+                type: 'cover',
+                images: ['/treks-header.gif'],
+                imageFilter: 'blur(2px) brightness(0.35)',
+                quote: 'What if you could transmit an experience from one person to another?',
+                tags: ['Speculative Design', 'Physical Prototype', 'Research'],
+            },
+            // 1 — Intro text
+            {
+                type: 'quote',
+                large: true,
+                quote: 'Trexs is a product from a potential future, in which experiences are tangible, shareable and sold as products. It\'s assembled from salvaged optics, electronics, and everyday objects.',
+            },
+            // 2 — Device image
+            {
+                type: 'image',
+                image: '/trexs-device.png',
+                caption: 'Intentionally ambiguous: it references cameras, microscopes, and medical instruments, but belongs to none of those categories.',
+            },
+            // 3 — Research text
+            {
+                type: 'text',
+                title: 'Research & Mapping',
+                text: 'The project began with an open mapping of the contexts where experience transmission would matter most — art, protest, work, government, society. Where does the gap between lived experience and communicated experience create misunderstanding, isolation, or missed connection?',
+            },
+            // 4 — Research image
+            {
+                type: 'image',
+                image: '/trexs-research.jpg',
+                caption: 'Mapping the domains where experience transmission matters most',
+            },
+            // — The Interaction text
+            {
+                type: 'text',
+                title: 'The Interaction',
+                text: 'The most powerful moment in the project came when two people faced each other with the device between them — one transmitting, one receiving. The physical proximity required made the interaction feel vulnerable and intimate.',
+            },
+            // — The Interaction quote
+            {
+                type: 'quote',
+                large: true,
+                quote: 'Experience transmission, if it existed, wouldn\'t be casual.',
+            },
+            // — The Interaction image
+            {
+                type: 'image',
+                image: '/trexs-users.png',
+                caption: 'Two participants exploring the transmission interaction',
+            },
+            // 5
+            {
+                type: 'image',
+                image: '/treks.jpg',
+                caption: 'Trexs in use — held up to the eye in the way a new kind of seeing might feel',
+            },
+            // 7 — Last
+            {
+                type: 'text',
+                title: 'Speculative Design',
+                text: 'Speculative design asks us to imagine the world differently — not to predict the future, but to question the present. Trexs started with a provocation: human experience is irreducibly personal. No matter how many photos you take or stories you tell, some things just can\'t be shared. What if that changed?',
+            },
+        ],
     },
     {
         id: 'stella-timer',

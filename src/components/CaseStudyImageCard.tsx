@@ -18,17 +18,9 @@ const items: CaseStudyImageCardItem[] = [
         cover: '/treks-header.gif',
     },
     {
-        id: 'stella-timer',
-        year: '2026',
-        category: 'iOS App · Design System',
-        title: 'StellaTimer',
-        description: 'A meditation timer for people who actually meditate. No social, no library, no bloat.',
-        cover: '/stella/screen-08-home-v2.png',
-    },
-    {
         id: 'c',
         year: '2015',
-        category: 'Object Book · Graphic Design',
+        category: 'Object Book',
         title: 'C.',
         description: 'A bilingual object book about memory and the Brazilian Military Dictatorship.',
         cover: '/c/header/3.jpg',
@@ -37,6 +29,7 @@ const items: CaseStudyImageCardItem[] = [
 
 interface Props {
     onOpenStudy?: (id: string) => void;
+    excludeId?: string;
 }
 
 function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy?: (id: string) => void }) {
@@ -57,10 +50,13 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
                     </div>
                 )}
             </div>
-            <div className="px-5 py-5">
-                <p className="text-xs text-white/40 uppercase tracking-widest">{item.year} · {item.category}</p>
+            <div className="px-5 py-5 flex flex-col flex-1">
+                <p className="text-sm text-white/50">{item.year}</p>
                 <p className="text-[17px] font-bold text-white/90 mt-1.5">{item.title}</p>
-                <p className="text-[14px] text-white/50 mt-1 leading-relaxed">{item.description}</p>
+                <p className="text-[15px] text-white/60 mt-1 leading-relaxed">{item.description}</p>
+                <div className="flex flex-wrap gap-2 mt-auto pt-3">
+                    <span className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">{item.category}</span>
+                </div>
             </div>
             <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
                 <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center">
@@ -89,14 +85,17 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
     );
 }
 
-export function CaseStudyImageCard({ onOpenStudy }: Props) {
+export function CaseStudyImageCard({ onOpenStudy, excludeId }: Props) {
+    const visibleItems = excludeId ? items.filter((item) => item.id !== excludeId) : items;
+    const title = excludeId ? 'Explore other personal projects.' : 'This is where I keep some personal projects.';
+
     return (
         <div className="border-t border-white/10 mt-16 pt-14">
             <p className="text-[28px] md:text-[32px] font-bold tracking-tight leading-[1.2] text-white">
-                This is where I keep some personal projects.
+                {title}
             </p>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-                {items.map((item) => (
+            <div className="mt-8 grid grid-cols-2 lg:grid-cols-3 gap-5">
+                {visibleItems.map((item) => (
                     <Card key={item.id} item={item} onOpenStudy={onOpenStudy} />
                 ))}
             </div>

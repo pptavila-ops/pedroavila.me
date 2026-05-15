@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { RichCaseStudy, StoriesSlide } from '../data/templateCaseStudy';
+import { CaseStudyImageCard } from './CaseStudyImageCard';
 
 const SLIDE_DURATION = 11000;
 const COVER_DURATION = 16000;
@@ -7,9 +8,10 @@ const COVER_DURATION = 16000;
 interface Props {
     study: RichCaseStudy;
     onBack: () => void;
+    onOpenStudy?: (id: string) => void;
 }
 
-export function CaseStudyStories({ study, onBack }: Props) {
+export function CaseStudyStories({ study, onBack, onOpenStudy }: Props) {
     const slides = study.slides!;
     const [current, setCurrent] = useState(0);
     const [progress, setProgress] = useState(0);
@@ -24,8 +26,13 @@ export function CaseStudyStories({ study, onBack }: Props) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        setCurrent(0);
+        setProgress(0);
+        setPaused(!study.personal);
+        elapsedRef.current = 0;
+        startRef.current = Date.now();
         containerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
-    }, []);
+    }, [study.id]);
 
     const goTo = useCallback((index: number) => {
         if (index < 0) { onBack(); return; }
@@ -88,6 +95,7 @@ export function CaseStudyStories({ study, onBack }: Props) {
     }, []);
 
     return (
+        <>
         <div ref={containerRef} className="select-none">
             {/* Back + title + pause */}
             <div className="flex items-center gap-3 mb-4">
@@ -216,6 +224,22 @@ export function CaseStudyStories({ study, onBack }: Props) {
                 )}
             </div>
         </div>
+
+        <CaseStudyImageCard onOpenStudy={onOpenStudy} excludeId={study.id} />
+
+        {/* Poem — last */}
+        <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
+            <p className="text-[15px] text-white/60 leading-relaxed">
+                Is this a poem, or a portfolio?<br />
+                A mix of form, something not to hide<br />
+                Is it both? A collection of my work<br />
+                And a snapshot of my mind
+            </p>
+            <p className="text-[15px] text-white/60 flex-shrink-0">© Pedro Ávila 2026</p>
+        </div>
+
+        <div className="h-20" />
+        </>
     );
 }
 
@@ -311,7 +335,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                     {slide.title && (
                         <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{slide.title}</p>
                     )}
-                    <blockquote className={`${slide.large ? 'text-[30px] md:text-[40px] leading-[1.3]' : 'text-[20px] md:text-[24px] leading-[1.45]'} font-semibold text-white/90`}>
+                    <blockquote className={`${slide.large ? 'text-[30px] md:text-[40px] leading-[1.3] font-serif font-normal' : 'text-[20px] md:text-[24px] leading-[1.45] font-semibold'} text-white/90`}>
                         {slide.quote}
                     </blockquote>
                     {slide.text && (
@@ -344,7 +368,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 
         case 'text':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 overflow-hidden flex flex-col">
+                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 overflow-hidden flex flex-col justify-center">
                     {slide.title && (
                         <h2 className="text-2xl font-bold text-white mb-6">{slide.title}</h2>
                     )}
@@ -460,7 +484,7 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
                     draggable={false}
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{
-                        filter: 'blur(2px) brightness(0.6)',
+                        filter: slide.imageFilter ?? 'blur(2px) brightness(0.6)',
                         transform: 'scale(1.1)',
                         opacity: i === idx ? 1 : 0,
                         transition: 'opacity 1.5s ease-in-out',
@@ -476,7 +500,7 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
                 {slide.tags && (
                     <div className="flex flex-wrap gap-2">
                         {slide.tags.map((tag) => (
-                            <span key={tag} className="text-[13px] text-white/70 border border-white/30 rounded-full px-3 py-1">
+                            <span key={tag} className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">
                                 {tag}
                             </span>
                         ))}

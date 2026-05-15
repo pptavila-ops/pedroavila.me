@@ -159,7 +159,7 @@ function App() {
                     />
                 ) : richStudy ? (
                     richStudy.slides ? (
-                        <CaseStudyStories study={richStudy} onBack={closeStudy} />
+                        <CaseStudyStories study={richStudy} onBack={closeStudy} onOpenStudy={openStudy} />
                     ) : (
                         <CaseStudyPage
                             study={richStudy}
