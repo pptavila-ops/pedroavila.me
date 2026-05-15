@@ -1,7 +1,7 @@
 export type RichSection =
     | { type: 'text'; content: string; html?: boolean }
     | { type: 'callout'; content: string }
-    | { type: 'image'; src: string; caption?: string; width?: string }
+    | { type: 'image'; src: string; caption?: string; width?: string; shrink?: boolean; compact?: boolean }
     | { type: 'video'; src: string; caption?: string; shrink?: boolean }
     | { type: 'impact'; title?: string; items: { value: string; label: string; description: string; logos?: { src: string; alt: string; height: number }[] }[] }
     | { type: 'process'; title?: string; steps: { title: string; description: string }[] }

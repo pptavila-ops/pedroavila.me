@@ -964,7 +964,6 @@ export const richCaseStudies: RichCaseStudy[] = [
                 label: 'Outcome',
             },
             {
-                type: 'text',
                 type: 'callout',
                 content: 'What I\'m proud of in this project isn\'t a UI design decision or a shipped screen. It\'s the discipline of staying in the research role.',
             },
