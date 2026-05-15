@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude session files
+.claude/
+generate-wireframes.mjs
+public/wireframes.html
