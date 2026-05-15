@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'movix',
         title: 'Designing a Home Financing App for Brazil',
         year: '2018 – 2019',
-        company: 'CAIXA',
+        company: 'ilia Digital',
         intro: 'Móvix was an MVP built to help Brazilians finance a house through CAIXA, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
         sections: [
             {

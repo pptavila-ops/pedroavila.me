@@ -468,8 +468,8 @@ export const richCaseStudies: RichCaseStudy[] = [
         id: 'movix',
         title: 'Designing a Home Financing App for Brazil',
         year: '2018 – 2019',
-        company: 'CAIXA',
-        companyUrl: 'https://www.caixa.gov.br/voce/Paginas/default.aspx',
+        company: 'ilia Digital',
+        companyUrl: 'https://ilia.digital/en/',
         role: 'Product Designer',
         cover: '/movix-home.jpg',
         intro: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
@@ -496,6 +496,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/movixintro.png',
+                shrink: true,
             },
             {
                 type: 'text',
@@ -530,6 +531,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/movix-tech.png',
                 caption: 'A session dedicated to exploring how technologies already present on people\'s phones could enhance the app experience.',
+                shrink: true,
             },
             {
                 type: 'divider',
@@ -543,6 +545,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/movix-sprints.png',
                 caption: 'A session dedicated to defining the main user flow — translating the traditional into the digital.',
+                shrink: true,
             },
             {
                 type: 'text',
@@ -562,6 +565,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/movix-cards.png',
                 caption: 'Home screen with cards guiding people to the main moments of the user journey.',
+                shrink: true,
             },
             {
                 type: 'text',
@@ -571,6 +575,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/movix-simulation.png',
                 caption: 'Saved simulations give people the opportunity to compare',
+                shrink: true,
             },
             {
                 type: 'callout',
@@ -580,6 +585,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/movix-result.png',
                 caption: 'The result of a home financing simulation.',
+                shrink: true,
             },
             {
                 type: 'text',
@@ -589,16 +595,17 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/movix-proposal.png',
                 caption: 'The financing proposal was shared and tracked by all participants involved in the process.',
+                shrink: true,
+            },
+            {
+                type: 'callout',
+                content: 'The whole process was put to the test at a home financing fair in Brasília — the capital of Brazil.',
             },
             {
                 type: 'image',
                 src: '/movix-testing.jpg',
                 caption: 'Testing Móvix with real users at a financing fair in Brasília',
-            },
-            {
-                type: 'image',
-                src: '/movix-team.jpg',
-                caption: 'Designer Jenny Soares and I at the financing fair',
+                shrink: true,
             },
             {
                 type: 'divider',
@@ -607,6 +614,20 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'text',
                 content: 'Móvix was published on the App Store and Google Play after a 9-month project by AIS Digital. Watching people of every age — many of whom had never used a financial app — successfully navigate the simulation flow at the fair was the clearest signal that we had built the right thing in the right way.',
+            },
+            {
+                type: 'callout',
+                content: 'Móvix was the first step into digital home financing in Brazil and set a precedent for the next iterations in the same market.',
+            },
+            {
+                type: 'image',
+                src: '/movix-team.jpg',
+                caption: 'Designer Jenny Soares and I at the financing fair',
+                shrink: true,
+            },
+            {
+                type: 'text',
+                content: 'Móvix was available on the App Store and on Google Play until February, 2019.',
             },
         ],
     },
@@ -829,7 +850,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'I was handed a ready Figma prototype — my job was to put it in front of 10 women in Germany, interview them, and deliver a validation research report.',
+                content: 'I was handed a ready Figma prototype — my job was to put it in front of ten women in Germany to understand the pitfalls of the project and deliver a validation research report.',
             },
             {
                 type: 'text',
