@@ -87,14 +87,17 @@ function ListCard({ cs, openStudy }: CardProps) {
     );
 }
 
-function SmallCard({ cs, openStudy }: CardProps) {
+export function SmallCard({ cs, openStudy }: CardProps) {
     return (
         <button
             onClick={() => openStudy(cs.id)}
             className="group cursor-pointer text-left w-full"
         >
-            <div className="relative rounded-xl border border-white/10 group-hover:border-white/20 transition-colors p-5 flex flex-col bg-black z-10 h-[200px]">
-                <div className="text-sm text-white/50 flex-shrink-0">{cs.year}</div>
+            <div className="relative rounded-xl border border-white/10 group-hover:border-white/20 transition-colors p-5 flex flex-col bg-black z-10 h-[240px]">
+                <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
+                    {cs.year}
+                    {cs.id === 'design-transformation' && <CurrentRoleTag />}
+                </div>
                 <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{cs.title}</p>
                 <div className="min-w-0 overflow-hidden mt-1 flex-1" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
                     <p className="text-[15px] font-normal leading-relaxed text-white/60">{cs.intro}</p>

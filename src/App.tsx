@@ -129,7 +129,7 @@ function App() {
             </div>
 
             {/* Right Panel — Content */}
-            <div className="w-full md:ml-[32%] lg:ml-[28%] min-h-screen px-7 py-10 md:py-14 md:px-10 lg:px-14">
+            <div className="w-full min-w-0 md:ml-[32%] lg:ml-[28%] min-h-screen px-7 py-10 md:py-14 md:px-10 lg:px-14 overflow-x-clip">
                 {/* Mobile header — hidden on md+ where left panel is visible, and hidden when a case study is open */}
                 <div className={`md:hidden mb-10 pb-8 border-b border-white/10 ${activeStudy ? 'hidden' : ''}`}>
                     <p className="text-[15px] font-semibold text-white">Pedro Ávila</p>

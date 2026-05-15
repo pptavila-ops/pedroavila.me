@@ -8,6 +8,7 @@ import { CurrentDesignProcessDiagram } from './CurrentDesignProcessDiagram';
 import { SpecMachineDiagram } from './SpecMachineDiagram';
 import { ImpactCards } from './ImpactCards';
 import { AnimatedSentence } from './AnimatedSentence';
+import { SmallCard } from './CardGrid';
 
 interface OtherStudy {
     id: string;
@@ -284,30 +285,14 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
             {otherStudies.length > 0 && (
                 <div className="mt-20 pt-10 border-t border-white/10">
                     <p className="text-xs font-semibold uppercase tracking-widest text-white/60">Explore other case studies</p>
-                    <div className="mt-5 flex gap-3 overflow-x-auto scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible items-start">
-                        {otherStudies.map((cs) => (
-                            <button
-                                key={cs.id}
-                                onClick={() => onOpenStudy?.(cs.id)}
-                                className="group cursor-pointer text-left relative flex-shrink-0 w-[80vw] md:w-auto"
-                            >
-                                <div className="rounded-xl border border-white/10 group-hover:border-white/20 transition-colors px-5 pt-5 pb-5 flex flex-col bg-black h-[200px]">
-                                    <div className="text-sm text-white/50 flex-shrink-0">{cs.year}</div>
-                                    <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{cs.title}</p>
-                                    <div className="min-w-0 overflow-hidden mt-1 h-[80px]" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
-                                        <p className="text-[15px] font-normal leading-relaxed text-white/60">{cs.intro}</p>
-                                    </div>
-                                    <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>
-                                    <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
-                                        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M17 14C17 14.5523 16.5523 15 16 15C15.4478 15 15 14.5523 15 14V10.4141L8.70708 16.707C8.31655 17.0976 7.68354 17.0976 7.29302 16.707C6.90249 16.3165 6.90249 15.6835 7.29302 15.293L13.586 9H10C9.44776 9 9.00005 8.55228 9.00005 8C9.00005 7.44772 9.44776 7 10 7H16C16.5523 7 17 7.44772 17 8V14Z" fill="black"/>
-                                            </svg>
-                                        </div>
-                                    </div>
+                    <div className="overflow-x-clip lg:overflow-x-visible">
+                        <div className="mt-5 flex gap-3 overflow-x-auto scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible items-start">
+                            {otherStudies.map((cs) => (
+                                <div key={cs.id} className="flex-shrink-0 w-[80vw] md:w-[280px] lg:w-auto">
+                                    <SmallCard cs={cs} openStudy={(id) => onOpenStudy?.(id)} />
                                 </div>
-                            </button>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}

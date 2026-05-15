@@ -85,6 +85,7 @@
         font-family: 'Instrument Sans', system-ui, sans-serif;
         min-height: 100vh;
         margin: 0;
+        overflow-x: clip;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }

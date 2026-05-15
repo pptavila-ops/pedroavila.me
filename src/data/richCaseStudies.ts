@@ -280,7 +280,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         id: 'pets-table',
         title: 'Designing The Pets Table from the Ground Up',
         year: '2023 – 2025',
-        company: 'The Pets Table · HelloFresh',
+        company: 'HelloFresh',
         role: 'Product Designer → Sr. Product Designer',
         cover: '/card-hover.png',
         intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.',
@@ -528,8 +528,8 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/techsprint.jpg',
-                caption: 'Design sprint sessions with stakeholders',
+                src: '/movix-tech.png',
+                caption: 'A session dedicated to exploring how technologies already present on people\'s phones could enhance the app experience.',
             },
             {
                 type: 'divider',
@@ -538,6 +538,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'callout',
                 content: 'The first thing we focused on was translating CAIXA\'s paperwork questions into a digital format — a quiz.',
+            },
+            {
+                type: 'image',
+                src: '/movix-sprints.png',
+                caption: 'A session dedicated to defining the main user flow — translating the traditional into the digital.',
             },
             {
                 type: 'text',
@@ -554,15 +559,36 @@ export const richCaseStudies: RichCaseStudy[] = [
                 content: 'The use of cards on the home screen helped us guide people through Móvix\'s experience.',
             },
             {
-                type: 'two-column',
-                image: '/movix-saved.png',
+                type: 'image',
+                src: '/movix-cards.png',
+                caption: 'Home screen with cards guiding people to the main moments of the user journey.',
+            },
+            {
+                type: 'text',
                 content: 'Before Móvix, every simulation result had to be thrown away if not printed. We designed a saved simulations feature that let users store, compare, and share results — a small change that made the entire experience feel personal and trustworthy.',
-                imageLeft: true,
+            },
+            {
+                type: 'image',
+                src: '/movix-simulation.png',
                 caption: 'Saved simulations give people the opportunity to compare',
+            },
+            {
+                type: 'callout',
+                content: 'We translated the outdated web-based simulation platform from the bank CAIXA into a mobile-first flow for Móvix that made results easier to understand and share.',
+            },
+            {
+                type: 'image',
+                src: '/movix-result.png',
+                caption: 'The result of a home financing simulation.',
             },
             {
                 type: 'text',
                 content: 'The financing flow let users start directly from a saved simulation, upload documentation via phone camera, and track their process alongside all participants — removing the need for in-person visits just to check a status.',
+            },
+            {
+                type: 'image',
+                src: '/movix-proposal.png',
+                caption: 'The financing proposal was shared and tracked by all participants involved in the process.',
             },
             {
                 type: 'image',
