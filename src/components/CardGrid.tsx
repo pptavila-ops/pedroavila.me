@@ -39,7 +39,7 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
                     onClick={() => openStudy(cs.id)}
                     className="group cursor-pointer text-left"
                 >
-                    <div className="relative rounded-xl border border-white/20 group-hover:border-white/35 transition-colors overflow-hidden p-5 flex flex-col h-[300px] bg-black">
+                    <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors overflow-hidden p-5 flex flex-col h-[300px] bg-black">
                         <div className="flex-1 overflow-hidden" style={{ maskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)' }}>
                             <p className="text-[15px] font-normal leading-relaxed text-white/60">{cs.intro}</p>
                         </div>
@@ -69,7 +69,7 @@ function ListCard({ cs, openStudy }: CardProps) {
             onClick={() => openStudy(cs.id)}
             className="group cursor-pointer text-left w-full"
         >
-            <div className="relative rounded-xl border border-white/20 group-hover:border-white/35 transition-colors px-6 pt-5 pb-5 flex flex-col bg-black z-10 h-[225px]">
+            <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors px-6 pt-5 pb-5 flex flex-col bg-black z-10 h-[225px]">
                 <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
                     {cs.year}
                     {cs.id === 'design-transformation' && <CurrentRoleTag />}
@@ -93,7 +93,7 @@ export function SmallCard({ cs, openStudy }: CardProps) {
             onClick={() => openStudy(cs.id)}
             className="group cursor-pointer text-left w-full"
         >
-            <div className="relative rounded-xl border border-white/20 group-hover:border-white/35 transition-colors p-5 flex flex-col bg-black z-10 h-[240px]">
+            <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors p-5 flex flex-col bg-black z-10 h-[240px]">
                 <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
                     {cs.year}
                     {cs.id === 'design-transformation' && <CurrentRoleTag />}

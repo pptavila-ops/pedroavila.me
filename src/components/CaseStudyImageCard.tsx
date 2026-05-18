@@ -42,7 +42,6 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
                     <FadeImage
                         src={item.cover}
                         alt={item.title}
-                        wrapperClassName="w-full h-full"
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                     />
                 ) : (
@@ -71,7 +70,7 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
         </>
     );
 
-    const sharedClass = "group cursor-pointer text-left relative overflow-hidden rounded-xl border border-white/20 hover:border-white/35 transition-colors bg-black flex flex-col";
+    const sharedClass = "group cursor-pointer text-left relative overflow-hidden rounded-xl border border-white/15 hover:border-white/25 transition-colors bg-black flex flex-col";
 
     if (item.href) {
         return (

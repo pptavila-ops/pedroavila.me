@@ -180,7 +180,6 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                 <FadeImage
                                     src={section.src}
                                     alt={section.caption || ''}
-                                    wrapperClassName="rounded-xl w-full"
                                     className="rounded-xl mx-auto block w-full"
                                     loading="lazy"
                                 />
@@ -199,7 +198,6 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                     <FadeImage
                                         src={section.image}
                                         alt={section.caption || ''}
-                                        wrapperClassName="rounded-xl w-full"
                                         className="w-full rounded-xl"
                                         loading="lazy"
                                     />
