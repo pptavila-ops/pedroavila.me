@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { RichCaseStudy, StoriesSlide } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
+import { FadeImage } from './FadeImage';
 
 const SLIDE_DURATION = 11000;
 const COVER_DURATION = 16000;
@@ -276,10 +277,11 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                         </div>
                         {/* Image column */}
                         <figure className="flex-1 min-h-0 flex flex-col items-center justify-center px-5 pb-5 md:px-7 md:py-7">
-                            <img
-                                src={slide.image}
+                            <FadeImage
+                                src={slide.image!}
                                 alt={slide.caption || ''}
-                                className="max-w-[55%] md:max-w-[80%] min-h-0 flex-shrink object-contain rounded-2xl"
+                                wrapperClassName="max-w-[55%] md:max-w-[80%] min-h-0 flex-shrink rounded-2xl"
+                                className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
                                 style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
                             />
@@ -310,9 +312,10 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                         </div>
                     )}
                     <figure className="flex-1 min-h-0 flex flex-col items-center justify-center px-5 md:px-7">
-                        <img
-                            src={slide.image}
+                        <FadeImage
+                            src={slide.image!}
                             alt={slide.caption || ''}
+                            wrapperClassName="max-w-full min-h-0 flex-shrink rounded-2xl"
                             className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
                             style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                             draggable={false}
@@ -330,7 +333,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
             return (
                 <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 flex flex-col gap-5 md:gap-6 justify-center overflow-hidden">
                     {slide.image && (
-                        <img src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }} draggable={false} />
+                        <FadeImage src={slide.image} alt="" role="presentation" wrapperClassName="w-full max-h-[50%] rounded-2xl" className="w-full max-h-full object-contain rounded-2xl" style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }} draggable={false} />
                     )}
                     {slide.title && (
                         <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{slide.title}</p>
@@ -352,11 +355,12 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                     )}
                     <div role="list" className={`flex-1 min-h-0 ${(slide.columns ?? 2) === 1 ? 'flex flex-col gap-2' : 'grid grid-cols-2 gap-2'}`}>
                         {slide.images?.map((src, i) => (
-                            <img
+                            <FadeImage
                                 key={i}
                                 role="listitem"
                                 src={src}
                                 alt={`Image ${i + 1}`}
+                                wrapperClassName={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'flex-1 min-h-0' : 'h-full'}`}
                                 className={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'flex-1 min-h-0 object-cover' : 'h-full object-cover'}`}
                                 style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
@@ -373,7 +377,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                         <h2 className="text-2xl font-bold text-white mb-6">{slide.title}</h2>
                     )}
                     {slide.text && (
-                        <p className="text-[16px] md:text-[17px] text-white/70 leading-relaxed">{slide.text}</p>
+                        <p className="text-[17px] md:text-[18px] text-white/70 leading-relaxed">{slide.text}</p>
                     )}
                     {slide.download && (
                         <div className="mt-8 flex justify-center">

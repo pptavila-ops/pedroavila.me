@@ -63,7 +63,7 @@ export function CurrentDesignProcessDiagram() {
                                 {step.title}
                             </p>
                             {step.note && (
-                                <p className="text-[16px] md:text-[17px] text-white/55 mt-3 leading-relaxed">
+                                <p className="text-[17px] md:text-[18px] text-white/55 mt-3 leading-relaxed">
                                     {step.note}
                                 </p>
                             )}
@@ -78,7 +78,7 @@ export function CurrentDesignProcessDiagram() {
             </div>
 
             <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-[16px] md:text-[17px] text-white/55 leading-relaxed">
+                <p className="text-[17px] md:text-[18px] text-white/55 leading-relaxed">
                     No typical design review needed. The designer owns the intent and the output — developers only review the code.
                 </p>
             </div>

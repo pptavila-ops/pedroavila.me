@@ -9,6 +9,7 @@ import { SpecMachineDiagram } from './SpecMachineDiagram';
 import { ImpactCards } from './ImpactCards';
 import { AnimatedSentence } from './AnimatedSentence';
 import { SmallCard } from './CardGrid';
+import { FadeImage } from './FadeImage';
 
 interface OtherStudy {
     id: string;
@@ -96,9 +97,9 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                 switch (section.type) {
                     case 'text':
                         return section.html ? (
-                            <p key={i} className="mt-8 text-[16px] md:text-[17px] font-normal leading-relaxed text-white/60" dangerouslySetInnerHTML={{ __html: section.content }} />
+                            <p key={i} className="mt-8 text-[17px] md:text-[18px] font-normal leading-relaxed text-white/60" dangerouslySetInnerHTML={{ __html: section.content }} />
                         ) : (
-                            <p key={i} className="mt-8 text-[16px] md:text-[17px] font-normal leading-relaxed text-white/60">
+                            <p key={i} className="mt-8 text-[17px] md:text-[18px] font-normal leading-relaxed text-white/60">
                                 {section.content}
                             </p>
                         );
@@ -176,9 +177,10 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                     case 'image':
                         return (
                             <figure key={i} className={`${section.compact ? 'mt-2' : 'mt-8'} ${section.shrink ? 'md:w-4/5 md:mx-auto' : ''}`}>
-                                <img
+                                <FadeImage
                                     src={section.src}
                                     alt={section.caption || ''}
+                                    wrapperClassName="rounded-xl w-full"
                                     className="rounded-xl mx-auto block w-full"
                                     loading="lazy"
                                 />
@@ -194,9 +196,10 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                         return (
                             <div key={i} className="mt-8 flex flex-col md:flex-row md:items-center md:gap-8 gap-4">
                                 <figure className={`md:w-1/2 flex-shrink-0 ${section.imageLeft === false ? 'md:order-2' : ''}`}>
-                                    <img
+                                    <FadeImage
                                         src={section.image}
                                         alt={section.caption || ''}
+                                        wrapperClassName="rounded-xl w-full"
                                         className="w-full rounded-xl"
                                         loading="lazy"
                                     />
@@ -244,7 +247,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                                                     style={{ width: `${bar.pct}%`, background: bar.color }}
                                                 />
                                             </div>
-                                            <span className="text-[16px] md:text-[17px] text-white/55">{bar.description}</span>
+                                            <span className="text-[17px] md:text-[18px] text-white/55">{bar.description}</span>
                                         </div>
                                     ))}
                                 </div>
