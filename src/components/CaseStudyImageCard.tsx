@@ -42,7 +42,6 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
                     <FadeImage
                         src={item.cover}
                         alt={item.title}
-                        wrapperClassName="w-full h-full"
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                     />
                 ) : (
