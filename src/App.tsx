@@ -133,7 +133,7 @@ function App() {
                 {/* Mobile header — hidden on md+ where left panel is visible, and hidden when a case study is open */}
                 <div className={`md:hidden mb-10 pb-8 border-b border-white/10 ${activeStudy ? 'hidden' : ''}`}>
                     <p className="text-[15px] font-semibold text-white">Pedro Ávila</p>
-                    <p className="text-[14px] text-white/60 mt-1 leading-relaxed">Senior Product Designer · Berlin</p>
+                    <p className="text-[16px] text-white/60 mt-1 leading-relaxed">Senior Product Designer<br />He, him ◇ Berlin</p>
                     <div className="flex gap-3 mt-5">
                         <a href="https://www.linkedin.com/in/pptavila/" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white/60 transition-colors hover:border-white/40 hover:text-white">
                             <svg width="14" height="14" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C68.4183 0 72 3.58172 72 8V64C72 68.4183 68.4183 72 64 72H8C3.58172 72 0 68.4183 0 64V8C0 3.58172 3.58172 0 8 0H64ZM11.0322 62H21.7695V27.333H11.0322V62ZM49.3828 26.2744C42.0263 26.2744 38.9297 32.0029 38.9297 32.0029V27.333H28.6338V62H38.9297V43.8018C38.9298 38.926 41.1747 36.0244 45.4707 36.0244C49.4197 36.0244 51.3153 38.8126 51.3154 43.8018V62H62V40.0508C61.9998 30.7644 56.7357 26.2745 49.3828 26.2744ZM16.3496 10C12.8423 10 10 12.8648 10 16.3975C10.0002 19.9299 12.8425 22.7939 16.3496 22.7939C19.8566 22.7938 22.697 19.9298 22.6973 16.3975C22.6973 12.8649 19.8568 10.0001 16.3496 10Z" fill="currentColor" /></svg>
@@ -209,7 +209,7 @@ function App() {
                                         </p>
                                     </div>
                                 ) : (
-                                    <p className="text-[16px] md:text-[17px] font-normal leading-relaxed text-white/60">
+                                    <p className="text-[17px] md:text-[18px] font-normal leading-relaxed text-white/60">
                                         {section.text}
                                     </p>
                                 )}
@@ -227,12 +227,12 @@ function App() {
                 ) : (
                     <div>
                         <RainbowText>
-                            <p className="text-[38px] md:text-[42px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
-                                <span className="lg:hidden">Enabling designers to ship production-ready code.</span>
-                                <span className="hidden lg:inline">Enabling designers to ship<br />production-ready code.</span>
+                            <p className="text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight text-pretty">
+                                <span className="lg:hidden">Enabling designers to ship production ready code.</span>
+                                <span className="hidden lg:inline">Enabling designers to ship<br />production ready code.</span>
                             </p>
                         </RainbowText>
-                        <p className="text-[38px] md:text-[42px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
+                        <p className="text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
                             Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.
                         </p>
 

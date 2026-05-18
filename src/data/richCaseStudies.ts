@@ -467,7 +467,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     {
         id: 'movix',
         title: 'Designing a Home Financing App for Brazil',
-        year: '2018 – 2019',
+        year: '2017 – 2018',
         company: 'ilia Digital',
         companyUrl: 'https://ilia.digital/en/',
         role: 'Product Designer',

@@ -21,7 +21,7 @@ export function AnimatedSentence({ prefix, phrases }: Props) {
     }, [phrases.length]);
 
     return (
-        <p className="text-[16px] md:text-[17px] font-normal leading-relaxed text-white/60">
+        <p className="text-[17px] md:text-[18px] font-normal leading-relaxed text-white/60">
             {prefix}
             <span
                 className="text-white/90 font-medium"
