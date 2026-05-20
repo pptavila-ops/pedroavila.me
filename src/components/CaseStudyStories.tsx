@@ -32,7 +32,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy }: Props) {
         setPaused(!study.personal);
         elapsedRef.current = 0;
         startRef.current = Date.now();
-        containerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+        window.scrollTo({ top: 0, behavior: 'instant' });
     }, [study.id]);
 
     const goTo = useCallback((index: number) => {
