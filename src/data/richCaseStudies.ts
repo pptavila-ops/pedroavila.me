@@ -338,7 +338,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'I joined TPT at a critical moment: the brand was launching and needed a full product design foundation built quickly. The first major bet was the quiz — competitors like Nom Nom and The Farmer\'s Dog had made it a cornerstone of the pet food experience, a way to personalise the product and build trust before asking for a purchase. No HelloFresh brand had ever launched with a quiz before. We made it the entry point for TPT, and the results validated the approach: the quiz became the template that all other HelloFresh brands eventually adopted.',
+                content: 'I joined TPT at a critical moment: the brand was launching and needed a full product design foundation built quickly. The first major bet was the quiz — competitors like Nom Nom and The Farmer\'s Dog had made it a cornerstone of the pet food experience, a way to personalise the product and build trust before asking for a purchase.',
+            },
+            {
+                type: 'callout',
+                content: 'The Pets Table launched with a quiz, which became the template that every other HelloFresh brand adopted.',
             },
             {
                 type: 'image',
