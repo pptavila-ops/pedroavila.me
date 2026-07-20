@@ -24,7 +24,7 @@ export function CurrentDesignProcessDiagram() {
     return (
         <div className="mt-8 rounded-2xl border border-white/10 p-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-8">
-                Current design/development process
+                Current design/development process with AI
             </p>
 
             <div className="flex flex-col">

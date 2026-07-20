@@ -9,22 +9,34 @@ import { CaseStudyPage } from './components/CaseStudyPage';
 import { CaseStudyStories } from './components/CaseStudyStories';
 import { templateCaseStudy } from './data/templateCaseStudy';
 import { richCaseStudies } from './data/richCaseStudies';
+import { PlaygroundPage } from './components/PlaygroundPage';
 
 function App() {
     const [copied, setCopied] = useState(false);
     const [activeStudy, setActiveStudy] = useState<string | null>(null);
+    const [activePlayground, setActivePlayground] = useState(false);
     const [shineKey, setShineKey] = useState(0);
     const musicRef = useRef<HTMLAudioElement>(null);
 
     const openStudy = useCallback((id: string) => {
         setActiveStudy(id);
+        setActivePlayground(false);
         setShineKey((k) => k + 1);
         window.history.pushState({ study: id }, '', `/work/${id}`);
         window.scrollTo(0, 0);
     }, []);
 
+    const openPlayground = useCallback(() => {
+        setActiveStudy(null);
+        setActivePlayground(true);
+        setShineKey((k) => k + 1);
+        window.history.pushState({ playground: true }, '', '/playground');
+        window.scrollTo(0, 0);
+    }, []);
+
     const closeStudy = useCallback(() => {
         setActiveStudy(null);
+        setActivePlayground(false);
         setShineKey((k) => k + 1);
         window.history.pushState(null, '', '/');
         window.scrollTo(0, 0);
@@ -35,14 +47,16 @@ function App() {
             const path = window.location.pathname;
             const match = path.match(/^\/work\/(.+)$/);
             setActiveStudy(match ? match[1] : null);
+            setActivePlayground(path === '/playground');
             setShineKey((k) => k + 1);
         };
         window.addEventListener('popstate', handlePopState);
 
-        // Handle initial URL (e.g. direct link to /work/...)
+        // Handle initial URL (e.g. direct link to /work/... or /playground)
         const path = window.location.pathname;
         const match = path.match(/^\/work\/(.+)$/);
         if (match) setActiveStudy(match[1]);
+        if (path === '/playground') setActivePlayground(true);
 
         return () => window.removeEventListener('popstate', handlePopState);
     }, []);
@@ -164,7 +178,9 @@ function App() {
                     </div>
                 </div>
 
-                {activeStudy === 'template' ? (
+                {activePlayground ? (
+                    <PlaygroundPage onBack={closeStudy} />
+                ) : activeStudy === 'template' ? (
                     <CaseStudyPage
                         study={templateCaseStudy}
                         onBack={closeStudy}
@@ -258,7 +274,7 @@ function App() {
 
                         <BrandCarousel />
 
-                        <CaseStudyImageCard onOpenStudy={openStudy} />
+                        <CaseStudyImageCard onOpenStudy={openStudy} onOpenPlayground={openPlayground} />
 
                         <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
                             <p className="text-[15px] text-white/60 leading-relaxed">

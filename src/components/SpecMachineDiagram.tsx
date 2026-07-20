@@ -1,9 +1,9 @@
 export function SpecMachineDiagram() {
     const nodes = [
-        { label: 'UX', angle: -90 },
-        { label: 'Web', angle: 0 },
-        { label: 'Data', angle: 90 },
-        { label: 'Mobile', angle: 180 },
+        { label: 'UX', angle: -90, stroke: '#4a90c4', text: '#bfe0ff' },
+        { label: 'Web', angle: 0, stroke: '#3fa37a', text: '#bff0d8' },
+        { label: 'Data', angle: 90, stroke: '#caa84a', text: '#ffe3a8' },
+        { label: 'Mobile', angle: 180, stroke: '#9a6cb4', text: '#e3d3ef' },
     ];
 
     const cx = 200;
@@ -40,7 +40,8 @@ export function SpecMachineDiagram() {
                             y1={y1}
                             x2={x2}
                             y2={y2}
-                            stroke="rgba(255,255,255,0.25)"
+                            stroke={node.stroke}
+                            strokeOpacity="0.45"
                             strokeWidth="1.5"
                             strokeDasharray="4 4"
                         />
@@ -86,8 +87,9 @@ export function SpecMachineDiagram() {
                                 cx={x}
                                 cy={y}
                                 r={nodeR}
-                                fill="rgba(255,255,255,0.04)"
-                                stroke="rgba(255,255,255,0.35)"
+                                fill={node.stroke}
+                                fillOpacity="0.14"
+                                stroke={node.stroke}
                                 strokeWidth="1.5"
                             />
                             <text
@@ -96,7 +98,7 @@ export function SpecMachineDiagram() {
                                 textAnchor="middle"
                                 fontSize="14"
                                 fontWeight="600"
-                                fill="rgba(255,255,255,0.85)"
+                                fill={node.text}
                             >
                                 {node.label}
                             </text>

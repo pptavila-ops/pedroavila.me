@@ -11,9 +11,9 @@ export type RichSection =
     | { type: 'chart'; title?: string; caption?: string; bars: { label: string; sublabel: string; description: string; pct: number; color: string }[] }
     | { type: 'animated-sentence'; prefix: string; phrases: string[] }
     | { type: 'badge'; content: string; icon?: string }
-    | { type: 'design-process-diagram' }
     | { type: 'current-design-process-diagram' }
-    | { type: 'spec-machine-diagram' };
+    | { type: 'spec-machine-diagram' }
+    | { type: 'double-diamond-diagram' };
 
 export type StoriesSlide = {
     type: 'cover' | 'text' | 'image' | 'quote' | 'gallery' | 'stats' | 'steps' | 'intro';

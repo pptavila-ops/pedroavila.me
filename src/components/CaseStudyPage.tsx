@@ -3,9 +3,9 @@ import type { RichCaseStudy } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { StickyHeader } from './StickyHeader';
 import { BrandCarousel } from './BrandCarousel';
-import { DesignProcessDiagram } from './DesignProcessDiagram';
 import { CurrentDesignProcessDiagram } from './CurrentDesignProcessDiagram';
 import { SpecMachineDiagram } from './SpecMachineDiagram';
+import { DoubleDiamondDiagram } from './DoubleDiamondDiagram';
 import { ImpactCards } from './ImpactCards';
 import { AnimatedSentence } from './AnimatedSentence';
 import { SmallCard } from './CardGrid';
@@ -268,14 +268,14 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
                     case 'animated-sentence':
                         return <AnimatedSentence key={i} prefix={section.prefix} phrases={section.phrases} />;
 
-                    case 'design-process-diagram':
-                        return <DesignProcessDiagram key={i} />;
-
                     case 'current-design-process-diagram':
                         return <CurrentDesignProcessDiagram key={i} />;
 
                     case 'spec-machine-diagram':
                         return <SpecMachineDiagram key={i} />;
+
+                    case 'double-diamond-diagram':
+                        return <DoubleDiamondDiagram key={i} />;
 
                     default:
                         return null;

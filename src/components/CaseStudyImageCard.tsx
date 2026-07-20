@@ -6,6 +6,7 @@ interface CaseStudyImageCardItem {
     description: string;
     cover?: string;
     href?: string;
+    kind?: 'study' | 'playground';
 }
 
 const items: CaseStudyImageCardItem[] = [
@@ -25,16 +26,26 @@ const items: CaseStudyImageCardItem[] = [
         description: 'A bilingual object book about memory and the Brazilian Military Dictatorship.',
         cover: '/c/header/3.jpg',
     },
+    {
+        id: 'playground',
+        year: 'Ongoing',
+        category: 'Free Exploration',
+        title: 'Playground',
+        description: 'A mosaic of personal side projects and free explorations — things I didn\'t make at work.',
+        cover: '/playground-kwid.gif',
+        kind: 'playground',
+    },
 ];
 
 interface Props {
     onOpenStudy?: (id: string) => void;
+    onOpenPlayground?: () => void;
     excludeId?: string;
 }
 
 import { FadeImage } from './FadeImage';
 
-function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy?: (id: string) => void }) {
+function Card({ item, onOpenStudy, onOpenPlayground }: { item: CaseStudyImageCardItem; onOpenStudy?: (id: string) => void; onOpenPlayground?: () => void }) {
     const inner = (
         <>
             <div className="h-[200px] overflow-hidden">
@@ -81,13 +92,13 @@ function Card({ item, onOpenStudy }: { item: CaseStudyImageCardItem; onOpenStudy
     }
 
     return (
-        <button onClick={() => onOpenStudy?.(item.id)} className={sharedClass}>
+        <button onClick={() => item.kind === 'playground' ? onOpenPlayground?.() : onOpenStudy?.(item.id)} className={sharedClass}>
             {inner}
         </button>
     );
 }
 
-export function CaseStudyImageCard({ onOpenStudy, excludeId }: Props) {
+export function CaseStudyImageCard({ onOpenStudy, onOpenPlayground, excludeId }: Props) {
     const visibleItems = excludeId ? items.filter((item) => item.id !== excludeId) : items;
     const title = excludeId ? 'Explore other personal projects.' : 'This is where I keep some personal projects.';
 
@@ -98,7 +109,7 @@ export function CaseStudyImageCard({ onOpenStudy, excludeId }: Props) {
             </p>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {visibleItems.map((item) => (
-                    <Card key={item.id} item={item} onOpenStudy={onOpenStudy} />
+                    <Card key={item.id} item={item} onOpenStudy={onOpenStudy} onOpenPlayground={onOpenPlayground} />
                 ))}
             </div>
         </div>

@@ -15,7 +15,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'impact',
                 items: [
                     { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production — setting a precedent that grew into an organisation-wide movement.' },
-                    { value: 'Skills', label: 'Agents, commands & partials', description: 'A full UX AI suite covering prototype creation, iteration, testing, publishing, and design-to-code workflows.' },
+                    { value: 'AI Pioneer', label: 'Skills, Agents and Commands', description: 'A full AI workflow covering prototype creation, iteration, testing, publishing, and design-to-code workflows.' },
                     { value: '9', label: 'HelloFresh Brands affected', description: 'The new design-to-code workflow changed how features are built across all nine HelloFresh brands — giving each one faster, higher-fidelity output and less engineering overhead.', logos: [
                         { src: '/brands/hellofresh-full.svg', alt: 'HelloFresh', height: 22 },
                         { src: '/brands/greenchef.svg', alt: 'Green Chef', height: 28 },
@@ -29,58 +29,6 @@ export const richCaseStudies: RichCaseStudy[] = [
                     ] },
                     { value: '26+', label: 'Designers Supported', description: 'Enabled designers across the organisation to prototype with code and work directly in production — moving beyond static handoffs to a workflow where designers ship their own changes.' },
                 ],
-            },
-            {
-                type: 'divider',
-                label: 'How It Started',
-            },
-            {
-                type: 'text',
-                content: 'Before joining the Consumer Acceleration team, I was working on The Pets Table — HelloFresh\'s pet food brand. It was there that I shipped my first feature directly into production code, without engineering support.',
-            },
-            {
-                type: 'callout',
-                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that eventually grew into an organisation-wide movement under the Consumer Acceleration team.',
-            },
-            {
-                type: 'image',
-                src: '/petstable-breed.png',
-                caption: 'The breed-specific message feature — the first feature I implemented fully in production as a designer',
-                shrink: true,
-            },
-            {
-                type: 'text',
-                content: 'The feature showed a personalised message based on the dog breed selected during onboarding. The top 11 breeds — Golden Retriever, Labrador, French Bulldog, and others — each got a tailored message with social proof and a meal count; the rest fell back to a general one. The goal: increase conversion by making the experience feel personal at exactly the right moment.',
-            },
-            {
-                type: 'callout',
-                content: 'Pulling it off required more than prompting an AI — it meant understanding a bit of React, TypeScript, and how conditional rendering works in a production codebase.',
-            },
-            {
-                type: 'divider',
-                label: 'The Design-to-Code Gap',
-            },
-            {
-                type: 'text',
-                content: 'HelloFresh\'s UX team spanned nine brands — each with its own codebase, its own engineering team, and its own gap between what was designed and what shipped.',
-            },
-            {
-                type: 'text',
-                content: 'The handoff was slow and lossy: designers filed tickets, engineers interpreted specs, and intent diluted with every hand it passed through. There was no direct path from a design decision to production — and no shared infrastructure to make one.',
-            },
-            {
-                type: 'design-process-diagram',
-            },
-            {
-                type: 'text',
-                content: 'Consumer Acceleration was tasked with closing this gap. The bet was AI — specifically Claude Code as the interface between UX intention and production reality. My role was to explore what that could actually look like in practice, and then make it real for the whole team.',
-            },
-            {
-                type: 'callout',
-                content: 'Following my own experiments shipping code, I was able to move the design team toward a new standard: we own the UI — not just in static designs, but directly in the product.',
-            },
-            {
-                type: 'current-design-process-diagram',
             },
             {
                 type: 'divider',
@@ -143,6 +91,24 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
+                label: 'The Design-to-Code Gap',
+            },
+            {
+                type: 'text',
+                content: 'HelloFresh\'s UX team spanned nine brands, each with its own codebase and its own gap between what was designed and what shipped — tickets filed, specs reinterpreted, intent diluted with every hand. Consumer Acceleration was tasked with closing it, betting on AI — Claude Code as the interface between UX intention and production reality. My role was to explore what that looked like, then make it real for the whole team.',
+            },
+            {
+                type: 'callout',
+                content: 'Following my own experiments shipping code, I was able to move the design team toward a new standard: we own the UI — not just in static designs, but directly in the product.',
+            },
+            {
+                type: 'current-design-process-diagram',
+            },
+            {
+                type: 'double-diamond-diagram',
+            },
+            {
+                type: 'divider',
                 label: 'Main goal: UX Quality',
             },
             {
@@ -160,11 +126,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Prevention meant checking design readiness against Zest, the HelloFresh design system, before a spec went to dev. Recovery meant using Claude to make targeted code changes in an existing feature, then requesting a developer review.',
-            },
-            {
-                type: 'text',
-                content: 'Both prevention and recovery were supported by commands I created and improved over time. AI commands let designers be confident they were shipping something that adhered to the design system, and other commands could — in a single prompt — fix a UI bug and open a pull request ready for review.',
+                content: 'Prevention meant checking design readiness against Zest before a spec went to dev. Recovery meant using Claude to make targeted code fixes in production — sometimes in a single prompt — and opening a PR for review.',
             },
             {
                 type: 'divider',
@@ -539,7 +501,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'The Work',
+                label: 'From Paperwork to Digital Process',
             },
             {
                 type: 'callout',
