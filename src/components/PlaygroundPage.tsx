@@ -11,16 +11,16 @@ function SoundToggle({ muted, onToggle }: { muted: boolean; onToggle: () => void
         <button
             onClick={onToggle}
             aria-label={muted ? 'Unmute video' : 'Mute video'}
-            className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white hover:bg-black/80 transition-colors backdrop-blur-sm cursor-pointer"
+            className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/90 border border-white flex items-center justify-center text-black shadow-lg shadow-black/40 hover:bg-white transition-colors backdrop-blur-sm cursor-pointer"
         >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M4 9V15H8L13 20V4L8 9H4Z" fill="currentColor" />
                 {muted ? (
-                    <path d="M17 9L21 13M21 9L17 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                    <path d="M17 9L21 13M21 9L17 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 ) : (
                     <>
-                        <path d="M15.5 8.5C16.5 9.5 17 10.7 17 12C17 13.3 16.5 14.5 15.5 15.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                        <path d="M18 6C19.6 7.6 20.5 9.7 20.5 12C20.5 14.3 19.6 16.4 18 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+                        <path d="M15.5 8.5C16.5 9.5 17 10.7 17 12C17 13.3 16.5 14.5 15.5 15.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+                        <path d="M18 6C19.6 7.6 20.5 9.7 20.5 12C20.5 14.3 19.6 16.4 18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
                     </>
                 )}
             </svg>
@@ -58,6 +58,52 @@ function VideoTile({ src, caption }: { src: string; caption: string }) {
             </div>
             <div className="px-4 py-3 border-t border-white/10">
                 <p className="text-[14px] text-white/60">{caption}</p>
+            </div>
+        </div>
+    );
+}
+
+function HackathonTile() {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [started, setStarted] = useState(false);
+
+    const start = () => {
+        const video = videoRef.current;
+        if (!video) return;
+        video.muted = false;
+        video.play();
+        setStarted(true);
+    };
+
+    return (
+        <div className="md:col-span-2 rounded-xl overflow-hidden border border-white/15 bg-black flex flex-col">
+            <div className="relative">
+                <video
+                    ref={videoRef}
+                    src="/playground-hackathon.mp4"
+                    poster="/playground-hackathon-poster.jpg"
+                    preload="metadata"
+                    playsInline
+                    controls={started}
+                    onPlay={() => setStarted(true)}
+                    className="w-full h-auto block"
+                />
+                {!started && (
+                    <button
+                        onClick={start}
+                        aria-label="Play video"
+                        className="absolute inset-0 flex items-center justify-center bg-black/25 hover:bg-black/40 transition-colors cursor-pointer group"
+                    >
+                        <span className="w-16 h-16 rounded-full bg-black/60 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:bg-black/80 transition-colors">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M8 5.5L19 12L8 18.5V5.5Z" fill="currentColor" />
+                            </svg>
+                        </span>
+                    </button>
+                )}
+            </div>
+            <div className="px-4 py-3 border-t border-white/10">
+                <p className="text-[14px] text-white/60">Hackathon 2024 — Quizless Funnel, a team concept that replaces the onboarding quiz with a conversation.</p>
             </div>
         </div>
     );
@@ -119,7 +165,7 @@ export function PlaygroundPage({ onBack }: Props) {
                     Playground
                 </h1>
                 <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70">
-                    Free explorations and personal interests — things I didn't make at work. No brief, no stakeholders, just a mosaic of whatever I was curious about.
+                    Free explorations and personal interests. No strict brief, no stakeholders, just a mosaic of whatever I was curious about.
                 </p>
             </div>
 
@@ -130,6 +176,7 @@ export function PlaygroundPage({ onBack }: Props) {
                     caption="Stella Timer, a no-frills meditation app created in React Native."
                 />
                 <KwidTile />
+                <HackathonTile />
             </div>
 
             {/* Poem — last */}

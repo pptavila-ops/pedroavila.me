@@ -31,7 +31,7 @@ const items: CaseStudyImageCardItem[] = [
         year: 'Ongoing',
         category: 'Free Exploration',
         title: 'Playground',
-        description: 'A mosaic of personal side projects and free explorations — things I didn\'t make at work.',
+        description: 'Side projects and free explorations.',
         cover: '/playground-kwid.gif',
         kind: 'playground',
     },
