@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { StickyHeader } from './StickyHeader';
 import { FadeImage } from './FadeImage';
 
@@ -28,7 +28,7 @@ function SoundToggle({ muted, onToggle }: { muted: boolean; onToggle: () => void
     );
 }
 
-function VideoTile({ src, caption }: { src: string; caption: string }) {
+function VideoTile({ src, caption, hasSound = true }: { src: string; caption: ReactNode; hasSound?: boolean }) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [muted, setMuted] = useState(true);
 
@@ -53,7 +53,7 @@ function VideoTile({ src, caption }: { src: string; caption: string }) {
                         playsInline
                         className="w-full h-auto block rounded-lg"
                     />
-                    <SoundToggle muted={muted} onToggle={toggleSound} />
+                    {hasSound && <SoundToggle muted={muted} onToggle={toggleSound} />}
                 </div>
             </div>
             <div className="px-4 py-3 border-t border-white/10">
@@ -177,6 +177,23 @@ export function PlaygroundPage({ onBack }: Props) {
                 />
                 <KwidTile />
                 <HackathonTile />
+                <VideoTile
+                    src="/playground-yawara.mp4"
+                    hasSound={false}
+                    caption={
+                        <>
+                            <a
+                                href="https://yawara.live/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline text-white/80 hover:text-white transition-colors"
+                            >
+                                Yawara
+                            </a>
+                            {' '}— a platform for Latin American events in Europe.
+                        </>
+                    }
+                />
             </div>
 
             {/* Poem — last */}
