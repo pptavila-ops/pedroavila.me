@@ -30,7 +30,7 @@ export function LifecycleJourneyDiagram() {
             title: 'Reactivation',
             color: '#e3d3ef',
             dot: '#9a6cb4',
-            desc: 'Winning back paused and cancelled pet parents with reasons to return that match why they left.',
+            desc: 'Winning back paused and canceled pet parents with reasons to return, offering the flexibility to tweak their plan as much as they need for their return box.',
         },
     ];
 
