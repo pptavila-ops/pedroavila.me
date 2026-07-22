@@ -6,6 +6,7 @@ import { BrandCarousel } from './BrandCarousel';
 import { CurrentDesignProcessDiagram } from './CurrentDesignProcessDiagram';
 import { SpecMachineDiagram } from './SpecMachineDiagram';
 import { DoubleDiamondDiagram } from './DoubleDiamondDiagram';
+import { LifecycleJourneyDiagram } from './LifecycleJourneyDiagram';
 import { ImpactCards } from './ImpactCards';
 import { AnimatedSentence } from './AnimatedSentence';
 import { SmallCard } from './CardGrid';
@@ -276,6 +277,9 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
                     case 'double-diamond-diagram':
                         return <DoubleDiamondDiagram key={i} />;
+
+                    case 'lifecycle-journey-diagram':
+                        return <LifecycleJourneyDiagram key={i} />;
 
                     default:
                         return null;

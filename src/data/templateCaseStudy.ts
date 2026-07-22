@@ -13,7 +13,8 @@ export type RichSection =
     | { type: 'badge'; content: string; icon?: string }
     | { type: 'current-design-process-diagram' }
     | { type: 'spec-machine-diagram' }
-    | { type: 'double-diamond-diagram' };
+    | { type: 'double-diamond-diagram' }
+    | { type: 'lifecycle-journey-diagram' };
 
 export type StoriesSlide = {
     type: 'cover' | 'text' | 'image' | 'quote' | 'gallery' | 'stats' | 'steps' | 'intro';

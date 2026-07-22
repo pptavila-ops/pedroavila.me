@@ -286,6 +286,9 @@ export const richCaseStudies: RichCaseStudy[] = [
                 content: 'I had to be highly strategic: deciding when to push for innovation, when to negotiate for impactful small changes, and when to lean on cross-brand learnings to move fast.',
             },
             {
+                type: 'lifecycle-journey-diagram',
+            },
+            {
                 type: 'text',
                 content: 'Over three years I shaped TPT\'s end-to-end product experience — from the acquisition funnel through to delivery management, pet profile, and member retention. I ran user research, built design systems foundations, drove measurable conversion improvements, and eventually pioneered AI-assisted design-to-code workflows that set a new bar across HelloFresh.',
             },
