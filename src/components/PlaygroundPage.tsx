@@ -127,6 +127,23 @@ function KwidTile() {
     );
 }
 
+function InframericaTile() {
+    return (
+        <div className="rounded-xl overflow-hidden border border-white/15 bg-black flex flex-col h-full">
+            <div className="flex-1 flex items-center justify-center">
+                <FadeImage
+                    src="/playground-inframerica.png"
+                    alt="Inframerica app — QR code scan and parking payment screens"
+                    className="w-full h-auto block"
+                />
+            </div>
+            <div className="px-4 py-3 border-t border-white/10">
+                <p className="text-[14px] text-white/60">A parking payment flow for Brasília's international airport, built for the Inframerica app.</p>
+            </div>
+        </div>
+    );
+}
+
 export function PlaygroundPage({ onBack }: Props) {
     const [scrolled, setScrolled] = useState(false);
     const backButtonRef = useRef<HTMLButtonElement>(null);
@@ -194,6 +211,7 @@ export function PlaygroundPage({ onBack }: Props) {
                         </>
                     }
                 />
+                <InframericaTile />
             </div>
 
             {/* Poem — last */}
