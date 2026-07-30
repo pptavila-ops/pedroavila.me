@@ -17,8 +17,8 @@ interface Props {
 }
 
 const HOVER_IMAGES: Record<string, string> = {
-    'design-transformation': '/intodesign.png',
-    'movix': '/movix-home.jpg',
+    'design-transformation': '/intodesign.webp',
+    'movix': '/movix-home.webp',
 };
 
 export function CardGrid({ caseStudies, hoveredCard, setHoveredCard, openStudy, layout }: Props) {

@@ -283,6 +283,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                                 className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
                                 style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
+                                loading="lazy"
                             />
                             {slide.caption && (
                                 <figcaption className="pt-3 text-[14px] text-white/70 text-center flex-shrink-0 w-full">
@@ -317,6 +318,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
                             style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                             draggable={false}
+                            loading="lazy"
                         />
                         {slide.caption && (
                             <figcaption className="pt-4 pb-3 md:pt-5 md:pb-4 text-[15px] text-white/70 text-center flex-shrink-0 w-full">
@@ -331,7 +333,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
             return (
                 <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 flex flex-col gap-5 md:gap-6 justify-center overflow-hidden">
                     {slide.image && (
-                        <FadeImage src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }} draggable={false} />
+                        <FadeImage src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }} draggable={false} loading="lazy" />
                     )}
                     {slide.title && (
                         <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{slide.title}</p>
@@ -361,6 +363,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                                 className={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'flex-1 min-h-0 object-cover' : 'h-full object-cover'}`}
                                 style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
+                                loading="lazy"
                             />
                         ))}
                     </div>
@@ -477,22 +480,36 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
     return (
         <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden">
             {/* Crossfading blurred background images */}
-            {images.map((src, i) => (
-                <img
-                    key={src}
-                    src={src}
-                    alt=""
-                    draggable={false}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    style={{
-                        filter: slide.imageFilter ?? 'blur(2px) brightness(0.6)',
-                        transform: 'scale(1.1)',
-                        opacity: i === idx ? 1 : 0,
-                        transition: 'opacity 1.5s ease-in-out',
-                        pointerEvents: 'none',
-                    }}
-                />
-            ))}
+            {images.map((src, i) => {
+                const sharedStyle = {
+                    filter: slide.imageFilter ?? 'blur(2px) brightness(0.6)',
+                    transform: 'scale(1.1)',
+                    opacity: i === idx ? 1 : 0,
+                    transition: 'opacity 1.5s ease-in-out',
+                    pointerEvents: 'none' as const,
+                };
+                return /\.(mp4|webm)$/i.test(src) ? (
+                    <video
+                        key={src}
+                        src={src}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                        style={sharedStyle}
+                    />
+                ) : (
+                    <img
+                        key={src}
+                        src={src}
+                        alt=""
+                        draggable={false}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        style={sharedStyle}
+                    />
+                );
+            })}
             {/* Content — vertically centered, left-aligned */}
             <div className="absolute inset-0 flex flex-col justify-center gap-5 px-7 md:px-9 pointer-events-none">
                 <blockquote className="text-[20px] md:text-[23px] font-semibold text-white leading-[1.55]">

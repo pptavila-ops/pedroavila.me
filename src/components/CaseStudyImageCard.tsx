@@ -16,7 +16,7 @@ const items: CaseStudyImageCardItem[] = [
         category: 'Speculative Design',
         title: 'Trexs',
         description: 'A device for transmitting experiences between people.',
-        cover: '/treks-header.gif',
+        cover: '/treks-header.mp4',
     },
     {
         id: 'c',
@@ -24,7 +24,7 @@ const items: CaseStudyImageCardItem[] = [
         category: 'Object Book',
         title: 'C.',
         description: 'A bilingual object book about memory and the Brazilian Military Dictatorship.',
-        cover: '/c/header/3.jpg',
+        cover: '/c/header/3.webp',
     },
     {
         id: 'playground',
@@ -32,7 +32,7 @@ const items: CaseStudyImageCardItem[] = [
         category: 'Free Exploration',
         title: 'Playground',
         description: 'Side projects and free explorations.',
-        cover: '/playground-kwid.gif',
+        cover: '/playground-kwid.mp4',
         kind: 'playground',
     },
 ];
@@ -54,6 +54,7 @@ function Card({ item, onOpenStudy, onOpenPlayground }: { item: CaseStudyImageCar
                         src={item.cover}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                        loading="lazy"
                     />
                 ) : (
                     <div className="w-full h-full bg-white/5 flex items-center justify-center">

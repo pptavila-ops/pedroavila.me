@@ -37,6 +37,7 @@ export function ImpactCards({ items, title }: ImpactCardsProps) {
                                                 key={j}
                                                 src={logo.src}
                                                 alt={logo.alt}
+                                                loading="lazy"
                                                 style={{ height: `${logo.height}px`, width: 'auto', objectFit: 'contain', flexShrink: 0, filter: 'brightness(0) invert(1)', opacity: 0.4, marginRight: '28px' }}
                                             />
                                         ))}

@@ -7,7 +7,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         year: 'Jan 2026 – Now',
         company: 'HelloFresh',
         role: 'Consumer Acceleration',
-        cover: '/card-hover.png',
+        cover: '/card-hover.webp',
         intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering — using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
         tags: ['Consumer Acceleration', 'Design Operations', 'AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
         sections: [
@@ -25,7 +25,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                         { src: '/brands/goodchop.svg', alt: 'Good Chop', height: 28 },
                         { src: '/brands/petstable.svg', alt: 'The Pets Table', height: 20 },
                         { src: '/brands/factor-full.svg', alt: 'Factor_', height: 18 },
-                        { src: '/brands/hellofresh-hf.png', alt: 'HelloFresh HF', height: 22 },
+                        { src: '/brands/hellofresh-hf.webp', alt: 'HelloFresh HF', height: 22 },
                     ] },
                     { value: '26+', label: 'Designers Supported', description: 'Enabled designers across the organisation to prototype with code and work directly in production — moving beyond static handoffs to a workflow where designers ship their own changes.' },
                 ],
@@ -47,7 +47,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/ai-prototype.png',
+                src: '/ai-prototype.webp',
                 caption: 'Production-like prototype created with prototyping agent in Claude Code.',
             },
             {
@@ -86,7 +86,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/freeformvsstrict.png',
+                src: '/freeformvsstrict.webp',
                 caption: 'An example of a free-form prototype transformed into strict.',
             },
             {
@@ -117,7 +117,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/ux-quality.png',
+                src: '/ux-quality.webp',
                 caption: 'UX Quality with Claude Code — the public guide for designers working directly in production.',
             },
             {
@@ -138,7 +138,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/prototypes-playground.png',
+                src: '/prototypes-playground.webp',
                 caption: 'Prototypes Playground — a shared Vercel environment for AI-generated prototypes across all HF brands.',
             },
             {
@@ -159,7 +159,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/trainings.png',
+                src: '/trainings.webp',
                 caption: 'Some of the trainings I did to teach people how to prototype using the new workflows.',
             },
             {
@@ -221,7 +221,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/into.png',
+                src: '/into.webp',
                 caption: 'Into Design Systems Meetup at HelloFresh in February 2026.',
             },
             {
@@ -244,7 +244,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         year: '2023 – 2025',
         company: 'HelloFresh',
         role: 'Product Designer → Sr. Product Designer',
-        cover: '/card-hover.png',
+        cover: '/card-hover.webp',
         intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.',
         tags: ['Product Design', 'UX Research', 'OOUX', 'Growth', 'Retention', 'Design-to-Code'],
         sections: [
@@ -267,7 +267,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/whitelabel-comparison.png',
+                src: '/whitelabel-comparison.webp',
                 caption: 'The white-label post-checkout shell shared across Factor, Chef\'s Plate, EveryPlate, Good Chop, and others — and how The Pets Table started',
                 shrink: true,
             },
@@ -277,7 +277,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/petstable-dashboard.png',
+                src: '/petstable-dashboard.webp',
                 caption: 'The Pets Table dashboard — branching out from the white-label with pet-specific UX: improved add-ons access, quick actions, and pet navigation',
                 shrink: true,
             },
@@ -294,7 +294,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/tpt-plans.png',
+                src: '/tpt-plans.webp',
                 caption: 'The main plans page we kept iterating on since when the brand was launched.',
             },
             {
@@ -311,11 +311,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/tpt-quiz-desktop.png',
+                src: '/tpt-quiz-desktop.webp',
             },
             {
                 type: 'image',
-                src: '/tpt-quiz.png',
+                src: '/tpt-quiz.webp',
                 caption: 'The Pets Table quiz — a first for HelloFresh, later adopted across all brands',
                 shrink: true,
                 compact: true,
@@ -343,7 +343,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/tpt-ooux.png',
+                src: '/tpt-ooux.webp',
                 caption: 'Some of my OOUX Mapping and Explorations',
             },
             {
@@ -356,7 +356,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/tpt-two-step-loading.png',
+                src: '/tpt-two-step-loading.webp',
                 caption: 'Two-step loading: a feature to prepare users before seeing the plans page.',
             },
             {
@@ -376,7 +376,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/tpt-free-items.png',
+                src: '/tpt-free-items.webp',
                 caption: 'A low-hanging fruit: displaying free items in the order summary resulted in a very high increase in micro-conversion from this page to the payment page.',
             },
             {
@@ -397,7 +397,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/petstable-breed.png',
+                src: '/petstable-breed.webp',
                 caption: 'The breed-specific message feature',
                 shrink: true,
             },
@@ -419,7 +419,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/tpt-meals.png',
+                src: '/tpt-meals.webp',
                 caption: 'The meal selection page.',
             },
             {
@@ -428,7 +428,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/tpt-recipe-detail.png',
+                src: '/tpt-recipe-detail.webp',
                 caption: 'The new recipe detail page.',
             },
         ],
@@ -440,7 +440,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         company: 'ilia Digital',
         companyUrl: 'https://ilia.digital/en/',
         role: 'Product Designer',
-        cover: '/movix-home.jpg',
+        cover: '/movix-home.webp',
         intro: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
         introHtml: true,
         tags: ['Product Design', 'Mobile', 'UX Research', 'Prototyping'],
@@ -464,7 +464,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movixintro.png',
+                src: '/movixintro.webp',
                 shrink: true,
             },
             {
@@ -498,7 +498,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-tech.png',
+                src: '/movix-tech.webp',
                 caption: 'A session dedicated to exploring how technologies already present on people\'s phones could enhance the app experience.',
                 shrink: true,
             },
@@ -512,7 +512,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-sprints.png',
+                src: '/movix-sprints.webp',
                 caption: 'A session dedicated to defining the main user flow — translating the traditional into the digital.',
                 shrink: true,
             },
@@ -532,7 +532,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-cards.png',
+                src: '/movix-cards.webp',
                 caption: 'Home screen with cards guiding people to the main moments of the user journey.',
                 shrink: true,
             },
@@ -542,7 +542,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-simulation.png',
+                src: '/movix-simulation.webp',
                 caption: 'Saved simulations give people the opportunity to compare',
                 shrink: true,
             },
@@ -552,7 +552,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-result.png',
+                src: '/movix-result.webp',
                 caption: 'The result of a home financing simulation.',
                 shrink: true,
             },
@@ -562,7 +562,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-proposal.png',
+                src: '/movix-proposal.webp',
                 caption: 'The financing proposal was shared and tracked by all participants involved in the process.',
                 shrink: true,
             },
@@ -572,7 +572,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-testing.jpg',
+                src: '/movix-testing.webp',
                 caption: 'Testing Móvix with real users at a financing fair in Brasília',
                 shrink: true,
             },
@@ -590,7 +590,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/movix-team.jpg',
+                src: '/movix-team.webp',
                 caption: 'Designer Jenny Soares and I at the financing fair',
                 shrink: true,
             },
@@ -607,7 +607,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         year: '2016',
         company: 'Personal Project',
         role: 'Designer & Maker',
-        cover: '/treks-header.gif',
+        cover: '/treks-header.mp4',
         intro: 'Trexs is a speculative design project exploring a simple but radical question: what if you could transmit an experience from one person to another? Not a photograph, not a video — but the subjective feeling of being somewhere, seeing something, living a moment through someone else\'s eyes.',
         tags: ['Speculative Design', 'Physical Prototype', 'Research'],
         sections: [
@@ -629,7 +629,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'two-column',
-                image: '/trexs-research.jpg',
+                image: '/trexs-research.webp',
                 content: 'The project began with an open mapping of the contexts where experience transmission would matter most — art, protest, work, government, society. Where does the gap between lived experience and communicated experience create misunderstanding, isolation, or missed connection?',
                 imageLeft: true,
                 caption: 'Mapping the domains where experience transmission matters most',
@@ -644,7 +644,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/trexs-device.png',
+                src: '/trexs-device.webp',
                 caption: 'The Trexs device — assembled from salvaged optics and electronics',
             },
             {
@@ -653,14 +653,14 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'two-column',
-                image: '/trexs-users.png',
+                image: '/trexs-users.webp',
                 content: 'The most powerful moment in the project came when two people faced each other with the device between them — one transmitting, one receiving. The physical proximity required made the interaction feel vulnerable and intimate, which is exactly the point. Experience transmission, if it existed, wouldn\'t be casual.',
                 imageLeft: false,
                 caption: 'Two participants exploring the transmission interaction',
             },
             {
                 type: 'image',
-                src: '/treks.jpg',
+                src: '/treks.webp',
                 caption: 'Trexs in use — held up to the eye in the way a new kind of seeing might feel',
             },
             {
@@ -676,7 +676,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 0 — Cover
             {
                 type: 'cover',
-                images: ['/treks-header.gif'],
+                images: ['/treks-header.mp4'],
                 imageFilter: 'blur(2px) brightness(0.35)',
                 quote: 'What if you could transmit an experience from one person to another?',
                 tags: ['Speculative Design', 'Physical Prototype', 'Research'],
@@ -690,7 +690,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 2 — Device image
             {
                 type: 'image',
-                image: '/trexs-device.png',
+                image: '/trexs-device.webp',
                 caption: 'Intentionally ambiguous: it references cameras, microscopes, and medical instruments, but belongs to none of those categories.',
             },
             // 3 — Research text
@@ -702,7 +702,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 4 — Research image
             {
                 type: 'image',
-                image: '/trexs-research.jpg',
+                image: '/trexs-research.webp',
                 caption: 'Mapping the domains where experience transmission matters most',
             },
             // — The Interaction text
@@ -720,13 +720,13 @@ export const richCaseStudies: RichCaseStudy[] = [
             // — The Interaction image
             {
                 type: 'image',
-                image: '/trexs-users.png',
+                image: '/trexs-users.webp',
                 caption: 'Two participants exploring the transmission interaction',
             },
             // 5
             {
                 type: 'image',
-                image: '/treks.jpg',
+                image: '/treks.webp',
                 caption: 'Trexs in use — held up to the eye in the way a new kind of seeing might feel',
             },
             // 7 — Last
@@ -744,7 +744,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         year: '2026',
         company: 'Stellabs',
         role: 'Product Designer & Founder',
-        cover: '/stella/screen-08-home-v2.png',
+        cover: '/stella/screen-08-home-v2.webp',
         intro: 'StellaTimer is a meditation timer I designed and am building from scratch — for people who actually meditate. Not for people browsing 100,000 guided tracks or collecting social streaks. Just a reliable timer, a daily affirmation, and silence.',
         tags: ['iOS App', 'React Native', 'Design System', 'Product Design', 'OOUX'],
         sections: [
@@ -774,7 +774,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/stella/screen-01-home.png',
+                src: '/stella/screen-01-home.webp',
                 caption: 'The home screen — an affirmation as the emotional anchor, one tap to begin',
             },
             {
@@ -795,7 +795,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/stella/screen-02-meditate-list.png',
+                src: '/stella/screen-02-meditate-list.webp',
                 caption: 'The meditation list — 8 curated presets, filterable by type, with a custom timer builder',
             },
             {
@@ -808,17 +808,17 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/stella/screen-03-config-builder.png',
+                src: '/stella/screen-03-config-builder.webp',
                 caption: 'The custom timer builder — users set duration, warm-up, interval bells, and meditation type',
             },
             {
                 type: 'image',
-                src: '/stella/screen-04-stats-calendar.png',
+                src: '/stella/screen-04-stats-calendar.webp',
                 caption: '"Your Journey" — a private, warm calendar for reflection, not comparison',
             },
             {
                 type: 'image',
-                src: '/stella/screen-07-active-timer-warmup.png',
+                src: '/stella/screen-07-active-timer-warmup.webp',
                 caption: 'The active timer during warm-up — minimal, dark, distraction-free',
             },
             {
@@ -837,7 +837,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         year: '2022',
         company: 'MVP Factory',
         role: 'UX Researcher',
-        cover: '/wf-hair-score.png',
+        cover: '/wf-hair-score.webp',
         intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app — before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
         tags: ['UX Research', 'User Interviews', 'Concept Testing', 'Dovetail'],
         sections: [
@@ -860,7 +860,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/schwarzkopf-0.png',
+                src: '/schwarzkopf-0.webp',
                 caption: 'The 10 interviewed women were spread across Germany.',
             },
             {
@@ -873,7 +873,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/schwarzkopf-1.png',
+                src: '/schwarzkopf-1.webp',
                 caption: 'The prototype started with a quiz and a photo of the hair.',
             },
             {
@@ -891,7 +891,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/schwarzkopf-2.png',
+                src: '/schwarzkopf-2.webp',
                 caption: 'Hair-score screen and final product recommendation.',
             },
             {
@@ -949,13 +949,13 @@ export const richCaseStudies: RichCaseStudy[] = [
         year: '2015',
         company: 'University of Brasília',
         role: 'Designer & Translator',
-        cover: '/c/header/1.jpg',
+        cover: '/c/header/1.webp',
         coverImages: [
-            '/c/header/1.jpg',
-            '/c/header/3.jpg',
-            '/c/header/4.jpg',
-            '/c/header/5.jpg',
-            '/c/header/6.jpg',
+            '/c/header/1.webp',
+            '/c/header/3.webp',
+            '/c/header/4.webp',
+            '/c/header/5.webp',
+            '/c/header/6.webp',
         ],
         intro: 'C. is a bilingual object book about the Brazilian military dictatorship — in Portuguese and German. This was my Bachelor\'s conclusion work at the University of Brasília. It is an attempt to give life back to the historic memory of the Brazilian military dictatorship that occurred between 1964 and 1985.',
         tags: ['Object Book', 'Graphic Design', 'Typography', 'Bilingual', 'UnB'],
@@ -970,7 +970,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/a1c4c132230975.567c3fbc020af.jpg',
+                src: '/c/a1c4c132230975.567c3fbc020af.webp',
                 caption: 'Table of contents — stories listed in German and Portuguese',
             },
             {
@@ -979,7 +979,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/111cd332230975.5674becc48c4d.jpg',
+                src: '/c/111cd332230975.5674becc48c4d.webp',
                 caption: 'The book — hand-bound with hand-stitched binding',
             },
             {
@@ -992,7 +992,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/e694ab32230975.567c3ba2677c0.jpg',
+                src: '/c/e694ab32230975.567c3ba2677c0.webp',
                 caption: 'The box — containing the book, the posters, and the CD',
             },
             {
@@ -1001,7 +1001,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/tower.png',
+                src: '/c/tower.webp',
                 caption: 'The tower — magenta stencil on the lid of the black box',
             },
             {
@@ -1018,7 +1018,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/snake.jpg',
+                src: '/c/snake.webp',
                 caption: 'The snake — spray-painted in magenta on the fake bottom of the box',
             },
             {
@@ -1031,7 +1031,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/35e81632230975.5674becc47af6.jpg',
+                src: '/c/35e81632230975.5674becc47af6.webp',
                 caption: 'Tracing paper over pólen — German and Portuguese layered into one reading',
             },
             {
@@ -1040,7 +1040,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/rockwell-r.png',
+                src: '/c/rockwell-r.webp',
                 caption: 'Rockwell — slab serifs create clear horizontal blocks between languages',
             },
             {
@@ -1049,12 +1049,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/rockwell-bilingual2.png',
+                src: '/c/rockwell-bilingual2.webp',
                 caption: 'Portuguese and German interleaved — two languages, one reading',
             },
             {
                 type: 'image',
-                src: '/c/2ec09a32230975.567c3fbc0361c.jpg',
+                src: '/c/2ec09a32230975.567c3fbc0361c.webp',
                 caption: 'German text in magenta over the Portuguese original',
             },
             {
@@ -1067,27 +1067,27 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/8d01a332230975.567c3fbc00e4b.jpg',
+                src: '/c/8d01a332230975.567c3fbc00e4b.webp',
                 caption: 'Intervention drawings — dragonflies over soldiers with bayonets',
             },
             {
                 type: 'image',
-                src: '/c/08a95132230975.5692da24dbebc.jpg',
+                src: '/c/08a95132230975.5692da24dbebc.webp',
                 caption: 'A bouquet of flowers over a protest photograph',
             },
             {
                 type: 'image',
-                src: '/c/ecc26532230975.5674becc49d9b.jpg',
+                src: '/c/ecc26532230975.5674becc49d9b.webp',
                 caption: 'Stripes over a crowd dispersed by police',
             },
             {
                 type: 'image',
-                src: '/c/559fde32230975.567c3fbbf011a.jpg',
+                src: '/c/559fde32230975.567c3fbbf011a.webp',
                 caption: 'A racetrack pattern over a cavalry charge',
             },
             {
                 type: 'image',
-                src: '/c/61c7c532230975.567c43de5c2e4-2.jpg',
+                src: '/c/61c7c532230975.567c43de5c2e4-2.webp',
                 caption: 'Intervention over the mass at Igreja da Candelária, 1968',
             },
             {
@@ -1100,12 +1100,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/0ea03632230975.5674c05283f05.png',
+                src: '/c/0ea03632230975.5674c05283f05.webp',
                 caption: 'The posters — data visualization of names from the National Commission of Truth',
             },
             {
                 type: 'image',
-                src: '/c/5a5eb232230975.567c3fbbf3f4c.jpg',
+                src: '/c/5a5eb232230975.567c3fbbf3f4c.webp',
                 caption: 'The full set — box, book, posters',
             },
             {
@@ -1114,7 +1114,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/ad9d7332230975.567c43de5d7fa-2.jpg',
+                src: '/c/ad9d7332230975.567c43de5d7fa-2.webp',
                 caption: 'The CD — short stories in German and Portuguese',
             },
             {
@@ -1127,7 +1127,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/magenta.png',
+                src: '/c/magenta.webp',
                 caption: 'Magenta — the color of confrontation',
             },
             {
@@ -1152,27 +1152,27 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'image',
-                src: '/c/WP_20151115_16_15_53_Pro---copia.jpg',
+                src: '/c/WP_20151115_16_15_53_Pro---copia.webp',
                 caption: 'Working on the box — spray paint and stencils',
             },
             {
                 type: 'image',
-                src: '/c/c4d9b532230975.567c4bbd7bad7.jpg',
+                src: '/c/c4d9b532230975.567c4bbd7bad7.webp',
                 caption: 'Materials — ink, spray, and paper',
             },
             {
                 type: 'image',
-                src: '/c/1fb47132230975.567c3fbbeee78.jpg',
+                src: '/c/1fb47132230975.567c3fbbeee78.webp',
                 caption: 'Testing the magenta stencil on the box',
             },
             {
                 type: 'image',
-                src: '/c/d9855332230975.567c3339072a3.jpg',
+                src: '/c/d9855332230975.567c3339072a3.webp',
                 caption: 'The snake stencil being cut',
             },
             {
                 type: 'image',
-                src: '/c/947e4632230975.567c44868d249.jpg',
+                src: '/c/947e4632230975.567c44868d249.webp',
                 caption: 'Aerial view — reference for the data visualization posters',
             },
             {
@@ -1194,9 +1194,9 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'cover',
                 images: [
-                    '/c/header/3.jpg',
-                    '/c/header/4.jpg',
-                    '/c/header/5.jpg',
+                    '/c/header/3.webp',
+                    '/c/header/4.webp',
+                    '/c/header/5.webp',
                 ],
                 quote: 'C. is a bilingual object book in German and Portuguese about the historic and tragic memory of the Brazilian military dictatorship (1964–1985).',
                 tags: ['Object Book', 'Editorial Design', 'Typography', 'Bilingual'],
@@ -1205,7 +1205,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 text: 'C. contains 5 short stories originally written in Brazilian Portuguese by Bernardo Kucinski and translated into German by Pedro Ávila.',
-                image: '/c/a1c4c132230975.567c3fbc020af.jpg',
+                image: '/c/a1c4c132230975.567c3fbc020af.webp',
                 caption: 'The intro: The Tower and the Rattlesnake was written by me.',
                 imageFilter: 'contrast(1.05) brightness(1.02)',
             },
@@ -1213,28 +1213,28 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 text: 'An object book breaks the ordinary linearity of reading — demanding perception and inviting interactivity.',
-                image: '/c/tower.png',
+                image: '/c/tower.webp',
                 caption: 'The book is inside a memory box. The tower — to protect us — is on the lid of the box.',
             },
             // 3
             {
                 type: 'image',
                 text: 'The book is under a fake bottom of a memory box.',
-                image: '/c/e694ab32230975.567c3ba2677c0.jpg',
+                image: '/c/e694ab32230975.567c3ba2677c0.webp',
                 caption: 'When the box is open, only a CD with the audiobook and two posters can be seen.',
             },
             // 4
             {
                 type: 'image',
                 text: 'The reader has to find the book (memory) hidden under a fake bottom.',
-                image: '/c/d494ed32230975.567c43de5aefb-2.jpg',
+                image: '/c/d494ed32230975.567c43de5aefb-2.webp',
                 caption: 'When I handed this to 5 people, 1 could not find the book inside the box.',
             },
             // 5
             {
                 type: 'image',
                 text: 'In my work, the Rattlesnake, found on the real bottom of the box, is the dictatorship, which Brazilians tend to hide and pretend it never happened.',
-                image: '/c/snake.jpg',
+                image: '/c/snake.webp',
                 caption: 'The snake as the dictatorship. I used stencil technique to make the box feel crude and raw.',
             },
             // 6
@@ -1247,63 +1247,63 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 7
             {
                 type: 'image',
-                image: '/c/2ec09a32230975.567c3fbc0361c.jpg',
+                image: '/c/2ec09a32230975.567c3fbc0361c.webp',
                 caption: 'Tracing paper was used to make both languages readable at the same time.',
             },
             // 6
             {
                 type: 'image',
-                image: '/c/8d01a332230975.567c3fbc00e4b.jpg',
+                image: '/c/8d01a332230975.567c3fbc00e4b.webp',
                 caption: 'Simultaneous reading came from an idea of improving language learning by reading.',
             },
             // 7
             {
                 type: 'image',
                 text: 'Rockwell\'s slab serifs make text lines read as solid blocks — allowing German and Portuguese sentences to stack and be read simultaneously, while remaining comfortable to look at.',
-                image: '/c/rockwell-r.png',
+                image: '/c/rockwell-r.webp',
             },
             // 8
             {
                 type: 'image',
-                image: '/c/rockwell-bilingual2.png',
+                image: '/c/rockwell-bilingual2.webp',
             },
             // 8
             {
                 type: 'image',
                 text: 'Magenta interventions in historical pictures were created as an attempt to keep this memory relevant and visible.',
-                image: '/c/08a95132230975.5692da24dbebc.jpg',
+                image: '/c/08a95132230975.5692da24dbebc.webp',
                 caption: 'Original: Cavalry invading the mass for student Edson Luís at Candelária Church (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
             // 8
             {
                 type: 'image',
-                image: '/c/61c7c532230975.567c43de5c2e4-2.jpg',
+                image: '/c/61c7c532230975.567c43de5c2e4-2.webp',
                 caption: 'Original: Police repression at Candelária (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
             // 9
             {
                 type: 'image',
-                image: '/c/947e4632230975.567c44868d249.jpg',
+                image: '/c/947e4632230975.567c44868d249.webp',
                 caption: 'Original: Students and military forces clash by Evandro Teixeira (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
             // 10
             {
                 type: 'image',
-                image: '/c/ad9d7332230975.567c43de5d7fa-2.jpg',
+                image: '/c/ad9d7332230975.567c43de5d7fa-2.webp',
                 caption: 'Original: Bayonets and Dragonflies by Evandro Teixeira (1968), Rio de Janeiro (RJ), Brazil. With intervention by Pedro Ávila.',
             },
             // 11
             {
                 type: 'image',
                 text: 'The two posters inside the box contain the names of some of the people who disappeared or were murdered during the dictatorship — according to the National Commission of Truth.',
-                image: '/c/559fde32230975.567c3fbbf011a.jpg',
+                image: '/c/559fde32230975.567c3fbbf011a.webp',
                 caption: 'I tried to replicate the Brazilian flag.',
             },
             // 12
             {
                 type: 'gallery',
                 columns: 1,
-                images: ['/c/0cfd0732230975.56749b4b88c28.png', '/c/58acc432230975.56749b4b869d0.png'],
+                images: ['/c/0cfd0732230975.56749b4b88c28.webp', '/c/58acc432230975.56749b4b869d0.webp'],
             },
             // 13
             {
@@ -1311,7 +1311,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 layout: 'split',
                 title: 'Why magenta?',
                 text: 'Some memories are too dark to look at — maybe that\'s why Brazilians tend to forget their past. What if an extremely contrasting color made people stop and look?',
-                image: '/c/magenta.png',
+                image: '/c/magenta.webp',
             },
             // 14
             {
@@ -1321,17 +1321,17 @@ export const richCaseStudies: RichCaseStudy[] = [
                 large: true,
             },
             // 15
-            { type: 'image', image: '/c/35e81632230975.5674becc47af6.jpg' },
+            { type: 'image', image: '/c/35e81632230975.5674becc47af6.webp' },
             // 16
-            { type: 'image', image: '/c/111cd332230975.5674becc48c4d.jpg' },
+            { type: 'image', image: '/c/111cd332230975.5674becc48c4d.webp' },
             // 17
-            { type: 'image', image: '/c/WP_20151115_16_15_53_Pro---copia.jpg' },
+            { type: 'image', image: '/c/WP_20151115_16_15_53_Pro---copia.webp' },
             // 18
-            { type: 'image', image: '/c/0ea03632230975.5674c05283f05.png' },
+            { type: 'image', image: '/c/0ea03632230975.5674c05283f05.webp' },
             // 19
-            { type: 'image', image: '/c/5a5eb232230975.567c3fbbf3f4c.jpg' },
+            { type: 'image', image: '/c/5a5eb232230975.567c3fbbf3f4c.webp' },
             // 20
-            { type: 'image', image: '/c/d9855332230975.567c3339072a3.jpg' },
+            { type: 'image', image: '/c/d9855332230975.567c3339072a3.webp' },
             // Credits
             {
                 type: 'text',

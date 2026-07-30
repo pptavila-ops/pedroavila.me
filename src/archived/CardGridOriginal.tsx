@@ -35,7 +35,7 @@ export function CardGridOriginal({ caseStudies, hoveredCard, setHoveredCard, ope
                 >
                     {cs.id === 'design-transformation' && (
                         <img
-                            src="/intodesign.png"
+                            src="/intodesign.webp"
                             alt=""
                             className="absolute w-48 h-[280px] object-cover rounded-lg border border-white/20 transition-all duration-300 ease-out pointer-events-none z-20"
                             style={{
@@ -48,7 +48,7 @@ export function CardGridOriginal({ caseStudies, hoveredCard, setHoveredCard, ope
                     )}
                     {cs.id === 'movix' && (
                         <img
-                            src="/movix-home.jpg"
+                            src="/movix-home.webp"
                             alt=""
                             className="absolute w-48 h-[280px] object-cover rounded-lg border border-white/20 transition-all duration-300 ease-out pointer-events-none z-20"
                             style={{

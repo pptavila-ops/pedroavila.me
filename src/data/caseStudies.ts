@@ -18,7 +18,7 @@ export const caseStudies: CaseStudy[] = [
         title: 'Leading Design Workflow Transformation With the Help of AI',
         year: '2026 – Now',
         company: 'HelloFresh',
-        image: '/card-hover.png',
+        image: '/card-hover.webp',
         intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering — using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
         sections: [
             {
@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
             },
             {
                 callout: 'The use of cards on the home screen helped us guide people through Móvix\'s experience.',
-                image: '/movix-home.jpg',
+                image: '/movix-home.webp',
                 caption: 'Home cards in a logical and understandable order',
             },
             {
@@ -82,17 +82,17 @@ export const caseStudies: CaseStudy[] = [
             },
             {
                 callout: 'Before Móvix, every simulation result had to be thrown away if not printed. Now they could be saved and shared.',
-                image: '/movix-saved.png',
+                image: '/movix-saved.webp',
                 caption: 'Saved simulations give people the opportunity to compare',
             },
             {
                 text: 'The financing flow let users start directly from a saved simulation, upload documentation via phone camera, and track their process alongside all participants. We tested the app with real users at a major financing fair in Brasília — observing people aged 15 to 60 using it was eye-opening and shaped many of our final design decisions.',
-                image: '/movix-testing.jpg',
+                image: '/movix-testing.webp',
                 caption: 'Testing Móvix with real users at a financing fair in Brasília',
             },
             {
                 callout: 'We shared test feedbacks with devs and product owners in order to make Móvix better.',
-                image: '/movix-team.jpg',
+                image: '/movix-team.webp',
                 caption: 'Designer Jenny Soares and I at the financing fair',
             },
             {
