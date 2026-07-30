@@ -245,7 +245,7 @@ function App() {
                                 )}
                                 {section.image && (
                                     <figure className="mt-8">
-                                        <img src={section.image} alt={section.caption || ''} className="w-full rounded-xl" />
+                                        <img src={section.image} alt={section.caption || ''} className="w-full rounded-xl" loading="lazy" />
                                         {section.caption && (
                                             <figcaption className="mt-3 text-sm text-white/40 text-center">{section.caption}</figcaption>
                                         )}
@@ -288,7 +288,7 @@ function App() {
                     </div>
                 )}
             </div>
-            <audio ref={musicRef} src="/Taramramram.mp3" loop preload="auto" />
+            <audio ref={musicRef} src="/Taramramram.mp3" loop preload="none" />
         </main>
     );
 }

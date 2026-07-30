@@ -1,16 +1,16 @@
 const logos = [
-    { src: '/brands/hellofresh.png', alt: 'HelloFresh', height: 28 },
-    { src: '/brands/henkel.png', alt: 'Henkel', height: 44 },
+    { src: '/brands/hellofresh.webp', alt: 'HelloFresh', height: 28 },
+    { src: '/brands/henkel.webp', alt: 'Henkel', height: 44 },
     { src: '/brands/schwarzkopf.svg', alt: 'Schwarzkopf', height: 44 },
-    { src: '/brands/finleap.png', alt: 'Finleap', height: 44 },
+    { src: '/brands/finleap.webp', alt: 'Finleap', height: 44 },
     { src: '/brands/santander.svg', alt: 'Santander', height: 28 },
     { src: '/brands/caixa.svg', alt: 'Caixa', height: 28 },
     { src: '/brands/fiat.svg', alt: 'Fiat', height: 28 },
-    { src: '/brands/mvpfactory.png', alt: 'MVP Factory', height: 44 },
+    { src: '/brands/mvpfactory.webp', alt: 'MVP Factory', height: 44 },
     { src: '/brands/ilia.svg', alt: 'Ilia Digital', height: 28 },
-    { src: '/brands/tpt.png', alt: 'TPT', height: 44 },
+    { src: '/brands/tpt.webp', alt: 'TPT', height: 44 },
     { src: '/brands/r2.svg', alt: 'R2', height: 52 },
-    { src: '/brands/inframerica.png', alt: 'Inframerica', height: 28 },
+    { src: '/brands/inframerica.webp', alt: 'Inframerica', height: 28 },
 ];
 
 export function BrandCarousel() {

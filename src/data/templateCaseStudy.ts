@@ -72,7 +72,7 @@ export const templateCaseStudy: RichCaseStudy = {
     year: '2024 – 2025',
     company: 'Company Name',
     role: 'Senior Product Designer',
-    cover: '/card-hover.png', // Replace with actual cover image
+    cover: '/card-hover.webp', // Replace with actual cover image
     intro: 'This is the opening paragraph — a concise summary of the project. It should set context: what the problem was, who it affected, and what you did. Keep it to 2–3 sentences that make someone want to read further.',
     tags: ['Product Design', 'Design Systems', 'UX Research'],
     sections: [
@@ -136,12 +136,12 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'image',
-            src: '/card-hover.png', // Replace with actual image
+            src: '/card-hover.webp', // Replace with actual image
             caption: 'Caption describing what this image shows and why it was a meaningful design decision.',
         },
         {
             type: 'two-column',
-            image: '/movix-home.jpg', // Replace with actual image
+            image: '/movix-home.webp', // Replace with actual image
             content: 'Use the two-column section to pair an image with explanation. This works well for showing a before/after, a specific UI detail, or a design decision that needs context. Keep the text focused on what the image shows.',
             imageLeft: true,
             caption: 'Optional caption for the image.',
@@ -152,7 +152,7 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'image',
-            src: '/movix-saved.png', // Replace with actual image
+            src: '/movix-saved.webp', // Replace with actual image
             caption: 'A second full-width image. Use these for screens, flows, or any visual that benefits from full width.',
         },
         {

@@ -81,7 +81,7 @@ function HackathonTile() {
                 <video
                     ref={videoRef}
                     src="/playground-hackathon.mp4"
-                    poster="/playground-hackathon-poster.jpg"
+                    poster="/playground-hackathon-poster.webp"
                     preload="metadata"
                     playsInline
                     controls={started}
@@ -114,10 +114,10 @@ function KwidTile() {
         <div className="rounded-xl overflow-hidden border border-white/15 bg-black flex flex-col h-full">
             <div className="flex-1 flex flex-col justify-center py-6 px-4 gap-6">
                 <div className="flex justify-center">
-                    <FadeImage src="/playground-kwid.gif" alt="Meu KWID app — Histórias screen" className="w-full max-w-[220px] h-auto block rounded-lg" />
+                    <FadeImage src="/playground-kwid.mp4" alt="Meu KWID app — Histórias screen" className="w-full max-w-[220px] h-auto block rounded-lg" />
                 </div>
                 <div className="flex justify-center">
-                    <FadeImage src="/playground-kwid-screens.png" alt="Meu KWID app — configurator and checkout flow" className="w-full max-w-[420px] h-auto block rounded-lg" />
+                    <FadeImage src="/playground-kwid-screens.webp" alt="Meu KWID app — configurator and checkout flow" className="w-full max-w-[420px] h-auto block rounded-lg" loading="lazy" />
                 </div>
             </div>
             <div className="px-4 py-3 border-t border-white/10">
@@ -132,9 +132,10 @@ function InframericaTile() {
         <div className="rounded-xl overflow-hidden border border-white/15 bg-black flex flex-col h-full">
             <div className="flex-1 flex items-center justify-center">
                 <FadeImage
-                    src="/playground-inframerica.png"
+                    src="/playground-inframerica.webp"
                     alt="Inframerica app — QR code scan and parking payment screens"
                     className="w-full h-auto block"
+                    loading="lazy"
                 />
             </div>
             <div className="px-4 py-3 border-t border-white/10">
@@ -189,7 +190,7 @@ export function PlaygroundPage({ onBack }: Props) {
             {/* Mosaic */}
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
                 <VideoTile
-                    src="/playground-stella-timer.mov"
+                    src="/playground-stella-timer.mp4"
                     caption="Stella Timer, a no-frills meditation app created in React Native."
                 />
                 <KwidTile />
