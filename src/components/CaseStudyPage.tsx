@@ -25,9 +25,10 @@ interface Props {
     onBack: () => void;
     otherStudies?: OtherStudy[];
     onOpenStudy?: (id: string) => void;
+    onOpenPlayground?: () => void;
 }
 
-export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }: Props) {
+export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, onOpenPlayground }: Props) {
     const [scrolled, setScrolled] = useState(false);
     const backButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -304,7 +305,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy }:
 
             <BrandCarousel />
 
-            <CaseStudyImageCard onOpenStudy={onOpenStudy} />
+            <CaseStudyImageCard onOpenStudy={onOpenStudy} onOpenPlayground={onOpenPlayground} />
 
             {/* Poem — last */}
             <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">

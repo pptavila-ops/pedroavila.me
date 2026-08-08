@@ -179,17 +179,18 @@ function App() {
                 </div>
 
                 {activePlayground ? (
-                    <PlaygroundPage onBack={closeStudy} />
+                    <PlaygroundPage onBack={closeStudy} onOpenStudy={openStudy} />
                 ) : activeStudy === 'template' ? (
                     <CaseStudyPage
                         study={templateCaseStudy}
                         onBack={closeStudy}
                         otherStudies={caseStudies}
                         onOpenStudy={openStudy}
+                        onOpenPlayground={openPlayground}
                     />
                 ) : richStudy ? (
                     richStudy.slides ? (
-                        <CaseStudyStories study={richStudy} onBack={closeStudy} onOpenStudy={openStudy} />
+                        <CaseStudyStories study={richStudy} onBack={closeStudy} onOpenStudy={openStudy} onOpenPlayground={openPlayground} />
                     ) : (
                         <CaseStudyPage
                             study={richStudy}
@@ -199,6 +200,7 @@ function App() {
                                 ...caseStudies.filter((cs) => !richCaseStudies.some((r) => r.id === cs.id)),
                             ]}
                             onOpenStudy={openStudy}
+                            onOpenPlayground={openPlayground}
                         />
                     )
                 ) : study ? (

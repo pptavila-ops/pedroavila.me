@@ -10,9 +10,10 @@ interface Props {
     study: RichCaseStudy;
     onBack: () => void;
     onOpenStudy?: (id: string) => void;
+    onOpenPlayground?: () => void;
 }
 
-export function CaseStudyStories({ study, onBack, onOpenStudy }: Props) {
+export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground }: Props) {
     const slides = study.slides!;
     const [current, setCurrent] = useState(0);
     const [progress, setProgress] = useState(0);
@@ -226,7 +227,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy }: Props) {
             </div>
         </div>
 
-        <CaseStudyImageCard onOpenStudy={onOpenStudy} excludeId={study.id} />
+        <CaseStudyImageCard onOpenStudy={onOpenStudy} onOpenPlayground={onOpenPlayground} excludeId={study.id} />
 
         {/* Poem — last */}
         <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
