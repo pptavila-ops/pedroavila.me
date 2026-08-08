@@ -179,7 +179,7 @@ function App() {
                 </div>
 
                 {activePlayground ? (
-                    <PlaygroundPage onBack={closeStudy} />
+                    <PlaygroundPage onBack={closeStudy} onOpenStudy={openStudy} />
                 ) : activeStudy === 'template' ? (
                     <CaseStudyPage
                         study={templateCaseStudy}

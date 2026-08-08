@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { StickyHeader } from './StickyHeader';
 import { FadeImage } from './FadeImage';
+import { CaseStudyImageCard } from './CaseStudyImageCard';
 
 interface Props {
     onBack: () => void;
+    onOpenStudy?: (id: string) => void;
 }
 
 function SoundToggle({ muted, onToggle }: { muted: boolean; onToggle: () => void }) {
@@ -145,7 +147,7 @@ function InframericaTile() {
     );
 }
 
-export function PlaygroundPage({ onBack }: Props) {
+export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
     const [scrolled, setScrolled] = useState(false);
     const backButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -214,6 +216,8 @@ export function PlaygroundPage({ onBack }: Props) {
                 />
                 <InframericaTile />
             </div>
+
+            <CaseStudyImageCard onOpenStudy={onOpenStudy} excludeId="playground" />
 
             {/* Poem — last */}
             <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
