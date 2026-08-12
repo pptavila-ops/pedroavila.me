@@ -381,6 +381,84 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
+                label: 'Deep Dive · Variable Delivery Cadence',
+            },
+            {
+                type: 'summary',
+                rows: [
+                    { label: 'Background', content: 'The Pets Table is a dog food subscription, not a meal kit. One box lasts four, six, eight weeks or longer — cadence, not the weekly delivery, is the unit customers actually live with.' },
+                    { label: 'Problem', content: 'The funnel defaults new customers to a long cadence to keep the price per meal competitive. After the discounted trial box, that same default makes the first full box big — and the jump in absolute price is a reason to stop ordering.' },
+                    { label: 'Hypothesis', content: 'If customers can change their delivery cadence or box size right after they convert, they\'ll order more boxes — because a smaller box is a smaller amount to pay at once.', bold: true },
+                    { label: 'Approach', content: 'A quick action to change box size right after conversion, backed by CRM timing and the leaflet already shipping in the trial box. Validated through interviews, prototypes, usability testing and an A/B test.' },
+                ],
+            },
+            {
+                type: 'video',
+                src: '/tpt-cadence.mp4',
+                maxWidth: 360,
+                caption: 'The quick action on the delivery dashboard — changing box size in a few taps, with the weekly price shown for each option and a clear confirmation of when the new cadence starts.',
+            },
+            {
+                type: 'text',
+                content: 'The solution wasn\'t only a screen. Customers had to know the change was possible at the exact moment the price shock would land, so we solved it in three places at once: a quick action on the delivery dashboard that makes the switch in a few taps, CRM messaging timed around the first full box, and the leaflet already shipping inside the trial box carrying the same message.',
+            },
+            {
+                type: 'process',
+                title: 'Methods',
+                steps: [
+                    {
+                        title: 'Hypothesis vs. Business Goals',
+                        description: 'Framed the bet against the commercial reality: a low price per meal is what wins the funnel, so anything we did had to protect acquisition while fixing what happened right after it.',
+                    },
+                    {
+                        title: 'User Interviews',
+                        description: 'Spoke with customers who had been exposed to the feature and never used it — the group that tells you what\'s actually in the way.',
+                    },
+                    {
+                        title: 'Prototyping',
+                        description: 'Built the cadence and box size change as a working flow before any engineering time was committed, so it could be tested end to end.',
+                    },
+                    {
+                        title: 'Usability Testing',
+                        description: 'Tested whether customers understood what changing box size does to their weekly price, their next delivery date, and how long the food would last.',
+                    },
+                    {
+                        title: 'A/B Testing',
+                        description: 'Shipped as an experiment and measured against control, which is where the revenue and order rate movement below came from.',
+                    },
+                    {
+                        title: 'CRM',
+                        description: 'Aligned lifecycle messaging with the feature so the option to change cadence reached customers around the first full box, not buried in the account settings.',
+                    },
+                    {
+                        title: 'Physical Product Inserts',
+                        description: 'The trial box already ships with a leaflet — we used it to tell customers the box size is theirs to change, connecting the physical product to the digital one.',
+                    },
+                ],
+            },
+            {
+                type: 'impact',
+                title: 'Variable cadence · experiment results',
+                items: [
+                    { value: '+8.2%', label: 'Net Revenue', description: 'Measured against control in the A/B test — the clearest signal that lowering the amount paid per box didn\'t lower what customers were worth.' },
+                    { value: '+7.2%', label: 'Gross Revenue', description: 'Smaller, more frequent boxes translated into more revenue overall, not less.' },
+                    { value: '+6.6%', label: 'AOR', description: 'More orders per customer — the core hypothesis, confirmed: an easier amount to pay at once means people keep ordering.' },
+                    { value: '$3.4M', label: '52-week CVA impact', description: 'Estimated contribution over a 52-week horizon, making this one of the highest-value features I shipped at TPT.' },
+                ],
+            },
+            {
+                type: 'text',
+                html: true,
+                content: '<strong class="font-semibold text-white/80">The follow-up:</strong> a winning experiment tells you the change worked for the people who used it — nothing about the ones who saw it and did nothing. So with the test still running, we interviewed customers who had been exposed to the quick action and never touched it, to hear what stopped them.',
+            },
+            {
+                type: 'image',
+                src: '/tpt-cadence-interviews.webp',
+                caption: 'We ran user interviews with customers who were exposed to the feature but didn\'t use it — to understand why not, and what we should improve next.',
+                shrink: true,
+            },
+            {
+                type: 'divider',
                 label: 'Pioneering Design-to-Code',
             },
             {

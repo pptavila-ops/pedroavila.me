@@ -127,6 +127,29 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
                             </div>
                         );
 
+                    case 'summary':
+                        return (
+                            <div key={i} className="mt-8 flex flex-col md:flex-row md:gap-10">
+                                {section.label && (
+                                    <p className="text-sm font-semibold uppercase tracking-widest text-white/70 md:w-[120px] md:flex-shrink-0 md:pt-6">
+                                        {section.label}
+                                    </p>
+                                )}
+                                <dl className="flex-1 border-b border-white/10 divide-y divide-white/10">
+                                    {section.rows.map((row) => (
+                                        <div key={row.label} className="py-6 flex flex-col md:flex-row md:gap-8">
+                                            <dt className="text-sm font-semibold uppercase tracking-widest text-white/70 md:w-[160px] md:flex-shrink-0 md:pt-1">
+                                                {row.label}
+                                            </dt>
+                                            <dd className={`mt-2 md:mt-0 text-[15px] md:text-[16px] leading-relaxed ${row.bold ? 'font-semibold text-white' : 'text-white/75'}`}>
+                                                {row.content}
+                                            </dd>
+                                        </div>
+                                    ))}
+                                </dl>
+                            </div>
+                        );
+
                     case 'impact':
                         return <ImpactCards key={i} items={section.items} title={section.title} />;
 
@@ -166,7 +189,8 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
                                     muted
                                     loop
                                     playsInline
-                                    className="rounded-xl block w-full max-w-[280px]"
+                                    className="rounded-xl block w-full"
+                                    style={{ maxWidth: `${section.maxWidth ?? 280}px` }}
                                 />
                                 {section.caption && (
                                     <figcaption className="mt-6 text-[15px] text-white/55 text-center">

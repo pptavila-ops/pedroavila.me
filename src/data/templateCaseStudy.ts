@@ -2,11 +2,12 @@ export type RichSection =
     | { type: 'text'; content: string; html?: boolean }
     | { type: 'callout'; content: string }
     | { type: 'image'; src: string; caption?: string; width?: string; shrink?: boolean; compact?: boolean }
-    | { type: 'video'; src: string; caption?: string; shrink?: boolean }
+    | { type: 'video'; src: string; caption?: string; shrink?: boolean; maxWidth?: number }
     | { type: 'impact'; title?: string; items: { value: string; label: string; description: string; logos?: { src: string; alt: string; height: number }[] }[] }
     | { type: 'process'; title?: string; steps: { title: string; description: string }[] }
     | { type: 'two-column'; image: string; content: string; imageLeft?: boolean; caption?: string }
     | { type: 'divider'; label?: string }
+    | { type: 'summary'; label?: string; rows: { label: string; content: string; bold?: boolean }[] }
     | { type: 'download'; label: string; href: string }
     | { type: 'chart'; title?: string; caption?: string; bars: { label: string; sublabel: string; description: string; pct: number; color: string }[] }
     | { type: 'animated-sentence'; prefix: string; phrases: string[] }
