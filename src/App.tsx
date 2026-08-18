@@ -95,7 +95,10 @@ function App() {
                 <div>
                     <button onClick={closeStudy} className="text-[15px] font-semibold text-white hover:bg-white/10 rounded-md px-2 py-1 -ml-2 transition-colors cursor-pointer">Pedro Ávila</button>
                     <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
-                        Senior Product Designer with 9+ years of experience.
+                        Senior Product Designer optimizing design workflows with the help of AI.
+                    </p>
+                    <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
+                        9+ years of experience.
                     </p>
                     <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
                         He/Him.
