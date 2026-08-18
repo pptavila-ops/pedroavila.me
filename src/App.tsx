@@ -98,9 +98,6 @@ function App() {
                         Senior Product Designer with 9+ years of experience.
                     </p>
                     <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
-                        Based in Berlin, Germany.
-                    </p>
-                    <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
                         He/Him.
                     </p>
 
