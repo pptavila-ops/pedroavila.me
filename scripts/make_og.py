@@ -68,7 +68,7 @@ d.text((PAD, PAD + 4), "P E D R O   Á V I L A", font=semi, fill=(255, 255, 255)
 # rule under headline
 d.rectangle([PAD, 452, W - PAD, 453], fill=(38, 38, 38))
 # footer
-d.text((PAD, 486), "Senior Product Designer  ·  Berlin  ·  9+ years", font=reg, fill=(150, 150, 150))
+d.text((PAD, 486), "Senior Product Designer  ·  9+ years", font=reg, fill=(150, 150, 150))
 d.text((PAD, 528), "pedroavila.me", font=reg, fill=(105, 105, 105))
 
 out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "public", "og-image.jpg")
