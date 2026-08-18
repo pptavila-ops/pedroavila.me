@@ -13,9 +13,22 @@ W, H = 1200, 630
 PAD = 80
 FONTS = os.path.expanduser("~/Library/Fonts")
 
-bold = ImageFont.truetype(f"{FONTS}/InstrumentSans-Bold.ttf", 76)
 semi = ImageFont.truetype(f"{FONTS}/InstrumentSans-SemiBold.ttf", 26)
 reg = ImageFont.truetype(f"{FONTS}/InstrumentSans-Regular.ttf", 27)
+
+HEADLINE = ["Rebuilding how design", "gets done."]
+
+
+def fit_headline(lines, max_width, start=92, floor=44):
+    """Largest bold size at which every line clears the content width."""
+    for size in range(start, floor - 1, -2):
+        font = ImageFont.truetype(f"{FONTS}/InstrumentSans-Bold.ttf", size)
+        if all(font.getbbox(l)[2] <= max_width for l in lines):
+            return font, size
+    return ImageFont.truetype(f"{FONTS}/InstrumentSans-Bold.ttf", floor), floor
+
+
+bold, bold_size = fit_headline(HEADLINE, W - 2 * PAD)
 
 # --- rainbow field, same wave math as RainbowText.tsx at t=0.9 ---
 N = 35
@@ -39,11 +52,12 @@ rainbow = field.resize((W, H), Image.BICUBIC).filter(ImageFilter.GaussianBlur(70
 # --- headline drawn white, then multiplied by the rainbow ---
 head_layer = Image.new("RGB", (W, H), "black")
 hd = ImageDraw.Draw(head_layer)
-lines = ["Enabling designers to ship", "production ready code."]
-y = 232
-for line in lines:
+line_height = round(bold_size * 1.15)
+# keep the two-line block optically centred above the rule at y=452
+y = 452 - 70 - line_height * len(HEADLINE)
+for line in HEADLINE:
     hd.text((PAD, y), line, font=bold, fill="white")
-    y += 88
+    y += line_height
 
 # multiply: the rainbow shows through the white glyphs, black stays black
 card = Image.composite(rainbow, Image.new("RGB", (W, H), "black"), head_layer.convert("L"))
@@ -59,4 +73,4 @@ d.text((PAD, 528), "pedroavila.me", font=reg, fill=(105, 105, 105))
 
 out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "public", "og-image.jpg")
 card.save(out, "JPEG", quality=92, optimize=True, progressive=True)
-print("wrote", out, card.size)
+print("wrote", out, card.size, "headline", bold_size, "px")
