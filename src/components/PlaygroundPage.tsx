@@ -105,7 +105,7 @@ function HackathonTile() {
                 )}
             </div>
             <div className="px-4 py-3 border-t border-white/10">
-                <p className="text-[14px] text-white/60">Hackathon 2024 — Quizless Funnel, a team concept that replaces the onboarding quiz with a conversation.</p>
+                <p className="text-[14px] text-white/60">Hackathon 2024: Quizless Funnel, a team concept that replaces the onboarding quiz with a conversation.</p>
             </div>
         </div>
     );
@@ -210,7 +210,7 @@ export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
                             >
                                 Yawara
                             </a>
-                            {' '}— a platform for Latin American events in Europe.
+                            {', '}a platform for Latin American events in Europe.
                         </>
                     }
                 />

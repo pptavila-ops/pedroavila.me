@@ -106,11 +106,11 @@ function App() {
 
                     <div className="flex flex-wrap gap-2 mt-6">
                         {[
-                            { label: 'Design to Code', tip: 'I turn design decisions into production-ready components and features, and enable designers across the org to work directly in code instead of static tools — closing the gap between design and front-end engineering.' },
-                            { label: 'Claude Code', tip: 'I build interfaces and prototypes with Claude as a coding partner, and own the UX space for AI skills at HelloFresh — writing new skills and improving existing ones.' },
+                            { label: 'Design to Code', tip: 'I close the gap between design and front-end engineering: turning design decisions into production-ready components and features, and enabling designers across the org to work directly in code instead of static tools.' },
+                            { label: 'Claude Code', tip: 'I build interfaces and prototypes with Claude as a coding partner, and own the UX space for AI skills at HelloFresh, writing new skills and improving existing ones.' },
                             { label: 'Fast Prototyping', tip: 'I help designers prototype in code, test ideas quickly, and share working prototypes in dedicated repositories.' },
                             { label: 'Design Systems', tip: 'I build and manage scalable component libraries and design tokens that keep teams aligned.' },
-                            { label: 'Design Ops', tip: 'I make design system components, prototyping workflows, and code delivery tools available to every designer in the org — through guides, 101 sessions, and a culture that fosters curiosity instead of overwhelm.' },
+                            { label: 'Design Ops', tip: 'I make design system components, prototyping workflows, and code delivery tools available to every designer in the org through guides, 101 sessions, and a culture that fosters curiosity instead of overwhelm.' },
                         ].map((tag) => (
                             <Tooltip key={`${tag.label}-${shineKey}`} text={tag.tip}>
                                 <span className="text-[13px] text-white/60 hover:text-white rounded-md px-3 py-1 cursor-default animate-tag-shine hover:border-white/40 transition-colors">{tag.label}</span>
