@@ -8,15 +8,15 @@ export const richCaseStudies: RichCaseStudy[] = [
         company: 'HelloFresh',
         role: 'Consumer Acceleration',
         cover: '/card-hover.webp',
-        intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering — using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
+        intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering, using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
         tags: ['Consumer Acceleration', 'Design Operations', 'AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
         sections: [
             {
                 type: 'impact',
                 items: [
-                    { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production — setting a precedent that grew into an organisation-wide movement.' },
+                    { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production, setting a precedent that grew into an organisation-wide movement.' },
                     { value: 'AI Pioneer', label: 'Skills, Agents and Commands', description: 'A full AI workflow covering prototype creation, iteration, testing, publishing, and design-to-code workflows.' },
-                    { value: '9', label: 'HelloFresh Brands affected', description: 'The new design-to-code workflow changed how features are built across all nine HelloFresh brands — giving each one faster, higher-fidelity output and less engineering overhead.', logos: [
+                    { value: '9', label: 'HelloFresh Brands affected', description: 'The new design-to-code workflow changed how features are built across all nine HelloFresh brands, giving each one faster, higher-fidelity output and less engineering overhead.', logos: [
                         { src: '/brands/hellofresh-full.svg', alt: 'HelloFresh', height: 22 },
                         { src: '/brands/greenchef.svg', alt: 'Green Chef', height: 28 },
                         { src: '/brands/factor.svg', alt: 'Factor', height: 26 },
@@ -27,7 +27,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                         { src: '/brands/factor-full.svg', alt: 'Factor_', height: 18 },
                         { src: '/brands/hellofresh-hf.webp', alt: 'HelloFresh HF', height: 22 },
                     ] },
-                    { value: '26+', label: 'Designers Supported', description: 'Enabled designers across the organisation to prototype with code and work directly in production — moving beyond static handoffs to a workflow where designers ship their own changes.' },
+                    { value: '26+', label: 'Designers Supported', description: 'Enabled designers across the organisation to prototype with code and work directly in production, moving beyond static handoffs to a workflow where designers ship their own changes.' },
                 ],
             },
             {
@@ -36,7 +36,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Spec-Machine is HelloFresh\'s internal AI repository — a shared hub where teams collaborate, publish commands, and improve the context available to AI agents across the company. Built primarily around Claude Code, it gives every team a way to contribute to and benefit from a growing library of skills. I contributed to building and shipping the specx-ux plugin: a growing suite of UX-specific commands covering the full design workflow.',
+                content: 'Spec-Machine is HelloFresh\'s internal AI repository, a shared hub where teams collaborate, publish commands, and improve the context available to AI agents across the company. Built primarily around Claude Code, it gives every team a way to contribute to and benefit from a growing library of skills. I contributed to building and shipping the specx-ux plugin: a growing suite of UX-specific commands covering the full design workflow.',
             },
             {
                 type: 'spec-machine-diagram',
@@ -56,7 +56,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 steps: [
                     {
                         title: '/create-prototype',
-                        description: 'Generate production-quality HTML prototypes from text, Figma exports, screenshots, or existing HTML — in minutes, across all 9 HF brands.',
+                        description: 'Generate production-quality HTML prototypes from text, Figma exports, screenshots, or existing HTML, in minutes, across all 9 HF brands.',
                     },
                     {
                         title: '/iterate-prototype',
@@ -68,7 +68,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: '/design-change-web and /design-change-rn',
-                        description: 'Implement UI changes directly in React (web) and React Native using Prototype Metadata — the bridge between design intent and production code.',
+                        description: 'Implement UI changes directly in React (web) and React Native using Prototype Metadata, the bridge between design intent and production code.',
                     },
                     {
                         title: '/update-prototype and /push-prototype',
@@ -76,13 +76,13 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: '/ux-preflight',
-                        description: 'Automated environment check and guided setup — so every designer could get running with Claude Code without needing an engineer to help.',
+                        description: 'Automated environment check and guided setup, so every designer could get running with Claude Code without needing an engineer to help.',
                     },
                 ],
             },
             {
                 type: 'callout',
-                content: 'Prototypes can be created as free-form, balanced, or strict — varying how closely they adhere to the design system. They\'re also convertible between thresholds, so a free-form exploration can be tightened into something production-ready.',
+                content: 'Prototypes can be created as free-form, balanced, or strict, varying how closely they adhere to the design system. They\'re also convertible between thresholds, so a free-form exploration can be tightened into something production-ready.',
             },
             {
                 type: 'image',
@@ -95,11 +95,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'HelloFresh\'s UX team spanned nine brands, each with its own codebase and its own gap between what was designed and what shipped — tickets filed, specs reinterpreted, intent diluted with every hand. Consumer Acceleration was tasked with closing it, betting on AI — Claude Code as the interface between UX intention and production reality. My role was to explore what that looked like, then make it real for the whole team.',
+                content: 'HelloFresh\'s UX team spanned nine brands, each with its own codebase and its own gap between what was designed and what shipped, tickets filed, specs reinterpreted, intent diluted with every hand. Consumer Acceleration was tasked with closing it, betting on AI, Claude Code as the interface between UX intention and production reality. My role was to explore what that looked like, then make it real for the whole team.',
             },
             {
                 type: 'callout',
-                content: 'Following my own experiments shipping code, I was able to move the design team toward a new standard: we own the UI — not just in static designs, but directly in the product.',
+                content: 'Following my own experiments shipping code, I was able to move the design team toward a new standard: we own the UI, not just in static designs, but directly in the product.',
             },
             {
                 type: 'current-design-process-diagram',
@@ -113,12 +113,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'With the increasing pace of AI-assisted prototyping, there was a real risk that Zest — HelloFresh\'s design system — would get left behind, its rules and consistency disregarded when it came to implementation. My main focus was to keep the UX quality of what we ship: teaching designers how to create prototypes that match production, and making targeted fixes directly in the code.',
+                content: 'With the increasing pace of AI-assisted prototyping, there was a real risk that Zest, HelloFresh\'s design system, would get left behind, its rules and consistency disregarded when it came to implementation. My main focus was to keep the UX quality of what we ship: teaching designers how to create prototypes that match production, and making targeted fixes directly in the code.',
             },
             {
                 type: 'image',
                 src: '/ux-quality.webp',
-                caption: 'UX Quality with Claude Code — the public guide for designers working directly in production.',
+                caption: 'UX Quality with Claude Code, the public guide for designers working directly in production.',
             },
             {
                 type: 'callout',
@@ -126,7 +126,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Prevention meant checking design readiness against Zest before a spec went to dev. Recovery meant using Claude to make targeted code fixes in production — sometimes in a single prompt — and opening a PR for review.',
+                content: 'Prevention meant checking design readiness against Zest before a spec went to dev. Recovery meant using Claude to make targeted code fixes in production, sometimes in a single prompt, and opening a PR for review.',
             },
             {
                 type: 'divider',
@@ -134,16 +134,16 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'One of the recurring problems with AI-generated prototypes was that they lived on individual machines — shared in Slack, opened once, then lost. The Prototypes Playground was the answer: a shared GitHub repository connected to a Vercel deployment where designers published and referenced prototypes across squads.',
+                content: 'One of the recurring problems with AI-generated prototypes was that they lived on individual machines, shared in Slack, opened once, then lost. The Prototypes Playground was the answer: a shared GitHub repository connected to a Vercel deployment where designers published and referenced prototypes across squads.',
             },
             {
                 type: 'image',
                 src: '/prototypes-playground.webp',
-                caption: 'Prototypes Playground — a shared Vercel environment for AI-generated prototypes across all HF brands.',
+                caption: 'Prototypes Playground, a shared Vercel environment for AI-generated prototypes across all HF brands.',
             },
             {
                 type: 'text',
-                content: 'Any designer could push a prototype to the Playground using /push-prototype and immediately share a stable URL. Squads used these URLs in Confluence, Jira tickets, and usability test sessions. It made AI prototyping feel like a real part of the workflow — not a side experiment.',
+                content: 'Any designer could push a prototype to the Playground using /push-prototype and immediately share a stable URL. Squads used these URLs in Confluence, Jira tickets, and usability test sessions. It made AI prototyping feel like a real part of the workflow, not a side experiment.',
             },
             {
                 type: 'divider',
@@ -151,7 +151,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Tools and documentation only go so far. The more durable change came from building a culture around them. I\'ve established regular sessions for an audience that includes designers, researchers, and product managers — an open space to share explorations.',
+                content: 'Tools and documentation only go so far. The more durable change came from building a culture around them. I\'ve established regular sessions for an audience that includes designers, researchers, and product managers, an open space to share explorations.',
             },
             {
                 type: 'callout',
@@ -191,7 +191,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     {
                         label: 'Motion Designers',
                         sublabel: 'code-native tokens',
-                        description: 'Creating and implementing motion tokens in code — replacing ProtoPie and After Effects',
+                        description: 'Creating and implementing motion tokens in code, replacing ProtoPie and After Effects',
                         pct: 65,
                         color: 'hsl(320, 65%, 62%)',
                     },
@@ -217,7 +217,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'In February 2026, I presented at the Into Design Systems meetup hosted at HelloFresh\'s Berlin office — sharing our AI-enabled design system work publicly for the first time.',
+                content: 'In February 2026, I presented at the Into Design Systems meetup hosted at HelloFresh\'s Berlin office, sharing our AI-enabled design system work publicly for the first time.',
             },
             {
                 type: 'image',
@@ -230,11 +230,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'What started as individual exploration became a team-wide movement — and a new standard for how designers at HelloFresh ship. The infrastructure, the toolchain, the culture, and the precedent are all still running.',
+                content: 'What started as individual exploration became a team-wide movement, and a new standard for how designers at HelloFresh ship. The infrastructure, the toolchain, the culture, and the precedent are all still running.',
             },
             {
                 type: 'text',
-                content: 'The most lasting signal: designers across the company began merging production code as a normal part of their job — not as an exception. Not because they were told to, but because the tools made it possible and the community made it feel safe. That shift, from design being a handoff layer to design being a direct contributor to what ships, is the thing I\'m most proud of.',
+                content: 'The most lasting signal: designers across the company began merging production code as a normal part of their job, not as an exception. Not because they were told to, but because the tools made it possible and the community made it feel safe. That shift, from design being a handoff layer to design being a direct contributor to what ships, is the thing I\'m most proud of.',
             },
         ],
     },
@@ -245,16 +245,16 @@ export const richCaseStudies: RichCaseStudy[] = [
         company: 'HelloFresh',
         role: 'Product Designer → Sr. Product Designer',
         cover: '/card-hover.webp',
-        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription — a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.',
+        intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.',
         tags: ['Product Design', 'UX Research', 'OOUX', 'Growth', 'Retention', 'Design-to-Code'],
         sections: [
             {
                 type: 'impact',
                 items: [
-                    { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full product UX from launch through 2025 — funnel, checkout, post-checkout, and member experience.' },
-                    { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh — including cancellation UX and Figma structure.' },
-                    { value: 'Pioneer', label: 'Design-to-Code Workflows', description: 'TPT was where I started my design-to-code journey — experimenting with features in production, building the knowledge to bridge the gap between design intent and engineering output.' },
-                    { value: 'CVR +', label: 'Uplifts as main goal', description: 'Growth was our primary target. I drove conversion improvements across the funnel — adding goals and allergen questions, refining UX flows, introducing two-step loading states, and layering in social proof at key moments.' },
+                    { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full product UX from launch through 2025, funnel, checkout, post-checkout, and member experience.' },
+                    { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh, including cancellation UX and Figma structure.' },
+                    { value: 'Pioneer', label: 'Design-to-Code Workflows', description: 'TPT was where I started my design-to-code journey, experimenting with features in production, building the knowledge to bridge the gap between design intent and engineering output.' },
+                    { value: 'CVR +', label: 'Uplifts as main goal', description: 'Growth was our primary target. I drove conversion improvements across the funnel, adding goals and allergen questions, refining UX flows, introducing two-step loading states, and layering in social proof at key moments.' },
                 ],
             },
             {
@@ -263,22 +263,22 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The Pets Table was HelloFresh\'s first pet food brand. Before TPT, HelloFresh already had a white-label front-end solution shared across its new brands — Factor, Green Chef, Chef\'s Plate, Every Plate, and Good Chop all launched using this common infrastructure. I\'d been working within that system myself, focused on meal selection and post-checkout experience for those brands.',
+                content: 'The Pets Table was HelloFresh\'s first pet food brand. Before TPT, HelloFresh already had a white-label front-end solution shared across its new brands. Factor, Green Chef, Chef\'s Plate, Every Plate, and Good Chop all launched using this common infrastructure. I\'d been working within that system myself, focused on meal selection and post-checkout experience for those brands.',
             },
             {
                 type: 'image',
                 src: '/whitelabel-comparison.webp',
-                caption: 'The white-label post-checkout shell shared across Factor, Chef\'s Plate, EveryPlate, Good Chop, and others — and how The Pets Table started',
+                caption: 'The white-label post-checkout shell shared across Factor, Chef\'s Plate, EveryPlate, Good Chop, and others, and how The Pets Table started',
                 shrink: true,
             },
             {
                 type: 'text',
-                content: 'Adapting the white-label to pet food meant working with fundamentally different constraints. The existing system was built around humans choosing weekly meals; TPT needed to handle pet profiles, breed-specific content, multi-pet households, and an add-ons model that had no equivalent elsewhere. That gap drove a gradual divergence — a redesigned add-ons store entry point, quick actions on the delivery dashboard, and dedicated pet navigation were all features the white-label was never designed for. Several of those solutions eventually made their way back, adopted and adapted by other brands.',
+                content: 'Adapting the white-label to pet food meant working with fundamentally different constraints. The existing system was built around humans choosing weekly meals; TPT needed to handle pet profiles, breed-specific content, multi-pet households, and an add-ons model that had no equivalent elsewhere. That gap drove a gradual divergence, a redesigned add-ons store entry point, quick actions on the delivery dashboard, and dedicated pet navigation were all features the white-label was never designed for. Several of those solutions eventually made their way back, adopted and adapted by other brands.',
             },
             {
                 type: 'image',
                 src: '/petstable-dashboard.webp',
-                caption: 'The Pets Table dashboard — branching out from the white-label with pet-specific UX: improved add-ons access, quick actions, and pet navigation',
+                caption: 'The Pets Table dashboard, branching out from the white-label with pet-specific UX: improved add-ons access, quick actions, and pet navigation',
                 shrink: true,
             },
             {
@@ -290,7 +290,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Over three years I shaped TPT\'s end-to-end product experience — from the acquisition funnel through to delivery management, pet profile, and member retention. I ran user research, built design systems foundations, drove measurable conversion improvements, and eventually pioneered AI-assisted design-to-code workflows that set a new bar across HelloFresh.',
+                content: 'Over three years I shaped TPT\'s end-to-end product experience, from the acquisition funnel through to delivery management, pet profile, and member retention. I ran user research, built design systems foundations, drove measurable conversion improvements, and eventually pioneered AI-assisted design-to-code workflows that set a new bar across HelloFresh.',
             },
             {
                 type: 'image',
@@ -303,7 +303,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'I joined TPT at a critical moment: the brand was launching and needed a full product design foundation built quickly. The first major bet was the quiz — competitors like Nom Nom and The Farmer\'s Dog had made it a cornerstone of the pet food experience, a way to personalise the product and build trust before asking for a purchase.',
+                content: 'I joined TPT at a critical moment: the brand was launching and needed a full product design foundation built quickly. The first major bet was the quiz, competitors like Nom Nom and The Farmer\'s Dog had made it a cornerstone of the pet food experience, a way to personalise the product and build trust before asking for a purchase.',
             },
             {
                 type: 'callout',
@@ -316,7 +316,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/tpt-quiz.webp',
-                caption: 'The Pets Table quiz — a first for HelloFresh, later adopted across all brands',
+                caption: 'The Pets Table quiz, a first for HelloFresh, later adopted across all brands',
                 shrink: true,
                 compact: true,
             },
@@ -325,19 +325,19 @@ export const richCaseStudies: RichCaseStudy[] = [
                 steps: [
                     {
                         title: 'Funnel & Onboarding Design',
-                        description: 'Designed and refined the core acquisition funnel — the quiz, plan selection, and checkout — from early MVP through post-launch iterations. Every step was built with conversion and clarity in mind.',
+                        description: 'Designed and refined the core acquisition funnel, the quiz, plan selection, and checkout, from early MVP through post-launch iterations. Every step was built with conversion and clarity in mind.',
                     },
                     {
                         title: 'Zest-Compliant UI',
-                        description: 'Zest (HelloFresh\'s newest design system) is their multi-brand system. Because TPT and Zest were born at the same time, we became the first HelloFresh brand to reach full compliance — something only possible with a brand built from scratch.',
+                        description: 'Zest (HelloFresh\'s newest design system) is their multi-brand system. Because TPT and Zest were born at the same time, we became the first HelloFresh brand to reach full compliance, something only possible with a brand built from scratch.',
                     },
                     {
                         title: 'Object-Oriented UX',
-                        description: 'I used OOUX to map the core objects of the system — the dog, the delivery, the meals — before touching any screen design. Understanding those relationships upfront let me design complex features with confidence, for example: multi-pet support, adjustable daily calories, and flexible delivery cadences.',
+                        description: 'I used OOUX to map the core objects of the system, the dog, the delivery, the meals, before touching any screen design. Understanding those relationships upfront let me design complex features with confidence, for example: multi-pet support, adjustable daily calories, and flexible delivery cadences.',
                     },
                     {
                         title: 'Figma MasterFlow & Component Library',
-                        description: 'Established TPT\'s Figma MasterFlow and component library as canonical references. TPT became one of the most Zest-compliant brands at HelloFresh from launch — a standard I maintained throughout.',
+                        description: 'Established TPT\'s Figma MasterFlow and component library as canonical references. TPT became one of the most Zest-compliant brands at HelloFresh from launch, a standard I maintained throughout.',
                     },
                 ],
             },
@@ -352,7 +352,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'With foundations in place, 2024 was about depth — running proper research programs, validating new features before build, and shipping a steady stream of measurable improvements across the funnel. We ran numerous A/B tests throughout, which gave us the data to decide which features were worth keeping and which ones to drop.',
+                content: 'With foundations in place, 2024 was about depth, running proper research programs, validating new features before build, and shipping a steady stream of measurable improvements across the funnel. We ran numerous A/B tests throughout, which gave us the data to decide which features were worth keeping and which ones to drop.',
             },
             {
                 type: 'image',
@@ -362,16 +362,16 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'text',
                 html: true,
-                content: 'New features were validated through user research and usability testing before a single line was built. We also scaled ongoing insight with <a href="https://sprig.com/" target="_blank" rel="noopener noreferrer" class="underline text-white/70 hover:text-white transition-colors">Sprig</a> — leveraging screen recordings, heatmaps, and surveys to understand real behaviour across the funnel and feed the next round of improvements.',
+                content: 'New features were validated through user research and usability testing before a single line was built. We also scaled ongoing insight with <a href="https://sprig.com/" target="_blank" rel="noopener noreferrer" class="underline text-white/70 hover:text-white transition-colors">Sprig</a>, leveraging screen recordings, heatmaps, and surveys to understand real behaviour across the funnel and feed the next round of improvements.',
             },
             {
                 type: 'impact',
                 title: 'Conversion wins · 2024',
                 items: [
-                    { value: '+3.4%', label: 'CVR — Goals question', description: 'Added a goals question to the quiz and redesigned the plans page as part of Funnel 2.0.' },
-                    { value: '+3.3%', label: 'CVR — Social proof', description: 'Introduced social proof on the delivery page in the acquisition funnel.' },
-                    { value: '+1.2%', label: 'CVR — Two-step loading', description: 'A subtle UX pattern change on the checkout loading state that reduced drop-off.' },
-                    { value: '+20%', label: 'mCVR — Free items', description: 'Added free items to the order summary — we weren\'t showing them before. Pattern later adopted by Good Chop.' },
+                    { value: '+3.4%', label: 'CVR: Goals question', description: 'Added a goals question to the quiz and redesigned the plans page as part of Funnel 2.0.' },
+                    { value: '+3.3%', label: 'CVR: Social proof', description: 'Introduced social proof on the delivery page in the acquisition funnel.' },
+                    { value: '+1.2%', label: 'CVR: Two-step loading', description: 'A subtle UX pattern change on the checkout loading state that reduced drop-off.' },
+                    { value: '+20%', label: 'mCVR: Free items', description: 'Added free items to the order summary. We weren\'t showing them before. Pattern later adopted by Good Chop.' },
                 ],
             },
             {
@@ -386,9 +386,9 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'summary',
                 rows: [
-                    { label: 'Background', content: 'The Pets Table is a dog food subscription, not a meal kit. One box lasts four, six, eight weeks or longer — cadence, not the weekly delivery, is the unit customers actually live with.' },
-                    { label: 'Problem', content: 'The funnel defaults new customers to a long cadence to keep the price per meal competitive. After the discounted trial box, that same default makes the first full box big — and the jump in absolute price is a reason to stop ordering.' },
-                    { label: 'Hypothesis', content: 'If customers can change their delivery cadence or box size right after they convert, they\'ll order more boxes — because a smaller box is a smaller amount to pay at once.', bold: true },
+                    { label: 'Background', content: 'The Pets Table is a dog food subscription, not a meal kit. One box lasts four, six, eight weeks or longer, cadence, not the weekly delivery, is the unit customers actually live with.' },
+                    { label: 'Problem', content: 'The funnel defaults new customers to a long cadence to keep the price per meal competitive. After the discounted trial box, that same default makes the first full box big, and the jump in absolute price is a reason to stop ordering.' },
+                    { label: 'Hypothesis', content: 'If customers can change their delivery cadence or box size right after they convert, they\'ll order more boxes, because a smaller box is a smaller amount to pay at once.', bold: true },
                     { label: 'Approach', content: 'A quick action to change box size right after conversion, backed by CRM timing and the leaflet already shipping in the trial box. Validated through interviews, prototypes, usability testing and an A/B test.' },
                 ],
             },
@@ -396,7 +396,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'video',
                 src: '/tpt-cadence.mp4',
                 maxWidth: 360,
-                caption: 'The quick action on the delivery dashboard — changing box size in a few taps, with the weekly price shown for each option and a clear confirmation of when the new cadence starts.',
+                caption: 'The quick action on the delivery dashboard, changing box size in a few taps, with the weekly price shown for each option and a clear confirmation of when the new cadence starts.',
             },
             {
                 type: 'text',
@@ -412,7 +412,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: 'User Interviews',
-                        description: 'Spoke with customers who had been exposed to the feature and never used it — the group that tells you what\'s actually in the way.',
+                        description: 'Spoke with customers who had been exposed to the feature and never used it, the group that tells you what\'s actually in the way.',
                     },
                     {
                         title: 'Prototyping',
@@ -432,7 +432,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: 'Physical Product Inserts',
-                        description: 'The trial box already ships with a leaflet — we used it to tell customers the box size is theirs to change, connecting the physical product to the digital one.',
+                        description: 'The trial box already ships with a leaflet. We used it to tell customers the box size is theirs to change, connecting the physical product to the digital one.',
                     },
                 ],
             },
@@ -440,21 +440,21 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'impact',
                 title: 'Variable cadence · experiment results',
                 items: [
-                    { value: '+8.2%', label: 'Net Revenue', description: 'Measured against control in the A/B test — the clearest signal that lowering the amount paid per box didn\'t lower what customers were worth.' },
+                    { value: '+8.2%', label: 'Net Revenue', description: 'Measured against control in the A/B test, the clearest signal that lowering the amount paid per box didn\'t lower what customers were worth.' },
                     { value: '+7.2%', label: 'Gross Revenue', description: 'Smaller, more frequent boxes translated into more revenue overall, not less.' },
-                    { value: '+6.6%', label: 'AOR', description: 'More orders per customer — the core hypothesis, confirmed: an easier amount to pay at once means people keep ordering.' },
+                    { value: '+6.6%', label: 'AOR', description: 'More orders per customer, the core hypothesis, confirmed: an easier amount to pay at once means people keep ordering.' },
                     { value: '$3.4M', label: '52-week CVA impact', description: 'Estimated contribution over a 52-week horizon, making this one of the highest-value features I shipped at TPT.' },
                 ],
             },
             {
                 type: 'text',
                 html: true,
-                content: '<strong class="font-semibold text-white/80">The follow-up:</strong> a winning experiment tells you the change worked for the people who used it — nothing about the ones who saw it and did nothing. So with the test still running, we interviewed customers who had been exposed to the quick action and never touched it, to hear what stopped them.',
+                content: '<strong class="font-semibold text-white/80">The follow-up:</strong> a winning experiment tells you the change worked for the people who used it, nothing about the ones who saw it and did nothing. So with the test still running, we interviewed customers who had been exposed to the quick action and never touched it, to hear what stopped them.',
             },
             {
                 type: 'image',
                 src: '/tpt-cadence-interviews.webp',
-                caption: 'We ran user interviews with customers who were exposed to the feature but didn\'t use it — to understand why not, and what we should improve next.',
+                caption: 'We ran user interviews with customers who were exposed to the feature but didn\'t use it, to understand why not, and what we should improve next.',
                 shrink: true,
             },
             {
@@ -463,15 +463,15 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'I became the first designer at HelloFresh to merge code directly into production — setting a precedent that eventually grew into an organisation-wide movement under the Consumer Acceleration team.',
+                content: 'I became the first designer at HelloFresh to merge code directly into production, setting a precedent that eventually grew into an organisation-wide movement under the Consumer Acceleration team.',
             },
             {
                 type: 'text',
-                content: 'Toward the end of my time at TPT, I began implementing features directly in the production codebase. It started with AI agents in Cursor, and as the company grew in AI maturity it evolved into a more structured workflow — using Claude Code alongside Spec-Machine, a shared repository of skills built for our stack.',
+                content: 'Toward the end of my time at TPT, I began implementing features directly in the production codebase. It started with AI agents in Cursor, and as the company grew in AI maturity it evolved into a more structured workflow, using Claude Code alongside Spec-Machine, a shared repository of skills built for our stack.',
             },
             {
                 type: 'text',
-                content: 'The breed-specific message feature — 11 personalised copy variants for the most-selected dog breeds, conditional logic, real social proof data — was one of the first I shipped end-to-end without an engineering handoff.',
+                content: 'The breed-specific message feature, 11 personalised copy variants for the most-selected dog breeds, conditional logic, real social proof data, was one of the first I shipped end-to-end without an engineering handoff.',
             },
             {
                 type: 'image',
@@ -481,7 +481,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'This wasn\'t about replacing engineers. It was about removing the gap between design intent and what ships — taking ownership of the full quality of what I designed, all the way to the user.',
+                content: 'This wasn\'t about replacing engineers. It was about removing the gap between design intent and what ships, taking ownership of the full quality of what I designed, all the way to the user.',
             },
             {
                 type: 'divider',
@@ -489,11 +489,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'Three years. One designer. A brand with its own voice inside HelloFresh — and a playbook that other brands borrowed from.',
+                content: 'Three years. One designer. A brand with its own voice inside HelloFresh, and a playbook that other brands borrowed from.',
             },
             {
                 type: 'text',
-                content: 'What I\'m most proud of isn\'t any single metric. It\'s the discipline of working at pace without cutting corners — shipping fast but maintaining quality, running real research under real constraints, and treating every negotiation for engineering time as a design decision in itself. TPT taught me how to operate with ambiguity, advocate for users with data, and keep iterating based on what the numbers tell you rather than what you assumed at the start.',
+                content: 'What I\'m most proud of isn\'t any single metric. It\'s the discipline of working at pace without cutting corners, shipping fast but maintaining quality, running real research under real constraints, and treating every negotiation for engineering time as a design decision in itself. TPT taught me how to operate with ambiguity, advocate for users with data, and keep iterating based on what the numbers tell you rather than what you assumed at the start.',
             },
             {
                 type: 'image',
@@ -502,7 +502,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Iterations are ongoing. The latest ones focus on helping customers choose their recipes with more confidence — the recipe detail page is now more interactive and informative, featuring key ingredients and customer reviews.',
+                content: 'Iterations are ongoing. The latest ones focus on helping customers choose their recipes with more confidence, the recipe detail page is now more interactive and informative, featuring key ingredients and customer reviews.',
             },
             {
                 type: 'image',
@@ -519,7 +519,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         companyUrl: 'https://ilia.digital/en/',
         role: 'Product Designer',
         cover: '/movix-home.webp',
-        intro: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic — our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
+        intro: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic, our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
         introHtml: true,
         tags: ['Product Design', 'Mobile', 'UX Research', 'Prototyping'],
         sections: [
@@ -547,7 +547,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Financing a home through CAIXA meant dealing with dense paperwork, in-person appointments, and zero visibility into your application status. Most Brazilians had no way to understand how much they could borrow, what their monthly payments would look like, or where their process stood — unless they had a broker walking them through it in person.',
+                content: 'Financing a home through CAIXA meant dealing with dense paperwork, in-person appointments, and zero visibility into your application status. Most Brazilians had no way to understand how much they could borrow, what their monthly payments would look like, or where their process stood, unless they had a broker walking them through it in person.',
             },
             {
                 type: 'divider',
@@ -566,7 +566,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: 'User Testing at Scale',
-                        description: 'We tested the app with real users at a major home financing fair in Brasília — observing people aged 15 to 60 using it in a real-world context. These sessions shaped many of our final decisions.',
+                        description: 'We tested the app with real users at a major home financing fair in Brasília, observing people aged 15 to 60 using it in a real-world context. These sessions shaped many of our final decisions.',
                     },
                     {
                         title: 'Iteration & Launch',
@@ -586,17 +586,17 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'The first thing we focused on was translating CAIXA\'s paperwork questions into a digital format — a quiz.',
+                content: 'The first thing we focused on was translating CAIXA\'s paperwork questions into a digital format, a quiz.',
             },
             {
                 type: 'image',
                 src: '/movix-sprints.webp',
-                caption: 'A session dedicated to defining the main user flow — translating the traditional into the digital.',
+                caption: 'A session dedicated to defining the main user flow, translating the traditional into the digital.',
                 shrink: true,
             },
             {
                 type: 'text',
-                content: 'The target audience had little experience with financing. We designed a card-based home screen with three entry points — and because the simulation alone required dozens of questions, we added an animated avatar guide built with Lottie to keep people from dropping off.',
+                content: 'The target audience had little experience with financing. We designed a card-based home screen with three entry points, and because the simulation alone required dozens of questions, we added an animated avatar guide built with Lottie to keep people from dropping off.',
             },
             {
                 type: 'video',
@@ -616,7 +616,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Before Móvix, every simulation result had to be thrown away if not printed. We designed a saved simulations feature that let users store, compare, and share results — a small change that made the entire experience feel personal and trustworthy.',
+                content: 'Before Móvix, every simulation result had to be thrown away if not printed. We designed a saved simulations feature that let users store, compare, and share results, a small change that made the entire experience feel personal and trustworthy.',
             },
             {
                 type: 'image',
@@ -636,7 +636,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The financing flow let users start directly from a saved simulation, upload documentation via phone camera, and track their process alongside all participants — removing the need for in-person visits just to check a status.',
+                content: 'The financing flow let users start directly from a saved simulation, upload documentation via phone camera, and track their process alongside all participants, removing the need for in-person visits just to check a status.',
             },
             {
                 type: 'image',
@@ -646,7 +646,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'The whole process was put to the test at a home financing fair in Brasília — the capital of Brazil.',
+                content: 'The whole process was put to the test at a home financing fair in Brasília, the capital of Brazil.',
             },
             {
                 type: 'image',
@@ -660,7 +660,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Móvix was published on the App Store and Google Play after a 9-month project by AIS Digital. Watching people of every age — many of whom had never used a financial app — successfully navigate the simulation flow at the fair was the clearest signal that we had built the right thing in the right way.',
+                content: 'Móvix was published on the App Store and Google Play after a 9-month project by AIS Digital. Watching people of every age, many of whom had never used a financial app, successfully navigate the simulation flow at the fair was the clearest signal that we had built the right thing in the right way.',
             },
             {
                 type: 'callout',
@@ -681,12 +681,12 @@ export const richCaseStudies: RichCaseStudy[] = [
     {
         id: 'trexs',
         personal: true,
-        title: 'Trexs — A Device for Transmitting Experiences',
+        title: 'Trexs: A Device for Transmitting Experiences',
         year: '2016',
         company: 'Personal Project',
         role: 'Designer & Maker',
         cover: '/treks-header.mp4',
-        intro: 'Trexs is a speculative design project exploring a simple but radical question: what if you could transmit an experience from one person to another? Not a photograph, not a video — but the subjective feeling of being somewhere, seeing something, living a moment through someone else\'s eyes.',
+        intro: 'Trexs is a speculative design project exploring a simple but radical question: what if you could transmit an experience from one person to another? Not a photograph, not a video, but the subjective feeling of being somewhere, seeing something, living a moment through someone else\'s eyes.',
         tags: ['Speculative Design', 'Physical Prototype', 'Research'],
         sections: [
             {
@@ -699,7 +699,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Speculative design asks us to imagine the world differently — not to predict the future, but to question the present. Trexs started with a provocation: human experience is irreducibly personal. No matter how many photos you take or stories you tell, some things just can\'t be shared. What if that changed?',
+                content: 'Speculative design asks us to imagine the world differently, not to predict the future, but to question the present. Trexs started with a provocation: human experience is irreducibly personal. No matter how many photos you take or stories you tell, some things just can\'t be shared. What if that changed?',
             },
             {
                 type: 'divider',
@@ -708,7 +708,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'two-column',
                 image: '/trexs-research.webp',
-                content: 'The project began with an open mapping of the contexts where experience transmission would matter most — art, protest, work, government, society. Where does the gap between lived experience and communicated experience create misunderstanding, isolation, or missed connection?',
+                content: 'The project began with an open mapping of the contexts where experience transmission would matter most, art, protest, work, government, society. Where does the gap between lived experience and communicated experience create misunderstanding, isolation, or missed connection?',
                 imageLeft: true,
                 caption: 'Mapping the domains where experience transmission matters most',
             },
@@ -718,28 +718,28 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Trexs takes the form of a physical device — assembled from salvaged optics, electronics, and everyday objects. It\'s held up to the eye, creating an intimate, deliberate act of looking. The device is intentionally ambiguous: it references cameras, microscopes, and medical instruments, but belongs to none of those categories.',
+                content: 'Trexs takes the form of a physical device, assembled from salvaged optics, electronics, and everyday objects. It\'s held up to the eye, creating an intimate, deliberate act of looking. The device is intentionally ambiguous: it references cameras, microscopes, and medical instruments, but belongs to none of those categories.',
             },
             {
                 type: 'image',
                 src: '/trexs-device.webp',
-                caption: 'The Trexs device — assembled from salvaged optics and electronics',
+                caption: 'The Trexs device, assembled from salvaged optics and electronics',
             },
             {
                 type: 'callout',
-                content: 'The act of looking through the device is the experience. There\'s no screen, no output — only the suggestion that something is being captured.',
+                content: 'The act of looking through the device is the experience. There\'s no screen, no output, only the suggestion that something is being captured.',
             },
             {
                 type: 'two-column',
                 image: '/trexs-users.webp',
-                content: 'The most powerful moment in the project came when two people faced each other with the device between them — one transmitting, one receiving. The physical proximity required made the interaction feel vulnerable and intimate, which is exactly the point. Experience transmission, if it existed, wouldn\'t be casual.',
+                content: 'The most powerful moment in the project came when two people faced each other with the device between them, one transmitting, one receiving. The physical proximity required made the interaction feel vulnerable and intimate, which is exactly the point. Experience transmission, if it existed, wouldn\'t be casual.',
                 imageLeft: false,
                 caption: 'Two participants exploring the transmission interaction',
             },
             {
                 type: 'image',
                 src: '/treks.webp',
-                caption: 'Trexs in use — held up to the eye in the way a new kind of seeing might feel',
+                caption: 'Trexs in use, held up to the eye in the way a new kind of seeing might feel',
             },
             {
                 type: 'divider',
@@ -747,7 +747,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Trexs isn\'t a product. It\'s a question with a handle. Speculative design taught me that the most important design work isn\'t always about solving problems — sometimes it\'s about making the right problems visible. This project shaped how I think about every interface I\'ve designed since: who is the experience for, and what does it ask of the person receiving it?',
+                content: 'Trexs isn\'t a product. It\'s a question with a handle. Speculative design taught me that the most important design work isn\'t always about solving problems, sometimes it\'s about making the right problems visible. This project shaped how I think about every interface I\'ve designed since: who is the experience for, and what does it ask of the person receiving it?',
             },
         ],
         slides: [
@@ -775,7 +775,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'text',
                 title: 'Research & Mapping',
-                text: 'The project began with an open mapping of the contexts where experience transmission would matter most — art, protest, work, government, society. Where does the gap between lived experience and communicated experience create misunderstanding, isolation, or missed connection?',
+                text: 'The project began with an open mapping of the contexts where experience transmission would matter most, art, protest, work, government, society. Where does the gap between lived experience and communicated experience create misunderstanding, isolation, or missed connection?',
             },
             // 4 — Research image
             {
@@ -787,7 +787,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'text',
                 title: 'The Interaction',
-                text: 'The most powerful moment in the project came when two people faced each other with the device between them — one transmitting, one receiving. The physical proximity required made the interaction feel vulnerable and intimate.',
+                text: 'The most powerful moment in the project came when two people faced each other with the device between them, one transmitting, one receiving. The physical proximity required made the interaction feel vulnerable and intimate.',
             },
             // — The Interaction quote
             {
@@ -805,25 +805,25 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 image: '/treks.webp',
-                caption: 'Trexs in use — held up to the eye in the way a new kind of seeing might feel',
+                caption: 'Trexs in use, held up to the eye in the way a new kind of seeing might feel',
             },
             // 7 — Last
             {
                 type: 'text',
                 title: 'Speculative Design',
-                text: 'Speculative design asks us to imagine the world differently — not to predict the future, but to question the present. Trexs started with a provocation: human experience is irreducibly personal. No matter how many photos you take or stories you tell, some things just can\'t be shared. What if that changed?',
+                text: 'Speculative design asks us to imagine the world differently, not to predict the future, but to question the present. Trexs started with a provocation: human experience is irreducibly personal. No matter how many photos you take or stories you tell, some things just can\'t be shared. What if that changed?',
             },
         ],
     },
     {
         id: 'stella-timer',
         personal: true,
-        title: 'StellaTimer — A Meditation App That Gets Out of the Way',
+        title: 'StellaTimer: A Meditation App That Gets Out of the Way',
         year: '2026',
         company: 'Stellabs',
         role: 'Product Designer & Founder',
         cover: '/stella/screen-08-home-v2.webp',
-        intro: 'StellaTimer is a meditation timer I designed and am building from scratch — for people who actually meditate. Not for people browsing 100,000 guided tracks or collecting social streaks. Just a reliable timer, a daily affirmation, and silence.',
+        intro: 'StellaTimer is a meditation timer I designed and am building from scratch, for people who actually meditate. Not for people browsing 100,000 guided tracks or collecting social streaks. Just a reliable timer, a daily affirmation, and silence.',
         tags: ['iOS App', 'React Native', 'Design System', 'Product Design', 'OOUX'],
         sections: [
             {
@@ -836,7 +836,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'I started with a research phase: reading hundreds of real user reviews of Insight Timer, Headspace, and Calm on Reddit and the App Store. The pattern was impossible to ignore. Apps that started as simple timers had evolved into bloated social networks. The timer — the one thing users came for — was buried three taps deep behind discovery feeds, upsell prompts, and community features nobody asked for.',
+                content: 'I started with a research phase: reading hundreds of real user reviews of Insight Timer, Headspace, and Calm on Reddit and the App Store. The pattern was impossible to ignore. Apps that started as simple timers had evolved into bloated social networks. The timer, the one thing users came for, was buried three taps deep behind discovery feeds, upsell prompts, and community features nobody asked for.',
             },
             {
                 type: 'text',
@@ -848,12 +848,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'I codified the research into ten hard constraints — not aspirational goals but non-negotiable rules. No social features. No content library. No aggressive gamification. No paywall on the timer itself. No medical claims. No guided audio. The app would be offline-first, with a timer engine that uses timestamp deltas instead of setInterval, so it works reliably when backgrounded. Reliability is the product.',
+                content: 'I codified the research into ten hard constraints, not aspirational goals but non-negotiable rules. No social features. No content library. No aggressive gamification. No paywall on the timer itself. No medical claims. No guided audio. The app would be offline-first, with a timer engine that uses timestamp deltas instead of setInterval, so it works reliably when backgrounded. Reliability is the product.',
             },
             {
                 type: 'image',
                 src: '/stella/screen-01-home.webp',
-                caption: 'The home screen — an affirmation as the emotional anchor, one tap to begin',
+                caption: 'The home screen, an affirmation as the emotional anchor, one tap to begin',
             },
             {
                 type: 'divider',
@@ -861,7 +861,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Before touching any screen design, I mapped the entire product using OOUX — Object-Oriented UX. I identified the core objects: Affirmation, MeditationConfig, Session, DayLog, and Stats. I defined their attributes, their relationships, and the boundaries of responsibility between them. This gave me a system I could reason about, not just a set of screens. The Affirmation, for example, has no knowledge of Sessions. The Session has no knowledge of the Calendar. Clean separations that made every design decision easier.',
+                content: 'Before touching any screen design, I mapped the entire product using OOUX, Object-Oriented UX. I identified the core objects: Affirmation, MeditationConfig, Session, DayLog, and Stats. I defined their attributes, their relationships, and the boundaries of responsibility between them. This gave me a system I could reason about, not just a set of screens. The Affirmation, for example, has no knowledge of Sessions. The Session has no knowledge of the Calendar. Clean separations that made every design decision easier.',
             },
             {
                 type: 'divider',
@@ -869,12 +869,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'I built a full token architecture from scratch: Global tokens → Brand tokens → Alias tokens (day/night) → Component tokens. The app has two complete themes — day and night — with semantic aliases that let components reference "surface-primary" instead of a hardcoded color. I built a live React storybook for design review, with all components rendered against both themes. Every component was specced before a single line of React Native was written.',
+                content: 'I built a full token architecture from scratch: Global tokens → Brand tokens → Alias tokens (day/night) → Component tokens. The app has two complete themes, day and night, with semantic aliases that let components reference "surface-primary" instead of a hardcoded color. I built a live React storybook for design review, with all components rendered against both themes. Every component was specced before a single line of React Native was written.',
             },
             {
                 type: 'image',
                 src: '/stella/screen-02-meditate-list.webp',
-                caption: 'The meditation list — 8 curated presets, filterable by type, with a custom timer builder',
+                caption: 'The meditation list, 8 curated presets, filterable by type, with a custom timer builder',
             },
             {
                 type: 'divider',
@@ -882,22 +882,22 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The app has five tabs: Home, Meditate, Sound, Calendar, and Settings. Home shows a daily affirmation — a first-person "I" statement, rotating through 200 originals across 7 languages — plus favorited presets. The Meditate tab lists 8 curated presets and lets users create their own configurations: duration, warm-up time, interval bells, meditation type. The Calendar shows a private, non-competitive journey view with streak, weekly time, and monthly time.',
+                content: 'The app has five tabs: Home, Meditate, Sound, Calendar, and Settings. Home shows a daily affirmation, a first-person "I" statement, rotating through 200 originals across 7 languages, plus favorited presets. The Meditate tab lists 8 curated presets and lets users create their own configurations: duration, warm-up time, interval bells, meditation type. The Calendar shows a private, non-competitive journey view with streak, weekly time, and monthly time.',
             },
             {
                 type: 'image',
                 src: '/stella/screen-03-config-builder.webp',
-                caption: 'The custom timer builder — users set duration, warm-up, interval bells, and meditation type',
+                caption: 'The custom timer builder, users set duration, warm-up, interval bells, and meditation type',
             },
             {
                 type: 'image',
                 src: '/stella/screen-04-stats-calendar.webp',
-                caption: '"Your Journey" — a private, warm calendar for reflection, not comparison',
+                caption: '"Your Journey", a private, warm calendar for reflection, not comparison',
             },
             {
                 type: 'image',
                 src: '/stella/screen-07-active-timer-warmup.webp',
-                caption: 'The active timer during warm-up — minimal, dark, distraction-free',
+                caption: 'The active timer during warm-up, minimal, dark, distraction-free',
             },
             {
                 type: 'divider',
@@ -905,7 +905,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The backend is production-ready: Supabase auth, session storage, profile management, trial tracking, and bell overrides are all complete. The React Native build is next. I\'m building this one screen at a time, starting with the timer itself — because if the timer isn\'t perfect, nothing else matters.',
+                content: 'The backend is production-ready: Supabase auth, session storage, profile management, trial tracking, and bell overrides are all complete. The React Native build is next. I\'m building this one screen at a time, starting with the timer itself, because if the timer isn\'t perfect, nothing else matters.',
             },
         ],
     },
@@ -916,14 +916,14 @@ export const richCaseStudies: RichCaseStudy[] = [
         company: 'MVP Factory',
         role: 'UX Researcher',
         cover: '/wf-hair-score.webp',
-        intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app — before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
+        intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app, before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
         tags: ['UX Research', 'User Interviews', 'Concept Testing', 'Dovetail'],
         sections: [
             {
                 type: 'impact',
                 items: [
                     { value: '10', label: 'Women interviewed', description: 'Moderated sessions with women across Germany, conducted alongside another German UX Researcher.' },
-                    { value: 'Full', label: 'Research ownership', description: 'I owned the entire research process — from screening criteria and script to synthesis and final report.' },
+                    { value: 'Full', label: 'Research ownership', description: 'I owned the entire research process, from screening criteria and script to synthesis and final report.' },
                     { value: 'Synthesis', label: 'Clustered in Dovetail', description: 'All sessions were tagged, clustered, and synthesised in Dovetail to surface themes and patterns across participants.' },
                     { value: 'Report', label: 'Go / No-go to Henkel', description: 'The deliverable was a research report helping Schwarzkopf decide whether to fully invest in the concept.' },
                 ],
@@ -934,7 +934,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'MVP Factory was partnering with Schwarzkopf — part of Henkel — to validate an early-stage AI hair analysis concept. Before committing to development, they needed a clear answer: would real users trust an app to analyse their hair and recommend the right products? My role was to find out — recruiting and interviewing 10 women across Germany, then delivering a research report with a clear recommendation.',
+                content: 'MVP Factory was partnering with Schwarzkopf, part of Henkel, to validate an early-stage AI hair analysis concept. Before committing to development, they needed a clear answer: would real users trust an app to analyse their hair and recommend the right products? My role was to find out, recruiting and interviewing 10 women across Germany, then delivering a research report with a clear recommendation.',
             },
             {
                 type: 'image',
@@ -947,7 +947,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The flow had three stages. First, a short quiz to capture hair context — whether the user bleaches, the curl pattern, hair goals. Then a camera step: the app asked users to take photos of their hair so the AI could analyse its condition.',
+                content: 'The flow had three stages. First, a short quiz to capture hair context, whether the user bleaches, the curl pattern, hair goals. Then a camera step: the app asked users to take photos of their hair so the AI could analyse its condition.',
             },
             {
                 type: 'image',
@@ -957,11 +957,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'badge',
                 icon: '🔒',
-                content: 'Shown as lo-fi — tested on a full high-fidelity prototype under NDA.',
+                content: 'Shown as lo-fi, tested on a full high-fidelity prototype under NDA.',
             },
             {
                 type: 'callout',
-                content: 'I was handed a ready Figma prototype — my job was to put it in front of ten women in Germany to understand the pitfalls of the project and deliver a validation research report.',
+                content: 'I was handed a ready Figma prototype, my job was to put it in front of ten women in Germany to understand the pitfalls of the project and deliver a validation research report.',
             },
             {
                 type: 'text',
@@ -975,7 +975,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'badge',
                 icon: '🔒',
-                content: 'Shown as lo-fi — tested on a full high-fidelity prototype under NDA.',
+                content: 'Shown as lo-fi, tested on a full high-fidelity prototype under NDA.',
             },
             {
                 type: 'divider',
@@ -986,7 +986,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                 steps: [
                     {
                         title: 'Screening Criteria',
-                        description: 'I defined the participant profile to reflect the real target audience — women in Germany with varying hair types, treatments, and product habits. The screening ensured diversity in hair condition and familiarity with beauty apps, while filtering out anyone too close to the industry.',
+                        description: 'I defined the participant profile to reflect the real target audience, women in Germany with varying hair types, treatments, and product habits. The screening ensured diversity in hair condition and familiarity with beauty apps, while filtering out anyone too close to the industry.',
                     },
                     {
                         title: 'Research Script',
@@ -994,7 +994,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: 'Moderated Sessions with German Interviewer',
-                        description: 'Ten one-on-one sessions conducted remotely. A native German interviewer led each session while participants walked through the prototype narrating their thoughts — I was present as a note-taker and stepped in with additional questions on trust, privacy, and whether the output felt credible, not just whether the UI was clear.',
+                        description: 'Ten one-on-one sessions conducted remotely. A native German interviewer led each session while participants walked through the prototype narrating their thoughts. I was present as a note-taker and stepped in with additional questions on trust, privacy, and whether the output felt credible, not just whether the UI was clear.',
                     },
                     {
                         title: 'Synthesis in Dovetail',
@@ -1002,7 +1002,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                     },
                     {
                         title: 'Final Report',
-                        description: 'I wrote and delivered a full research report to Schwarzkopf and Henkel — structured around the key research questions, the evidence, and a clear recommendation on whether the concept was ready to develop.',
+                        description: 'I wrote and delivered a full research report to Schwarzkopf and Henkel, structured around the key research questions, the evidence, and a clear recommendation on whether the concept was ready to develop.',
                     },
                 ],
             },
@@ -1035,7 +1035,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             '/c/header/5.webp',
             '/c/header/6.webp',
         ],
-        intro: 'C. is a bilingual object book about the Brazilian military dictatorship — in Portuguese and German. This was my Bachelor\'s conclusion work at the University of Brasília. It is an attempt to give life back to the historic memory of the Brazilian military dictatorship that occurred between 1964 and 1985.',
+        intro: 'C. is a bilingual object book about the Brazilian military dictatorship, in Portuguese and German. This was my Bachelor\'s conclusion work at the University of Brasília. It is an attempt to give life back to the historic memory of the Brazilian military dictatorship that occurred between 1964 and 1985.',
         tags: ['Object Book', 'Graphic Design', 'Typography', 'Bilingual', 'UnB'],
         sections: [
             {
@@ -1049,7 +1049,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/c/a1c4c132230975.567c3fbc020af.webp',
-                caption: 'Table of contents — stories listed in German and Portuguese',
+                caption: 'Table of contents, stories listed in German and Portuguese',
             },
             {
                 type: 'text',
@@ -1058,7 +1058,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/c/111cd332230975.5674becc48c4d.webp',
-                caption: 'The book — hand-bound with hand-stitched binding',
+                caption: 'The book, hand-bound with hand-stitched binding',
             },
             {
                 type: 'divider',
@@ -1066,38 +1066,38 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The book is hidden inside a box — under a fake bottom, which was sprayed in black and magenta. The spray ink gave the box the roughness of a dictatorship.',
+                content: 'The book is hidden inside a box, under a fake bottom, which was sprayed in black and magenta. The spray ink gave the box the roughness of a dictatorship.',
             },
             {
                 type: 'image',
                 src: '/c/e694ab32230975.567c3ba2677c0.webp',
-                caption: 'The box — containing the book, the posters, and the CD',
+                caption: 'The box, containing the book, the posters, and the CD',
             },
             {
                 type: 'callout',
-                content: 'The tower — to protect us — is on the lid of the box.',
+                content: 'The tower, to protect us, is on the lid of the box.',
             },
             {
                 type: 'image',
                 src: '/c/tower.webp',
-                caption: 'The tower — magenta stencil on the lid of the black box',
+                caption: 'The tower, magenta stencil on the lid of the black box',
             },
             {
                 type: 'text',
-                content: 'The tower and the snake come from a myth told in the city of Cascavel, which means Rattlesnake. It is said that there\'s a big snake that lives underground in the city. That\'s why they built a tower with the image of Our Lady — to protect their citizens and remind them the snake is still there and may reappear.',
+                content: 'The tower and the snake come from a myth told in the city of Cascavel, which means Rattlesnake. It is said that there\'s a big snake that lives underground in the city. That\'s why they built a tower with the image of Our Lady, to protect their citizens and remind them the snake is still there and may reappear.',
             },
             {
                 type: 'callout',
-                content: 'In my work, the Rattlesnake is the dictatorship — which Brazilians tend to hide and pretend never happened. The tower is the objects we must create to face our country\'s memory, in order to prevent the snake from coming to the surface.',
+                content: 'In my work, the Rattlesnake is the dictatorship, which Brazilians tend to hide and pretend never happened. The tower is the objects we must create to face our country\'s memory, in order to prevent the snake from coming to the surface.',
             },
             {
                 type: 'callout',
-                content: 'The snake — the dictatorship — is inside the box after the fake bottom, under the book itself. The fake bottom has the intention to make the reader discover the historical memory by themselves.',
+                content: 'The snake, the dictatorship, is inside the box after the fake bottom, under the book itself. The fake bottom has the intention to make the reader discover the historical memory by themselves.',
             },
             {
                 type: 'image',
                 src: '/c/snake.webp',
-                caption: 'The snake — spray-painted in magenta on the fake bottom of the box',
+                caption: 'The snake, spray-painted in magenta on the fake bottom of the box',
             },
             {
                 type: 'divider',
@@ -1105,12 +1105,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'The book was printed on tracing and pólen paper so that both texts — German and Portuguese — could be simultaneously read.',
+                content: 'The book was printed on tracing and pólen paper so that both texts, German and Portuguese, could be simultaneously read.',
             },
             {
                 type: 'image',
                 src: '/c/35e81632230975.5674becc47af6.webp',
-                caption: 'Tracing paper over pólen — German and Portuguese layered into one reading',
+                caption: 'Tracing paper over pólen, German and Portuguese layered into one reading',
             },
             {
                 type: 'text',
@@ -1119,16 +1119,16 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/c/rockwell-r.webp',
-                caption: 'Rockwell — slab serifs create clear horizontal blocks between languages',
+                caption: 'Rockwell, slab serifs create clear horizontal blocks between languages',
             },
             {
                 type: 'text',
-                content: 'Rockwell\'s slab serifs and tracing paper helped create a new way of interacting with the bilingual texts. The Portuguese text is printed in black — the original. The German translation is printed in magenta — the personal layer of translation and perspective.',
+                content: 'Rockwell\'s slab serifs and tracing paper helped create a new way of interacting with the bilingual texts. The Portuguese text is printed in black, the original. The German translation is printed in magenta, the personal layer of translation and perspective.',
             },
             {
                 type: 'image',
                 src: '/c/rockwell-bilingual2.webp',
-                caption: 'Portuguese and German interleaved — two languages, one reading',
+                caption: 'Portuguese and German interleaved, two languages, one reading',
             },
             {
                 type: 'image',
@@ -1146,7 +1146,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/c/8d01a332230975.567c3fbc00e4b.webp',
-                caption: 'Intervention drawings — dragonflies over soldiers with bayonets',
+                caption: 'Intervention drawings, dragonflies over soldiers with bayonets',
             },
             {
                 type: 'image',
@@ -1174,26 +1174,26 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'Inside the box there are two posters containing the names of some of the people who disappeared or were murdered during the dictatorship — according to the National Commission of Truth. The stars on the posters show if the person was killed (filled star) or disappeared (star outline). They are based on data visualization graphics.',
+                content: 'Inside the box there are two posters containing the names of some of the people who disappeared or were murdered during the dictatorship, according to the National Commission of Truth. The stars on the posters show if the person was killed (filled star) or disappeared (star outline). They are based on data visualization graphics.',
             },
             {
                 type: 'image',
                 src: '/c/0ea03632230975.5674c05283f05.webp',
-                caption: 'The posters — data visualization of names from the National Commission of Truth',
+                caption: 'The posters, data visualization of names from the National Commission of Truth',
             },
             {
                 type: 'image',
                 src: '/c/5a5eb232230975.567c3fbbf3f4c.webp',
-                caption: 'The full set — box, book, posters',
+                caption: 'The full set, box, book, posters',
             },
             {
                 type: 'text',
-                content: 'A CD was also recorded. It contains the short stories read in German — by me — and in Portuguese — by my friend Beatriz Chaves.',
+                content: 'A CD was also recorded. It contains the short stories read in German, by me, and in Portuguese, by my friend Beatriz Chaves.',
             },
             {
                 type: 'image',
                 src: '/c/ad9d7332230975.567c43de5d7fa-2.webp',
-                caption: 'The CD — short stories in German and Portuguese',
+                caption: 'The CD, short stories in German and Portuguese',
             },
             {
                 type: 'divider',
@@ -1206,11 +1206,11 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/c/magenta.webp',
-                caption: 'Magenta — the color of confrontation',
+                caption: 'Magenta, the color of confrontation',
             },
             {
                 type: 'callout',
-                content: '"Four years ago a sad looking man searched after C. — a photo restorer. He wanted the restorer to relive his mother back in his memory. She had died years ago, and he had only one photo of her — dead in a coffin. That man wanted a photo in which his mother appeared full of life. I asked him to describe her hair, her lips and her eyes. From the description, I took his mother off the coffin. I drew on her a beautiful dress. I opened her eyes. Fifteen days later the man came back and when he saw the picture he cried." — From the exposition Cicatriz (Scar) by Rosângela Rennó',
+                content: '"Four years ago a sad looking man searched after C., a photo restorer. He wanted the restorer to relive his mother back in his memory. She had died years ago, and he had only one photo of her, dead in a coffin. That man wanted a photo in which his mother appeared full of life. I asked him to describe her hair, her lips and her eyes. From the description, I took his mother off the coffin. I drew on her a beautiful dress. I opened her eyes. Fifteen days later the man came back and when he saw the picture he cried." — From the exposition Cicatriz (Scar) by Rosângela Rennó',
             },
             {
                 type: 'divider',
@@ -1218,7 +1218,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'die Erinnerungskultur — the culture of memory',
+                content: 'die Erinnerungskultur, the culture of memory',
             },
             {
                 type: 'text',
@@ -1231,12 +1231,12 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/c/WP_20151115_16_15_53_Pro---copia.webp',
-                caption: 'Working on the box — spray paint and stencils',
+                caption: 'Working on the box, spray paint and stencils',
             },
             {
                 type: 'image',
                 src: '/c/c4d9b532230975.567c4bbd7bad7.webp',
-                caption: 'Materials — ink, spray, and paper',
+                caption: 'Materials, ink, spray, and paper',
             },
             {
                 type: 'image',
@@ -1251,7 +1251,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             {
                 type: 'image',
                 src: '/c/947e4632230975.567c44868d249.webp',
-                caption: 'Aerial view — reference for the data visualization posters',
+                caption: 'Aerial view, reference for the data visualization posters',
             },
             {
                 type: 'divider',
@@ -1290,9 +1290,9 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 2
             {
                 type: 'image',
-                text: 'An object book breaks the ordinary linearity of reading — demanding perception and inviting interactivity.',
+                text: 'An object book breaks the ordinary linearity of reading, demanding perception and inviting interactivity.',
                 image: '/c/tower.webp',
-                caption: 'The book is inside a memory box. The tower — to protect us — is on the lid of the box.',
+                caption: 'The book is inside a memory box. The tower, to protect us, is on the lid of the box.',
             },
             // 3
             {
@@ -1337,7 +1337,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 7
             {
                 type: 'image',
-                text: 'Rockwell\'s slab serifs make text lines read as solid blocks — allowing German and Portuguese sentences to stack and be read simultaneously, while remaining comfortable to look at.',
+                text: 'Rockwell\'s slab serifs make text lines read as solid blocks, allowing German and Portuguese sentences to stack and be read simultaneously, while remaining comfortable to look at.',
                 image: '/c/rockwell-r.webp',
             },
             // 8
@@ -1373,7 +1373,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             // 11
             {
                 type: 'image',
-                text: 'The two posters inside the box contain the names of some of the people who disappeared or were murdered during the dictatorship — according to the National Commission of Truth.',
+                text: 'The two posters inside the box contain the names of some of the people who disappeared or were murdered during the dictatorship, according to the National Commission of Truth.',
                 image: '/c/559fde32230975.567c3fbbf011a.webp',
                 caption: 'I tried to replicate the Brazilian flag.',
             },
@@ -1388,14 +1388,14 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 layout: 'split',
                 title: 'Why magenta?',
-                text: 'Some memories are too dark to look at — maybe that\'s why Brazilians tend to forget their past. What if an extremely contrasting color made people stop and look?',
+                text: 'Some memories are too dark to look at, maybe that\'s why Brazilians tend to forget their past. What if an extremely contrasting color made people stop and look?',
                 image: '/c/magenta.webp',
             },
             // 14
             {
                 type: 'quote',
                 title: 'This work is fundamentally inspired by the German word:',
-                quote: 'die Erinnerungskultur — the culture of memory',
+                quote: 'die Erinnerungskultur, the culture of memory',
                 large: true,
             },
             // 15
