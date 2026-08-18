@@ -16,10 +16,10 @@ FONTS = os.path.expanduser("~/Library/Fonts")
 semi = ImageFont.truetype(f"{FONTS}/InstrumentSans-SemiBold.ttf", 26)
 reg = ImageFont.truetype(f"{FONTS}/InstrumentSans-Regular.ttf", 27)
 
-HEADLINE = ["Rebuilding how design", "gets done."]
+HEADLINE = ["Rebuilding how", "design gets done."]
 
 
-def fit_headline(lines, max_width, start=92, floor=44):
+def fit_headline(lines, max_width, start=108, floor=44):
     """Largest bold size at which every line clears the content width."""
     for size in range(start, floor - 1, -2):
         font = ImageFont.truetype(f"{FONTS}/InstrumentSans-Bold.ttf", size)

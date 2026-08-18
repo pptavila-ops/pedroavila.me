@@ -279,7 +279,7 @@ function App() {
                         <RainbowText>
                             <p className="text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight text-pretty">
                                 <span className="lg:hidden">Rebuilding how design gets done.</span>
-                                <span className="hidden lg:inline">Rebuilding how design<br />gets done.</span>
+                                <span className="hidden lg:inline">Rebuilding how<br />design gets done.</span>
                             </p>
                         </RainbowText>
                         <p className="text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
