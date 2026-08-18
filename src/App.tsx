@@ -61,6 +61,24 @@ function App() {
         return () => window.removeEventListener('popstate', handlePopState);
     }, []);
 
+    // Keep the tab, history entry and bookmark title in sync with the
+    // client-side route — the static <title> only describes the homepage.
+    useEffect(() => {
+        const home = 'Pedro Ávila — Senior Product Designer';
+        let title = home;
+
+        if (activePlayground) {
+            title = 'Playground — Pedro Ávila';
+        } else if (activeStudy) {
+            const current =
+                caseStudies.find((cs) => cs.id === activeStudy) ??
+                richCaseStudies.find((cs) => cs.id === activeStudy);
+            if (current) title = `${current.title} — Pedro Ávila`;
+        }
+
+        document.title = title;
+    }, [activeStudy, activePlayground]);
+
     const handleCopyEmail = () => {
         navigator.clipboard.writeText('pptavila@gmail.com');
         setCopied(true);

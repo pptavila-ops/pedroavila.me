@@ -92,10 +92,21 @@ function Card({ item, onOpenStudy, onOpenPlayground }: { item: CaseStudyImageCar
         );
     }
 
+    // A real link, so the card can be opened in a new tab or copied. A plain
+    // left click still stays on the SPA route.
+    const isPlayground = item.kind === 'playground';
     return (
-        <button onClick={() => item.kind === 'playground' ? onOpenPlayground?.() : onOpenStudy?.(item.id)} className={sharedClass}>
+        <a
+            href={isPlayground ? '/playground' : `/work/${item.id}`}
+            onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault();
+                isPlayground ? onOpenPlayground?.() : onOpenStudy?.(item.id);
+            }}
+            className={sharedClass}
+        >
             {inner}
-        </button>
+        </a>
     );
 }
 

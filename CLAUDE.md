@@ -14,6 +14,7 @@ Para logos/imagens com transparência e poucas cores (flat design), use lossless
 ```bash
 cwebp -lossless -z 9 input.png -o output.webp
 ```
+**Exceção:** `public/og-image.jpg` (o card de preview social) tem que continuar JPEG/PNG — vários scrapers (LinkedIn, Slack, WhatsApp) não renderizam WebP. Não converta. Pra regerar, rode `python3 scripts/make_og.py`: ele reproduz o efeito do [RainbowText.tsx](src/components/RainbowText.tsx) em PIL, em 1200x630.
 
 **GIFs animados → converter para MP4, não para WebP animado** (webp animado geralmente não comprime bem screen recordings; MP4 costuma ficar 80–95% menor):
 ```bash

@@ -1,3 +1,5 @@
+import type { MouseEvent } from 'react';
+
 interface CaseStudy {
     id: string;
     title: string;
@@ -10,6 +12,26 @@ interface Props {
     caseStudies: CaseStudy[];
     openStudy: (id: string) => void;
     layout: 'grid' | 'list';
+}
+
+// The intro carries inline markup — CaseStudyPage renders it with
+// dangerouslySetInnerHTML. Card previews are plain text inside a link, so strip
+// the tags instead of printing them.
+function stripHtml(html: string) {
+    return html.replace(/<[^>]+>/g, '');
+}
+
+// Cards are real links, so they can be opened in a new tab or copied. A plain
+// left click still stays on the SPA route.
+function studyLinkProps(id: string, openStudy: (id: string) => void) {
+    return {
+        href: `/work/${id}`,
+        onClick: (e: MouseEvent<HTMLAnchorElement>) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+            e.preventDefault();
+            openStudy(id);
+        },
+    };
 }
 
 export function CardGrid({ caseStudies, openStudy, layout }: Props) {
@@ -34,14 +56,14 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
     return (
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {caseStudies.map((cs) => (
-                <button
+                <a
                     key={cs.id}
-                    onClick={() => openStudy(cs.id)}
-                    className="group cursor-pointer text-left"
+                    {...studyLinkProps(cs.id, openStudy)}
+                    className="group cursor-pointer text-left block"
                 >
                     <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors overflow-hidden p-5 flex flex-col h-[300px] bg-black">
                         <div className="flex-1 overflow-hidden" style={{ maskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)' }}>
-                            <p className="text-[15px] font-normal leading-relaxed text-white/60">{cs.intro}</p>
+                            <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(cs.intro)}</p>
                         </div>
                         <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
                             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><ArrowIcon /></div>
@@ -52,7 +74,7 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
                             <p className="text-sm text-white/50 mt-1">@{cs.company}</p>
                         </div>
                     </div>
-                </button>
+                </a>
             ))}
         </div>
     );
@@ -65,9 +87,9 @@ interface CardProps {
 
 function ListCard({ cs, openStudy }: CardProps) {
     return (
-        <button
-            onClick={() => openStudy(cs.id)}
-            className="group cursor-pointer text-left w-full"
+        <a
+            {...studyLinkProps(cs.id, openStudy)}
+            className="group cursor-pointer text-left block w-full"
         >
             <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors px-6 pt-5 pb-5 flex flex-col bg-black z-10 h-[225px]">
                 <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
@@ -76,22 +98,22 @@ function ListCard({ cs, openStudy }: CardProps) {
                 </div>
                 <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{cs.title}</p>
                 <div className="min-w-0 overflow-hidden mt-1 h-[110px]" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
-                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{cs.intro}</p>
+                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(cs.intro)}</p>
                 </div>
                 <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>
                 <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
                     <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><ArrowIcon /></div>
                 </div>
             </div>
-        </button>
+        </a>
     );
 }
 
 export function SmallCard({ cs, openStudy }: CardProps) {
     return (
-        <button
-            onClick={() => openStudy(cs.id)}
-            className="group cursor-pointer text-left w-full"
+        <a
+            {...studyLinkProps(cs.id, openStudy)}
+            className="group cursor-pointer text-left block w-full"
         >
             <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors p-5 flex flex-col bg-black z-10 h-[240px]">
                 <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
@@ -100,14 +122,14 @@ export function SmallCard({ cs, openStudy }: CardProps) {
                 </div>
                 <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{cs.title}</p>
                 <div className="min-w-0 overflow-hidden mt-1 flex-1" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
-                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{cs.intro}</p>
+                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(cs.intro)}</p>
                 </div>
                 <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>
                 <div className="absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
                     <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center"><ArrowIcon /></div>
                 </div>
             </div>
-        </button>
+        </a>
     );
 }
 
