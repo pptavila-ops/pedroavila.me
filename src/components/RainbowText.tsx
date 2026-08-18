@@ -48,7 +48,21 @@ const RainbowText: React.FC<RainbowTextProps> = ({ children }) => {
     }, []);
 
     return (
-        <div className="relative inline-block w-full overflow-hidden" style={{ isolation: 'isolate', background: 'black', margin: '-20px -20px 0 -20px', padding: '20px 20px 0 20px' }}>
+        <div
+            className="relative inline-block overflow-hidden"
+            style={{
+                isolation: 'isolate',
+                background: 'black',
+                // The side padding gives the blurred canvas room to bleed past
+                // the text before overflow-hidden clips it. The +40px keeps that
+                // padding from eating into the content box under border-box
+                // sizing — without it the headline gets a 40px narrower measure
+                // than the rest of the column and wraps early.
+                width: 'calc(100% + 40px)',
+                margin: '-20px -20px 0 -20px',
+                padding: '20px 20px 0 20px',
+            }}
+        >
             {/* White text */}
             <div className="relative text-white">{children}</div>
 
