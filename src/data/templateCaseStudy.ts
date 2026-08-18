@@ -74,7 +74,7 @@ export const templateCaseStudy: RichCaseStudy = {
     company: 'Company Name',
     role: 'Senior Product Designer',
     cover: '/card-hover.webp', // Replace with actual cover image
-    intro: 'This is the opening paragraph — a concise summary of the project. It should set context: what the problem was, who it affected, and what you did. Keep it to 2–3 sentences that make someone want to read further.',
+    intro: 'This is the opening paragraph, a concise summary of the project. It should set context: what the problem was, who it affected, and what you did. Keep it to 2–3 sentences that make someone want to read further.',
     tags: ['Product Design', 'Design Systems', 'UX Research'],
     sections: [
         {
@@ -92,11 +92,11 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'text',
-            content: 'This section describes the problem space. What was broken, inefficient, or missing? Who was affected and how? Give enough context that someone unfamiliar with the domain can follow along. Be specific — avoid vague statements like "the experience was poor."',
+            content: 'This section describes the problem space. What was broken, inefficient, or missing? Who was affected and how? Give enough context that someone unfamiliar with the domain can follow along. Be specific, avoid vague statements like "the experience was poor."',
         },
         {
             type: 'callout',
-            content: 'This is a callout — use it for a key insight, a turning point in the project, or a statement that captures the core tension you were designing around.',
+            content: 'This is a callout, use it for a key insight, a turning point in the project, or a statement that captures the core tension you were designing around.',
         },
         {
             type: 'divider',
@@ -107,7 +107,7 @@ export const templateCaseStudy: RichCaseStudy = {
             steps: [
                 {
                     title: 'Discovery & Research',
-                    description: 'Describe how you started. What did you need to understand before designing anything? Interviews, audits, competitive analysis, stakeholder mapping — what did you do and what did you learn?',
+                    description: 'Describe how you started. What did you need to understand before designing anything? Interviews, audits, competitive analysis, stakeholder mapping, what did you do and what did you learn?',
                 },
                 {
                     title: 'Define & Frame',
@@ -115,7 +115,7 @@ export const templateCaseStudy: RichCaseStudy = {
                 },
                 {
                     title: 'Ideation & Exploration',
-                    description: 'How did you explore solutions? Sketches, workshops, rapid prototypes — what was the range of ideas you considered and how did you narrow them down?',
+                    description: 'How did you explore solutions? Sketches, workshops, rapid prototypes, what was the range of ideas you considered and how did you narrow them down?',
                 },
                 {
                     title: 'Design & Iteration',
@@ -133,7 +133,7 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'text',
-            content: 'Introduce what you\'re about to show. This paragraph sets up the visual section below — what the user is looking at and why it matters.',
+            content: 'Introduce what you\'re about to show. This paragraph sets up the visual section below, what the user is looking at and why it matters.',
         },
         {
             type: 'image',
@@ -149,7 +149,7 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'callout',
-            content: 'Another callout — use sparingly. Each one should feel meaningful, not decorative. The best callouts are things you\'d want to quote from the project.',
+            content: 'Another callout, use sparingly. Each one should feel meaningful, not decorative. The best callouts are things you\'d want to quote from the project.',
         },
         {
             type: 'image',
@@ -162,7 +162,7 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'text',
-            content: 'Close the case study by reflecting on what shipped, what you learned, and what you\'d do differently. Be honest — showing self-awareness and a growth mindset is more compelling than a perfect success story.',
+            content: 'Close the case study by reflecting on what shipped, what you learned, and what you\'d do differently. Be honest, showing self-awareness and a growth mindset is more compelling than a perfect success story.',
         },
     ],
 };

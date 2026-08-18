@@ -16,13 +16,13 @@ export function DoubleDiamondDiagram() {
             title: 'Prototype',
             color: '#ffe3a8',
             dot: '#caa84a',
-            desc: 'Agents generate prototypes and test them against synthetic personas — /create-prototype, /test-prototype.',
+            desc: 'Agents generate prototypes and test them against synthetic personas: /create-prototype, /test-prototype.',
         },
         {
             title: 'Deliver',
             color: '#e3d3ef',
             dot: '#9a6cb4',
-            desc: 'Agents implement designs directly in production code and prep pull requests for review — /design-change-web.',
+            desc: 'Agents implement designs directly in production code and prep pull requests for review: /design-change-web.',
         },
     ];
 
@@ -78,7 +78,7 @@ export function DoubleDiamondDiagram() {
 
             <div className="mt-6 pt-5 border-t border-white/10">
                 <p className="text-[17px] md:text-[18px] text-white/55 leading-relaxed">
-                    AI shows up at every phase, not just at code time — agents and skills sit inside each diamond, keeping the process divergent where it needs to explore and convergent where it needs to decide.
+                    AI shows up at every phase, not just at code time. Agents and skills sit inside each diamond, keeping the process divergent where it needs to explore and convergent where it needs to decide.
                 </p>
             </div>
         </div>

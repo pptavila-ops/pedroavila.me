@@ -3,14 +3,14 @@ export function CurrentDesignProcessDiagram() {
         {
             title: 'Designs + Implements',
             role: 'Designer',
-            note: 'The designer owns the full implementation — designing and shipping directly in the codebase. Designers can prioritize and iterate without waiting on a handoff.',
+            note: 'The designer owns the full implementation, designing and shipping directly in the codebase. Designers can prioritize and iterate without waiting on a handoff.',
             selfLoop: true,
             loopAfter: false,
         },
         {
             title: 'Code Review',
             role: 'Developer',
-            note: 'A developer reviews the code quality. No design review needed — the designer already owns the intent and the output.',
+            note: 'A developer reviews the code quality. No design review needed. The designer already owns the intent and the output.',
             loopAfter: false,
         },
         {
@@ -79,7 +79,7 @@ export function CurrentDesignProcessDiagram() {
 
             <div className="mt-6 pt-5 border-t border-white/10">
                 <p className="text-[17px] md:text-[18px] text-white/55 leading-relaxed">
-                    No typical design review needed. The designer owns the intent and the output — developers only review the code.
+                    No typical design review needed. The designer owns the intent and the output. Developers only review the code.
                 </p>
             </div>
         </div>

@@ -108,7 +108,7 @@ export function SpecMachineDiagram() {
             </svg>
 
             <p className="mt-6 text-[15px] text-white/55 text-center max-w-[420px] leading-relaxed">
-                Spec-Machine is the shared brain — the repository where every discipline contributes commands, skills, and context for AI to use across the company.
+                Spec-Machine is the shared brain, the repository where every discipline contributes commands, skills, and context for AI to use across the company.
             </p>
         </div>
     );
