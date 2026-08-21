@@ -97,7 +97,7 @@ function ListCard({ cs, openStudy }: CardProps) {
                     {cs.id === 'design-transformation' && <CurrentRoleTag />}
                 </div>
                 <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{cs.title}</p>
-                <div className="min-w-0 overflow-hidden mt-1 h-[110px]" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
+                <div className="min-w-0 overflow-hidden mt-1 flex-1 min-h-0" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
                     <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(cs.intro)}</p>
                 </div>
                 <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>

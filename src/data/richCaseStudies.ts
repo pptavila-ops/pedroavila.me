@@ -3,7 +3,7 @@ import type { RichCaseStudy } from './templateCaseStudy';
 export const richCaseStudies: RichCaseStudy[] = [
     {
         id: 'design-transformation',
-        title: 'Leading Design Workflow Transformation With the Help of AI',
+        title: 'Enabling designers to research, prototype, and ship with AI.',
         year: 'Jan 2026 – Now',
         company: 'HelloFresh',
         role: 'Consumer Acceleration',
