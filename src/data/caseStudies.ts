@@ -15,7 +15,7 @@ interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
     {
         id: 'design-transformation',
-        title: 'Enabling designers to research, prototype, and ship with AI.',
+        title: 'Enabling designers to research, prototype, and ship with AI',
         year: '2026 – Now',
         company: 'HelloFresh',
         image: '/card-hover.webp',

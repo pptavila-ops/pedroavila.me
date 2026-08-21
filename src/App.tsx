@@ -274,12 +274,12 @@ function App() {
                     <div>
                         <RainbowText>
                             <p className="text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight text-pretty">
-                                <span className="lg:hidden">Leading design workflow transformation with AI.</span>
-                                <span className="hidden lg:inline">Leading design workflow<br />transformation with AI.</span>
+                                <span className="lg:hidden">Leading design workflow transformation with AI</span>
+                                <span className="hidden lg:inline">Leading design workflow<br />transformation with AI</span>
                             </p>
                         </RainbowText>
                         <p className="text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
-                            Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>.
+                            Currently @<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>
                         </p>
 
                         <CardGrid

@@ -16,7 +16,7 @@ FONTS = os.path.expanduser("~/Library/Fonts")
 semi = ImageFont.truetype(f"{FONTS}/InstrumentSans-SemiBold.ttf", 26)
 reg = ImageFont.truetype(f"{FONTS}/InstrumentSans-Regular.ttf", 27)
 
-HEADLINE = ["Leading design workflow", "transformation with AI."]
+HEADLINE = ["Leading design workflow", "transformation with AI"]
 
 
 def fit_headline(lines, max_width, start=108, floor=44):
