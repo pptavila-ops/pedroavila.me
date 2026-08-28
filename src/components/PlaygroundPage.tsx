@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { StickyHeader } from './StickyHeader';
 import { FadeImage } from './FadeImage';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
+import { useT } from '../i18n/useLanguage';
 
 interface Props {
     onBack: () => void;
@@ -9,10 +10,12 @@ interface Props {
 }
 
 function SoundToggle({ muted, onToggle }: { muted: boolean; onToggle: () => void }) {
+    const t = useT();
+
     return (
         <button
             onClick={onToggle}
-            aria-label={muted ? 'Unmute video' : 'Mute video'}
+            aria-label={muted ? t('Unmute video') : t('Mute video')}
             className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/90 border border-white flex items-center justify-center text-black shadow-lg shadow-black/40 hover:bg-white transition-colors backdrop-blur-sm cursor-pointer"
         >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -66,6 +69,7 @@ function VideoTile({ src, caption, hasSound = true }: { src: string; caption: Re
 }
 
 function HackathonTile() {
+    const t = useT();
     const videoRef = useRef<HTMLVideoElement>(null);
     const [started, setStarted] = useState(false);
 
@@ -93,7 +97,7 @@ function HackathonTile() {
                 {!started && (
                     <button
                         onClick={start}
-                        aria-label="Play video"
+                        aria-label={t('Play video')}
                         className="absolute inset-0 flex items-center justify-center bg-black/25 hover:bg-black/40 transition-colors cursor-pointer group"
                     >
                         <span className="w-16 h-16 rounded-full bg-black/60 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:bg-black/80 transition-colors">
@@ -105,49 +109,54 @@ function HackathonTile() {
                 )}
             </div>
             <div className="px-4 py-3 border-t border-white/10">
-                <p className="text-[14px] text-white/60">Hackathon 2024: Quizless Funnel, a team concept that replaces the onboarding quiz with a conversation.</p>
+                <p className="text-[14px] text-white/60">{t('Hackathon 2024: Quizless Funnel, a team concept that replaces the onboarding quiz with a conversation.')}</p>
             </div>
         </div>
     );
 }
 
 function KwidTile() {
+    const t = useT();
+
     return (
         <div className="rounded-xl overflow-hidden border border-white/15 bg-black flex flex-col h-full">
             <div className="flex-1 flex flex-col justify-center py-6 px-4 gap-6">
                 <div className="flex justify-center">
-                    <FadeImage src="/playground-kwid.mp4" alt="Meu KWID app — Histórias screen" className="w-full max-w-[220px] h-auto block rounded-lg" />
+                    <FadeImage src="/playground-kwid.mp4" alt={t('Meu KWID app — Histórias screen')} className="w-full max-w-[220px] h-auto block rounded-lg" />
                 </div>
                 <div className="flex justify-center">
-                    <FadeImage src="/playground-kwid-screens.webp" alt="Meu KWID app — configurator and checkout flow" className="w-full max-w-[420px] h-auto block rounded-lg" loading="lazy" />
+                    <FadeImage src="/playground-kwid-screens.webp" alt={t('Meu KWID app — configurator and checkout flow')} className="w-full max-w-[420px] h-auto block rounded-lg" loading="lazy" />
                 </div>
             </div>
             <div className="px-4 py-3 border-t border-white/10">
-                <p className="text-[14px] text-white/60">An online purchasing app for Renault's Kwid release in Brazil.</p>
+                <p className="text-[14px] text-white/60">{t('An online purchasing app for Renault\'s Kwid release in Brazil.')}</p>
             </div>
         </div>
     );
 }
 
 function InframericaTile() {
+    const t = useT();
+
     return (
         <div className="rounded-xl overflow-hidden border border-white/15 bg-black flex flex-col h-full">
             <div className="flex-1 flex items-center justify-center">
                 <FadeImage
                     src="/playground-inframerica.webp"
-                    alt="Inframerica app — QR code scan and parking payment screens"
+                    alt={t('Inframerica app — QR code scan and parking payment screens')}
                     className="w-full h-auto block"
                     loading="lazy"
                 />
             </div>
             <div className="px-4 py-3 border-t border-white/10">
-                <p className="text-[14px] text-white/60">A parking payment flow for Brasília's international airport, built for the Inframerica app.</p>
+                <p className="text-[14px] text-white/60">{t('A parking payment flow for Brasília\'s international airport, built for the Inframerica app.')}</p>
             </div>
         </div>
     );
 }
 
 export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
+    const t = useT();
     const [scrolled, setScrolled] = useState(false);
     const backButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -176,7 +185,7 @@ export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor"/>
                 </svg>
-                Back
+                {t('Back')}
             </button>
 
             {/* Header */}
@@ -185,7 +194,7 @@ export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
                     Playground
                 </h1>
                 <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70">
-                    Free explorations and personal interests. No strict brief, no stakeholders, just a mosaic of whatever I was curious about.
+                    {t('Free explorations and personal interests. No strict brief, no stakeholders, just a mosaic of whatever I was curious about.')}
                 </p>
             </div>
 
@@ -193,7 +202,7 @@ export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
                 <VideoTile
                     src="/playground-stella-timer.mp4"
-                    caption="Stella Timer, a no-frills meditation app created in React Native."
+                    caption={t('Stella Timer, a no-frills meditation app created in React Native.')}
                 />
                 <KwidTile />
                 <HackathonTile />
@@ -210,7 +219,7 @@ export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
                             >
                                 Yawara
                             </a>
-                            {', '}a platform for Latin American events in Europe.
+                            {', '}{t('a platform for Latin American events in Europe.')}
                         </>
                     }
                 />
@@ -222,10 +231,10 @@ export function PlaygroundPage({ onBack, onOpenStudy }: Props) {
             {/* Poem — last */}
             <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
                 <p className="text-[15px] text-white/60 leading-relaxed">
-                    Is this a poem, or a portfolio?<br />
-                    A mix of form, something not to hide<br />
-                    Is it both? A collection of my work<br />
-                    And a snapshot of my mind
+                    {t('Is this a poem, or a portfolio?')}<br />
+                    {t('A mix of form, something not to hide')}<br />
+                    {t('Is it both? A collection of my work')}<br />
+                    {t('And a snapshot of my mind')}
                 </p>
                 <p className="text-[15px] text-white/60 flex-shrink-0">© Pedro Ávila 2026</p>
             </div>

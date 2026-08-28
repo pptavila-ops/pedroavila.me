@@ -1,4 +1,8 @@
+import { useT } from '../i18n/useLanguage';
+
 export function CurrentDesignProcessDiagram() {
+    const t = useT();
+
     const steps = [
         {
             title: 'Designs + Implements',
@@ -24,7 +28,7 @@ export function CurrentDesignProcessDiagram() {
     return (
         <div className="mt-8 rounded-2xl border border-white/10 p-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-8">
-                Current design/development process with AI
+                {t('Current design/development process with AI')}
             </p>
 
             <div className="flex flex-col">
@@ -54,22 +58,22 @@ export function CurrentDesignProcessDiagram() {
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <path d="M18 21C18 17.6863 15.3137 15 12 15C8.68629 15 6 17.6863 6 21C6 21.5523 5.55228 22 5 22C4.44772 22 4 21.5523 4 21C4 16.5817 7.58172 13 12 13C16.4183 13 20 16.5817 20 21C20 21.5523 19.5523 22 19 22C18.4477 22 18 21.5523 18 21ZM15 7C15 5.34315 13.6569 4 12 4C10.3431 4 9 5.34315 9 7C9 8.65685 10.3431 10 12 10C13.6569 10 15 8.65685 15 7ZM17 7C17 9.76142 14.7614 12 12 12C9.23858 12 7 9.76142 7 7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7Z" fill="currentColor"/>
                                     </svg>
-                                    {step.role}
+                                    {t(step.role)}
                                 </span>
                             )}
                             <p className={`text-[18px] md:text-[19px] font-semibold leading-none ${
                                 step.check ? 'text-white' : 'text-white/90'
                             }`}>
-                                {step.title}
+                                {t(step.title)}
                             </p>
                             {step.note && (
                                 <p className="text-[17px] md:text-[18px] text-white/55 mt-3 leading-relaxed">
-                                    {step.note}
+                                    {t(step.note)}
                                 </p>
                             )}
                             {step.selfLoop && (
                                 <div className="mt-4 w-fit text-[15px] text-blue-300/80 bg-blue-500/10 border border-blue-400/20 px-3 py-1.5 rounded-lg">
-                                    <span className="text-[18px] mr-2">☻</span>Designers can iterate freely before code review.
+                                    <span className="text-[18px] mr-2">☻</span>{t('Designers can iterate freely before code review.')}
                                 </div>
                             )}
                         </div>
@@ -79,7 +83,7 @@ export function CurrentDesignProcessDiagram() {
 
             <div className="mt-6 pt-5 border-t border-white/10">
                 <p className="text-[17px] md:text-[18px] text-white/55 leading-relaxed">
-                    No typical design review needed. The designer owns the intent and the output. Developers only review the code.
+                    {t('No typical design review needed. The designer owns the intent and the output. Developers only review the code.')}
                 </p>
             </div>
         </div>

@@ -1,4 +1,8 @@
+import { useT } from '../i18n/useLanguage';
+
 export function SpecMachineDiagram() {
+    const t = useT();
+
     const nodes = [
         { label: 'UX', angle: -90, stroke: '#4a90c4', text: '#bfe0ff' },
         { label: 'Web', angle: 0, stroke: '#3fa37a', text: '#bff0d8' },
@@ -15,14 +19,14 @@ export function SpecMachineDiagram() {
     return (
         <div className="mt-8 rounded-2xl border border-white/10 p-8 flex flex-col items-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-6 self-start">
-                Spec-Machine · the repository at the center
+                {t('Spec-Machine · the repository at the center')}
             </p>
 
             <svg
                 viewBox="0 0 400 400"
                 className="w-full max-w-[420px] h-auto"
                 xmlns="http://www.w3.org/2000/svg"
-                aria-label="Spec-Machine as the central repository, connected to UX, Web, Data, and Mobile"
+                aria-label={t('Spec-Machine as the central repository, connected to UX, Web, Data, and Mobile')}
             >
                 {nodes.map((node) => {
                     const rad = (node.angle * Math.PI) / 180;
@@ -100,7 +104,7 @@ export function SpecMachineDiagram() {
                                 fontWeight="600"
                                 fill={node.text}
                             >
-                                {node.label}
+                                {t(node.label)}
                             </text>
                         </g>
                     );
@@ -108,7 +112,7 @@ export function SpecMachineDiagram() {
             </svg>
 
             <p className="mt-6 text-[15px] text-white/55 text-center max-w-[420px] leading-relaxed">
-                Spec-Machine is the shared brain, the repository where every discipline contributes commands, skills, and context for AI to use across the company.
+                {t('Spec-Machine is the shared brain, the repository where every discipline contributes commands, skills, and context for AI to use across the company.')}
             </p>
         </div>
     );

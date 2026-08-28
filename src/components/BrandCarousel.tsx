@@ -1,3 +1,5 @@
+import { useT } from '../i18n/useLanguage';
+
 const logos = [
     { src: '/brands/hellofresh.webp', alt: 'HelloFresh', height: 28 },
     { src: '/brands/henkel.webp', alt: 'Henkel', height: 44 },
@@ -14,10 +16,12 @@ const logos = [
 ];
 
 export function BrandCarousel() {
+    const t = useT();
+
     return (
         <div className="border-t border-white/10 mt-16 pt-10">
             <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-8">
-                Some companies I've already worked for
+                {t('Some companies I\'ve already worked for')}
             </p>
 
             <style>{`

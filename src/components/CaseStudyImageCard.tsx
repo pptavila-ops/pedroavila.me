@@ -44,8 +44,11 @@ interface Props {
 }
 
 import { FadeImage } from './FadeImage';
+import { useT } from '../i18n/useLanguage';
 
 function Card({ item, onOpenStudy, onOpenPlayground }: { item: CaseStudyImageCardItem; onOpenStudy?: (id: string) => void; onOpenPlayground?: () => void }) {
+    const t = useT();
+
     const inner = (
         <>
             <div className="h-[200px] overflow-hidden">
@@ -65,11 +68,11 @@ function Card({ item, onOpenStudy, onOpenPlayground }: { item: CaseStudyImageCar
                 )}
             </div>
             <div className="px-5 py-5 flex flex-col flex-1">
-                <p className="text-sm text-white/50">{item.year}</p>
+                <p className="text-sm text-white/50">{t(item.year)}</p>
                 <p className="text-[17px] font-bold text-white/90 mt-1.5">{item.title}</p>
-                <p className="text-[15px] text-white/60 mt-1 leading-relaxed">{item.description}</p>
+                <p className="text-[15px] text-white/60 mt-1 leading-relaxed">{t(item.description)}</p>
                 <div className="flex flex-wrap gap-2 mt-auto pt-3">
-                    <span className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">{item.category}</span>
+                    <span className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">{t(item.category)}</span>
                 </div>
             </div>
             <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
@@ -111,8 +114,9 @@ function Card({ item, onOpenStudy, onOpenPlayground }: { item: CaseStudyImageCar
 }
 
 export function CaseStudyImageCard({ onOpenStudy, onOpenPlayground, excludeId }: Props) {
+    const t = useT();
     const visibleItems = excludeId ? items.filter((item) => item.id !== excludeId) : items;
-    const title = excludeId ? 'Explore other personal projects.' : 'This is where I keep some personal projects.';
+    const title = excludeId ? t('Explore other personal projects.') : t('This is where I keep some personal projects.');
 
     return (
         <div className="border-t border-white/10 mt-16 pt-14">

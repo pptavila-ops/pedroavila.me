@@ -1,4 +1,5 @@
 import type { MouseEvent } from 'react';
+import { useT } from '../i18n/useLanguage';
 
 interface CaseStudy {
     id: string;
@@ -35,6 +36,7 @@ function studyLinkProps(id: string, openStudy: (id: string) => void) {
 }
 
 export function CardGrid({ caseStudies, openStudy, layout }: Props) {
+    const t = useT();
     const isGrid = layout === 'grid';
 
     if (!isGrid) {
@@ -63,14 +65,14 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
                 >
                     <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors overflow-hidden p-5 flex flex-col h-[300px] bg-black">
                         <div className="flex-1 overflow-hidden" style={{ maskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, white 60%, transparent 100%)' }}>
-                            <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(cs.intro)}</p>
+                            <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(t(cs.intro))}</p>
                         </div>
                         <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
                             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><ArrowIcon /></div>
                         </div>
                         <div className="relative -mt-1">
-                            <div className="flex items-center gap-2 text-base text-white/50">{cs.year}{cs.id === 'design-transformation' && <CurrentRoleTag />}</div>
-                            <p className="text-base font-bold text-white/80 mt-1">{cs.title}</p>
+                            <div className="flex items-center gap-2 text-base text-white/50">{t(cs.year)}{cs.id === 'design-transformation' && <CurrentRoleTag />}</div>
+                            <p className="text-base font-bold text-white/80 mt-1">{t(cs.title)}</p>
                             <p className="text-sm text-white/50 mt-1">@{cs.company}</p>
                         </div>
                     </div>
@@ -86,6 +88,8 @@ interface CardProps {
 }
 
 function ListCard({ cs, openStudy }: CardProps) {
+    const t = useT();
+
     return (
         <a
             {...studyLinkProps(cs.id, openStudy)}
@@ -93,12 +97,12 @@ function ListCard({ cs, openStudy }: CardProps) {
         >
             <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors px-6 pt-5 pb-5 flex flex-col bg-black z-10 h-[225px]">
                 <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
-                    {cs.year}
+                    {t(cs.year)}
                     {cs.id === 'design-transformation' && <CurrentRoleTag />}
                 </div>
-                <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{cs.title}</p>
+                <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{t(cs.title)}</p>
                 <div className="min-w-0 overflow-hidden mt-1 flex-1 min-h-0" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
-                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(cs.intro)}</p>
+                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(t(cs.intro))}</p>
                 </div>
                 <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>
                 <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
@@ -110,6 +114,8 @@ function ListCard({ cs, openStudy }: CardProps) {
 }
 
 export function SmallCard({ cs, openStudy }: CardProps) {
+    const t = useT();
+
     return (
         <a
             {...studyLinkProps(cs.id, openStudy)}
@@ -117,12 +123,12 @@ export function SmallCard({ cs, openStudy }: CardProps) {
         >
             <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors p-5 flex flex-col bg-black z-10 h-[240px]">
                 <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
-                    {cs.year}
+                    {t(cs.year)}
                     {cs.id === 'design-transformation' && <CurrentRoleTag />}
                 </div>
-                <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{cs.title}</p>
+                <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{t(cs.title)}</p>
                 <div className="min-w-0 overflow-hidden mt-1 flex-1" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
-                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(cs.intro)}</p>
+                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(t(cs.intro))}</p>
                 </div>
                 <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>
                 <div className="absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
@@ -134,9 +140,11 @@ export function SmallCard({ cs, openStudy }: CardProps) {
 }
 
 function CurrentRoleTag() {
+    const t = useT();
+
     return (
         <span className="text-[9px] font-semibold uppercase tracking-widest text-white/70 border border-white/30 rounded-full px-2 py-0.5">
-            Current Role
+            {t('Current Role')}
         </span>
     );
 }

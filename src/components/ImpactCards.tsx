@@ -1,3 +1,5 @@
+import { useT } from '../i18n/useLanguage';
+
 interface ImpactItem {
     value: string;
     label: string;
@@ -11,11 +13,13 @@ interface ImpactCardsProps {
 }
 
 export function ImpactCards({ items, title }: ImpactCardsProps) {
+    const t = useT();
+
     return (
         <div className="mt-16">
             {title && (
                 <div className="mb-6">
-                    <p className="text-sm font-semibold uppercase tracking-widest text-white/70 mb-4">{title}</p>
+                    <p className="text-sm font-semibold uppercase tracking-widest text-white/70 mb-4">{t(title)}</p>
                     <div className="border-b border-white/15" />
                 </div>
             )}
@@ -25,7 +29,7 @@ export function ImpactCards({ items, title }: ImpactCardsProps) {
                         {item.logos ? (
                             <div className="flex items-center gap-4">
                                 <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal flex-shrink-0">
-                                    {item.value}
+                                    {t(item.value)}
                                 </p>
                                 <div className="flex-1 overflow-hidden relative h-[72px] md:h-[88px]">
                                     <div
@@ -48,12 +52,12 @@ export function ImpactCards({ items, title }: ImpactCardsProps) {
                             </div>
                         ) : (
                             <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal">
-                                {item.value}
+                                {t(item.value)}
                             </p>
                         )}
                         <div className="mt-8">
-                            <p className="text-[17px] md:text-[19px] font-bold text-white leading-snug">{item.label}</p>
-                            <p className="text-[17px] md:text-[18px] text-white/55 mt-2 leading-relaxed">{item.description}</p>
+                            <p className="text-[17px] md:text-[19px] font-bold text-white leading-snug">{t(item.label)}</p>
+                            <p className="text-[17px] md:text-[18px] text-white/55 mt-2 leading-relaxed">{t(item.description)}</p>
                         </div>
                     </div>
                 ))}

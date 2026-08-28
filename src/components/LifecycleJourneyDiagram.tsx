@@ -1,6 +1,9 @@
 import { Fragment } from 'react';
+import { useT } from '../i18n/useLanguage';
 
 export function LifecycleJourneyDiagram() {
+    const t = useT();
+
     const stages = [
         {
             title: 'Growth',
@@ -37,7 +40,7 @@ export function LifecycleJourneyDiagram() {
     return (
         <div className="mt-8 rounded-2xl border border-white/10 p-6 md:p-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-8">
-                Where I worked across the pet parent lifecycle
+                {t('Where I worked across the pet parent lifecycle')}
             </p>
 
             {/* Journey strip — titles only */}
@@ -70,7 +73,7 @@ export function LifecycleJourneyDiagram() {
                                 className="text-[14px] font-semibold whitespace-nowrap"
                                 style={{ color: stage.color }}
                             >
-                                {stage.title}
+                                {t(stage.title)}
                             </span>
                         </div>
                     </Fragment>
@@ -89,9 +92,9 @@ export function LifecycleJourneyDiagram() {
                                 className="w-2 h-2 rounded-full flex-shrink-0"
                                 style={{ background: stage.dot }}
                             />
-                            {stage.title}
+                            {t(stage.title)}
                         </p>
-                        <p className="text-[15px] text-white/55 mt-2 leading-relaxed">{stage.desc}</p>
+                        <p className="text-[15px] text-white/55 mt-2 leading-relaxed">{t(stage.desc)}</p>
                     </div>
                 ))}
             </div>

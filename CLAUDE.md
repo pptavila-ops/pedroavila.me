@@ -39,3 +39,26 @@ Referência real: `playground-stella-timer.mov` era 43 MB (886×1920 @ 60fps) ex
 1. Apague o arquivo original (png/jpg/gif/mov) — não deixe os dois versionados.
 2. Atualize as referências no código (`src/data/*.ts`, componentes) pra apontar pro novo arquivo/extensão.
 3. Rode `npm run build` pra garantir que nenhuma referência ficou quebrada.
+
+## Adicionando ou mudando texto visível (i18n)
+
+O site é escrito em inglês. O português é uma camada de lookup por cima: todo texto que aparece na tela passa por `t()` (de [useLanguage.ts](src/i18n/useLanguage.ts)), que troca a string inglesa pela entrada correspondente em [src/i18n/](src/i18n/). O que não estiver no dicionário cai de volta pro inglês, então uma string esquecida vira uma frase em inglês no meio da página, não um erro visível.
+
+Ao adicionar ou editar copy:
+
+1. Escreva o texto em inglês normalmente, em `src/data/*.ts` ou no componente.
+2. No componente, envolva com `t(...)` — `{t(section.content)}`, `alt={t(item.title)}`.
+3. Adicione a tradução no arquivo certo, usando **a string inglesa exata como chave**:
+   - [pt.ui.ts](src/i18n/pt.ui.ts) — chrome, navegação, playground, diagramas
+   - [pt.work.ts](src/i18n/pt.work.ts) — cases de cliente (HelloFresh, TPT, Móvix, MVP Factory)
+   - [pt.personal.ts](src/i18n/pt.personal.ts) — Trexs, StellaTimer, C.
+   - [pt.keep.ts](src/i18n/pt.keep.ts) — nomes próprios e termos que ficam em inglês de propósito (mapeados pra si mesmos)
+4. Se editar uma string inglesa já traduzida, **atualize a chave também** — a antiga vira órfã e o texto volta pro inglês.
+
+```bash
+npm run check:i18n
+```
+
+Esse script falha se houver chave duplicada entre os arquivos, string em `src/data` sem tradução, ou `t('...')` num componente sem entrada no dicionário. Rode junto com `npm run build` antes de commitar copy nova.
+
+O inglês é o padrão e o `<html lang>` do [index.html](index.html) continua `en` — as meta tags de Open Graph são estáticas e servem os scrapers, então não devem ser traduzidas. O `LanguageProvider` ajusta `document.documentElement.lang` em runtime.

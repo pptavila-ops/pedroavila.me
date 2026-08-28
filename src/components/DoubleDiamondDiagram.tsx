@@ -1,4 +1,8 @@
+import { useT } from '../i18n/useLanguage';
+
 export function DoubleDiamondDiagram() {
+    const t = useT();
+
     const phases = [
         {
             title: 'Discover',
@@ -29,14 +33,14 @@ export function DoubleDiamondDiagram() {
     return (
         <div className="mt-8 rounded-2xl border border-white/10 p-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-8">
-                Where AI enters the design process
+                {t('Where AI enters the design process')}
             </p>
 
             <svg
                 viewBox="0 0 900 195"
                 className="w-full h-auto"
                 xmlns="http://www.w3.org/2000/svg"
-                aria-label="Double diamond diagram showing the Discover, Define, Prototype, and Deliver phases"
+                aria-label={t('Double diamond diagram showing the Discover, Define, Prototype, and Deliver phases')}
             >
                 <defs>
                     <linearGradient id="ddGradProblem" x1="0" x2="1">
@@ -55,13 +59,13 @@ export function DoubleDiamondDiagram() {
                 <polygon points="460,90 670,15 880,90 670,165" fill="url(#ddGradSolution)" fillOpacity="0.4" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
                 <line x1="670" y1="15" x2="670" y2="165" stroke="rgba(255,255,255,0.15)" strokeDasharray="3 4" />
 
-                <text x="125" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[0].color}>Discover</text>
-                <text x="335" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[1].color}>Define</text>
-                <text x="565" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[2].color}>Prototype</text>
-                <text x="775" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[3].color}>Deliver</text>
+                <text x="125" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[0].color}>{t(phases[0].title)}</text>
+                <text x="335" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[1].color}>{t(phases[1].title)}</text>
+                <text x="565" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[2].color}>{t(phases[2].title)}</text>
+                <text x="775" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill={phases[3].color}>{t(phases[3].title)}</text>
 
-                <text x="230" y="188" textAnchor="middle" fontSize="11" fill="rgba(255,255,255,0.4)" letterSpacing="1">THE RIGHT THING</text>
-                <text x="670" y="188" textAnchor="middle" fontSize="11" fill="rgba(255,255,255,0.4)" letterSpacing="1">THE RIGHT WAY</text>
+                <text x="230" y="188" textAnchor="middle" fontSize="11" fill="rgba(255,255,255,0.4)" letterSpacing="1">{t('THE RIGHT THING')}</text>
+                <text x="670" y="188" textAnchor="middle" fontSize="11" fill="rgba(255,255,255,0.4)" letterSpacing="1">{t('THE RIGHT WAY')}</text>
             </svg>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
@@ -69,16 +73,16 @@ export function DoubleDiamondDiagram() {
                     <div key={phase.title}>
                         <p className="text-[15px] font-semibold leading-none flex items-center gap-2" style={{ color: phase.color }}>
                             <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: phase.dot }} />
-                            {phase.title}
+                            {t(phase.title)}
                         </p>
-                        <p className="text-[15px] text-white/55 mt-2 leading-relaxed">{phase.desc}</p>
+                        <p className="text-[15px] text-white/55 mt-2 leading-relaxed">{t(phase.desc)}</p>
                     </div>
                 ))}
             </div>
 
             <div className="mt-6 pt-5 border-t border-white/10">
                 <p className="text-[17px] md:text-[18px] text-white/55 leading-relaxed">
-                    AI shows up at every phase, not just at code time. Agents and skills sit inside each diamond, keeping the process divergent where it needs to explore and convergent where it needs to decide.
+                    {t('AI shows up at every phase, not just at code time. Agents and skills sit inside each diamond, keeping the process divergent where it needs to explore and convergent where it needs to decide.')}
                 </p>
             </div>
         </div>

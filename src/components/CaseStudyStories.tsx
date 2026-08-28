@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import type { RichCaseStudy, StoriesSlide } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { FadeImage } from './FadeImage';
+import { useT } from '../i18n/useLanguage';
 
 const SLIDE_DURATION = 11000;
 const COVER_DURATION = 16000;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground }: Props) {
+    const t = useT();
     const slides = study.slides!;
     const [current, setCurrent] = useState(0);
     const [progress, setProgress] = useState(0);
@@ -108,10 +110,10 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor" />
                     </svg>
-                    Back
+                    {t('Back')}
                 </button>
                 <span className="text-sm text-white/30">·</span>
-                <span className="text-sm text-white/50 truncate flex-1">{study.title}</span>
+                <span className="text-sm text-white/50 truncate flex-1">{t(study.title)}</span>
                 <button
                     onClick={() => {
                         if (paused) {
@@ -122,7 +124,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
                             setPaused(true);
                         }
                     }}
-                    aria-label={paused ? 'Play' : 'Pause'}
+                    aria-label={paused ? t('Play') : t('Pause')}
                     className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-white/20 text-white/50 hover:text-white hover:border-white/40 hover:bg-white/10 transition-colors cursor-pointer flex-shrink-0"
                 >
                     {paused ? (
@@ -171,7 +173,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
                     onMouseEnter={() => setHoveredZone('left')}
                     onMouseLeave={() => setHoveredZone(null)}
                     role="button"
-                    aria-label="Previous slide"
+                    aria-label={t('Previous slide')}
                     tabIndex={-1}
                 />
                 {/* Right tap zone — next */}
@@ -182,7 +184,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
                     onMouseEnter={() => { if (current < slides.length - 1) setHoveredZone('right'); }}
                     onMouseLeave={() => setHoveredZone(null)}
                     role="button"
-                    aria-label="Next slide"
+                    aria-label={t('Next slide')}
                     tabIndex={-1}
                 />
             </div>
@@ -197,7 +199,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.293 5.29295C10.6835 4.90243 11.3165 4.90243 11.707 5.29295C12.0976 5.68348 12.0976 6.31649 11.707 6.70702L7.41406 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H7.41406L11.707 17.293C12.0976 17.6835 12.0976 18.3165 11.707 18.707C11.3165 19.0975 10.6835 19.0975 10.293 18.707L4.29297 12.707C3.90245 12.3165 3.90245 11.6835 4.29297 11.293L10.293 5.29295Z" fill="currentColor" />
                         </svg>
-                        Previous
+                        {t('Previous')}
                     </button>
                 )}
                 <span className="text-xs text-white/60">
@@ -208,7 +210,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
                         onClick={() => goTo(current + 1)}
                         className={`absolute right-0 inline-flex items-center gap-1.5 text-sm rounded-md px-2 py-1 -mr-2 transition-colors cursor-pointer ${hoveredZone === 'right' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white hover:bg-white/10'}`}
                     >
-                        Next
+                        {t('Next')}
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M13.707 5.29295C13.3165 4.90243 12.6835 4.90243 12.293 5.29295C11.9024 5.68348 11.9024 6.31649 12.293 6.70702L16.5859 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H16.5859L12.293 17.293C11.9024 17.6835 11.9024 18.3165 12.293 18.707C12.6835 19.0975 13.3165 19.0975 13.707 18.707L19.707 12.707C20.0975 12.3165 20.0975 11.6835 19.707 11.293L13.707 5.29295Z" fill="currentColor" />
                         </svg>
@@ -221,7 +223,7 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M20 14C20 11.7909 18.2092 10 16 10H5.41411L7.70708 12.293C8.0976 12.6835 8.0976 13.3166 7.70708 13.7071C7.31655 14.0976 6.68354 14.0976 6.29302 13.7071L2.29302 9.70708C1.90249 9.31655 1.90249 8.68354 2.29302 8.29302L6.29302 4.29302C6.68354 3.90249 7.31655 3.90249 7.70708 4.29302C8.0976 4.68354 8.0976 5.31655 7.70708 5.70708L5.41411 8.00005H16C19.3138 8.00005 22 10.6863 22 14C22 17.3138 19.3138 20 16 20H11C10.4478 20 10 19.5523 10 19C10 18.4478 10.4478 18 11 18H16C18.2092 18 20 16.2092 20 14Z" fill="currentColor"/>
                         </svg>
-                        Restart
+                        {t('Restart')}
                     </button>
                 )}
             </div>
@@ -232,10 +234,10 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
         {/* Poem — last */}
         <div className="border-t border-white/10 mt-16 pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8">
             <p className="text-[15px] text-white/60 leading-relaxed">
-                Is this a poem, or a portfolio?<br />
-                A mix of form, something not to hide<br />
-                Is it both? A collection of my work<br />
-                And a snapshot of my mind
+                {t('Is this a poem, or a portfolio?')}<br />
+                {t('A mix of form, something not to hide')}<br />
+                {t('Is it both? A collection of my work')}<br />
+                {t('And a snapshot of my mind')}
             </p>
             <p className="text-[15px] text-white/60 flex-shrink-0">© Pedro Ávila 2026</p>
         </div>
@@ -246,16 +248,23 @@ export function CaseStudyStories({ study, onBack, onOpenStudy, onOpenPlayground 
 }
 
 function StatCard({ value, label, description }: { value: string; label: string; description: string }) {
+    const t = useT();
+
     return (
         <div className="rounded-xl border border-white/10 p-3 md:p-5 flex flex-col gap-1.5">
-            <p className="text-[28px] md:text-[40px] font-bold leading-none text-white tracking-tight">{value}</p>
-            <p className="text-[13px] md:text-[14px] font-semibold text-white/70">{label}</p>
-            <p className="text-[15px] text-white/50 leading-relaxed hidden md:block">{description}</p>
+            <p className="text-[28px] md:text-[40px] font-bold leading-none text-white tracking-tight">{t(value)}</p>
+            <p className="text-[13px] md:text-[14px] font-semibold text-white/70">{t(label)}</p>
+            <p className="text-[15px] text-white/50 leading-relaxed hidden md:block">{t(description)}</p>
         </div>
     );
 }
 
 function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: number; total: number }) {
+    const t = useT();
+    const slideLabel = t('Slide {current} of {total}')
+        .replace('{current}', String(index + 1))
+        .replace('{total}', String(total));
+
     switch (slide.type) {
         case 'cover':
             return <CoverSlide slide={slide} />;
@@ -263,24 +272,24 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
         case 'image':
             if (slide.layout === 'split') {
                 return (
-                    <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl overflow-hidden flex flex-col md:flex-row">
+                    <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl overflow-hidden flex flex-col md:flex-row">
                         {/* Text column */}
                         <div className="flex flex-col justify-center px-5 pt-5 pb-3 md:px-7 md:py-8 md:w-1/2 md:flex-shrink-0 space-y-3 md:space-y-4">
                             {slide.title && (
-                                <h2 className="text-[22px] md:text-[26px] font-bold text-white leading-[1.2]">{slide.title}</h2>
+                                <h2 className="text-[22px] md:text-[26px] font-bold text-white leading-[1.2]">{t(slide.title)}</h2>
                             )}
                             {slide.text && (
-                                <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{slide.text}</p>
+                                <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{t(slide.text)}</p>
                             )}
                             {slide.quote && (
-                                <p className="text-[18px] md:text-[20px] font-semibold text-white/90 leading-[1.4]">{slide.quote}</p>
+                                <p className="text-[18px] md:text-[20px] font-semibold text-white/90 leading-[1.4]">{t(slide.quote)}</p>
                             )}
                         </div>
                         {/* Image column */}
                         <figure className="flex-1 min-h-0 flex flex-col items-center justify-center px-5 pb-5 md:px-7 md:py-7">
                             <FadeImage
                                 src={slide.image!}
-                                alt={slide.caption || ''}
+                                alt={t(slide.caption) || ''}
                                 className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
                                 style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
@@ -288,7 +297,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                             />
                             {slide.caption && (
                                 <figcaption className="pt-3 text-[14px] text-white/70 text-center flex-shrink-0 w-full">
-                                    {slide.caption}
+                                    {t(slide.caption)}
                                 </figcaption>
                             )}
                         </figure>
@@ -296,18 +305,18 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                 );
             }
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl overflow-hidden flex flex-col">
+                <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl overflow-hidden flex flex-col">
                     {(slide.title || slide.text || slide.quote) && (
                         <div className="px-5 pt-5 pb-3 md:px-7 md:pt-7 md:pb-4 space-y-3 md:space-y-4 flex-shrink-0">
                             {slide.title && (
-                                <h2 className="text-[22px] md:text-[26px] font-bold text-white leading-[1.2]">{slide.title}</h2>
+                                <h2 className="text-[22px] md:text-[26px] font-bold text-white leading-[1.2]">{t(slide.title)}</h2>
                             )}
                             {slide.text && (
-                                <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{slide.text}</p>
+                                <p className="text-[17px] md:text-[19px] text-white/85 leading-[1.4]">{t(slide.text)}</p>
                             )}
                             {slide.quote && (
                                 <p className="text-[18px] md:text-[20px] font-semibold text-white/90 leading-[1.4]">
-                                    {slide.quote}
+                                    {t(slide.quote)}
                                 </p>
                             )}
                         </div>
@@ -315,7 +324,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                     <figure className="flex-1 min-h-0 flex flex-col items-center justify-center px-5 md:px-7">
                         <FadeImage
                             src={slide.image!}
-                            alt={slide.caption || ''}
+                            alt={t(slide.caption) || ''}
                             className="max-w-full min-h-0 flex-shrink object-contain rounded-2xl"
                             style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                             draggable={false}
@@ -323,7 +332,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                         />
                         {slide.caption && (
                             <figcaption className="pt-4 pb-3 md:pt-5 md:pb-4 text-[15px] text-white/70 text-center flex-shrink-0 w-full">
-                                {slide.caption}
+                                {t(slide.caption)}
                             </figcaption>
                         )}
                     </figure>
@@ -332,27 +341,27 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 
         case 'quote':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 flex flex-col gap-5 md:gap-6 justify-center overflow-hidden">
+                <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 flex flex-col gap-5 md:gap-6 justify-center overflow-hidden">
                     {slide.image && (
                         <FadeImage src={slide.image} alt="" role="presentation" className="w-full max-h-[50%] object-contain rounded-2xl" style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }} draggable={false} loading="lazy" />
                     )}
                     {slide.title && (
-                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{slide.title}</p>
+                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium">{t(slide.title)}</p>
                     )}
                     <blockquote className={`${slide.large ? 'text-[30px] md:text-[40px] leading-[1.3] font-serif font-normal' : 'text-[20px] md:text-[24px] leading-[1.45] font-semibold'} text-white/90`}>
-                        {slide.quote}
+                        {t(slide.quote)}
                     </blockquote>
                     {slide.text && (
-                        <p className="text-[15px] text-white/60 leading-relaxed">{slide.text}</p>
+                        <p className="text-[15px] text-white/60 leading-relaxed">{t(slide.text)}</p>
                     )}
                 </div>
             );
 
         case 'gallery':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-5 md:px-7 md:py-7 flex flex-col overflow-hidden">
+                <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl px-5 py-5 md:px-7 md:py-7 flex flex-col overflow-hidden">
                     {slide.text && (
-                        <p className="text-[16px] text-white/70 leading-relaxed mb-4 md:mb-5 flex-shrink-0">{slide.text}</p>
+                        <p className="text-[16px] text-white/70 leading-relaxed mb-4 md:mb-5 flex-shrink-0">{t(slide.text)}</p>
                     )}
                     <div role="list" className={`flex-1 min-h-0 ${(slide.columns ?? 2) === 1 ? 'flex flex-col gap-2' : 'grid grid-cols-2 gap-2'}`}>
                         {slide.images?.map((src, i) => (
@@ -360,7 +369,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                                 key={i}
                                 role="listitem"
                                 src={src}
-                                alt={`Image ${i + 1}`}
+                                alt={t('Image {n}').replace('{n}', String(i + 1))}
                                 className={`w-full rounded-2xl ${(slide.columns ?? 2) === 1 ? 'flex-1 min-h-0 object-cover' : 'h-full object-cover'}`}
                                 style={{ filter: slide.imageFilter ?? 'contrast(1.15) brightness(1.05)' }}
                                 draggable={false}
@@ -373,12 +382,12 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 
         case 'text':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 overflow-hidden flex flex-col justify-center">
+                <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl px-5 py-8 md:px-7 md:py-10 overflow-hidden flex flex-col justify-center">
                     {slide.title && (
-                        <h2 className="text-2xl font-bold text-white mb-6">{slide.title}</h2>
+                        <h2 className="text-2xl font-bold text-white mb-6">{t(slide.title)}</h2>
                     )}
                     {slide.text && (
-                        <p className="text-[17px] md:text-[18px] text-white/70 leading-relaxed">{slide.text}</p>
+                        <p className="text-[17px] md:text-[18px] text-white/70 leading-relaxed">{t(slide.text)}</p>
                     )}
                     {slide.download && (
                         <div className="mt-8 flex justify-center">
@@ -392,7 +401,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                                     <path d="M10.9999 3C10.9999 2.44772 11.4476 2 11.9999 2C12.5522 2 12.9999 2.44772 12.9999 3V14.5859L16.2929 11.293C16.6834 10.9024 17.3164 10.9024 17.707 11.293C18.0975 11.6835 18.0975 12.3165 17.707 12.707L12.707 17.707C12.3164 18.0976 11.6834 18.0976 11.2929 17.707L6.29289 12.707C5.90237 12.3165 5.90237 11.6835 6.29289 11.293C6.68342 10.9024 7.31643 10.9024 7.70696 11.293L10.9999 14.5859V3Z" fill="currentColor" />
                                     <path d="M4 19C4 18.4477 4.44772 18 5 18C5.55228 18 6 18.4477 6 19V20H18V19C18 18.4477 18.4477 18 19 18C19.5523 18 20 18.4477 20 19V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V19Z" fill="currentColor" />
                                 </svg>
-                                {slide.download.label}
+                                {t(slide.download.label)}
                             </a>
                         </div>
                     )}
@@ -401,9 +410,9 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 
         case 'stats':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-7 md:py-8 flex flex-col overflow-hidden">
+                <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-7 md:py-8 flex flex-col overflow-hidden">
                     {slide.title && (
-                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium mb-4 flex-shrink-0">{slide.title}</p>
+                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium mb-4 flex-shrink-0">{t(slide.title)}</p>
                     )}
                     <div className="flex-1 min-h-0 grid grid-cols-2 gap-3 content-start">
                         {slide.items?.map((item, i) => (
@@ -415,9 +424,9 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 
         case 'steps':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-7 md:py-8 flex flex-col overflow-hidden">
+                <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-7 md:py-8 flex flex-col overflow-hidden">
                     {slide.title && (
-                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium mb-4 flex-shrink-0">{slide.title}</p>
+                        <p className="text-[13px] uppercase tracking-widest text-white/40 font-medium mb-4 flex-shrink-0">{t(slide.title)}</p>
                     )}
                     <div className="flex-1 min-h-0 flex flex-col gap-0 overflow-hidden">
                         {slide.steps?.map((step, j) => (
@@ -431,8 +440,8 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
                                     )}
                                 </div>
                                 <div className="pb-5">
-                                    <p className="text-[15px] font-semibold text-white/80 leading-none mt-1.5">{step.title}</p>
-                                    <p className="text-[14px] font-normal text-white/50 leading-relaxed mt-2">{step.description}</p>
+                                    <p className="text-[15px] font-semibold text-white/80 leading-none mt-1.5">{t(step.title)}</p>
+                                    <p className="text-[14px] font-normal text-white/50 leading-relaxed mt-2">{t(step.description)}</p>
                                 </div>
                             </div>
                         ))}
@@ -442,19 +451,19 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 
         case 'intro':
             return (
-                <div role="region" aria-label={`Slide ${index + 1} of ${total}`} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-8 md:py-9 flex flex-col overflow-hidden">
+                <div role="region" aria-label={slideLabel} className="w-full h-full bg-black rounded-2xl px-5 py-6 md:px-8 md:py-9 flex flex-col overflow-hidden">
                     {slide.title && (
-                        <h2 className="text-[20px] md:text-[28px] font-bold text-white leading-[1.15] mb-5 md:mb-8 flex-shrink-0 pr-8">{slide.title}</h2>
+                        <h2 className="text-[20px] md:text-[28px] font-bold text-white leading-[1.15] mb-5 md:mb-8 flex-shrink-0 pr-8">{t(slide.title)}</h2>
                     )}
                     <div className="flex-1 min-h-0 flex flex-col gap-5 md:gap-8 overflow-y-auto">
                         {slide.blocks?.map((block, i) => (
                             <div key={i} className="flex flex-col md:flex-row md:gap-10 gap-2">
                                 <div className="md:w-[34%] flex-shrink-0">
-                                    <p className="text-[18px] md:text-[22px] font-medium text-white/85 leading-none">+ {block.label}</p>
+                                    <p className="text-[18px] md:text-[22px] font-medium text-white/85 leading-none">+ {t(block.label)}</p>
                                 </div>
                                 <div className="md:flex-1 space-y-2.5 md:space-y-3">
                                     {block.paragraphs.map((p, j) => (
-                                        <p key={j} className="text-[14px] md:text-[16px] text-white/65 leading-relaxed">{p}</p>
+                                        <p key={j} className="text-[14px] md:text-[16px] text-white/65 leading-relaxed">{t(p)}</p>
                                     ))}
                                 </div>
                             </div>
@@ -469,6 +478,7 @@ function SlideRenderer({ slide, index, total }: { slide: StoriesSlide; index: nu
 }
 
 function CoverSlide({ slide }: { slide: StoriesSlide }) {
+    const t = useT();
     const images = slide.images ?? [];
     const [idx, setIdx] = useState(0);
 
@@ -514,13 +524,13 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
             {/* Content — vertically centered, left-aligned */}
             <div className="absolute inset-0 flex flex-col justify-center gap-5 px-7 md:px-9 pointer-events-none">
                 <blockquote className="text-[20px] md:text-[23px] font-semibold text-white leading-[1.55]">
-                    {slide.quote}
+                    {t(slide.quote)}
                 </blockquote>
                 {slide.tags && (
                     <div className="flex flex-wrap gap-2">
                         {slide.tags.map((tag) => (
                             <span key={tag} className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">
-                                {tag}
+                                {t(tag)}
                             </span>
                         ))}
                     </div>
