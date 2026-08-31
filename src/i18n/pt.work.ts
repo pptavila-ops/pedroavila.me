@@ -169,9 +169,9 @@ export const ptWork: Record<string, string> = {
     // ── The Pets Table ───────────────────────────────────────────────
     'Designing The Pets Table from the Ground Up': 'Construindo The Pets Table do zero',
     'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Every decision was a negotiation between innovation, speed, and system reuse.':
-        'The Pets Table é a assinatura de comida fresca para cães, própria para consumo humano, da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer alocado na squad da TPT, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro. Cada decisão foi uma negociação entre inovação, velocidade e reúso do sistema.',
+        'The Pets Table é a assinatura de comida fresca para cães da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer alocado na squad da TPT, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro. Cada decisão foi uma negociação entre inovação, velocidade e reúso do sistema.',
     'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.':
-        'The Pets Table é a assinatura de comida fresca para cães, própria para consumo humano, da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro.',
+        'The Pets Table é a assinatura de comida fresca para cães da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro.',
     'Product Designer → Sr. Product Designer': 'Product Designer → Product Designer Sênior',
     'OOUX': 'OOUX',
 
