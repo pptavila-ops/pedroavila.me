@@ -7,7 +7,7 @@ export const ptUi: Record<string, string> = {
     // ── Sidebar / bio ────────────────────────────────────────────────
     'Senior Product Designer working across AI workflows, design tooling, and production code.':
         'Senior Product Designer atuando entre workflows de IA, ferramentas de design e código em produção.',
-    '9+ years of experience.': '9+ anos de experiência.',
+    '10+ years of experience.': '10+ anos de experiência.',
     'He/Him.': 'Ele/Dele.',
     'He, him': 'Ele, dele',
 

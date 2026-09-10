@@ -106,7 +106,7 @@ function App() {
                         {t('Senior Product Designer working across AI workflows, design tooling, and production code.')}
                     </p>
                     <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
-                        {t('9+ years of experience.')}
+                        {t('10+ years of experience.')}
                     </p>
                     <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
                         {t('He/Him.')}
