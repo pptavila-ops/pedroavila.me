@@ -18,6 +18,7 @@ export const ptKeep: Record<string, string> = {
 
     // Job titles and disciplines that Brazilian design teams use in English
     'Product Designer': 'Product Designer',
+    'Senior Product Designer.': 'Senior Product Designer.',
     // The sidebar bio keeps the English job title, so the tab title matches it.
     'Pedro Ávila — Senior Product Designer': 'Pedro Ávila — Senior Product Designer',
     'Design Systems': 'Design Systems',

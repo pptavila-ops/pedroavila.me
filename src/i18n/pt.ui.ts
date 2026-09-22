@@ -9,7 +9,6 @@ export const ptUi: Record<string, string> = {
         'Senior Product Designer atuando entre workflows de IA, ferramentas de design e código em produção.',
     '10+ years of experience.': '10+ anos de experiência.',
     'He/Him.': 'Ele/Dele.',
-    'He, him': 'Ele, dele',
 
     // Skill tags and their tooltips
     'Design to Code': 'Design para Código',
