@@ -44,6 +44,34 @@ export const ptWork: Record<string, string> = {
     'Móvix was published on the App Store and Google Play. It was a 9-month project by AIS Digital.':
         'O Móvix foi publicado na App Store e no Google Play. Foi um projeto de 9 meses da AIS Digital.',
 
+    // Brief labels at the top of every study (src/components/CaseStudyPage.tsx).
+    // 'Problem' lives further down, with the Pets Table deep-dive summary.
+    'What I did': 'O que eu fiz',
+
+    // ── Briefs · HelloFresh design transformation ────────────────────
+    'Nine brands across different codebases, and a gap between what UX designed and what engineering shipped. Prototyping with AI was getting faster at the same time, with nothing keeping the quality and consistency of what came out of it in line with Zest, our design system.':
+        'Nove marcas espalhadas por bases de código diferentes e uma lacuna entre o que o UX desenhava e o que a engenharia entregava. Ao mesmo tempo, prototipar com IA ficava cada vez mais rápido, sem nada que mantivesse a qualidade e a consistência do resultado alinhadas ao Zest, nosso design system.',
+    'Built a suite of Claude Code commands covering prototype creation, live iteration, AI-run usability testing, publishing, and implementing UI changes directly in React and React Native, packaged as a UX plugin inside HelloFresh\'s shared AI repository. It came out of shipping production code myself first, then turning that experiment into something the whole team could use.':
+        'Construí um conjunto de comandos no Claude Code cobrindo criação de protótipos, iteração ao vivo, testes de usabilidade rodados por IA, publicação e implementação de mudanças de UI direto em React e React Native, empacotado como um plugin de UX dentro do repositório de IA compartilhado da HelloFresh. Isso saiu de primeiro entregar código em produção por conta própria e depois transformar esse experimento em algo que o time inteiro pudesse usar.',
+
+    // ── Briefs · The Pets Table ──────────────────────────────────────
+    'HelloFresh was launching its first pet food brand and I was assigned as its designer, from launch through to scale. It had to start on a white-label front end built for humans picking weekly meals, with no concept of pet profiles, multi-pet households, add-ons, or the long delivery cadences dog food actually runs on.':
+        'A HelloFresh ia lançar sua primeira marca de comida para pets e eu fui designado como designer dela, do lançamento até a escala. Ela teve que começar em cima de um front-end white-label feito para humanos escolhendo refeições semanais, sem noção de perfis de pet, casas com vários cachorros, add-ons ou das cadências longas de entrega em que a comida para cães realmente funciona.',
+    'Sole designer for three years: mapped the system with OOUX, built the Figma and Zest foundations, ran interviews and usability testing, and validated every bet through A/B tests. Out of that came the acquisition quiz, plans and checkout, the delivery dashboard and its quick actions, the add-ons store, variable delivery cadence, and CVR-focused features like breed-specific personalisation, which I shipped myself in production code.':
+        'Designer único por três anos: mapeei o sistema com OOUX, construí as fundações no Figma e no Zest, conduzi entrevistas e testes de usabilidade e validei cada aposta com testes A/B. Daí saíram o quiz de aquisição, a página de planos e o checkout, o painel de entregas e suas ações rápidas, a loja de add-ons, a cadência de entrega variável e features focadas em CVR como a personalização por raça, esta última entregue por mim direto no código de produção.',
+
+    // ── Briefs · Móvix ───────────────────────────────────────────────
+    'Financing a home through CAIXA meant dense paperwork, in-person appointments, and no visibility into your own application. Most Brazilians had no way to know how much they could borrow without a broker sitting next to them.':
+        'Financiar uma casa pela CAIXA significava papelada densa, atendimento presencial e nenhuma visibilidade do próprio processo. A maioria dos brasileiros não tinha como saber quanto conseguiria financiar sem um corretor sentado ao lado.',
+    'Ran workshops with stakeholders to define the main features, and used mind maps to work out the information architecture. Designed the full flow for running a simulation and opening a financing request online alongside Jenny Soares, turning an almost entirely analogue experience into a digital one. Usability testing came later, at a home financing fair in Brasília, to refine what was already built.':
+        'Conduzi workshops com os stakeholders para definir as principais features e usei mind maps para desenhar a arquitetura da informação. Desenhei o fluxo completo de fazer uma simulação e abrir um pedido de financiamento online junto da Jenny Soares, transformando uma experiência quase inteiramente analógica em algo digital. Os testes de usabilidade vieram depois, numa feira de financiamento em Brasília, para aprimorar o que já estava construído.',
+
+    // ── Briefs · MVP Factory · Schwarzkopf ───────────────────────────
+    'Schwarzkopf needed to know whether women in Germany would trust an AI to analyse their hair and recommend products, before committing budget to building the app.':
+        'A Schwarzkopf precisava saber se mulheres na Alemanha confiariam numa IA para analisar seus cabelos e recomendar produtos, antes de comprometer orçamento com a construção do app.',
+    'Owned the research end to end: screening criteria, interview script, ten moderated sessions run with a native German interviewer, affinity clustering in Dovetail with quote evidence behind every insight, and a report to Henkel carrying a clear go / no-go recommendation.':
+        'Conduzi a pesquisa de ponta a ponta: critérios de triagem, roteiro de entrevista, dez sessões moderadas com uma entrevistadora alemã nativa, clusterização por afinidade no Dovetail com citações sustentando cada insight, e um relatório para a Henkel com uma recomendação clara de seguir ou não.',
+
     // Divider labels reused by several studies
     'Outcome': 'Resultado',
     'The Problem': 'O Problema',
@@ -80,6 +108,10 @@ export const ptWork: Record<string, string> = {
         'Protótipo com cara de produção criado com o agente de prototipagem no Claude Code.',
 
     'Some of the commands I created for UX': 'Alguns dos comandos que criei para UX',
+    'Pull research, prior specs, and product context into a synthesised set of insights, so a brief starts from evidence instead of a blank page.':
+        'Reúne pesquisas, specs anteriores e contexto de produto num conjunto sintetizado de insights, para que o briefing comece a partir de evidência, e não de uma página em branco.',
+    'Turn those insights into a framed design direction, interviewing you along the way to pressure-test whether the problem is worth solving.':
+        'Transforma esses insights numa direção de design enquadrada, entrevistando você pelo caminho para testar se o problema vale a pena ser resolvido.',
     'Generate production-quality HTML prototypes from text, Figma exports, screenshots, or existing HTML, in minutes, across all 9 HF brands.':
         'Gera protótipos em HTML com qualidade de produção a partir de texto, exports do Figma, screenshots ou HTML existente, em minutos, para todas as 9 marcas da HF.',
     'Spin up a live local server with a side-panel feedback interface. Describe a change in plain language; Claude applies it in real time.':
@@ -99,8 +131,8 @@ export const ptWork: Record<string, string> = {
         'Um exemplo de protótipo livre transformado em estrito.',
 
     'The Design-to-Code Gap': 'A lacuna entre design e código',
-    'HelloFresh\'s UX team spanned nine brands, each with its own codebase and its own gap between what was designed and what shipped, tickets filed, specs reinterpreted, intent diluted with every hand. Consumer Acceleration was tasked with closing it, betting on AI, Claude Code as the interface between UX intention and production reality. My role was to explore what that looked like, then make it real for the whole team.':
-        'O time de UX da HelloFresh cobria nove marcas, cada uma com seu próprio código e sua própria lacuna entre o que era desenhado e o que era entregue: tickets abertos, specs reinterpretadas, intenção diluída a cada troca de mãos. O Consumer Acceleration recebeu a missão de fechar essa lacuna apostando em IA, com o Claude Code como interface entre a intenção de UX e a realidade da produção. Meu papel foi explorar como isso poderia funcionar e depois torná-lo real para o time inteiro.',
+    'HelloFresh\'s UX team spanned nine brands across different codebases, each with its own gap between what was designed and what shipped, tickets filed, specs reinterpreted, intent diluted with every hand. Consumer Acceleration was tasked with closing it, betting on AI, Claude Code as the interface between UX intention and production reality. My role was to explore what that looked like, then make it real for the whole team.':
+        'O time de UX da HelloFresh cobria nove marcas espalhadas por bases de código diferentes, cada uma com sua própria lacuna entre o que era desenhado e o que era entregue: tickets abertos, specs reinterpretadas, intenção diluída a cada troca de mãos. O Consumer Acceleration recebeu a missão de fechar essa lacuna apostando em IA, com o Claude Code como interface entre a intenção de UX e a realidade da produção. Meu papel foi explorar como isso poderia funcionar e depois torná-lo real para o time inteiro.',
     'Following my own experiments shipping code, I was able to move the design team toward a new standard: we own the UI, not just in static designs, but directly in the product.':
         'A partir dos meus próprios experimentos entregando código, consegui levar o time de design a um novo padrão: a UI é nossa, não só nos designs estáticos, mas direto no produto.',
 

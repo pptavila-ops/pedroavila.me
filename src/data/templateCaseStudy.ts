@@ -1,7 +1,7 @@
 export type RichSection =
     | { type: 'text'; content: string; html?: boolean }
     | { type: 'callout'; content: string }
-    | { type: 'image'; src: string; caption?: string; width?: string; shrink?: boolean; compact?: boolean }
+    | { type: 'image'; src: string; caption?: string; width?: string; shrink?: boolean; compact?: boolean; tight?: boolean }
     | { type: 'video'; src: string; caption?: string; shrink?: boolean; maxWidth?: number }
     | { type: 'impact'; title?: string; items: { value: string; label: string; description: string; logos?: { src: string; alt: string; height: number }[] }[] }
     | { type: 'process'; title?: string; steps: { title: string; description: string }[] }
@@ -12,9 +12,9 @@ export type RichSection =
     | { type: 'chart'; title?: string; caption?: string; bars: { label: string; sublabel: string; description: string; pct: number; color: string }[] }
     | { type: 'animated-sentence'; prefix: string; phrases: string[] }
     | { type: 'badge'; content: string; icon?: string }
+    | { type: 'command-flow-diagram' }
     | { type: 'current-design-process-diagram' }
     | { type: 'spec-machine-diagram' }
-    | { type: 'double-diamond-diagram' }
     | { type: 'lifecycle-journey-diagram' };
 
 export type StoriesSlide = {
@@ -60,6 +60,8 @@ export interface RichCaseStudy {
     coverImages?: string[];
     intro: string;
     introHtml?: boolean;
+    /** Scannable answer to problem / what I did / what I designed, above the fold */
+    brief?: { label: string; content: string }[];
     tags: string[];
     sections: RichSection[];
     personal?: boolean;
@@ -75,6 +77,10 @@ export const templateCaseStudy: RichCaseStudy = {
     role: 'Senior Product Designer',
     cover: '/card-hover.webp', // Replace with actual cover image
     intro: 'This is the opening paragraph, a concise summary of the project. It should set context: what the problem was, who it affected, and what you did. Keep it to 2–3 sentences that make someone want to read further.',
+    brief: [
+        { label: 'Problem', content: 'What was broken, and for whom. One or two sentences, concrete enough that someone outside the domain understands the stakes.' },
+        { label: 'What I did', content: 'The work you performed and what came out of it: the methods and the scope you owned, then the tangible artefacts — flows, screens, systems, documents. Name them, so nobody has to guess what your contribution was.' },
+    ],
     tags: ['Product Design', 'Design Systems', 'UX Research'],
     sections: [
         {

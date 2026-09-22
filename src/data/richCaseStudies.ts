@@ -9,8 +9,15 @@ export const richCaseStudies: RichCaseStudy[] = [
         role: 'Consumer Acceleration',
         cover: '/card-hover.webp',
         intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering, using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
+        brief: [
+            { label: 'Problem', content: 'Nine brands across different codebases, and a gap between what UX designed and what engineering shipped. Prototyping with AI was getting faster at the same time, with nothing keeping the quality and consistency of what came out of it in line with Zest, our design system.' },
+            { label: 'What I did', content: 'Built a suite of Claude Code commands covering prototype creation, live iteration, AI-run usability testing, publishing, and implementing UI changes directly in React and React Native, packaged as a UX plugin inside HelloFresh\'s shared AI repository. It came out of shipping production code myself first, then turning that experiment into something the whole team could use.' },
+        ],
         tags: ['Consumer Acceleration', 'Design Operations', 'AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
         sections: [
+            {
+                type: 'command-flow-diagram',
+            },
             {
                 type: 'impact',
                 items: [
@@ -55,6 +62,14 @@ export const richCaseStudies: RichCaseStudy[] = [
                 title: 'Some of the commands I created for UX',
                 steps: [
                     {
+                        title: '/generate-insights',
+                        description: 'Pull research, prior specs, and product context into a synthesised set of insights, so a brief starts from evidence instead of a blank page.',
+                    },
+                    {
+                        title: '/frame-design',
+                        description: 'Turn those insights into a framed design direction, interviewing you along the way to pressure-test whether the problem is worth solving.',
+                    },
+                    {
                         title: '/create-prototype',
                         description: 'Generate production-quality HTML prototypes from text, Figma exports, screenshots, or existing HTML, in minutes, across all 9 HF brands.',
                     },
@@ -95,7 +110,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'text',
-                content: 'HelloFresh\'s UX team spanned nine brands, each with its own codebase and its own gap between what was designed and what shipped, tickets filed, specs reinterpreted, intent diluted with every hand. Consumer Acceleration was tasked with closing it, betting on AI, Claude Code as the interface between UX intention and production reality. My role was to explore what that looked like, then make it real for the whole team.',
+                content: 'HelloFresh\'s UX team spanned nine brands across different codebases, each with its own gap between what was designed and what shipped, tickets filed, specs reinterpreted, intent diluted with every hand. Consumer Acceleration was tasked with closing it, betting on AI, Claude Code as the interface between UX intention and production reality. My role was to explore what that looked like, then make it real for the whole team.',
             },
             {
                 type: 'callout',
@@ -103,9 +118,6 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'current-design-process-diagram',
-            },
-            {
-                type: 'double-diamond-diagram',
             },
             {
                 type: 'divider',
@@ -246,8 +258,17 @@ export const richCaseStudies: RichCaseStudy[] = [
         role: 'Product Designer → Sr. Product Designer',
         cover: '/card-hover.webp',
         intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.',
+        brief: [
+            { label: 'Problem', content: 'HelloFresh was launching its first pet food brand and I was assigned as its designer, from launch through to scale. It had to start on a white-label front end built for humans picking weekly meals, with no concept of pet profiles, multi-pet households, add-ons, or the long delivery cadences dog food actually runs on.' },
+            { label: 'What I did', content: 'Sole designer for three years: mapped the system with OOUX, built the Figma and Zest foundations, ran interviews and usability testing, and validated every bet through A/B tests. Out of that came the acquisition quiz, plans and checkout, the delivery dashboard and its quick actions, the add-ons store, variable delivery cadence, and CVR-focused features like breed-specific personalisation, which I shipped myself in production code.' },
+        ],
         tags: ['Product Design', 'UX Research', 'OOUX', 'Growth', 'Retention', 'Design-to-Code'],
         sections: [
+            {
+                type: 'image',
+                src: '/tpt-top.webp',
+                tight: true,
+            },
             {
                 type: 'impact',
                 items: [
@@ -521,6 +542,10 @@ export const richCaseStudies: RichCaseStudy[] = [
         cover: '/movix-home.webp',
         intro: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic, our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
         introHtml: true,
+        brief: [
+            { label: 'Problem', content: 'Financing a home through CAIXA meant dense paperwork, in-person appointments, and no visibility into your own application. Most Brazilians had no way to know how much they could borrow without a broker sitting next to them.' },
+            { label: 'What I did', content: 'Ran workshops with stakeholders to define the main features, and used mind maps to work out the information architecture. Designed the full flow for running a simulation and opening a financing request online alongside Jenny Soares, turning an almost entirely analogue experience into a digital one. Usability testing came later, at a home financing fair in Brasília, to refine what was already built.' },
+        ],
         tags: ['Product Design', 'Mobile', 'UX Research', 'Prototyping'],
         sections: [
             {
@@ -917,6 +942,10 @@ export const richCaseStudies: RichCaseStudy[] = [
         role: 'UX Researcher',
         cover: '/wf-hair-score.webp',
         intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app, before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
+        brief: [
+            { label: 'Problem', content: 'Schwarzkopf needed to know whether women in Germany would trust an AI to analyse their hair and recommend products, before committing budget to building the app.' },
+            { label: 'What I did', content: 'Owned the research end to end: screening criteria, interview script, ten moderated sessions run with a native German interviewer, affinity clustering in Dovetail with quote evidence behind every insight, and a report to Henkel carrying a clear go / no-go recommendation.' },
+        ],
         tags: ['UX Research', 'User Interviews', 'Concept Testing', 'Dovetail'],
         sections: [
             {

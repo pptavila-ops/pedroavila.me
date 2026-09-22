@@ -112,26 +112,22 @@ export const ptUi: Record<string, string> = {
     'No typical design review needed. The designer owns the intent and the output. Developers only review the code.':
         'Sem o design review tradicional. O designer é dono da intenção e do resultado. Desenvolvedores revisam apenas o código.',
 
-    // ── Diagram: double diamond ──────────────────────────────────────
-    'Where AI enters the design process': 'Onde a IA entra no processo de design',
-    'Double diamond diagram showing the Discover, Define, Prototype, and Deliver phases':
-        'Diagrama do duplo diamante mostrando as fases Descobrir, Definir, Prototipar e Entregar',
+    // ── Diagram: command flow ────────────────────────────────────────
     'Discover': 'Descobrir',
-    'Agents pull in prior specs, research, and product context before a brief is written.':
-        'Agentes reúnem specs anteriores, pesquisas e contexto de produto antes mesmo de o briefing ser escrito.',
     'Define': 'Definir',
-    'Agents help frame the design from research findings, interviewing you to pressure-test whether the idea makes sense.':
-        'Agentes ajudam a enquadrar o design a partir dos achados de pesquisa, entrevistando você para testar se a ideia faz sentido.',
     'Prototype': 'Prototipar',
-    'Agents generate prototypes and test them against synthetic personas: /create-prototype, /test-prototype.':
-        'Agentes geram protótipos e os testam com personas sintéticas: /create-prototype, /test-prototype.',
-    'Deliver': 'Entregar',
-    'Agents implement designs directly in production code and prep pull requests for review: /design-change-web.':
-        'Agentes implementam os designs direto no código de produção e preparam pull requests para revisão: /design-change-web.',
-    'THE RIGHT THING': 'A COISA CERTA',
-    'THE RIGHT WAY': 'DO JEITO CERTO',
-    'AI shows up at every phase, not just at code time. Agents and skills sit inside each diamond, keeping the process divergent where it needs to explore and convergent where it needs to decide.':
-        'A IA aparece em todas as fases, não só na hora de escrever código. Agentes e skills vivem dentro de cada diamante, mantendo o processo divergente onde ele precisa explorar e convergente onde precisa decidir.',
+    'Validate': 'Validar',
+    'Ship': 'Entregar em produção',
+    'Pulls research, prior specs and product context into a synthesised set of insights, so a brief starts from evidence instead of a blank page.':
+        'Reúne pesquisas, specs anteriores e contexto de produto num conjunto sintetizado de insights, para que o briefing comece a partir de evidência, e não de uma página em branco.',
+    'Turns those insights into a framed design direction, interviewing you along the way to pressure-test whether the problem is worth solving.':
+        'Transforma esses insights numa direção de design enquadrada, entrevistando você pelo caminho para testar se o problema vale a pena ser resolvido.',
+    'Generates a production-quality prototype in minutes, across all nine brands, at free-form, balanced or strict fidelity.':
+        'Gera um protótipo com qualidade de produção em minutos, nas nove marcas, em fidelidade livre, equilibrada ou estrita.',
+    'Runs the prototype through emulated personas to surface usability issues before a single test session is scheduled.':
+        'Roda o protótipo com personas emuladas para revelar problemas de usabilidade antes de agendar uma única sessão de teste.',
+    'Implements the validated design directly in React and React Native production code, and opens the pull request for review.':
+        'Implementa o design validado direto no código de produção em React e React Native, e abre o pull request para revisão.',
 
     // ── Diagram: Spec-Machine ────────────────────────────────────────
     'Spec-Machine · the repository at the center': 'Spec-Machine · o repositório no centro',
