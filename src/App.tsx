@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import RainbowText from './components/RainbowText';
 import { CaseStudyImageCard } from './components/CaseStudyImageCard';
 import { BrandCarousel } from './components/BrandCarousel';
 import Tooltip from './components/Tooltip';
@@ -103,7 +102,7 @@ function App() {
                         name + language row reads as its own band rather than as
                         the first line of the bio. */}
                     <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-6">
-                        {t('Senior Product Designer working across AI workflows, design tooling, and production code.')}
+                        {t('Senior Product Designer working across AI workflows, design systems, and production code.')}
                     </p>
                     <p className="text-[15px] font-normal text-white/70 leading-relaxed mt-3">
                         {t('10+ years of experience.')}
@@ -172,7 +171,10 @@ function App() {
             <div className="w-full min-w-0 md:ml-[32%] lg:ml-[28%] min-h-screen px-7 py-10 md:py-14 md:px-10 lg:px-14 overflow-x-clip">
                 {/* Mobile header — hidden on md+ where left panel is visible, and hidden when a case study is open */}
                 <div className={`md:hidden mb-10 pb-8 border-b border-white/10 ${activeStudy ? 'hidden' : ''}`}>
-                    <p className="text-[15px] font-semibold text-white">Pedro Ávila</p>
+                    <div className="flex items-center justify-between gap-4">
+                        <p className="text-[15px] font-semibold text-white">Pedro Ávila</p>
+                        <LanguageSwitch />
+                    </div>
                     <p className="text-[16px] text-white/60 mt-1 leading-relaxed">{t('Senior Product Designer.')}<br />{t('He/Him.')}</p>
                     <div className="flex items-center gap-4 mt-5">
                         <a href="https://www.linkedin.com/in/pptavila/" target="_blank" rel="noreferrer" className="text-white/50 hover:text-white transition-colors">
@@ -198,7 +200,6 @@ function App() {
                             CV
                         </a>
                     </div>
-                    <LanguageSwitch className="mt-5" fullWidth />
                 </div>
 
                 {activePlayground ? (
@@ -281,14 +282,12 @@ function App() {
                     </div>
                 ) : (
                     <div>
-                        <RainbowText>
-                            <p className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight text-pretty">
-                                <span className="lg:hidden">{t('Leading design workflow transformation with AI')}</span>
-                                <span className="hidden lg:inline">{t('Leading design workflow')}<br />{t('transformation with AI')}</span>
-                            </p>
-                        </RainbowText>
-                        <p className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight">
-                            {t('Currently @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline">HelloFresh</a>
+                        <p className="-mt-4 text-[26px] sm:text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight text-pretty">
+                            <span className="lg:hidden">{t('Leading design workflow transformation with AI.')}</span>
+                            <span className="hidden lg:inline">{t('Leading design workflow')}<br />{t('transformation with AI.')}</span>
+                        </p>
+                        <p className="mt-3 text-[18px] sm:text-[20px] md:text-[22px] leading-[1.3] font-normal text-white/60">
+                            {t('Currently @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">HelloFresh</a>
                         </p>
 
                         <CardGrid
