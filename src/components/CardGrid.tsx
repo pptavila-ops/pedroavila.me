@@ -89,14 +89,15 @@ interface CardProps {
     openStudy: (id: string) => void;
 }
 
-// Home-page case card: one bordered panel split in two — the cover fills the
-// left half edge to edge (stretching to the text's height on md+) with the
-// @company (and current-role) badges on it; the right half holds the title,
-// headline metric and summary, closed by a divider
-// and a meta row (years · scope). The cover cycles through the study's own
-// images unless the study pins a single `cover`. Stacks with the cover on top
-// below md. On hover the border brightens, the panel fills in slightly and the
-// cover zooms slowly.
+// Home-page case card: one bordered panel split in two on lg+ — the cover
+// fills the left half edge to edge (stretching to the text's height, capped at
+// 400px wide so wide monitors don't blow it up and crop it) with the @company
+// (and current-role) badges on it; the right half holds the title, headline
+// metric and summary, closed by a divider and a meta row (years · scope).
+// Below lg it stacks with the cover on top, since a half-width cover gets too
+// narrow on tablets. The cover cycles through the study's own images unless
+// the study pins a single `cover`. On hover the border brightens, the panel
+// fills in slightly and the cover zooms slowly.
 function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) => void }) {
     const t = useT();
     const images = cs.cover ? [cs.cover] : caseImages(cs.id);
@@ -104,9 +105,9 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
     return (
         <a
             {...studyLinkProps(cs.id, openStudy)}
-            className="group cursor-pointer text-left grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden border border-white/10 hover:border-white/25 hover:bg-white/[0.03] active:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="group cursor-pointer text-left grid grid-cols-1 lg:grid-cols-[min(50%,400px)_minmax(0,1fr)] rounded-3xl overflow-hidden border border-white/10 hover:border-white/25 hover:bg-white/[0.03] active:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
-            <div className={`relative aspect-[4/3] md:aspect-auto md:min-h-[20rem] overflow-hidden isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
+            <div className={`relative aspect-[4/3] lg:aspect-auto lg:min-h-[20rem] overflow-hidden isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
                 {images.length > 0 && (
                     <div className="absolute inset-0 group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
                         <div className="w-full h-full" style={cs.coverScale ? { transform: `translate(${cs.coverOffsetX ?? 0}%, ${cs.coverOffsetY ?? 0}%) scale(${cs.coverScale})` } : undefined}>
