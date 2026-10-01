@@ -13,8 +13,6 @@ interface CaseStudy {
     coverScale?: number;
     coverOffsetX?: number;
     coverOffsetY?: number;
-    industry?: string;
-    role?: string;
     metric?: { value: string; label: string };
     summary?: string;
     tags?: string[];
@@ -52,7 +50,7 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
 
     if (!isGrid) {
         return (
-            <div className="mt-10 flex flex-col gap-10">
+            <div className="mt-16 md:mt-20 flex flex-col gap-10">
                 {caseStudies.map((cs) => <CaseCard key={cs.id} cs={cs} openStudy={openStudy} />)}
             </div>
         );
@@ -90,7 +88,7 @@ interface CardProps {
     openStudy: (id: string) => void;
 }
 
-// Home-page case card: cover on the left, then context, title, one headline
+// Home-page case card: cover on the left, then @company, title, one headline
 // metric, a one-line summary, scope tags and an always-visible "Read" link.
 // The cover cycles through the study's own images, unless the study pins a
 // single `cover`. Stacks with the cover on top below md. On hover the card
@@ -98,38 +96,32 @@ interface CardProps {
 // aligned with the page while the fill bleeds past it.
 function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) => void }) {
     const t = useT();
-    const context = [cs.company, cs.industry && t(cs.industry), cs.role && t(cs.role)].filter(Boolean);
     const images = cs.cover ? [cs.cover] : caseImages(cs.id);
 
     return (
         <a
             {...studyLinkProps(cs.id, openStudy)}
-            className="group cursor-pointer text-left grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-5 md:gap-8 md:items-center -m-4 p-4 rounded-[32px] hover:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]"
+            className="group cursor-pointer text-left grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-5 md:gap-8 md:items-center -m-4 p-4 rounded-[32px] hover:bg-white/[0.06] active:bg-white/[0.09] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
-            <div className={`relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
+            <div className={`relative aspect-square rounded-2xl overflow-hidden border border-white/10 isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
                 {images.length > 0 && (
-                    <div className="w-full h-full group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)]">
+                    <div className="w-full h-full group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
                         <div className="w-full h-full" style={cs.coverScale ? { transform: `translate(${cs.coverOffsetX ?? 0}%, ${cs.coverOffsetY ?? 0}%) scale(${cs.coverScale})` } : undefined}>
-                            <CoverSlideshow images={images} alt={t(cs.title)} />
+                            <CoverSlideshow images={images} alt="" fit={cs.coverScale ? 'contain' : 'cover'} />
                         </div>
                     </div>
                 )}
             </div>
 
             <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/50">
-                    {context.map((part, i) => (
-                        <span key={i} className="flex items-center gap-2">
-                            {i > 0 && <span aria-hidden="true">·</span>}
-                            {part}
-                        </span>
-                    ))}
+                <div className="flex flex-wrap items-center gap-2 text-[15px] text-white/60">
+                    @{cs.company}
                     {cs.id === 'design-transformation' && <CurrentRoleTag />}
                 </div>
 
-                <h3 className="mt-2 text-[22px] md:text-[26px] font-bold leading-[1.2] text-white text-pretty">
+                <h2 className="mt-2 text-[22px] md:text-[26px] font-bold leading-[1.2] text-white text-pretty">
                     {t(cs.title)}
-                </h3>
+                </h2>
 
                 {cs.metric && (
                     <p className="mt-3 flex items-baseline gap-2 text-[15px] text-white/60">
@@ -138,7 +130,7 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
                     </p>
                 )}
 
-                <p className="mt-3 text-[15px] leading-relaxed text-white/60">
+                <p className="mt-3 text-[15px] leading-relaxed text-white/60 text-pretty">
                     {cs.summary ? t(cs.summary) : stripHtml(t(cs.intro))}
                 </p>
 
@@ -152,9 +144,9 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
                     </div>
                 )}
 
-                <span className="mt-5 inline-flex items-center gap-1 text-sm text-white/80 group-hover:text-white transition-colors">
+                <span className="mt-5 inline-flex items-center gap-1 text-sm text-white/80 group-hover:text-white transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]">
                     {t('Read case study')}
-                    <span aria-hidden="true" className="transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">›</span>
+                    <span aria-hidden="true" className="transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0">›</span>
                 </span>
             </div>
         </a>
@@ -191,7 +183,7 @@ function CurrentRoleTag() {
     const t = useT();
 
     return (
-        <span className="text-[9px] font-semibold uppercase tracking-widest text-white/70 border border-white/30 rounded-full px-2 py-0.5">
+        <span className="text-[10px] font-semibold uppercase tracking-widest text-white/70 border border-white/30 rounded-full px-2 py-0.5">
             {t('Current Role')}
         </span>
     );

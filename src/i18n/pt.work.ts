@@ -21,14 +21,8 @@ export const ptWork: Record<string, string> = {
     'User Interviews': 'Entrevistas com Usuários',
     'Concept Testing': 'Teste de Conceito',
 
-    // Home-page card: industry · role, and the one-line summary
-    'Food tech': 'Food tech',
-    'AI enablement': 'Capacitação em IA',
-    'Pet food subscription': 'Assinatura de comida para pets',
-    'Beauty tech': 'Beauty tech',
-    'Research lead': 'Líder de pesquisa',
-    'Fintech': 'Fintech',
-    'Product designer': 'Product designer',
+    // Home-page card: the headline metric label and one-line summary
+    'Designers supported': 'Designers apoiados',
     'Built the Claude Code toolchain that lets HelloFresh designers prototype, test and ship straight to production.':
         'Construí o conjunto de ferramentas em Claude Code que permite aos designers da HelloFresh prototipar, testar e entregar direto em produção.',
     'Three years as the only product designer on HelloFresh\'s dog food brand, from funnel to retention.':

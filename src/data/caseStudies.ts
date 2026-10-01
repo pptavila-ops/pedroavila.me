@@ -9,18 +9,17 @@ interface CaseStudy {
     company: string;
     image?: string;
     // Home-page card: a slideshow of the study's images on the left (or just
-    // `cover`, when set), then company · industry · role, the title, one
+    // `cover`, when set), then @company, the title, one
     // headline metric, a one-line summary and scope tags.
     cover?: string;
-    // Shrinks a pinned cover inside the frame to show more of it. Only for
-    // covers on a pure-black background, which blends into the frame's fill.
+    // Sizes a pinned cover relative to fitting the whole image in the frame
+    // (1 = whole image visible; above 1 it crops at the frame's edge). Only
+    // for covers on a pure-black background, which blends into the frame.
     coverScale?: number;
     // Nudges a scaled cover, as a percentage of the frame's width / height
     // (negative moves it left / up).
     coverOffsetX?: number;
     coverOffsetY?: number;
-    industry: string;
-    role: string;
     metric: { value: string; label: string };
     summary: string;
     tags: string[];
@@ -35,11 +34,7 @@ export const caseStudies: CaseStudy[] = [
         year: '2026 – Now',
         company: 'HelloFresh',
         cover: '/hellofresh-card.webp',
-        coverScale: 0.85,
-        coverOffsetY: 4,
-        industry: 'Food tech',
-        role: 'AI enablement',
-        metric: { value: '26+', label: 'Designers Supported' },
+        metric: { value: '26+', label: 'Designers supported' },
         summary: 'Built the Claude Code toolchain that lets HelloFresh designers prototype, test and ship straight to production.',
         tags: ['AI Enablement', 'Design-to-Code', 'Design Operations'],
         image: '/card-hover.webp',
@@ -59,11 +54,9 @@ export const caseStudies: CaseStudy[] = [
         year: '2023 – 2025',
         company: 'The Pets Table',
         cover: '/tpt-top.webp',
-        coverScale: 0.85,
+        coverScale: 0.98,
         coverOffsetX: -4,
-        industry: 'Pet food subscription',
-        role: 'Sole designer',
-        metric: { value: '+8.2%', label: 'Net Revenue' },
+        metric: { value: '3 yrs', label: 'Sole designer' },
         summary: 'Three years as the only product designer on HelloFresh\'s dog food brand, from funnel to retention.',
         tags: ['Product Design', 'Growth', 'Retention'],
         intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Every decision was a negotiation between innovation, speed, and system reuse.',
@@ -77,36 +70,12 @@ export const caseStudies: CaseStudy[] = [
         ],
     },
     {
-        id: 'mvp',
-        title: 'Validating an AI Hair Analysis Concept',
-        year: '2022',
-        company: 'MVP Factory',
-        cover: '/schwarzkopf-1.webp',
-        coverScale: 0.62,
-        industry: 'Beauty tech',
-        role: 'Research lead',
-        metric: { value: '10', label: 'Women interviewed' },
-        summary: 'Ran end-to-end research to tell Schwarzkopf whether an AI hair analysis app was worth building.',
-        tags: ['UX Research', 'User Interviews', 'Concept Testing'],
-        intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app before committing to building it. I led the research end-to-end: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
-        sections: [
-            {
-                text: 'My role was purely research. A Schwarzkopf designer had already built a working prototype. My job was to put it in front of ten women in Germany and come back with honest answers.',
-            },
-            {
-                text: 'The report gave Schwarzkopf a clear view of where the concept worked, where it needed work, and what would need to be true for users to trust it at scale.',
-            },
-        ],
-    },
-    {
         id: 'movix',
         title: 'Designing a Home Financing App for Brazil',
         year: '2017 – 2018',
         company: 'ilia Digital',
         cover: '/movixintro.webp',
-        coverScale: 0.85,
-        industry: 'Fintech',
-        role: 'Product designer',
+        coverScale: 0.98,
         metric: { value: '9mo', label: 'Idea to launch' },
         summary: 'Designed a mobile app that made home financing through CAIXA simple enough for anyone.',
         tags: ['Product Design', 'Mobile', 'UX Research'],
@@ -143,6 +112,26 @@ export const caseStudies: CaseStudy[] = [
             },
             {
                 text: 'Móvix was published on the App Store and Google Play. It was a 9-month project by AIS Digital.',
+            },
+        ],
+    },
+    {
+        id: 'mvp',
+        title: 'Validating an AI Hair Analysis Concept',
+        year: '2022',
+        company: 'MVP Factory',
+        cover: '/schwarzkopf-1.webp',
+        coverScale: 1.12,
+        metric: { value: 'Full', label: 'Research ownership' },
+        summary: 'Ran end-to-end research to tell Schwarzkopf whether an AI hair analysis app was worth building.',
+        tags: ['UX Research', 'User Interviews', 'Concept Testing'],
+        intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app before committing to building it. I led the research end-to-end: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
+        sections: [
+            {
+                text: 'My role was purely research. A Schwarzkopf designer had already built a working prototype. My job was to put it in front of ten women in Germany and come back with honest answers.',
+            },
+            {
+                text: 'The report gave Schwarzkopf a clear view of where the concept worked, where it needed work, and what would need to be true for users to trust it at scale.',
             },
         ],
     },
