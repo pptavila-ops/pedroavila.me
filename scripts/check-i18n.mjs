@@ -50,6 +50,7 @@ for (const file of dictFiles) {
 const TEXT_FIELDS = [
     'title', 'intro', 'content', 'caption', 'label', 'description',
     'text', 'quote', 'value', 'role', 'year', 'sublabel', 'company',
+    'summary', 'industry',
 ];
 
 const missing = [];

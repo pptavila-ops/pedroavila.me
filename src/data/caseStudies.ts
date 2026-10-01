@@ -8,6 +8,22 @@ interface CaseStudy {
     year: string;
     company: string;
     image?: string;
+    // Home-page card: a slideshow of the study's images on the left (or just
+    // `cover`, when set), then company · industry · role, the title, one
+    // headline metric, a one-line summary and scope tags.
+    cover?: string;
+    // Shrinks a pinned cover inside the frame to show more of it. Only for
+    // covers on a pure-black background, which blends into the frame's fill.
+    coverScale?: number;
+    // Nudges a scaled cover, as a percentage of the frame's width / height
+    // (negative moves it left / up).
+    coverOffsetX?: number;
+    coverOffsetY?: number;
+    industry: string;
+    role: string;
+    metric: { value: string; label: string };
+    summary: string;
+    tags: string[];
     intro: string;
     sections: Section[];
 }
@@ -18,6 +34,14 @@ export const caseStudies: CaseStudy[] = [
         title: 'Enabling designers to research, prototype, and ship with AI',
         year: '2026 – Now',
         company: 'HelloFresh',
+        cover: '/hellofresh-card.webp',
+        coverScale: 0.85,
+        coverOffsetY: 4,
+        industry: 'Food tech',
+        role: 'AI enablement',
+        metric: { value: '26+', label: 'Designers Supported' },
+        summary: 'Built the Claude Code toolchain that lets HelloFresh designers prototype, test and ship straight to production.',
+        tags: ['AI Enablement', 'Design-to-Code', 'Design Operations'],
         image: '/card-hover.webp',
         intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering, using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
         sections: [
@@ -34,6 +58,14 @@ export const caseStudies: CaseStudy[] = [
         title: 'Designing The Pets Table from the Ground Up',
         year: '2023 – 2025',
         company: 'The Pets Table',
+        cover: '/tpt-top.webp',
+        coverScale: 0.85,
+        coverOffsetX: -4,
+        industry: 'Pet food subscription',
+        role: 'Sole designer',
+        metric: { value: '+8.2%', label: 'Net Revenue' },
+        summary: 'Three years as the only product designer on HelloFresh\'s dog food brand, from funnel to retention.',
+        tags: ['Product Design', 'Growth', 'Retention'],
         intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Every decision was a negotiation between innovation, speed, and system reuse.',
         sections: [
             {
@@ -49,6 +81,13 @@ export const caseStudies: CaseStudy[] = [
         title: 'Validating an AI Hair Analysis Concept',
         year: '2022',
         company: 'MVP Factory',
+        cover: '/schwarzkopf-1.webp',
+        coverScale: 0.62,
+        industry: 'Beauty tech',
+        role: 'Research lead',
+        metric: { value: '10', label: 'Women interviewed' },
+        summary: 'Ran end-to-end research to tell Schwarzkopf whether an AI hair analysis app was worth building.',
+        tags: ['UX Research', 'User Interviews', 'Concept Testing'],
         intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app before committing to building it. I led the research end-to-end: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
         sections: [
             {
@@ -64,6 +103,13 @@ export const caseStudies: CaseStudy[] = [
         title: 'Designing a Home Financing App for Brazil',
         year: '2017 – 2018',
         company: 'ilia Digital',
+        cover: '/movixintro.webp',
+        coverScale: 0.85,
+        industry: 'Fintech',
+        role: 'Product designer',
+        metric: { value: '9mo', label: 'Idea to launch' },
+        summary: 'Designed a mobile app that made home financing through CAIXA simple enough for anyone.',
+        tags: ['Product Design', 'Mobile', 'UX Research'],
         intro: 'Móvix was an MVP built to help Brazilians finance a house through CAIXA, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic. Our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
         sections: [
             {

@@ -21,6 +21,23 @@ export const ptWork: Record<string, string> = {
     'User Interviews': 'Entrevistas com Usuários',
     'Concept Testing': 'Teste de Conceito',
 
+    // Home-page card: industry · role, and the one-line summary
+    'Food tech': 'Food tech',
+    'AI enablement': 'Capacitação em IA',
+    'Pet food subscription': 'Assinatura de comida para pets',
+    'Beauty tech': 'Beauty tech',
+    'Research lead': 'Líder de pesquisa',
+    'Fintech': 'Fintech',
+    'Product designer': 'Product designer',
+    'Built the Claude Code toolchain that lets HelloFresh designers prototype, test and ship straight to production.':
+        'Construí o conjunto de ferramentas em Claude Code que permite aos designers da HelloFresh prototipar, testar e entregar direto em produção.',
+    'Three years as the only product designer on HelloFresh\'s dog food brand, from funnel to retention.':
+        'Três anos como único product designer da marca de comida para cachorros da HelloFresh, do funil à retenção.',
+    'Ran end-to-end research to tell Schwarzkopf whether an AI hair analysis app was worth building.':
+        'Conduzi a pesquisa de ponta a ponta para dizer à Schwarzkopf se valia a pena construir um app de análise capilar com IA.',
+    'Designed a mobile app that made home financing through CAIXA simple enough for anyone.':
+        'Desenhei um app que deixou o financiamento imobiliário pela CAIXA simples o bastante para qualquer pessoa.',
+
     // Short summaries shown on the home-page cards (src/data/caseStudies.ts)
     'Over the course of a year, we built the infrastructure for designers to ship production-ready code, established contribution models so the system could grow with the team, and created rituals that kept 30+ designers in sync without slowing anyone down.':
         'Ao longo de um ano, construímos a infraestrutura para designers entregarem código pronto para produção, estabelecemos modelos de contribuição para o sistema crescer junto com o time e criamos rituais que mantiveram mais de 30 designers em sintonia sem atrasar ninguém.',

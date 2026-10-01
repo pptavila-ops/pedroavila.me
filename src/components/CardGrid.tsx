@@ -1,4 +1,6 @@
 import type { MouseEvent } from 'react';
+import { CoverSlideshow } from './CoverSlideshow';
+import { caseImages } from '../data/caseImages';
 import { useT } from '../i18n/useLanguage';
 
 interface CaseStudy {
@@ -7,6 +9,15 @@ interface CaseStudy {
     year: string;
     company: string;
     intro: string;
+    cover?: string;
+    coverScale?: number;
+    coverOffsetX?: number;
+    coverOffsetY?: number;
+    industry?: string;
+    role?: string;
+    metric?: { value: string; label: string };
+    summary?: string;
+    tags?: string[];
 }
 
 interface Props {
@@ -40,17 +51,9 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
     const isGrid = layout === 'grid';
 
     if (!isGrid) {
-        const largeCards = caseStudies.slice(0, 2);
-        const smallCards = caseStudies.slice(2);
-
         return (
-            <div className="mt-8 flex flex-col gap-5">
-                {largeCards.map((cs) => <ListCard key={cs.id} cs={cs} openStudy={openStudy} />)}
-                {smallCards.length > 0 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        {smallCards.map((cs) => <SmallCard key={cs.id} cs={cs} openStudy={openStudy} />)}
-                    </div>
-                )}
+            <div className="mt-10 flex flex-col gap-10">
+                {caseStudies.map((cs) => <CaseCard key={cs.id} cs={cs} openStudy={openStudy} />)}
             </div>
         );
     }
@@ -87,27 +90,72 @@ interface CardProps {
     openStudy: (id: string) => void;
 }
 
-function ListCard({ cs, openStudy }: CardProps) {
+// Home-page case card: cover on the left, then context, title, one headline
+// metric, a one-line summary, scope tags and an always-visible "Read" link.
+// The cover cycles through the study's own images, unless the study pins a
+// single `cover`. Stacks with the cover on top below md. On hover the card
+// fills in and the cover zooms slowly; the negative margin keeps the content
+// aligned with the page while the fill bleeds past it.
+function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) => void }) {
     const t = useT();
+    const context = [cs.company, cs.industry && t(cs.industry), cs.role && t(cs.role)].filter(Boolean);
+    const images = cs.cover ? [cs.cover] : caseImages(cs.id);
 
     return (
         <a
             {...studyLinkProps(cs.id, openStudy)}
-            className="group cursor-pointer text-left block w-full"
+            className="group cursor-pointer text-left grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-5 md:gap-8 md:items-center -m-4 p-4 rounded-[32px] hover:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]"
         >
-            <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors px-6 pt-5 pb-5 flex flex-col bg-black z-10 h-[225px]">
-                <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
-                    {t(cs.year)}
+            <div className={`relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
+                {images.length > 0 && (
+                    <div className="w-full h-full group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)]">
+                        <div className="w-full h-full" style={cs.coverScale ? { transform: `translate(${cs.coverOffsetX ?? 0}%, ${cs.coverOffsetY ?? 0}%) scale(${cs.coverScale})` } : undefined}>
+                            <CoverSlideshow images={images} alt={t(cs.title)} />
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/50">
+                    {context.map((part, i) => (
+                        <span key={i} className="flex items-center gap-2">
+                            {i > 0 && <span aria-hidden="true">·</span>}
+                            {part}
+                        </span>
+                    ))}
                     {cs.id === 'design-transformation' && <CurrentRoleTag />}
                 </div>
-                <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{t(cs.title)}</p>
-                <div className="min-w-0 overflow-hidden mt-1 flex-1 min-h-0" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
-                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(t(cs.intro))}</p>
-                </div>
-                <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>
-                <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><ArrowIcon /></div>
-                </div>
+
+                <h3 className="mt-2 text-[22px] md:text-[26px] font-bold leading-[1.2] text-white text-pretty">
+                    {t(cs.title)}
+                </h3>
+
+                {cs.metric && (
+                    <p className="mt-3 flex items-baseline gap-2 text-[15px] text-white/60">
+                        <span className="text-[22px] font-bold text-white tabular-nums">{cs.metric.value}</span>
+                        {t(cs.metric.label)}
+                    </p>
+                )}
+
+                <p className="mt-3 text-[15px] leading-relaxed text-white/60">
+                    {cs.summary ? t(cs.summary) : stripHtml(t(cs.intro))}
+                </p>
+
+                {cs.tags && cs.tags.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                        {cs.tags.map((tag) => (
+                            <span key={tag} className="text-[13px] text-white/70 bg-white/10 group-hover:bg-white/15 group-hover:text-white/90 rounded-full px-3 py-1 transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]">
+                                {t(tag)}
+                            </span>
+                        ))}
+                    </div>
+                )}
+
+                <span className="mt-5 inline-flex items-center gap-1 text-sm text-white/80 group-hover:text-white transition-colors">
+                    {t('Read case study')}
+                    <span aria-hidden="true" className="transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">›</span>
+                </span>
             </div>
         </a>
     );

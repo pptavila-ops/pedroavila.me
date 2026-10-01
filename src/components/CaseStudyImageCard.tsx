@@ -49,43 +49,42 @@ import { useT } from '../i18n/useLanguage';
 function Card({ item, onOpenStudy, onOpenPlayground }: { item: CaseStudyImageCardItem; onOpenStudy?: (id: string) => void; onOpenPlayground?: () => void }) {
     const t = useT();
 
+    // The cover zooms on a wrapper because FadeImage's inline opacity
+    // transition would override a transform transition on the img itself.
     const inner = (
         <>
-            <div className="h-[200px] overflow-hidden">
+            <div className="h-[200px] rounded-2xl overflow-hidden border border-white/10 bg-white/5 isolate">
                 {item.cover ? (
-                    <FadeImage
-                        src={item.cover}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                        loading="lazy"
-                    />
+                    <div className="w-full h-full group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)]">
+                        <FadeImage
+                            src={item.cover}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
                 ) : (
-                    <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                    <div className="w-full h-full flex items-center justify-center">
                         <span className="text-[80px] font-bold text-white/10 select-none group-hover:text-white/20 transition-colors">
                             {item.title}
                         </span>
                     </div>
                 )}
             </div>
-            <div className="px-5 py-5 flex flex-col flex-1">
+            <div className="pt-4 flex flex-col flex-1">
                 <p className="text-sm text-white/50">{t(item.year)}</p>
-                <p className="text-[17px] font-bold text-white/90 mt-1.5">{item.title}</p>
+                <p className="text-[17px] font-bold text-white/90 group-hover:text-white transition-colors mt-1.5">{item.title}</p>
                 <p className="text-[15px] text-white/60 mt-1 leading-relaxed">{t(item.description)}</p>
                 <div className="flex flex-wrap gap-2 mt-auto pt-3">
-                    <span className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">{t(item.category)}</span>
-                </div>
-            </div>
-            <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
-                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 14C17 14.5523 16.5523 15 16 15C15.4478 15 15 14.5523 15 14V10.4141L8.70708 16.707C8.31655 17.0976 7.68354 17.0976 7.29302 16.707C6.90249 16.3165 6.90249 15.6835 7.29302 15.293L13.586 9H10C9.44776 9 9.00005 8.55228 9.00005 8C9.00005 7.44772 9.44776 7 10 7H16C16.5523 7 17 7.44772 17 8V14Z" fill="black" />
-                    </svg>
+                    <span className="text-[13px] text-white/80 bg-white/15 group-hover:bg-white/20 group-hover:text-white rounded-full px-3 py-1 transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]">{t(item.category)}</span>
                 </div>
             </div>
         </>
     );
 
-    const sharedClass = "group cursor-pointer text-left relative overflow-hidden rounded-xl border border-white/15 hover:border-white/25 transition-colors bg-black flex flex-col";
+    // No box at rest: the image carries its own radius and the text sits loose
+    // beneath it. On hover the card fills in, matching the client case cards.
+    const sharedClass = "group cursor-pointer text-left flex flex-col -m-3 p-3 rounded-[28px] hover:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]";
 
     if (item.href) {
         return (
@@ -123,7 +122,7 @@ export function CaseStudyImageCard({ onOpenStudy, onOpenPlayground, excludeId }:
             <p className="text-[28px] md:text-[32px] font-bold tracking-tight leading-[1.2] text-white">
                 {title}
             </p>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {visibleItems.map((item) => (
                     <Card key={item.id} item={item} onOpenStudy={onOpenStudy} onOpenPlayground={onOpenPlayground} />
                 ))}

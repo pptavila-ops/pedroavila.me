@@ -46,6 +46,7 @@ export const ptUi: Record<string, string> = {
     'Back': 'Voltar',
     'Current Role': 'Cargo Atual',
     'Explore other case studies': 'Explore outros cases',
+    'Read case study': 'Ler case',
     'Play': 'Reproduzir',
     'Pause': 'Pausar',
     'Previous': 'Anterior',
