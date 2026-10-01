@@ -11,9 +11,6 @@ interface CaseStudy {
     company: string;
     intro: string;
     cover?: string;
-    coverScale?: number;
-    coverOffsetX?: number;
-    coverOffsetY?: number;
     metric?: { value: string; label: string };
     summary?: string;
     tags?: string[];
@@ -107,12 +104,10 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
             {...studyLinkProps(cs.id, openStudy)}
             className="group cursor-pointer text-left grid grid-cols-1 lg:grid-cols-[min(50%,400px)_minmax(0,1fr)] rounded-3xl overflow-hidden border border-white/10 hover:border-white/25 hover:bg-white/[0.03] active:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
-            <div className={`relative aspect-[4/3] lg:aspect-auto lg:min-h-[20rem] overflow-hidden isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
+            <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[20rem] overflow-hidden isolate bg-white/5">
                 {images.length > 0 && (
                     <div className="absolute inset-0 group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
-                        <div className="w-full h-full" style={cs.coverScale ? { transform: `translate(${cs.coverOffsetX ?? 0}%, ${cs.coverOffsetY ?? 0}%) scale(${cs.coverScale})` } : undefined}>
-                            <CoverSlideshow images={images} alt="" fit={cs.coverScale ? 'contain' : 'cover'} />
-                        </div>
+                        <CoverSlideshow images={images} alt="" />
                     </div>
                 )}
                 <div className="absolute top-3 left-3 right-3 flex flex-wrap gap-1.5">

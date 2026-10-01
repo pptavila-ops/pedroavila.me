@@ -3,9 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 interface Props {
     images: string[];
     alt: string;
-    // 'contain' shows the whole image, so any crop happens at the frame's
-    // edge when the caller scales it up, never inside the frame.
-    fit?: 'cover' | 'contain';
 }
 
 const SLIDE_MS = 3500;
@@ -15,7 +12,7 @@ const FADE_MS = 1200;
 // on the visible one. Only the previous, current and next images are mounted,
 // so a card never downloads its whole gallery up front. It pauses while the
 // card is off screen and stays on the first image for reduced motion.
-export function CoverSlideshow({ images, alt, fit = 'cover' }: Props) {
+export function CoverSlideshow({ images, alt }: Props) {
     const ref = useRef<HTMLDivElement>(null);
     const [index, setIndex] = useState(0);
     const [visible, setVisible] = useState(false);
@@ -52,7 +49,7 @@ export function CoverSlideshow({ images, alt, fit = 'cover' }: Props) {
                         aria-hidden={!shown}
                         loading="lazy"
                         decoding="async"
-                        className={`absolute inset-0 w-full h-full ${fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                        className="absolute inset-0 w-full h-full object-cover"
                         style={{
                             opacity: shown ? 1 : 0,
                             // The outgoing image keeps its zoom while it fades,

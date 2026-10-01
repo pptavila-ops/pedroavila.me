@@ -8,18 +8,10 @@ interface CaseStudy {
     year: string;
     company: string;
     image?: string;
-    // Home-page card: a slideshow of the study's images on the left (or just
-    // `cover`, when set), then @company, the title, one
-    // headline metric, a one-line summary and scope tags.
+    // Home-page card: a slideshow of the study's images (or just `cover`,
+    // when set — a full-bleed 1600px square, key content in the centre), then
+    // the title, one headline metric, a one-line summary and scope tags.
     cover?: string;
-    // Sizes a pinned cover relative to fitting the whole image in the frame
-    // (1 = whole image visible; above 1 it crops at the frame's edge). Only
-    // for covers on a pure-black background, which blends into the frame.
-    coverScale?: number;
-    // Nudges a scaled cover, as a percentage of the frame's width / height
-    // (negative moves it left / up).
-    coverOffsetX?: number;
-    coverOffsetY?: number;
     metric: { value: string; label: string };
     summary: string;
     tags: string[];
