@@ -3,7 +3,7 @@ import type { RichCaseStudy } from './templateCaseStudy';
 export const richCaseStudies: RichCaseStudy[] = [
     {
         id: 'design-transformation',
-        title: 'Enabling designers to research, prototype, and ship with AI',
+        title: 'Helping HelloFresh designers go from idea to production with AI',
         year: 'Jan 2026 – Now',
         company: 'HelloFresh',
         role: 'Consumer Acceleration',
@@ -252,7 +252,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'pets-table',
-        title: 'Designing The Pets Table from the ground up',
+        title: 'Helping pet parents feed their dogs fresh, healthy food',
         year: '2023 – 2025',
         company: 'HelloFresh',
         role: 'Product Designer → Sr. Product Designer',
@@ -534,7 +534,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'movix',
-        title: 'Designing a home financing app for Brazil',
+        title: 'Helping Brazilian families finance their own home',
         year: '2017 – 2018',
         company: 'ilia Digital',
         companyUrl: 'https://ilia.digital/en/',
@@ -936,7 +936,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'mvp',
-        title: 'Validating an AI hair analysis concept',
+        title: 'Helping Schwarzkopf decide if an AI hair app was worth building',
         year: '2022',
         company: 'MVP Factory',
         role: 'UX Researcher',

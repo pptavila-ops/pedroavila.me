@@ -95,8 +95,8 @@ export const ptWork: Record<string, string> = {
     'Credits': 'Créditos',
 
     // ── HelloFresh · design transformation ───────────────────────────
-    'Enabling designers to research, prototype, and ship with AI':
-        'Capacitando designers a pesquisar, prototipar e entregar com IA',
+    'Helping HelloFresh designers go from idea to production with AI':
+        'Ajudando designers da HelloFresh a ir da ideia à produção com IA',
     'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering, using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.':
         'No começo de 2026, entrei no time de Consumer Acceleration da HelloFresh com a missão de fechar a lacuna entre o design de UX e a engenharia de produção, usando IA como acelerador. O que começou como uma exploração individual com o Claude Code virou um movimento do time inteiro, uma nova cadeia de ferramentas interna e um novo padrão de como os designers da HelloFresh entregam.',
 
@@ -214,7 +214,8 @@ export const ptWork: Record<string, string> = {
         'O sinal mais duradouro: designers da empresa inteira passaram a fazer merge de código de produção como parte normal do trabalho, não como exceção. Não porque mandaram, mas porque as ferramentas tornaram isso possível e a comunidade fez com que parecesse seguro. Essa virada, de o design ser uma camada de handoff para ser um contribuinte direto do que é entregue, é do que mais me orgulho.',
 
     // ── The Pets Table ───────────────────────────────────────────────
-    'Designing The Pets Table from the ground up': 'Construindo The Pets Table do zero',
+    'Helping pet parents feed their dogs fresh, healthy food':
+        'Ajudando tutores a alimentar seus cachorros com comida fresca e saudável',
     'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Every decision was a negotiation between innovation, speed, and system reuse.':
         'The Pets Table é a assinatura de comida fresca para cães da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer alocado na squad da TPT, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro. Cada decisão foi uma negociação entre inovação, velocidade e reúso do sistema.',
     'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.':
@@ -372,8 +373,8 @@ export const ptWork: Record<string, string> = {
     'The new recipe detail page.': 'A nova página de detalhe da receita.',
 
     // ── Móvix ────────────────────────────────────────────────────────
-    'Designing a home financing app for Brazil':
-        'Construindo um app de financiamento imobiliário para o Brasil',
+    'Helping Brazilian families finance their own home':
+        'Ajudando famílias brasileiras a financiar a casa própria',
     'Móvix was an MVP built to help Brazilians finance a house through CAIXA, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic. Our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.':
         'O Móvix foi um MVP criado para ajudar brasileiros a financiar uma casa pela CAIXA, um dos maiores bancos do país. Financiar um imóvel no Brasil é notoriamente complexo e burocrático. Nosso objetivo era criar uma experiência mobile que tornasse simulação, documentação e acompanhamento simples o suficiente para qualquer pessoa, independentemente do seu letramento digital.',
     'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic, our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.':
@@ -447,7 +448,8 @@ export const ptWork: Record<string, string> = {
         'O Móvix ficou disponível na App Store e no Google Play até fevereiro de 2019.',
 
     // ── MVP Factory · Schwarzkopf ────────────────────────────────────
-    'Validating an AI hair analysis concept': 'Validando um conceito de análise capilar com IA',
+    'Helping Schwarzkopf decide if an AI hair app was worth building':
+        'Ajudando a Schwarzkopf a decidir se valia a pena construir um app de cabelo com IA',
     'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app before committing to building it. I led the research end-to-end: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.':
         'A Schwarzkopf queria saber se mulheres na Alemanha confiariam e usariam um app de análise capilar com IA antes de se comprometer a construí-lo. Conduzi a pesquisa de ponta a ponta: recrutamento, roteiro, dez entrevistas moderadas, síntese dos insights no Dovetail e um relatório final entregue à Henkel.',
     'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app, before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.':
