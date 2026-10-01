@@ -22,15 +22,19 @@ export const ptWork: Record<string, string> = {
     'Concept Testing': 'Teste de Conceito',
 
     // Home-page card: the headline metric label and one-line summary
-    'Designers supported': 'Designers apoiados',
-    'Built the Claude Code toolchain that lets HelloFresh designers prototype, test and ship straight to production.':
+    // Metric value + label read as one phrase: "9 months from idea to launch"
+    'designers supported': 'designers apoiados',
+    'years as sole designer': 'anos como designer único',
+    'months from idea to launch': 'meses da ideia ao lançamento',
+    'research ownership': 'responsabilidade pela pesquisa',
+    'Built the Claude Code toolchain that lets HelloFresh designers prototype, test, and ship straight to production.':
         'Construí o conjunto de ferramentas em Claude Code que permite aos designers da HelloFresh prototipar, testar e entregar direto em produção.',
-    'Three years as the only product designer on HelloFresh\'s dog food brand, from funnel to retention.':
-        'Três anos como único product designer da marca de comida para cachorros da HelloFresh, do funil à retenção.',
+    'Shaped HelloFresh\'s dog food brand end to end, from the acquisition funnel to retention.':
+        'Desenhei a marca de comida para cachorros da HelloFresh de ponta a ponta, do funil de aquisição à retenção.',
     'Ran end-to-end research to tell Schwarzkopf whether an AI hair analysis app was worth building.':
         'Conduzi a pesquisa de ponta a ponta para dizer à Schwarzkopf se valia a pena construir um app de análise capilar com IA.',
-    'Designed a mobile app that made home financing through CAIXA simple enough for anyone.':
-        'Desenhei um app que deixou o financiamento imobiliário pela CAIXA simples o bastante para qualquer pessoa.',
+    'Designed an app that made financing a home through CAIXA, one of Brazil\'s biggest banks, simple enough for anyone.':
+        'Desenhei um app que deixou o financiamento da casa própria pela CAIXA, um dos maiores bancos do Brasil, simples o bastante para qualquer pessoa.',
 
     // Short summaries shown on the home-page cards (src/data/caseStudies.ts)
     'Over the course of a year, we built the infrastructure for designers to ship production-ready code, established contribution models so the system could grow with the team, and created rituals that kept 30+ designers in sync without slowing anyone down.':
@@ -210,7 +214,7 @@ export const ptWork: Record<string, string> = {
         'O sinal mais duradouro: designers da empresa inteira passaram a fazer merge de código de produção como parte normal do trabalho, não como exceção. Não porque mandaram, mas porque as ferramentas tornaram isso possível e a comunidade fez com que parecesse seguro. Essa virada, de o design ser uma camada de handoff para ser um contribuinte direto do que é entregue, é do que mais me orgulho.',
 
     // ── The Pets Table ───────────────────────────────────────────────
-    'Designing The Pets Table from the Ground Up': 'Construindo The Pets Table do zero',
+    'Designing The Pets Table from the ground up': 'Construindo The Pets Table do zero',
     'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer embedded in the TPT squad, owning UX across the full funnel, post-checkout, and member experience. Every decision was a negotiation between innovation, speed, and system reuse.':
         'The Pets Table é a assinatura de comida fresca para cães da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer alocado na squad da TPT, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro. Cada decisão foi uma negociação entre inovação, velocidade e reúso do sistema.',
     'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.':
@@ -368,7 +372,7 @@ export const ptWork: Record<string, string> = {
     'The new recipe detail page.': 'A nova página de detalhe da receita.',
 
     // ── Móvix ────────────────────────────────────────────────────────
-    'Designing a Home Financing App for Brazil':
+    'Designing a home financing app for Brazil':
         'Construindo um app de financiamento imobiliário para o Brasil',
     'Móvix was an MVP built to help Brazilians finance a house through CAIXA, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic. Our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.':
         'O Móvix foi um MVP criado para ajudar brasileiros a financiar uma casa pela CAIXA, um dos maiores bancos do país. Financiar um imóvel no Brasil é notoriamente complexo e burocrático. Nosso objetivo era criar uma experiência mobile que tornasse simulação, documentação e acompanhamento simples o suficiente para qualquer pessoa, independentemente do seu letramento digital.',
@@ -443,7 +447,7 @@ export const ptWork: Record<string, string> = {
         'O Móvix ficou disponível na App Store e no Google Play até fevereiro de 2019.',
 
     // ── MVP Factory · Schwarzkopf ────────────────────────────────────
-    'Validating an AI Hair Analysis Concept': 'Validando um conceito de análise capilar com IA',
+    'Validating an AI hair analysis concept': 'Validando um conceito de análise capilar com IA',
     'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app before committing to building it. I led the research end-to-end: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.':
         'A Schwarzkopf queria saber se mulheres na Alemanha confiariam e usariam um app de análise capilar com IA antes de se comprometer a construí-lo. Conduzi a pesquisa de ponta a ponta: recrutamento, roteiro, dez entrevistas moderadas, síntese dos insights no Dovetail e um relatório final entregue à Henkel.',
     'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app, before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.':

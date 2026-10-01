@@ -1,4 +1,5 @@
 import type { MouseEvent } from 'react';
+import { TagLine } from './TagLine';
 import { CoverSlideshow } from './CoverSlideshow';
 import { caseImages } from '../data/caseImages';
 import { useT } from '../i18n/useLanguage';
@@ -50,7 +51,7 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
 
     if (!isGrid) {
         return (
-            <div className="mt-16 md:mt-20 flex flex-col gap-10">
+            <div className="mt-8 md:mt-20 flex flex-col gap-6">
                 {caseStudies.map((cs) => <CaseCard key={cs.id} cs={cs} openStudy={openStudy} />)}
             </div>
         );
@@ -88,12 +89,14 @@ interface CardProps {
     openStudy: (id: string) => void;
 }
 
-// Home-page case card: cover on the left, then @company, title, one headline
-// metric, a one-line summary, scope tags and an always-visible "Read" link.
-// The cover cycles through the study's own images, unless the study pins a
-// single `cover`. Stacks with the cover on top below md. On hover the card
-// fills in and the cover zooms slowly; the negative margin keeps the content
-// aligned with the page while the fill bleeds past it.
+// Home-page case card: one bordered panel split in two — the cover fills the
+// left half edge to edge (stretching to the text's height on md+) with the
+// @company (and current-role) badges on it; the right half holds the title,
+// headline metric and summary, closed by a divider
+// and a meta row (years · scope). The cover cycles through the study's own
+// images unless the study pins a single `cover`. Stacks with the cover on top
+// below md. On hover the border brightens, the panel fills in slightly and the
+// cover zooms slowly.
 function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) => void }) {
     const t = useT();
     const images = cs.cover ? [cs.cover] : caseImages(cs.id);
@@ -101,31 +104,32 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
     return (
         <a
             {...studyLinkProps(cs.id, openStudy)}
-            className="group cursor-pointer text-left grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-5 md:gap-8 md:items-center -m-4 p-4 rounded-[32px] hover:bg-white/[0.06] active:bg-white/[0.09] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="group cursor-pointer text-left grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden border border-white/10 hover:border-white/25 hover:bg-white/[0.03] active:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
-            <div className={`relative aspect-square rounded-2xl overflow-hidden border border-white/10 isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
+            <div className={`relative aspect-[4/3] md:aspect-auto md:min-h-[20rem] overflow-hidden isolate ${cs.coverScale ? 'bg-black' : 'bg-white/5'}`}>
                 {images.length > 0 && (
-                    <div className="w-full h-full group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+                    <div className="absolute inset-0 group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
                         <div className="w-full h-full" style={cs.coverScale ? { transform: `translate(${cs.coverOffsetX ?? 0}%, ${cs.coverOffsetY ?? 0}%) scale(${cs.coverScale})` } : undefined}>
                             <CoverSlideshow images={images} alt="" fit={cs.coverScale ? 'contain' : 'cover'} />
                         </div>
                     </div>
                 )}
+                <div className="absolute top-3 left-3 right-3 flex flex-wrap gap-1.5">
+                    <span className="rounded-full bg-black/75 backdrop-blur-md border border-white/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">@{cs.company}</span>
+                    {cs.id === 'design-transformation' && (
+                        <span className="rounded-full bg-black/75 backdrop-blur-md border border-white/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">{t('Current Role')}</span>
+                    )}
+                </div>
             </div>
 
-            <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-2 text-[15px] text-white/60">
-                    @{cs.company}
-                    {cs.id === 'design-transformation' && <CurrentRoleTag />}
-                </div>
-
-                <h2 className="mt-2 text-[22px] md:text-[26px] font-bold leading-[1.2] text-white text-pretty">
+            <div className="min-w-0 p-6 md:p-8 flex flex-col justify-center">
+                <h2 className="text-[22px] md:text-[26px] font-bold leading-[1.2] text-white text-pretty">
                     {t(cs.title)}
                 </h2>
 
                 {cs.metric && (
-                    <p className="mt-3 flex items-baseline gap-2 text-[15px] text-white/60">
-                        <span className="text-[22px] font-bold text-white tabular-nums">{cs.metric.value}</span>
+                    <p className="mt-3 flex items-center gap-2 text-[15px] font-bold text-white/70">
+                        <span className="text-[22px] leading-none tabular-nums">{t(cs.metric.value)}</span>
                         {t(cs.metric.label)}
                     </p>
                 )}
@@ -134,20 +138,12 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
                     {cs.summary ? t(cs.summary) : stripHtml(t(cs.intro))}
                 </p>
 
-                {cs.tags && cs.tags.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                        {cs.tags.map((tag) => (
-                            <span key={tag} className="text-[13px] text-white/70 bg-white/10 group-hover:bg-white/15 group-hover:text-white/90 rounded-full px-3 py-1 transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                                {t(tag)}
-                            </span>
-                        ))}
-                    </div>
-                )}
-
-                <span className="mt-5 inline-flex items-center gap-1 text-sm text-white/80 group-hover:text-white transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                    {t('Read case study')}
-                    <span aria-hidden="true" className="transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0">›</span>
-                </span>
+                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                    <TagLine tags={[cs.year]} className="text-white/60" />
+                    {cs.tags && (
+                        <TagLine tags={cs.tags} className="text-white/80 group-hover:text-white transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]" />
+                    )}
+                </div>
             </div>
         </a>
     );

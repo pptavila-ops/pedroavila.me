@@ -46,7 +46,6 @@ export const ptUi: Record<string, string> = {
     'Back': 'Voltar',
     'Current Role': 'Cargo Atual',
     'Explore other case studies': 'Explore outros cases',
-    'Read case study': 'Ler case',
     'Play': 'Reproduzir',
     'Pause': 'Pausar',
     'Previous': 'Anterior',
@@ -66,7 +65,6 @@ export const ptUi: Record<string, string> = {
     'Object Book': 'Livro-objeto',
     'A bilingual object book about memory and the Brazilian Military Dictatorship.':
         'Um livro-objeto bilíngue sobre memória e a ditadura militar brasileira.',
-    'Free Exploration': 'Exploração Livre',
     'Side projects and free explorations.': 'Projetos paralelos e explorações livres.',
 
     // ── Brand carousel ───────────────────────────────────────────────

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { TagLine } from './TagLine';
 import type { RichCaseStudy, StoriesSlide } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { FadeImage } from './FadeImage';
@@ -526,15 +527,7 @@ function CoverSlide({ slide }: { slide: StoriesSlide }) {
                 <blockquote className="text-[20px] md:text-[23px] font-semibold text-white leading-[1.55]">
                     {t(slide.quote)}
                 </blockquote>
-                {slide.tags && (
-                    <div className="flex flex-wrap gap-2">
-                        {slide.tags.map((tag) => (
-                            <span key={tag} className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">
-                                {t(tag)}
-                            </span>
-                        ))}
-                    </div>
-                )}
+                {slide.tags && <TagLine tags={slide.tags} />}
             </div>
         </div>
     );

@@ -252,7 +252,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'pets-table',
-        title: 'Designing The Pets Table from the Ground Up',
+        title: 'Designing The Pets Table from the ground up',
         year: '2023 – 2025',
         company: 'HelloFresh',
         role: 'Product Designer → Sr. Product Designer',
@@ -534,7 +534,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'movix',
-        title: 'Designing a Home Financing App for Brazil',
+        title: 'Designing a home financing app for Brazil',
         year: '2017 – 2018',
         company: 'ilia Digital',
         companyUrl: 'https://ilia.digital/en/',
@@ -936,7 +936,7 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'mvp',
-        title: 'Validating an AI Hair Analysis Concept',
+        title: 'Validating an AI hair analysis concept',
         year: '2022',
         company: 'MVP Factory',
         role: 'UX Researcher',

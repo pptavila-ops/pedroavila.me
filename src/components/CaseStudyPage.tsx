@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { TagLine } from './TagLine';
 import type { RichCaseStudy, RichSection } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
 import { StickyHeader } from './StickyHeader';
@@ -294,15 +295,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
                         <span>@{study.company}</span>
                     )}
                 </div>
-                {study.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-4">
-                        {study.tags.map((tag) => (
-                            <span key={tag} className="text-[13px] text-white/80 bg-white/15 rounded-full px-3 py-1">
-                                {t(tag)}
-                            </span>
-                        ))}
-                    </div>
-                )}
+                <TagLine tags={study.tags} className="mt-4 text-white/70" />
             </div>
 
             {/* Brief — problem / what I did / what I designed */}
