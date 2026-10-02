@@ -286,27 +286,48 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
                 <h1 className="text-[32px] md:text-[44px] font-bold leading-[1.15] text-white tracking-normal">
                     {t(study.title)}
                 </h1>
-                <div className="flex items-center gap-2 text-[15px] text-white/60 mt-3">
-                    <span>{t(study.year)}</span>
-                    <span>·</span>
-                    {study.companyUrl ? (
-                        <a href={study.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">@{study.company}</a>
-                    ) : (
-                        <span>@{study.company}</span>
-                    )}
-                </div>
-                <TagLine tags={study.tags} className="mt-4 text-white/70" />
+                {study.lede && (
+                    <p className="mt-4 text-lg md:text-xl leading-relaxed text-white/70">
+                        {t(study.lede)}
+                    </p>
+                )}
+                <dl className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 border-y border-white/10 py-5">
+                    <div>
+                        <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">{t('Company')}</dt>
+                        <dd className="mt-1.5 text-[15px] text-white">
+                            {study.companyUrl ? (
+                                <a href={study.companyUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-white/30 underline-offset-2 hover:decoration-white transition-colors">{study.company}</a>
+                            ) : (
+                                study.company
+                            )}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">{t('Year')}</dt>
+                        <dd className="mt-1.5 text-[15px] text-white">{t(study.year)}</dd>
+                    </div>
+                    <div className="col-span-2 md:col-span-1">
+                        <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">{t('Role')}</dt>
+                        <dd className="mt-1.5 text-[15px] text-white">{t(study.role)}</dd>
+                    </div>
+                </dl>
+                <TagLine tags={study.tags} className="mt-4 text-white/60" />
             </div>
 
-            {/* Brief — problem / what I did / what I designed */}
+            {/* Brief — the problem and what I did, side by side on desktop */}
             {study.brief ? (
-                <div className="mt-8 flex flex-col gap-8">
+                <div className="mt-12 grid md:grid-cols-2 gap-10 md:gap-12">
                     {study.brief.map((row) => (
-                        <div key={row.label} className="border-t border-white/15 pt-4">
-                            <p className="text-sm font-semibold uppercase tracking-widest text-white/50">
+                        <div key={row.label}>
+                            <p className="text-xs font-semibold uppercase tracking-widest text-white/50">
                                 {t(row.label)}
                             </p>
-                            <p className="mt-3 text-[16px] md:text-[17px] leading-relaxed text-white/75">
+                            {row.headline && (
+                                <p className="mt-3 text-[20px] md:text-[22px] font-bold leading-snug text-white">
+                                    {t(row.headline)}
+                                </p>
+                            )}
+                            <p className="mt-3 text-[16px] leading-relaxed text-white/70">
                                 {t(row.content)}
                             </p>
                         </div>

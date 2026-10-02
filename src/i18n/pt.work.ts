@@ -62,30 +62,57 @@ export const ptWork: Record<string, string> = {
     // Brief labels at the top of every study (src/components/CaseStudyPage.tsx).
     // 'Problem' lives further down, with the Pets Table deep-dive summary.
     'What I did': 'O que eu fiz',
+    'Company': 'Empresa',
+    'Year': 'Ano',
+    'Role': 'Papel',
 
-    // ── Briefs · HelloFresh design transformation ────────────────────
-    'Nine brands across different codebases, and a gap between what UX designed and what engineering shipped. Prototyping with AI was getting faster at the same time, with nothing keeping the quality and consistency of what came out of it in line with Zest, our design system.':
-        'Nove marcas espalhadas por bases de código diferentes e uma lacuna entre o que o UX desenhava e o que a engenharia entregava. Ao mesmo tempo, prototipar com IA ficava cada vez mais rápido, sem nada que mantivesse a qualidade e a consistência do resultado alinhadas ao Zest, nosso design system.',
-    'Built a suite of Claude Code commands covering prototype creation, live iteration, AI-run usability testing, publishing, and implementing UI changes directly in React and React Native, packaged as a UX plugin inside HelloFresh\'s shared AI repository. It came out of shipping production code myself first, then turning that experiment into something the whole team could use.':
-        'Construí um conjunto de comandos no Claude Code cobrindo criação de protótipos, iteração ao vivo, testes de usabilidade rodados por IA, publicação e implementação de mudanças de UI direto em React e React Native, empacotado como um plugin de UX dentro do repositório de IA compartilhado da HelloFresh. Isso saiu de primeiro entregar código em produção por conta própria e depois transformar esse experimento em algo que o time inteiro pudesse usar.',
+    // ── Briefs · HelloFresh design transformation ────────────────────────────
+    'I built the Claude Code toolkit that lets HelloFresh designers prototype, test, and ship UI straight to production, across all nine brands.':
+        'Construí o conjunto de ferramentas no Claude Code que permite aos designers da HelloFresh prototipar, testar e levar UI direto para produção, nas nove marcas.',
+    'Design intent got lost between Figma and production.':
+        'A intenção do design se perdia entre o Figma e a produção.',
+    'Nine brands, each with its own codebase, and a long handoff where what UX designed was reinterpreted ticket by ticket. AI prototyping was speeding up too, with nothing keeping its output in line with Zest, our design system.':
+        'Nove marcas, cada uma com sua própria base de código, e um handoff longo em que o que o UX desenhava era reinterpretado ticket a ticket. Prototipar com IA também ficava mais rápido, sem nada que mantivesse o resultado alinhado ao Zest, nosso design system.',
+    'I shipped production code myself, then turned it into tools for the whole team.':
+        'Coloquei código em produção eu mesmo e depois transformei isso em ferramentas para o time inteiro.',
+    'A suite of Claude Code commands to create, iterate, test, and publish prototypes, and to implement UI changes directly in React and React Native, packaged as a UX plugin in HelloFresh\'s shared AI repository.':
+        'Um conjunto de comandos no Claude Code para criar, iterar, testar e publicar protótipos, e para implementar mudanças de UI direto em React e React Native, empacotado como um plugin de UX no repositório de IA compartilhado da HelloFresh.',
 
-    // ── Briefs · The Pets Table ──────────────────────────────────────
-    'HelloFresh was launching its first pet food brand and I was assigned as its designer, from launch through to scale. It had to start on a white-label front end built for humans picking weekly meals, with no concept of pet profiles, multi-pet households, add-ons, or the long delivery cadences dog food actually runs on.':
-        'A HelloFresh ia lançar sua primeira marca de comida para pets e eu fui designado como designer dela, do lançamento até a escala. Ela teve que começar em cima de um front-end white-label feito para humanos escolhendo refeições semanais, sem noção de perfis de pet, casas com vários cachorros, add-ons ou das cadências longas de entrega em que a comida para cães realmente funciona.',
-    'Sole designer for three years: mapped the system with OOUX, built the Figma and Zest foundations, ran interviews and usability testing, and validated every bet through A/B tests. Out of that came the acquisition quiz, plans and checkout, the delivery dashboard and its quick actions, the add-ons store, variable delivery cadence, and CVR-focused features like breed-specific personalisation, which I shipped myself in production code.':
-        'Designer único por três anos: mapeei o sistema com OOUX, construí as fundações no Figma e no Zest, conduzi entrevistas e testes de usabilidade e validei cada aposta com testes A/B. Daí saíram o quiz de aquisição, a página de planos e o checkout, o painel de entregas e suas ações rápidas, a loja de add-ons, a cadência de entrega variável e features focadas em CVR como a personalização por raça, esta última entregue por mim direto no código de produção.',
+    // ── Briefs · The Pets Table ──────────────────────────────────────────────
+    'Three years as the sole product designer of HelloFresh\'s fresh dog food brand, from launch to a subscription built around how dogs actually eat.':
+        'Três anos como único product designer da marca de comida fresca para cães da HelloFresh, do lançamento a uma assinatura pensada em como os cães realmente comem.',
+    'A dog food brand running on a front end built for human meal kits.':
+        'Uma marca de comida para cães rodando num front-end feito para meal kits de humanos.',
+    'The white-label platform had no idea what a pet profile was, couldn\'t handle multi-pet households or add-ons, and assumed weekly deliveries when dog food runs on cadences of four to eight weeks.':
+        'A plataforma white-label não sabia o que era um perfil de pet, não lidava com casas com vários cachorros nem com add-ons, e pressupunha entregas semanais, quando comida para cães funciona em cadências de quatro a oito semanas.',
+    'I designed the whole subscription, and tested every bet before scaling it.':
+        'Desenhei a assinatura inteira e testei cada aposta antes de escalar.',
+    'Mapped the system with OOUX, built the Figma and Zest foundations, and validated changes through interviews, usability tests, and A/B tests: the acquisition quiz, checkout, delivery dashboard, add-ons store, and variable delivery cadence, some of it shipped in production code by me.':
+        'Mapeei o sistema com OOUX, construí as fundações no Figma e no Zest e validei as mudanças com entrevistas, testes de usabilidade e testes A/B: o quiz de aquisição, o checkout, o painel de entregas, a loja de add-ons e a cadência de entrega variável, parte disso entregue por mim direto no código de produção.',
 
-    // ── Briefs · Móvix ───────────────────────────────────────────────
-    'Financing a home through CAIXA meant dense paperwork, in-person appointments, and no visibility into your own application. Most Brazilians had no way to know how much they could borrow without a broker sitting next to them.':
-        'Financiar uma casa pela CAIXA significava papelada densa, atendimento presencial e nenhuma visibilidade do próprio processo. A maioria dos brasileiros não tinha como saber quanto conseguiria financiar sem um corretor sentado ao lado.',
-    'Ran workshops with stakeholders to define the main features, and used mind maps to work out the information architecture. Designed the full flow for running a simulation and opening a financing request online alongside Jenny Soares, turning an almost entirely analogue experience into a digital one. Usability testing came later, at a home financing fair in Brasília, to refine what was already built.':
-        'Conduzi workshops com os stakeholders para definir as principais features e usei mind maps para desenhar a arquitetura da informação. Desenhei o fluxo completo de fazer uma simulação e abrir um pedido de financiamento online junto da Jenny Soares, transformando uma experiência quase inteiramente analógica em algo digital. Os testes de usabilidade vieram depois, numa feira de financiamento em Brasília, para aprimorar o que já estava construído.',
+    // ── Briefs · Móvix ───────────────────────────────────────────────────────
+    'An MVP for CAIXA that moved home financing in Brazil from paperwork and branch visits to a simulation anyone could run on their phone.':
+        'Um MVP para a CAIXA que levou o financiamento imobiliário no Brasil da papelada e das idas à agência para uma simulação que qualquer pessoa conseguia fazer no celular.',
+    'Financing a home meant paperwork, queues, and no idea how much you could borrow.':
+        'Financiar uma casa significava papelada, fila e nenhuma ideia de quanto dava para financiar.',
+    'Applying through CAIXA required in-person appointments and gave you no view of your own application. Most people needed a broker just to get an estimate.':
+        'Pedir um financiamento pela CAIXA exigia atendimento presencial e não dava nenhuma visibilidade do próprio processo. A maioria das pessoas precisava de um corretor só para ter uma estimativa.',
+    'I designed the simulation and application flow from scratch.':
+        'Desenhei do zero o fluxo de simulação e de pedido de financiamento.',
+    'Ran workshops with stakeholders to define the features, mapped the information architecture, and designed the full flow alongside Jenny Soares. We then tested it with real users at a home financing fair in Brasília.':
+        'Conduzi workshops com os stakeholders para definir as features, mapeei a arquitetura da informação e desenhei o fluxo completo junto da Jenny Soares. Depois testamos com usuários reais numa feira de financiamento em Brasília.',
 
-    // ── Briefs · MVP Factory · Schwarzkopf ───────────────────────────
-    'Schwarzkopf needed to know whether women in Germany would trust an AI to analyse their hair and recommend products, before committing budget to building the app.':
-        'A Schwarzkopf precisava saber se mulheres na Alemanha confiariam numa IA para analisar seus cabelos e recomendar produtos, antes de comprometer orçamento com a construção do app.',
-    'Owned the research end to end: screening criteria, interview script, ten moderated sessions run with a native German interviewer, affinity clustering in Dovetail with quote evidence behind every insight, and a report to Henkel carrying a clear go / no-go recommendation.':
-        'Conduzi a pesquisa de ponta a ponta: critérios de triagem, roteiro de entrevista, dez sessões moderadas com uma entrevistadora alemã nativa, clusterização por afinidade no Dovetail com citações sustentando cada insight, e um relatório para a Henkel com uma recomendação clara de seguir ou não.',
+    // ── Briefs · MVP Factory · Schwarzkopf ───────────────────────────────────
+    'Ten interviews to help Schwarzkopf decide, before building anything, whether women in Germany would trust an AI to analyse their hair.':
+        'Dez entrevistas para ajudar a Schwarzkopf a decidir, antes de construir qualquer coisa, se mulheres na Alemanha confiariam numa IA para analisar seus cabelos.',
+    'Would people trust an AI with their hair?':
+        'As pessoas confiariam o próprio cabelo a uma IA?',
+    'Schwarzkopf had a prototype of an AI hair analysis app and needed an answer before committing budget to building it.':
+        'A Schwarzkopf tinha um protótipo de um app de análise capilar com IA e precisava de uma resposta antes de comprometer orçamento com a construção.',
+    'I ran the research end to end.':
+        'Conduzi a pesquisa de ponta a ponta.',
+    'Screening criteria, interview script, ten moderated sessions with a native German interviewer, synthesis in Dovetail with quotes behind every insight, and a report to Henkel with a clear go / no-go recommendation.':
+        'Critérios de triagem, roteiro de entrevista, dez sessões moderadas com uma entrevistadora alemã nativa, síntese no Dovetail com citações sustentando cada insight, e um relatório para a Henkel com uma recomendação clara de seguir ou não.',
 
     // Divider labels reused by several studies
     'Outcome': 'Resultado',
@@ -220,7 +247,7 @@ export const ptWork: Record<string, string> = {
         'The Pets Table é a assinatura de comida fresca para cães da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer alocado na squad da TPT, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro. Cada decisão foi uma negociação entre inovação, velocidade e reúso do sistema.',
     'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.':
         'The Pets Table é a assinatura de comida fresca para cães da HelloFresh: uma marca construída quase do zero dentro do ecossistema da empresa. Durante três anos fui o único product designer, responsável pelo UX de todo o funil, do pós-checkout e da experiência de membro.',
-    'Product Designer → Sr. Product Designer': 'Product Designer → Product Designer Sênior',
+    'Sr. Product Designer': 'Product Designer Sênior',
     'OOUX': 'OOUX',
 
     '3 yrs': '3 anos',

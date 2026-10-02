@@ -60,8 +60,10 @@ export interface RichCaseStudy {
     coverImages?: string[];
     intro: string;
     introHtml?: boolean;
-    /** Scannable answer to problem / what I did / what I designed, above the fold */
-    brief?: { label: string; content: string }[];
+    /** One-sentence subtitle under the title: what I did and for whom */
+    lede?: string;
+    /** Scannable answer to problem / what I did, above the fold. `headline` is the one-line takeaway, `content` the detail */
+    brief?: { label: string; headline?: string; content: string }[];
     tags: string[];
     sections: RichSection[];
     personal?: boolean;
