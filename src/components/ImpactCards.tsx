@@ -28,7 +28,7 @@ export function ImpactCards({ items, title }: ImpactCardsProps) {
                     <div key={item.label} className="rounded-2xl border border-white/10 p-8 flex flex-col min-h-[260px]">
                         {item.logos ? (
                             <div className="flex items-center gap-4">
-                                <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal flex-shrink-0">
+                                <p className="text-[56px] md:text-[68px] font-bold leading-none text-white font-serif tracking-normal flex-shrink-0">
                                     {t(item.value)}
                                 </p>
                                 <div className="flex-1 overflow-hidden relative h-[72px] md:h-[88px]">
@@ -51,7 +51,7 @@ export function ImpactCards({ items, title }: ImpactCardsProps) {
                                 </div>
                             </div>
                         ) : (
-                            <p className="text-[72px] md:text-[88px] font-bold leading-none text-white font-serif tracking-normal">
+                            <p className="text-[56px] md:text-[68px] font-bold leading-none text-white font-serif tracking-normal">
                                 {t(item.value)}
                             </p>
                         )}

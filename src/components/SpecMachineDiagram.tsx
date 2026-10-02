@@ -65,7 +65,7 @@ export function SpecMachineDiagram() {
                     y={cy - 4}
                     textAnchor="middle"
                     fontSize="15"
-                    fontWeight="700"
+                    fontWeight="900"
                     fill="white"
                 >
                     Spec
@@ -75,7 +75,7 @@ export function SpecMachineDiagram() {
                     y={cy + 14}
                     textAnchor="middle"
                     fontSize="15"
-                    fontWeight="700"
+                    fontWeight="900"
                     fill="white"
                 >
                     Machine

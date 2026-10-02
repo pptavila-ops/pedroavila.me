@@ -45,7 +45,7 @@ function renderSection(section: RichSection, i: number, t: Translate) {
 
         case 'callout':
             return (
-                <p key={i} className="my-14 text-[28px] md:text-[38px] font-bold leading-[1.3] font-serif text-white tracking-normal">
+                <p key={i} className="my-14 px-4 md:px-16 text-[28px] md:text-[38px] font-bold leading-[1.3] font-serif text-white tracking-normal">
                     {t(section.content)}
                 </p>
             );

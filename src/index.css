@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans: 'Instrument Sans', system-ui, sans-serif;
-    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-serif: 'DM Serif Text', Georgia, serif;
+    /* DM Sans Black stands in for bold */
+    --font-weight-bold: 900;
 }
 
 @property --shine-angle {
@@ -82,7 +84,7 @@
     body {
         background-color: black;
         color: white;
-        font-family: 'Instrument Sans', system-ui, sans-serif;
+        font-family: 'DM Sans', system-ui, sans-serif;
         min-height: 100vh;
         margin: 0;
         overflow-x: clip;
