@@ -23,7 +23,7 @@ export function ImpactCards({ items, title }: ImpactCardsProps) {
                     <div className="border-b border-white/15" />
                 </div>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {items.map((item) => (
                     <div key={item.label} className="rounded-2xl border border-white/10 p-8 flex flex-col min-h-[260px]">
                         {item.logos ? (

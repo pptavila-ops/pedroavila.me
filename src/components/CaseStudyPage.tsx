@@ -328,7 +328,7 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
                 <div className="mt-20 pt-10 border-t border-white/10">
                     <p className="text-xs font-semibold uppercase tracking-widest text-white/60">{t('Explore other case studies')}</p>
                     <div className="overflow-x-clip lg:overflow-x-visible">
-                        <div className="mt-5 flex gap-3 overflow-x-auto scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible items-start">
+                        <div className="mt-5 flex gap-3 overflow-x-auto scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible items-stretch">
                             {otherStudies.map((cs) => (
                                 <div key={cs.id} className="flex-shrink-0 w-[80vw] md:w-[280px] lg:w-auto">
                                     <SmallCard cs={cs} openStudy={(id) => onOpenStudy?.(id)} />

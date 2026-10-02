@@ -2,6 +2,7 @@ import type { MouseEvent } from 'react';
 import { TagLine } from './TagLine';
 import { CoverSlideshow } from './CoverSlideshow';
 import { caseImages } from '../data/caseImages';
+import { caseStudies } from '../data/caseStudies';
 import { useT } from '../i18n/useLanguage';
 
 interface CaseStudy {
@@ -145,26 +146,44 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
     );
 }
 
+// Compact take on the home CaseCard for the "Explore other case studies" row:
+// always stacked (cover on top, badges on it), then just the title and a meta
+// row. The full summary and metric stay on the home page. Rich case studies
+// don't carry cover/tags, so the home entry with the same id fills them in.
 export function SmallCard({ cs, openStudy }: CardProps) {
     const t = useT();
+    const home = caseStudies.find((c) => c.id === cs.id);
+    const cover = home?.cover;
+    const images = cover ? [cover] : caseImages(cs.id);
 
     return (
         <a
             {...studyLinkProps(cs.id, openStudy)}
-            className="group cursor-pointer text-left block w-full"
+            className="group cursor-pointer text-left h-full flex flex-col rounded-2xl overflow-hidden border border-white/10 hover:border-white/25 hover:bg-white/[0.03] active:bg-white/[0.06] transition-colors duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
-            <div className="relative rounded-xl border border-white/15 group-hover:border-white/25 transition-colors p-5 flex flex-col bg-black z-10 h-[240px]">
-                <div className="flex items-center gap-2 text-sm text-white/50 flex-shrink-0">
-                    {t(cs.year)}
-                    {cs.id === 'design-transformation' && <CurrentRoleTag />}
+            <div className="relative aspect-[16/10] overflow-hidden isolate bg-white/5">
+                {images.length > 0 && (
+                    <div className="absolute inset-0 group-hover:scale-110 transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+                        <CoverSlideshow images={images} alt="" />
+                    </div>
+                )}
+                <div className="absolute top-2.5 left-2.5 right-2.5 flex flex-wrap gap-1.5">
+                    <span className="rounded-full bg-black/75 backdrop-blur-md border border-white/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/90">@{cs.company}</span>
+                    {cs.id === 'design-transformation' && (
+                        <span className="rounded-full bg-black/75 backdrop-blur-md border border-white/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/90">{t('Current Role')}</span>
+                    )}
                 </div>
-                <p className="text-lg font-bold text-white/80 mt-1.5 flex-shrink-0">{t(cs.title)}</p>
-                <div className="min-w-0 overflow-hidden mt-1 flex-1" style={{ maskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)', WebkitMaskImage: 'linear-gradient(to bottom, white 30%, transparent 97%)' }}>
-                    <p className="text-[15px] font-normal leading-relaxed text-white/60">{stripHtml(t(cs.intro))}</p>
-                </div>
-                <p className="text-sm text-white/50 mt-0.5 flex-shrink-0">@{cs.company}</p>
-                <div className="absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" aria-hidden="true">
-                    <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center"><ArrowIcon /></div>
+            </div>
+
+            <div className="min-w-0 flex-1 p-4 md:p-5 flex flex-col">
+                <p className="text-[20px] font-bold leading-[1.2] text-white text-pretty">
+                    {t(home?.title ?? cs.title)}
+                </p>
+
+                <div className="mt-auto pt-4">
+                    <div className="pt-3 border-t border-white/10">
+                        <TagLine tags={[cs.year]} className="text-white/60" />
+                    </div>
                 </div>
             </div>
         </a>
