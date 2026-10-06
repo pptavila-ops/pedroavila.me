@@ -131,7 +131,7 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
                     </p>
                 )}
 
-                <p className="mt-3 text-[15px] leading-relaxed text-white/60 text-pretty">
+                <p className="mt-3 text-[15px] font-normal text-white/70 leading-relaxed text-pretty">
                     {cs.summary ? t(cs.summary) : stripHtml(t(cs.intro))}
                 </p>
 
