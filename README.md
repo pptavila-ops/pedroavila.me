@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# pedroavila.me
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the source for [pedroavila.me](https://pedroavila.me), the portfolio of Pedro Ávila, a Senior Product Designer working across AI workflows, design tooling and production code.
 
-Currently, two official plugins are available:
+I designed and built the site myself. It's a working example of the kind of design-to-code work the case studies talk about.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What's on the site
 
-## React Compiler
+**Case studies.** Four longer stories about projects I've worked on:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **HelloFresh**: building the AI workflow that takes designers from idea to production.
+- **The Pets Table**: designing the subscription that makes fresh dog food an easy habit.
+- **Móvix (ilia Digital)**: turning Brazil's home financing maze into a few taps.
+- **Schwarzkopf (MVP Factory)**: helping decide whether an AI hair app was worth building.
 
-## Expanding the ESLint configuration
+**Playground.** Side projects and experiments, like Stella Timer (a no-frills meditation app built in React Native), hackathon work and prototypes.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**English and Portuguese.** The whole site can be read in either language, using the switch in the header.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How it's built
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- [React](https://react.dev) and [TypeScript](https://www.typescriptlang.org), bundled with [Vite](https://vite.dev).
+- Hosted on GitHub Pages. Every push to `main` deploys through [GitHub Actions](.github/workflows/deploy.yml).
+- Images and video are compressed by hand before they're committed (WebP and MP4), because GitHub Pages serves files exactly as they are.
+- Translations are a lookup layer on top of the English copy, in [`src/i18n/`](src/i18n/). `npm run check:i18n` catches strings that are missing a translation.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Running it locally
+
+You'll need Node.js 20 or newer.
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Other scripts:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | What it does |
+| --- | --- |
+| `npm run build` | Type-checks and builds the production site into `dist/` |
+| `npm run preview` | Serves the production build locally |
+| `npm run lint` | Runs ESLint |
+| `npm run check:i18n` | Checks that every visible string has a Portuguese translation |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Reusing this
+
+You're welcome to read the code and borrow ideas from it. The case study write-ups, images, videos and other personal content belong to me and to the companies I worked with, so please don't republish them.
+
+## Contact
+
+The best way to reach me is through [pedroavila.me](https://pedroavila.me) or [LinkedIn](https://www.linkedin.com/in/pptavila).
