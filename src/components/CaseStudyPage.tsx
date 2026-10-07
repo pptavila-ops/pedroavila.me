@@ -14,6 +14,14 @@ import { SmallCard } from './CardGrid';
 import { FadeImage } from './FadeImage';
 import { useT } from '../i18n/useLanguage';
 
+export function Caption({ className = '', children }: { className?: string; children: React.ReactNode }) {
+    return (
+        <figcaption className={`mx-auto max-w-[440px] pb-6 md:pb-8 text-balance text-center text-[16px] md:text-[17px] leading-snug text-white/60 ${className}`}>
+            {children}
+        </figcaption>
+    );
+}
+
 interface OtherStudy {
     id: string;
     title: string;
@@ -36,9 +44,9 @@ function renderSection(section: RichSection, i: number, t: Translate) {
     switch (section.type) {
         case 'text':
             return section.html ? (
-                <p key={i} className="mt-8 text-[17px] md:text-[18px] font-normal leading-relaxed text-white/60" dangerouslySetInnerHTML={{ __html: t(section.content) }} />
+                <p key={i} className="mt-8 text-[17px] md:text-[18px] font-normal leading-relaxed text-white/75" dangerouslySetInnerHTML={{ __html: t(section.content) }} />
             ) : (
-                <p key={i} className="mt-8 text-[17px] md:text-[18px] font-normal leading-relaxed text-white/60">
+                <p key={i} className="mt-8 text-[17px] md:text-[18px] font-normal leading-relaxed text-white/75">
                     {t(section.content)}
                 </p>
             );
@@ -130,9 +138,9 @@ function renderSection(section: RichSection, i: number, t: Translate) {
                         style={{ maxWidth: `${section.maxWidth ?? 280}px` }}
                     />
                     {section.caption && (
-                        <figcaption className="mt-6 text-[15px] text-white/55 text-center">
+                        <Caption className="mt-6">
                             {t(section.caption)}
-                        </figcaption>
+                        </Caption>
                     )}
                 </figure>
             );
@@ -147,9 +155,9 @@ function renderSection(section: RichSection, i: number, t: Translate) {
                         loading="lazy"
                     />
                     {section.caption && (
-                        <figcaption className="mt-3 text-[15px] text-white/55 text-center">
+                        <Caption className="mt-4">
                             {t(section.caption)}
-                        </figcaption>
+                        </Caption>
                     )}
                 </figure>
             );
@@ -165,11 +173,11 @@ function renderSection(section: RichSection, i: number, t: Translate) {
                             loading="lazy"
                         />
                         {section.caption && (
-                            <figcaption className="mt-2 text-[14px] text-white/55 text-center">{t(section.caption)}</figcaption>
+                            <Caption className="mt-3">{t(section.caption)}</Caption>
                         )}
                     </figure>
                     {section.content && (
-                        <p className={`text-[16px] font-normal leading-relaxed text-white/60 md:flex-1 ${section.imageLeft === false ? 'md:order-1' : ''}`}>{t(section.content)}</p>
+                        <p className={`text-[16px] font-normal leading-relaxed text-white/75 md:flex-1 ${section.imageLeft === false ? 'md:order-1' : ''}`}>{t(section.content)}</p>
                     )}
                 </div>
             );

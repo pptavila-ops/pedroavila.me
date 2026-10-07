@@ -4,7 +4,7 @@ import { BrandCarousel } from './components/BrandCarousel';
 import Tooltip from './components/Tooltip';
 import { caseStudies } from './data/caseStudies';
 import { CardGrid } from './components/CardGrid';
-import { CaseStudyPage } from './components/CaseStudyPage';
+import { CaseStudyPage, Caption } from './components/CaseStudyPage';
 import { CaseStudyStories } from './components/CaseStudyStories';
 import { templateCaseStudy } from './data/templateCaseStudy';
 import { richCaseStudies } from './data/richCaseStudies';
@@ -239,7 +239,7 @@ function App() {
                                         </p>
                                     </div>
                                 ) : (
-                                    <p className="text-[17px] md:text-[18px] font-normal leading-relaxed text-white/60">
+                                    <p className="text-[17px] md:text-[18px] font-normal leading-relaxed text-white/75">
                                         {t(section.text)}
                                     </p>
                                 )}
@@ -247,7 +247,7 @@ function App() {
                                     <figure className="mt-8">
                                         <img src={section.image} alt={t(section.caption) || ''} className="w-full rounded-xl" loading="lazy" />
                                         {section.caption && (
-                                            <figcaption className="mt-3 text-sm text-white/40 text-center">{t(section.caption)}</figcaption>
+                                            <Caption className="mt-4">{t(section.caption)}</Caption>
                                         )}
                                     </figure>
                                 )}
