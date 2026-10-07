@@ -12,6 +12,7 @@ import { ImpactCards } from './ImpactCards';
 import { AnimatedSentence } from './AnimatedSentence';
 import { SmallCard } from './CardGrid';
 import { FadeImage } from './FadeImage';
+import { SlideCarousel } from './SlideCarousel';
 import { useT } from '../i18n/useLanguage';
 
 export function Caption({ className = '', children }: { className?: string; children: React.ReactNode }) {
@@ -247,6 +248,9 @@ function renderSection(section: RichSection, i: number, t: Translate) {
 
         case 'spec-machine-diagram':
             return <SpecMachineDiagram key={i} />;
+
+        case 'slides':
+            return <SlideCarousel key={i} slides={section.slides} />;
 
         case 'lifecycle-journey-diagram':
             return <LifecycleJourneyDiagram key={i} />;

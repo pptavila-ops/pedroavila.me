@@ -240,6 +240,61 @@ export const ptWork: Record<string, string> = {
     'The most lasting signal: designers across the company began merging production code as a normal part of their job, not as an exception. Not because they were told to, but because the tools made it possible and the community made it feel safe. That shift, from design being a handoff layer to design being a direct contributor to what ships, is the thing I\'m most proud of.':
         'O sinal mais duradouro: designers da empresa inteira passaram a fazer merge de código de produção como parte normal do trabalho, não como exceção. Não porque mandaram, mas porque as ferramentas tornaram isso possível e a comunidade fez com que parecesse seguro. Essa virada, de o design ser uma camada de handoff para ser um contribuinte direto do que é entregue, é do que mais me orgulho.',
 
+    // Deep dive · meal-linked add-on pairing
+    'Deep Dive · Meal-linked add-on pairing': 'Mergulho · Add-on pareado à refeição',
+    'One case, end to end: how a question about add-on sales went through the workflow, from evidence to a prototype to a pull request in the production codebase.':
+        'Um case de ponta a ponta: como uma pergunta sobre a venda de add-ons passou pelo workflow, da evidência ao protótipo e a um pull request no código de produção.',
+    'The agent searches experiments, past research and customer data for what\'s already known.':
+        'O agente busca em experimentos, pesquisas anteriores e dados de clientes o que já se sabe.',
+    'The question: <strong class="font-semibold text-white">What are some ways to improve add-on sales and selection, specifically by surfacing add-ons already on the meal-selection page?</strong>':
+        'A pergunta: <strong class="font-semibold text-white">Que caminhos existem para melhorar a venda e a escolha de add-ons, especificamente mostrando os add-ons já na página de seleção de refeições?</strong>',
+    'The agent weighs the evidence and turns it into hypotheses.':
+        'O agente pesa as evidências e as transforma em hipóteses.',
+    'The agent generates a series of 10 hypotheses, each with a confidence level based on how recent the research is, the group of people researched, the type of research and other factors. H1 is the one this case tests, and H5 is why the design shows one named item.':
+        'O agente gera uma série de 10 hipóteses, cada uma com um nível de confiança baseado em quão recente é a pesquisa, no grupo de pessoas pesquisado, no tipo de pesquisa e em outros fatores. A H1 é a que este case testa, e a H5 é o motivo de o design mostrar um único item com nome.',
+    'The agent writes a design brief for the prototyper, based on the selected hypothesis.':
+        'O agente escreve um brief de design para o prototyper, a partir da hipótese escolhida.',
+    'The agent builds an interactive prototype from production code and the Zest design system.':
+        'O agente constrói um protótipo interativo a partir do código de produção e do design system Zest.',
+    'Once a meal is added and the modal\'s pairing is skipped, a "Best pair for this meal" module appears on the card.':
+        'Quando uma refeição é adicionada e a combinação do modal é pulada, um módulo "Melhor par para esta refeição" aparece no card.',
+    'The agents put the prototype in front of an emulated persona and five expert reviewers.':
+        'Os agentes colocam o protótipo diante de uma persona emulada e de cinco revisores especialistas.',
+    'The agent implements the design in production code and opens a pull request.':
+        'O agente implementa o design no código de produção e abre um pull request.',
+    'Built with Zest components in HelloFresh\'s web codebase, and sent to engineering for review.':
+        'Construído com componentes do Zest no código web da HelloFresh e enviado para revisão da engenharia.',
+    'Primary': 'Principal',
+    'Supported': 'Sustentada',
+    'A recipe-linked add-on recommendation surface at meal selection will be net-additive to add-on uptake, versus the Add-Ons in Main Menu baseline.':
+        'Uma recomendação de add-on ligada à receita, na seleção de refeições, vai somar à adesão de add-ons em relação à linha de base de Add-Ons no Menu Principal.',
+    'Presenting add-ons as specific individual items rather than category tiles improves click-to-save conversion and Add-on Net Revenue versus the category-tile baseline.':
+        'Apresentar add-ons como itens individuais e específicos, em vez de blocos de categoria, melhora a conversão de clique para salvar e a receita líquida de add-ons em relação à linha de base com blocos de categoria.',
+    'Design Brief: meal-linked add-on on the meal-selection card': 'Brief de design: add-on pareado à refeição no card de seleção',
+    'Purpose and success': 'Propósito e sucesso',
+    'Give customers a low-friction way to add a complementary item directly from the meal-selection grid, without duplicating or reinventing the product page\'s pairing logic. Success means incremental add-on attach rate on the selection screen, without adding a new recommendation system to build or maintain.':
+        'Dar ao cliente um jeito de baixo atrito para adicionar um item complementar direto da grade de seleção de refeições, sem duplicar nem reinventar a lógica de combinação da página do produto. Sucesso significa uma taxa de add-on incremental na tela de seleção, sem criar um novo sistema de recomendação para construir ou manter.',
+    'Primary user action': 'Ação principal do usuário',
+    'After selecting a meal, notice and optionally check the one paired item shown beneath that meal\'s card, mirroring the checkbox interaction the product page already uses for pairings.':
+        'Depois de escolher uma refeição, perceber e, se quiser, marcar o único item pareado que aparece abaixo do card, espelhando a interação de caixa de seleção que a página do produto já usa para combinações.',
+    'Content and data': 'Conteúdo e dados',
+    'One add-on per paired meal, maximum. The card reads the same pairing list already computed for the product page and shows only the top-ranked entry. No new ranking logic is built for this surface, and if there\'s no pairing, the module doesn\'t render.':
+        'No máximo um add-on por refeição pareada. O card lê a mesma lista de combinações já calculada para a página do produto e mostra só a primeira colocada. Nenhuma lógica nova de ranking é criada para esta superfície e, se não houver combinação, o módulo não aparece.',
+    'Copy and voice': 'Texto e tom',
+    'Sharp for the price and action, encouraging for the descriptive label, with no pressure language. The label reads "Best pair for this meal", grounded in the specific meal, and the checkbox\'s accessible name is built on the action: "Add [item name]".':
+        'Direto no preço e na ação, encorajador no rótulo descritivo, sem linguagem de pressão. O rótulo diz "Melhor par para esta refeição", ancorado na refeição específica, e o nome acessível da caixa de seleção é construído a partir da ação: "Adicionar [nome do item]".',
+    'Visual direction': 'Direção visual',
+    'Restrained: HelloFresh\'s accent on a neutral canvas, a utility surface rather than a campaign moment. It extends the live menu grid instead of replacing it, and reads as lightweight and secondary, not a second hero card.':
+        'Contida: o acento da HelloFresh sobre uma base neutra, uma superfície utilitária e não um momento de campanha. Estende a grade do cardápio em vez de substituí-la e se lê como algo leve e secundário, não como um segundo card de destaque.',
+    'Constraints': 'Restrições',
+    'Zero presence on an unselected card, since selection is what mounts it. It must not add friction that slows meal choice, must show one specific item instead of a category or carousel, and must not read as a promotion. Its mount and unmount are announced to assistive tech.':
+        'Nenhuma presença num card não selecionado, já que é a seleção que faz o módulo aparecer. Não pode adicionar atrito que atrase a escolha da refeição, precisa mostrar um item específico em vez de uma categoria ou carrossel e não pode parecer uma promoção. A entrada e a saída do módulo são anunciadas para tecnologias assistivas.',
+    'Key states': 'Estados principais',
+    'Meal unselected: the module has no presence. Meal selected with a best pair: the module mounts with image, name, price, "Best pair for this meal" and an unchecked checkbox. No pairing data: the module stays absent, with no broken or placeholder card.':
+        'Refeição não selecionada: o módulo não aparece. Refeição selecionada com um melhor par: o módulo surge com imagem, nome, preço, "Melhor par para esta refeição" e uma caixa de seleção desmarcada. Sem dados de combinação: o módulo continua ausente, sem card quebrado nem provisório.',
+    'It\'s a pre-test, not a replacement for research: the persona and the experts review the prototype through their own lenses to find pitfalls in the design before it\'s tested with real people. The persona, on the add-on: <em class="text-white">“I\'d have tapped that checkbox faster if it told me the bread was baked locally or something. Right now it\'s just bread with a price tag.”</em> All the findings come back as one report with prioritized fixes.':
+        'É um pré-teste, não um substituto para a pesquisa: a persona e os especialistas revisam o protótipo cada um pela sua lente para encontrar armadilhas no design antes de testá-lo com pessoas reais. A persona, sobre o add-on: <em class="text-white">“Eu teria marcado essa caixa mais rápido se ela dissesse que o pão é assado localmente ou algo assim. Do jeito que está, é só um pão com uma etiqueta de preço.”</em> Todos os achados voltam como um único relatório com correções priorizadas.',
+
     // ── The Pets Table ───────────────────────────────────────────────
     'Designing the subscription that makes fresh dog food an easy habit':
         'Desenhando a assinatura que torna comida fresca para cachorros um hábito fácil',

@@ -122,6 +122,77 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
+                label: 'Deep Dive · Meal-linked add-on pairing',
+            },
+            {
+                type: 'text',
+                content: 'One case, end to end: how a question about add-on sales went through the workflow, from evidence to a prototype to a pull request in the production codebase.',
+            },
+            {
+                type: 'slides',
+                slides: [
+                    {
+                        label: '/what-we-know',
+                        agent: 'searcher/aggregator',
+                        title: 'The agent searches experiments, past research and customer data for what\'s already known.',
+                        image: '/hf-meals.webp',
+                        html: true,
+                        content: 'The question: <strong class="font-semibold text-white">What are some ways to improve add-on sales and selection, specifically by surfacing add-ons already on the meal-selection page?</strong>',
+                    },
+                    {
+                        label: '/generate-insights',
+                        agent: 'insight-generator',
+                        title: 'The agent weighs the evidence and turns it into hypotheses.',
+                        hypotheses: [
+                            { label: 'H1', status: 'Primary', primary: true, content: 'A recipe-linked add-on recommendation surface at meal selection will be net-additive to add-on uptake, versus the Add-Ons in Main Menu baseline.' },
+                            { label: 'H5', status: 'Supported', content: 'Presenting add-ons as specific individual items rather than category tiles improves click-to-save conversion and Add-on Net Revenue versus the category-tile baseline.' },
+                        ],
+                        content: 'The agent generates a series of 10 hypotheses, each with a confidence level based on how recent the research is, the group of people researched, the type of research and other factors. H1 is the one this case tests, and H5 is why the design shows one named item.',
+                    },
+                    {
+                        label: '/frame-design',
+                        agent: 'ideator',
+                        title: 'The agent writes a design brief for the prototyper, based on the selected hypothesis.',
+                        doc: {
+                            file: 'brief-example.md',
+                            title: 'Design Brief: meal-linked add-on on the meal-selection card',
+                            sections: [
+                                { title: 'Purpose and success', content: 'Give customers a low-friction way to add a complementary item directly from the meal-selection grid, without duplicating or reinventing the product page\'s pairing logic. Success means incremental add-on attach rate on the selection screen, without adding a new recommendation system to build or maintain.' },
+                                { title: 'Primary user action', content: 'After selecting a meal, notice and optionally check the one paired item shown beneath that meal\'s card, mirroring the checkbox interaction the product page already uses for pairings.' },
+                                { title: 'Content and data', content: 'One add-on per paired meal, maximum. The card reads the same pairing list already computed for the product page and shows only the top-ranked entry. No new ranking logic is built for this surface, and if there\'s no pairing, the module doesn\'t render.' },
+                                { title: 'Copy and voice', content: 'Sharp for the price and action, encouraging for the descriptive label, with no pressure language. The label reads "Best pair for this meal", grounded in the specific meal, and the checkbox\'s accessible name is built on the action: "Add [item name]".' },
+                                { title: 'Key states', content: 'Meal unselected: the module has no presence. Meal selected with a best pair: the module mounts with image, name, price, "Best pair for this meal" and an unchecked checkbox. No pairing data: the module stays absent, with no broken or placeholder card.' },
+                                { title: 'Visual direction', content: 'Restrained: HelloFresh\'s accent on a neutral canvas, a utility surface rather than a campaign moment. It extends the live menu grid instead of replacing it, and reads as lightweight and secondary, not a second hero card.' },
+                                { title: 'Constraints', content: 'Zero presence on an unselected card, since selection is what mounts it. It must not add friction that slows meal choice, must show one specific item instead of a category or carousel, and must not read as a promotion. Its mount and unmount are announced to assistive tech.' },
+                            ],
+                        },
+                    },
+                    {
+                        label: '/create-prototype',
+                        agent: 'prototyper',
+                        title: 'The agent builds an interactive prototype from production code and the Zest design system.',
+                        image: '/hf-addon-prototype.mp4',
+                        content: 'Once a meal is added and the modal\'s pairing is skipped, a "Best pair for this meal" module appears on the card.',
+                    },
+                    {
+                        label: '/test-prototype',
+                        agent: 'personas/experts',
+                        title: 'The agents put the prototype in front of an emulated persona and five expert reviewers.',
+                        diagram: 'test-panel',
+                        html: true,
+                        content: 'It\'s a pre-test, not a replacement for research: the persona and the experts review the prototype through their own lenses to find pitfalls in the design before it\'s tested with real people. The persona, on the add-on: <em class="text-white">“I\'d have tapped that checkbox faster if it told me the bread was baked locally or something. Right now it\'s just bread with a price tag.”</em> All the findings come back as one report with prioritized fixes.',
+                    },
+                    {
+                        label: '/design-change-web',
+                        agent: 'ux-developer',
+                        title: 'The agent implements the design in production code and opens a pull request.',
+                        image: '/hf-addon-production.webp',
+                        content: 'Built with Zest components in HelloFresh\'s web codebase, and sent to engineering for review.',
+                    },
+                ],
+            },
+            {
+                type: 'divider',
                 label: 'Main goal: UX Quality',
             },
             {

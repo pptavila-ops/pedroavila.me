@@ -26,8 +26,10 @@ export const ptKeep: Record<string, string> = {
 
     // Slash commands — they are typed literally into Claude Code
     '/generate-insights': '/generate-insights',
+    '/what-we-know': '/what-we-know',
     '/frame-design': '/frame-design',
     '/design-change': '/design-change',
+    '/design-change-web': '/design-change-web',
     '/create-prototype': '/create-prototype',
     '/iterate-prototype': '/iterate-prototype',
     '/test-prototype': '/test-prototype',

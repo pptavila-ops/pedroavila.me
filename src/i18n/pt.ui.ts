@@ -110,6 +110,12 @@ export const ptUi: Record<string, string> = {
     'No typical design review needed. The designer owns the intent and the output. Developers only review the code.':
         'Sem o design review tradicional. O designer é dono da intenção e do resultado. Desenvolvedores revisam apenas o código.',
 
+    // ── Diagram: test panel (case slides) ────────────────────────────
+    'Emulated persona': 'Persona emulada',
+    'One customer profile': 'Um perfil de cliente',
+    'Expert reviewers': 'Revisores especialistas',
+    'Accessibility, brand, content, interaction, UX': 'Acessibilidade, marca, conteúdo, interação, UX',
+
     // ── Diagram: command flow ────────────────────────────────────────
     'Discover': 'Descobrir',
     'Define': 'Definir',

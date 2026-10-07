@@ -15,7 +15,21 @@ export type RichSection =
     | { type: 'command-flow-diagram' }
     | { type: 'current-design-process-diagram' }
     | { type: 'spec-machine-diagram' }
-    | { type: 'lifecycle-journey-diagram' };
+    | { type: 'lifecycle-journey-diagram' }
+    | { type: 'slides'; slides: Slide[] };
+
+export interface Slide {
+    label: string;
+    agent?: string;
+    title?: string;
+    content?: string;
+    /** Render `content` as HTML, for inline emphasis. */
+    html?: boolean;
+    image?: string;
+    diagram?: 'test-panel';
+    hypotheses?: { label: string; status: string; content: string; primary?: boolean }[];
+    doc?: { file: string; title: string; sections: { title: string; content: string }[] };
+}
 
 export type StoriesSlide = {
     type: 'cover' | 'text' | 'image' | 'quote' | 'gallery' | 'stats' | 'steps' | 'intro';
