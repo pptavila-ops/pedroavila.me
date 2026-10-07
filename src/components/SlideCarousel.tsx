@@ -77,6 +77,7 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
                             {slide.image && !slide.before && (
                                 <FadeImage
                                     src={slide.image}
+                                    poster={slide.poster}
                                     alt={t(slide.title) || ''}
                                     className="w-full rounded-lg border border-white/15 object-cover"
                                     style={{ aspectRatio: slide.aspect }}

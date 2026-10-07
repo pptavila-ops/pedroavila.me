@@ -173,6 +173,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                         agent: 'prototyper',
                         title: 'The agent builds an interactive prototype from production code and the Zest design system.',
                         image: '/hf-addon-prototype.mp4',
+                        poster: '/hf-addon-prototype-poster.webp',
                         aspect: '1100 / 650',
                         content: 'Once a meal is added and the modal\'s pairing is skipped, a "Best pair for this meal" module appears on the card.',
                     },

@@ -30,6 +30,8 @@ export interface Slide {
     before?: string;
     /** CSS aspect-ratio of `image`, so lazy media reserves its space before it loads. */
     aspect?: string;
+    /** First frame of a video `image`, shown until it plays. */
+    poster?: string;
     diagram?: 'test-panel';
     hypotheses?: { label: string; status: string; content: string; primary?: boolean }[];
     doc?: { file: string; title: string; sections: { title: string; content: string }[] };
