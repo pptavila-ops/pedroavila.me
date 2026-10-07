@@ -49,7 +49,7 @@ export function CardGrid({ caseStudies, openStudy, layout }: Props) {
 
     if (!isGrid) {
         return (
-            <div className="mt-8 md:mt-20 flex flex-col gap-6">
+            <div className="mt-8 md:mt-12 flex flex-col gap-6">
                 {caseStudies.map((cs) => <CaseCard key={cs.id} cs={cs} openStudy={openStudy} />)}
             </div>
         );
