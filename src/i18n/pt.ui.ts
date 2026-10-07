@@ -111,6 +111,9 @@ export const ptUi: Record<string, string> = {
         'Sem o design review tradicional. O designer é dono da intenção e do resultado. Desenvolvedores revisam apenas o código.',
 
     // ── Diagram: test panel (case slides) ────────────────────────────
+    'Case walkthrough': 'Passo a passo do case',
+    'Before': 'Antes',
+    'After': 'Depois',
     'Emulated persona': 'Persona emulada',
     'One customer profile': 'Um perfil de cliente',
     'Expert reviewers': 'Revisores especialistas',

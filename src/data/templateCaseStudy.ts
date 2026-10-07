@@ -26,6 +26,10 @@ export interface Slide {
     /** Render `content` as HTML, for inline emphasis. */
     html?: boolean;
     image?: string;
+    /** A "before" screen that crossfades with `image`, to show what the change added. */
+    before?: string;
+    /** CSS aspect-ratio of `image`, so lazy media reserves its space before it loads. */
+    aspect?: string;
     diagram?: 'test-panel';
     hypotheses?: { label: string; status: string; content: string; primary?: boolean }[];
     doc?: { file: string; title: string; sections: { title: string; content: string }[] };

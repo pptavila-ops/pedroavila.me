@@ -262,8 +262,8 @@ export const ptWork: Record<string, string> = {
         'Os agentes colocam o protótipo diante de uma persona emulada e de cinco revisores especialistas.',
     'The agent implements the design in production code and opens a pull request.':
         'O agente implementa o design no código de produção e abre um pull request.',
-    'Built with Zest components in HelloFresh\'s web codebase, and sent to engineering for review.':
-        'Construído com componentes do Zest no código web da HelloFresh e enviado para revisão da engenharia.',
+    'Built with Zest components in HelloFresh\'s web codebase, and sent to engineering for review. The designer can then make further UI improvements directly in production code.':
+        'Construído com componentes do Zest no código web da HelloFresh e enviado para revisão da engenharia. A partir daí, o designer pode seguir fazendo melhorias de UI direto no código de produção.',
     'Primary': 'Principal',
     'Supported': 'Sustentada',
     'A recipe-linked add-on recommendation surface at meal selection will be net-additive to add-on uptake, versus the Add-Ons in Main Menu baseline.':

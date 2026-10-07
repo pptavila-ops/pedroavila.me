@@ -31,11 +31,17 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
         const track = trackRef.current;
         const target = track?.children[index] as HTMLElement | undefined;
         if (!track || !target) return;
-        track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+
+    const onKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(Math.min(active + 1, slides.length - 1)); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(Math.max(active - 1, 0)); }
     };
 
     return (
-        <div className="mt-8" role="region" aria-roledescription="carousel">
+        <div className="mt-8" role="region" aria-roledescription="carousel" aria-label={t('Case walkthrough')} onKeyDown={onKeyDown}>
             <div className="relative">
                 <div
                     ref={trackRef}
@@ -50,7 +56,7 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
                             className="snap-start flex-shrink-0 w-[88%] md:w-[85%] flex flex-col gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-5 md:p-7"
                         >
                             <p className="flex flex-wrap items-center gap-2 font-mono text-[13px] text-white/50">
-                                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white font-sans text-[14px] font-bold text-black">
+                                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white font-sans text-[15px] font-black text-black">
                                     {i + 1}
                                 </span>
                                 {slide.label.startsWith('/') ? (
@@ -65,8 +71,17 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
                             {slide.title && (
                                 <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.25] text-white tracking-normal">{t(slide.title)}</h3>
                             )}
-                            {slide.image && (
-                                <FadeImage src={slide.image} alt={t(slide.title) || ''} className="w-full rounded-lg border border-white/15" loading="lazy" />
+                            {slide.image && slide.before && (
+                                <BeforeAfter before={slide.before} after={slide.image} aspect={slide.aspect} alt={t(slide.title) || ''} />
+                            )}
+                            {slide.image && !slide.before && (
+                                <FadeImage
+                                    src={slide.image}
+                                    alt={t(slide.title) || ''}
+                                    className="w-full rounded-lg border border-white/15 object-cover"
+                                    style={{ aspectRatio: slide.aspect }}
+                                    loading="lazy"
+                                />
                             )}
                             {slide.diagram === 'test-panel' && <TestPanelDiagram />}
                             {slide.hypotheses && (
@@ -100,7 +115,7 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
                                             tabIndex={0}
                                             role="region"
                                             aria-label={t(slide.doc.title)}
-                                            className="absolute inset-0 overflow-y-auto overscroll-contain px-4 py-4 md:px-5"
+                                            className="absolute inset-0 overflow-y-auto overscroll-contain px-4 pt-4 pb-10 md:px-5 [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_transparent] [mask-image:linear-gradient(to_bottom,black_calc(100%-40px),transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
                                         >
                                             <p className="text-[17px] font-bold leading-snug text-white">{t(slide.doc.title)}</p>
                                             {slide.doc.sections.map((section) => (
@@ -121,7 +136,7 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
                     type="button"
                     onClick={() => goTo(active - 1)}
                     aria-label={t('Previous slide')}
-                    className={`absolute top-1/2 left-3 -translate-y-1/2 hidden md:flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.6)] transition-[opacity,background-color] hover:bg-white/85 cursor-pointer ${active === 0 ? 'pointer-events-none opacity-0' : 'opacity-50 hover:opacity-100 focus-visible:opacity-100'}`}
+                    className={`absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 hidden md:flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.6)] transition-[opacity,background-color,scale] duration-200 hover:bg-white/85 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${active === 0 ? 'pointer-events-none opacity-0' : 'opacity-50 hover:opacity-100 focus-visible:opacity-100'}`}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </button>
@@ -129,13 +144,13 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
                     type="button"
                     onClick={() => goTo(active + 1)}
                     aria-label={t('Next slide')}
-                    className={`absolute top-1/2 right-[calc(15%-28px)] -translate-y-1/2 hidden md:flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.6)] transition-[opacity,background-color] hover:bg-white/85 cursor-pointer ${active === slides.length - 1 ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
+                    className={`absolute top-1/2 right-[calc(15%-28px)] -translate-y-1/2 hidden md:flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.6)] transition-[opacity,background-color,scale] duration-200 hover:bg-white/85 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${active === slides.length - 1 ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </button>
             </div>
 
-            <div className="mt-5 flex justify-center gap-2">
+            <div className="mt-3 flex justify-center">
                 {slides.map((_, i) => (
                     <button
                         key={i}
@@ -143,8 +158,12 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
                         onClick={() => goTo(i)}
                         aria-label={`${i + 1} / ${slides.length}`}
                         aria-current={i === active}
-                        className={`h-2 w-2 rounded-full transition-colors cursor-pointer ${i === active ? 'bg-white' : 'bg-white/25 hover:bg-white/50'}`}
-                    />
+                        className="group flex h-6 items-center px-2 cursor-pointer rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                    >
+                        <span
+                            className={`block h-2 rounded-full transition-[width,background-color] duration-300 ease-out motion-reduce:transition-none ${i === active ? 'w-5 bg-white' : 'w-2 bg-white/25 group-hover:bg-white/50'}`}
+                        />
+                    </button>
                 ))}
             </div>
         </div>
@@ -153,7 +172,7 @@ export function SlideCarousel({ slides }: { slides: Slide[] }) {
 
 function Avatar({ className = '' }: { className?: string }) {
     return (
-        <span className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0e0e0e] bg-[#12303d] text-sky-300 ${className}`}>
+        <span className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#121212] bg-[#12303d] text-sky-300 ${className}`}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
                 <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -191,6 +210,35 @@ function TestPanelDiagram() {
                     <p className="mt-0.5 text-[12px] leading-snug text-white/55">{t('Accessibility, brand, content, interaction, UX')}</p>
                 </div>
             </div>
+        </div>
+    );
+}
+
+// Slowly crossfades between the screen before and after the change, so the
+// added module reads as the difference. Reduced motion keeps the "after" still.
+function BeforeAfter({ before, after, aspect, alt }: { before: string; after: string; aspect?: string; alt: string }) {
+    const t = useT();
+    const [showAfter, setShowAfter] = useState(true);
+
+    // "After" holds longer than "before": it's the screen worth reading.
+    useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const id = window.setTimeout(() => setShowAfter((v) => !v), showAfter ? 3600 : 2000);
+        return () => window.clearTimeout(id);
+    }, [showAfter]);
+
+    return (
+        <div className="relative overflow-hidden rounded-lg border border-white/15" style={{ aspectRatio: aspect }}>
+            <img src={before} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-top" />
+            <img
+                src={after}
+                alt={alt}
+                loading="lazy"
+                className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-1000 ease-in-out ${showAfter ? 'opacity-100' : 'opacity-0'}`}
+            />
+            <span className="absolute left-3 top-3 rounded-md bg-black/75 px-2.5 py-1 font-mono text-[12px] text-white">
+                {showAfter ? t('After') : t('Before')}
+            </span>
         </div>
     );
 }
