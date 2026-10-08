@@ -562,25 +562,21 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'callout',
-                content: 'I became the first designer at HelloFresh to merge code directly into production, setting a precedent that eventually grew into an organisation-wide movement under the Consumer Acceleration team.',
+                content: 'I became the first designer at HelloFresh to merge code directly into production.',
             },
             {
                 type: 'text',
-                content: 'Toward the end of my time at TPT, I began implementing features directly in the production codebase. It started with AI agents in Cursor, and as the company grew in AI maturity it evolved into a more structured workflow, using Claude Code alongside Spec-Machine, a shared repository of skills built for our stack.',
-            },
-            {
-                type: 'text',
-                content: 'The breed-specific message feature, 11 personalised copy variants for the most-selected dog breeds, conditional logic, real social proof data, was one of the first I shipped end-to-end without an engineering handoff.',
+                content: 'Toward the end of my time at TPT, I started building features myself, straight in the production codebase. The first was the breed-specific message: 11 personalised copy variants for the most-selected dog breeds, with conditional logic and real social proof data. I designed it, coded it and shipped it. The design-to-development handoff was skipped, but engineers still reviewed my code.',
             },
             {
                 type: 'image',
                 src: '/petstable-breed.webp',
-                caption: 'The breed-specific message feature',
+                caption: 'The breed-specific message feature, the first feature I implemented directly in production code.',
                 shrink: true,
             },
             {
                 type: 'text',
-                content: 'This wasn\'t about replacing engineers. It was about removing the gap between design intent and what ships, taking ownership of the full quality of what I designed, all the way to the user.',
+                content: 'It started with AI agents in Cursor and grew into a structured workflow with Claude Code and Spec-Machine, a shared repository of skills built for our stack. The goal was never to replace engineers, but to own the quality of what I designed all the way to the user. That precedent later grew into an organisation-wide movement under the Consumer Acceleration team.',
             },
             {
                 type: 'divider',
