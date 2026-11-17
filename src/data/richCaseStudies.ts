@@ -3,24 +3,27 @@ import type { RichCaseStudy } from './templateCaseStudy';
 export const richCaseStudies: RichCaseStudy[] = [
     {
         id: 'design-transformation',
-        title: 'Building the AI workflow that takes HelloFresh designers from idea to production',
+        title: 'From insights to production code: how I defined the way designers work with AI',
         year: 'Jan 2026 – Now',
         company: 'HelloFresh',
+        companyUrl: 'https://hellofresh.com/',
         role: 'Sr. Product Designer',
+        scope: 'AI Tooling, Design-to-Code, Design System Quality',
+        since: '2026-01',
+        team: 'UX Lead, UX Research Team, Gen-AI Engineering Team',
         cover: '/card-hover.webp',
+        heroDiagram: 'workflow-story',
         intro: 'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering, using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.',
         lede: 'I built the Claude Code toolkit that lets HelloFresh designers prototype, test, and ship UI straight to production, across all nine brands.',
         brief: [
-            { label: 'Problem', headline: 'Design intent got lost between Figma and production.', content: 'Nine brands, each with its own codebase, and a long handoff where what UX designed was reinterpreted ticket by ticket. AI prototyping was speeding up too, with nothing keeping its output in line with Zest, our design system.' },
-            { label: 'What I did', headline: 'I shipped production code myself, then turned it into tools for the whole team.', content: 'A suite of Claude Code commands to create, iterate, test, and publish prototypes, and to implement UI changes directly in React and React Native, packaged as a UX plugin in HelloFresh\'s shared AI repository.' },
+            { label: 'Context', headline: 'Designers didn\'t know how to design with AI, or how to ship that design to production.', content: 'Designers had no shared way to use AI, and couldn\'t ship their own designs. Every change went through a long handoff, across nine brands.' },
+            { label: 'What I did', headline: 'I built an AI design workflow that runs from first idea to production.', content: 'A set of Claude Code commands, skills, and agents that takes designers through the whole process, from research to prototype to production code.' },
         ],
         tags: ['Consumer Acceleration', 'Design Operations', 'AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
         sections: [
             {
-                type: 'command-flow-diagram',
-            },
-            {
                 type: 'impact',
+                title: 'Impact',
                 items: [
                     { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production, setting a precedent that grew into an organisation-wide movement.' },
                     { value: 'AI Pioneer', label: 'Skills, Agents and Commands', description: 'A full AI workflow covering prototype creation, iteration, testing, publishing, and design-to-code workflows.' },
@@ -40,7 +43,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Spec-Machine: the AI brain of our UX.',
+                label: 'Spec-Machine',
             },
             {
                 type: 'text',
@@ -122,7 +125,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Deep Dive · Meal-linked add-on pairing',
+                label: 'Deep dive: add-on pairing',
             },
             {
                 type: 'text',
@@ -138,7 +141,7 @@ export const richCaseStudies: RichCaseStudy[] = [
                         image: '/hf-meals.webp',
                         aspect: '1200 / 676',
                         html: true,
-                        content: 'The question: <strong class="font-semibold text-white">What are some ways to improve add-on sales and selection, specifically by surfacing add-ons already on the meal-selection page?</strong>',
+                        content: 'The question: <strong class="font-semibold text-white">What are some ways to improve add-on sales and selection already on the meal-selection page?</strong>',
                     },
                     {
                         label: '/generate-insights',
@@ -198,7 +201,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Main goal: UX Quality',
+                label: 'UX Quality',
             },
             {
                 type: 'text',
@@ -302,7 +305,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Into Design Systems in Berlin',
+                label: 'Into Design Systems',
             },
             {
                 type: 'text',
@@ -329,26 +332,27 @@ export const richCaseStudies: RichCaseStudy[] = [
     },
     {
         id: 'pets-table',
-        title: 'Designing the subscription that makes fresh dog food an easy habit',
+        title: 'Launching and scaling The Pets Table, HelloFresh\'s first pet food brand',
         year: '2023 – 2025',
         company: 'HelloFresh',
+        companyUrl: 'https://hellofresh.com/',
         role: 'Sr. Product Designer',
+        scope: 'sole designer, OOUX, A/B testing, design-to-code, user interviews, prototyping, strategy definition',
+        timeline: '3 years',
+        team: 'PM, engineering team, CEO, CMO, CPO, CRM Manager',
         cover: '/card-hover.webp',
+        hero: '/tpt-top.webp',
         intro: 'The Pets Table is HelloFresh\'s fresh, human-grade dog food subscription, a brand built almost from scratch inside the HelloFresh ecosystem. For three years I was the sole product designer, owning UX across the full funnel, post-checkout, and member experience.',
         lede: 'Three years as the sole product designer of HelloFresh\'s fresh dog food brand, from launch to a subscription built around how dogs actually eat.',
         brief: [
-            { label: 'Problem', headline: 'A dog food brand running on a front end built for human meal kits.', content: 'The white-label platform had no idea what a pet profile was, couldn\'t handle multi-pet households or add-ons, and assumed weekly deliveries when dog food runs on cadences of four to eight weeks.' },
+            { label: 'Context', headline: 'A dog food brand running on a front end built for human meal kits.', content: 'HelloFresh wanted to launch its first pet food brand on a white-label platform built for human meal kits, one that couldn\'t handle multi-pet households or deliveries less often than weekly.' },
             { label: 'What I did', headline: 'I designed the whole subscription, and tested every bet before scaling it.', content: 'Mapped the system with OOUX, built the Figma and Zest foundations, and validated changes through interviews, usability tests, and A/B tests: the acquisition quiz, checkout, delivery dashboard, add-ons store, and variable delivery cadence, some of it shipped in production code by me.' },
         ],
         tags: ['Product Design', 'UX Research', 'OOUX', 'Growth', 'Retention', 'Design-to-Code'],
         sections: [
             {
-                type: 'image',
-                src: '/tpt-top.webp',
-                tight: true,
-            },
-            {
                 type: 'impact',
+                title: 'Impact',
                 items: [
                     { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full product UX from launch through 2025, funnel, checkout, post-checkout, and member experience.' },
                     { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh, including cancellation UX and Figma structure.' },
@@ -358,7 +362,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'From White Label to Own Identity',
+                label: 'Context',
             },
             {
                 type: 'text',
@@ -398,7 +402,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: '2023 · Launch & Foundations',
+                label: 'Launch & Foundations',
             },
             {
                 type: 'text',
@@ -447,7 +451,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Research and Experimentation as a Habit',
+                label: 'Research as a habit',
             },
             {
                 type: 'text',
@@ -480,7 +484,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Deep Dive · Variable Delivery Cadence',
+                label: 'Deep dive: delivery cadence',
             },
             {
                 type: 'summary',
@@ -617,18 +621,23 @@ export const richCaseStudies: RichCaseStudy[] = [
         company: 'ilia Digital',
         companyUrl: 'https://ilia.digital/en/',
         role: 'Product Designer',
+        scope: 'workshops, information architecture, UI, usability testing, user interviews',
+        timeline: '9 months',
+        team: 'PM, engineering team, scrum master, design partner, client stakeholders',
         cover: '/movix-home.webp',
+        hero: '/movixintro.webp',
         intro: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic, our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
         introHtml: true,
         lede: 'An MVP for CAIXA that moved home financing in Brazil from paperwork and branch visits to a simulation anyone could run on their phone.',
         brief: [
-            { label: 'Problem', headline: 'Financing a home meant paperwork, queues, and no idea how much you could borrow.', content: 'Applying through CAIXA required in-person appointments and gave you no view of your own application. Most people needed a broker just to get an estimate.' },
-            { label: 'What I did', headline: 'I designed the simulation and application flow from scratch.', content: 'Ran workshops with stakeholders to define the features, mapped the information architecture, and designed the full flow alongside Jenny Soares. We then tested it with real users at a home financing fair in Brasília.' },
+            { label: 'Context', headline: 'Financing a home meant paperwork, queues, and no idea how much you could borrow.', content: 'Financing a home through CAIXA meant applying in person, with no way to follow your own application. Most people needed a broker just to get an estimate.' },
+            { label: 'What I did', headline: 'I designed the simulation and application flow from scratch.', content: 'Designed a fully digital home financing experience, from the first simulation to processing the loan, including applying together with co-borrowers.' },
         ],
         tags: ['Product Design', 'Mobile', 'UX Research', 'Prototyping'],
         sections: [
             {
                 type: 'impact',
+                title: 'Impact',
                 items: [
                     { value: '2', label: 'Platforms launched', description: 'Published on both the App Store and Google Play after 9 months of design and development.' },
                     { value: '9mo', label: 'Idea to launch', description: 'Full end-to-end project from discovery to a live product used by real customers.' },
@@ -638,16 +647,16 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'The Problem',
+                label: 'Context',
+            },
+            {
+                type: 'text',
+                html: true,
+                content: 'Móvix was an MVP built to help Brazilians finance a house through <a href="https://www.caixa.gov.br/voce/Paginas/default.aspx" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">CAIXA</a>, one of the country\'s biggest banks. Financing a home in Brazil is notoriously complex and bureaucratic, our goal was to create a mobile experience that made simulation, documentation, and follow-up simple enough for anyone, regardless of their tech literacy.',
             },
             {
                 type: 'callout',
                 content: 'In a market where every process is as traditional as 10 years ago, Móvix was an important step toward changing how people finance their homes.',
-            },
-            {
-                type: 'image',
-                src: '/movixintro.webp',
-                shrink: true,
             },
             {
                 type: 'text',
@@ -655,7 +664,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Design Process',
+                label: 'Process',
             },
             {
                 type: 'process',
@@ -686,7 +695,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'From Paperwork to Digital Process',
+                label: 'Solution',
             },
             {
                 type: 'callout',
@@ -932,7 +941,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         sections: [
             {
                 type: 'divider',
-                label: 'The Problem',
+                label: 'Context',
             },
             {
                 type: 'callout',
@@ -948,7 +957,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'Product Principles',
+                label: 'Principles',
             },
             {
                 type: 'text',
@@ -1005,7 +1014,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'What\'s Next',
+                label: 'Next steps',
             },
             {
                 type: 'text',
@@ -1019,17 +1028,22 @@ export const richCaseStudies: RichCaseStudy[] = [
         year: '2022',
         company: 'MVP Factory',
         role: 'UX Researcher',
+        scope: 'screening, interview script, 10 moderated interviews, synthesis in Dovetail',
+        timeline: '1 month',
+        team: 'UX Researcher partner, Schwarzkopf UX Designer',
         cover: '/wf-hair-score.webp',
+        hero: '/schwarzkopf-card.webp',
         intro: 'Schwarzkopf wanted to know if women in Germany would trust and use an AI-powered hair analysis app, before committing to building it. I was handed a ready prototype by a Schwarzkopf designer and acted purely as a researcher: recruitment, script, ten moderated interviews, insight synthesis in Dovetail, and a final report delivered to Henkel.',
         lede: 'Ten interviews to help Schwarzkopf decide, before building anything, whether women in Germany would trust an AI to analyse their hair.',
         brief: [
-            { label: 'Problem', headline: 'Would people trust an AI with their hair?', content: 'Schwarzkopf had a prototype of an AI hair analysis app and needed an answer before committing budget to building it.' },
-            { label: 'What I did', headline: 'I ran the research end to end.', content: 'Screening criteria, interview script, ten moderated sessions with a native German interviewer, synthesis in Dovetail with quotes behind every insight, and a report to Henkel with a clear go / no-go recommendation.' },
+            { label: 'Context', headline: 'Would people trust an AI with their hair?', content: 'Schwarzkopf had an AI hair analysis prototype and needed to know if it was worth building.' },
+            { label: 'What I did', headline: 'I ran the research end to end.', content: 'Planned and ran ten interviews with a native German interviewer, synthesised them in Dovetail, and gave Henkel a clear go / no-go.' },
         ],
         tags: ['UX Research', 'User Interviews', 'Concept Testing', 'Dovetail'],
         sections: [
             {
                 type: 'impact',
+                title: 'Impact',
                 items: [
                     { value: '10', label: 'Women interviewed', description: 'Moderated sessions with women across Germany, conducted alongside another German UX Researcher.' },
                     { value: 'Full', label: 'Research ownership', description: 'I owned the entire research process, from screening criteria and script to synthesis and final report.' },
@@ -1039,7 +1053,7 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
-                label: 'The Brief',
+                label: 'Context',
             },
             {
                 type: 'text',

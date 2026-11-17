@@ -40,11 +40,11 @@ const steps = [
     },
 ];
 
-export function CommandFlowDiagram() {
+export function CommandFlowDiagram({ className = 'mt-12' }: { className?: string }) {
     const t = useT();
 
     return (
-        <div className="mt-12 flex flex-col md:flex-row md:items-stretch">
+        <div className={`${className} flex flex-col md:flex-row md:items-stretch`}>
             {steps.map((step, i) => (
                 <Fragment key={step.command}>
                     {i > 0 && (

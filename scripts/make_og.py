@@ -16,7 +16,7 @@ FONTS = os.path.expanduser("~/Library/Fonts")
 semi = ImageFont.truetype(f"{FONTS}/InstrumentSans-SemiBold.ttf", 26)
 reg = ImageFont.truetype(f"{FONTS}/InstrumentSans-Regular.ttf", 27)
 
-HEADLINE = ["Leading design workflow", "transformation with AI"]
+HEADLINE = ["Designing end to end,", "from insights to shipped code."]
 
 
 def fit_headline(lines, max_width, start=108, floor=44):
@@ -28,7 +28,7 @@ def fit_headline(lines, max_width, start=108, floor=44):
     return ImageFont.truetype(f"{FONTS}/InstrumentSans-Bold.ttf", floor), floor
 
 
-bold, bold_size = fit_headline(HEADLINE, W - 2 * PAD)
+bold, bold_size = fit_headline(HEADLINE, W - 2 * PAD, start=108 if len(HEADLINE) < 3 else 64)
 
 # --- rainbow field, same wave math as RainbowText.tsx at t=0.9 ---
 N = 35

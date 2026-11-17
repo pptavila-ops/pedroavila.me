@@ -24,6 +24,7 @@ export function caseImages(id: string): string[] {
             }
         }
     };
+    if (study.hero && IMAGE.test(study.hero)) found.push(study.hero);
     walk(study.sections);
 
     return [...new Set(found)];
