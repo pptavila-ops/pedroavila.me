@@ -286,8 +286,8 @@ export const ptWork: Record<string, string> = {
         'O agente busca em experimentos, pesquisas anteriores e dados de clientes o que já se sabe.',
     'The question: <strong class="font-semibold text-white">What are some ways to improve add-on sales and selection already on the meal-selection page?</strong>':
         'A pergunta: <strong class="font-semibold text-white">Que caminhos existem para melhorar a venda e a escolha de add-ons já na página de seleção de refeições?</strong>',
-    'The agent generates hypotheses from the question, grounded in the research database.':
-        'O agente gera hipóteses a partir da pergunta, com base no banco de pesquisas.',
+    'First step: the agent generates hypotheses from the question, grounded in the research database.':
+        'Primeiro passo: o agente gera hipóteses a partir da pergunta, com base no banco de pesquisas.',
     'The agent weighs the evidence and turns it into hypotheses.':
         'O agente pesa as evidências e as transforma em hipóteses.',
     'The agent generates a series of 10 hypotheses, each with a confidence level based on how recent the research is, the group of people researched, the type of research and other factors. H1 is the one this case tests, and H5 is why the design shows one named item.':
