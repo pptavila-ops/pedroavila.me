@@ -15,7 +15,7 @@ const steps = [
         stage: 'Discover',
         color: '#bfe0ff',
         dot: '#4a90c4',
-        title: 'The agent generates hypotheses from the question, grounded in the research database.',
+        title: 'First step: the agent generates hypotheses from the question, grounded in the research database.',
     },
     {
         command: '/frame-design',
@@ -82,7 +82,7 @@ function Card({ src, alt, lazy = true, className = '', children }: { src: string
     );
 }
 
-function Visual({ step, shown }: { step: number; shown: boolean }) {
+function Visual({ step, shown, lead = 0 }: { step: number; shown: boolean; lead?: number }) {
     const t = useT();
 
     switch (step) {
@@ -91,7 +91,7 @@ function Visual({ step, shown }: { step: number; shown: boolean }) {
                 <Card src="/hf-story-card-before.webp" alt={t('The meal card before the change')} lazy={false} className="mt-5">
                     {/* The question the designer starts from, as a yellow chat bubble that
                         hangs past the shot's top-left corner so it reads first */}
-                    <Bubble shown={shown} color="#ffd84d" icon={<UserIcon />}>
+                    <Bubble shown={shown} delay={450 + lead} color="#ffd84d" icon={<UserIcon />}>
                         {t('How to improve add-on sales on meal selection cards?')}
                     </Bubble>
                 </Card>
@@ -165,11 +165,11 @@ function Visual({ step, shown }: { step: number; shown: boolean }) {
 // A chat-style bubble with a small round icon beside its tip. By default it
 // hangs past the shot's top-left corner; `inline` keeps it in the flow (the
 // persona's quote). It pops in a beat after the asset appears.
-function Bubble({ shown, color, icon, label, inline = false, place = '-top-5', children }: { shown: boolean; color: string; icon: React.ReactNode; label?: string; inline?: boolean; place?: string; children: React.ReactNode }) {
+function Bubble({ shown, color, icon, label, inline = false, place = '-top-5', delay = 450, children }: { shown: boolean; color: string; icon: React.ReactNode; label?: string; inline?: boolean; place?: string; delay?: number; children: React.ReactNode }) {
     return (
         <div
             className={`${inline ? 'relative ml-[34px] self-stretch' : `absolute -left-2 ${place} w-[86%]`} origin-bottom-left motion-safe:transition-[opacity,transform] motion-safe:duration-700 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] ${shown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
-            style={{ transitionDelay: shown ? '450ms' : '0ms' }}
+            style={{ transitionDelay: shown ? `${delay}ms` : '0ms' }}
         >
             <span
                 className="absolute bottom-0 right-full mr-1.5 flex h-7 w-7 items-center justify-center rounded-full text-black shadow-[0_6px_18px_rgba(0,0,0,0.5)]"
@@ -347,6 +347,11 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
         return () => io.disconnect();
     }, []);
 
+    // The first step waits a little longer the first time it plays, so the
+    // box settles on screen before anything moves; later steps start at once.
+    const [firstPlay, setFirstPlay] = useState(true);
+    useEffect(() => { if (active !== 0) setFirstPlay(false); }, [active]);
+
     const go = (dir: 1 | -1) => setActive((a) => Math.min(steps.length - 1, Math.max(0, a + dir)));
 
     return (
@@ -409,7 +414,8 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
             <div className="grid" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
                 {steps.map((step, i) => {
                     const shown = inView && i === active;
-                    const r = (n: number) => reveal(shown, textStart(i) + n * 300);
+                    const lead = firstPlay && i === 0 ? 700 : 0;
+                    const r = (n: number) => reveal(shown, lead + textStart(i) + n * 300);
                     return (
                     <div
                         key={step.command}
@@ -418,8 +424,8 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
                     >
                         {/* Hovering anywhere on the asset side pauses the timer, like the tabs */}
                         <div className="flex self-stretch items-center justify-center" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-                            <div {...reveal(shown, 0)}>
-                                <Visual step={i} shown={shown} />
+                            <div {...reveal(shown, lead)}>
+                                <Visual step={i} shown={shown} lead={lead} />
                             </div>
                         </div>
                         {i === 0 ? (
@@ -522,7 +528,7 @@ const HYPOTHESES = [
     { name: 'Hypothesis 2', confidence: 7 },
     { name: 'Hypothesis 3', confidence: 3 },
 ];
-const THINK_MS = 2900;
+const THINK_MS = 3600;
 const POP_MS = 450;
 
 function Hypotheses({ play }: { play: boolean }) {
