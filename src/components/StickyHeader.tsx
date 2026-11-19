@@ -10,7 +10,7 @@ export function StickyHeader({ title, visible, onBack }: Props) {
     const t = useT();
 
     return (
-        <div className={`fixed top-0 left-0 md:left-[32%] lg:left-[28%] right-0 z-20 bg-black transition-all duration-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
+        <div className={`fixed top-0 left-0 md:left-[28%] lg:left-[24%] right-0 z-20 bg-black transition-all duration-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
             <div className="flex items-center gap-3 px-7 md:px-10 lg:px-14 py-4">
                 <button
                     onClick={onBack}

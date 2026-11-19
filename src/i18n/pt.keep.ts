@@ -13,6 +13,7 @@ export const ptKeep: Record<string, string> = {
     'Stellabs': 'Stellabs',
     'Consumer Acceleration': 'Consumer Acceleration',
     'Dovetail': 'Dovetail',
+    'Spec-Machine': 'Spec-Machine',
     'React Native': 'React Native',
     'UnB': 'UnB',
 

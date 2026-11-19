@@ -69,7 +69,7 @@ export const ptPersonal: Record<string, string> = {
         'Comecei com uma fase de pesquisa: li centenas de avaliações reais de usuários do Insight Timer, Headspace e Calm no Reddit e na App Store. O padrão era impossível de ignorar. Apps que começaram como timers simples viraram redes sociais inchadas. O timer, a única coisa que levava as pessoas até ali, estava enterrado a três toques de distância, atrás de feeds de descoberta, ofertas de upgrade e funcionalidades de comunidade que ninguém pediu.',
     'Users wanted one thing: sit down, set a timer, hear a gentle bell. The apps had made this nearly impossible. So I made a list of everything StellaTimer would never do, and that list became the product.':
         'As pessoas queriam uma coisa: sentar, marcar um tempo, ouvir um sino suave. Os apps tinham tornado isso quase impossível. Então fiz uma lista de tudo o que o StellaTimer nunca faria, e essa lista virou o produto.',
-    'Product Principles': 'Princípios do produto',
+    'Principles': 'Princípios',
     'I codified the research into ten hard constraints, not aspirational goals but non-negotiable rules. No social features. No content library. No aggressive gamification. No paywall on the timer itself. No medical claims. No guided audio. The app would be offline-first, with a timer engine that uses timestamp deltas instead of setInterval, so it works reliably when backgrounded. Reliability is the product.':
         'Transformei a pesquisa em dez restrições duras, não metas aspiracionais, mas regras inegociáveis. Nada de funcionalidades sociais. Nada de biblioteca de conteúdo. Nada de gamificação agressiva. Nada de paywall no próprio timer. Nada de promessas médicas. Nada de áudio guiado. O app seria offline-first, com um motor de timer que usa diferenças de timestamp em vez de setInterval, para funcionar de forma confiável em segundo plano. A confiabilidade é o produto.',
     'The home screen, an affirmation as the emotional anchor, one tap to begin':
@@ -90,7 +90,7 @@ export const ptPersonal: Record<string, string> = {
         '"Your Journey", um calendário privado e acolhedor para reflexão, não para comparação',
     'The active timer during warm-up, minimal, dark, distraction-free':
         'O timer ativo durante o aquecimento: mínimo, escuro, sem distrações',
-    'What\'s Next': 'Próximos passos',
+    'Next steps': 'Próximos passos',
     'The backend is production-ready: Supabase auth, session storage, profile management, trial tracking, and bell overrides are all complete. The React Native build is next. I\'m building this one screen at a time, starting with the timer itself, because if the timer isn\'t perfect, nothing else matters.':
         'O backend está pronto para produção: autenticação no Supabase, armazenamento de sessões, gestão de perfil, controle de teste gratuito e sobrescrita de sinos estão todos completos. A build em React Native é o próximo passo. Estou construindo uma tela por vez, começando pelo próprio timer, porque se o timer não for perfeito, nada mais importa.',
 

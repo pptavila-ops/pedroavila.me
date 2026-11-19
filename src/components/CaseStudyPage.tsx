@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { Fragment, useState, useEffect, useRef } from 'react';
 import { TagLine } from './TagLine';
 import type { RichCaseStudy, RichSection } from '../data/templateCaseStudy';
 import { CaseStudyImageCard } from './CaseStudyImageCard';
@@ -13,7 +13,9 @@ import { AnimatedSentence } from './AnimatedSentence';
 import { SmallCard } from './CardGrid';
 import { FadeImage } from './FadeImage';
 import { SlideCarousel } from './SlideCarousel';
+import { WorkflowStory } from './WorkflowStory';
 import { useT } from '../i18n/useLanguage';
+import { caseStudies as homeStudies } from '../data/caseStudies';
 
 export function Caption({ className = '', children }: { className?: string; children: React.ReactNode }) {
     return (
@@ -41,6 +43,40 @@ interface Props {
 
 type Translate = <T extends string | undefined>(text: T) => T;
 
+type Fact = { label: string; value: React.ReactNode };
+
+/** Time since a "YYYY-MM" start, counted in whole months the way LinkedIn does (the start month counts). */
+function duration(since: string, t: Translate) {
+    const [year, month] = since.split('-').map(Number);
+    const now = new Date();
+    const total = Math.max(1, (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month) + 1);
+    const years = Math.floor(total / 12);
+    const months = total % 12;
+    const parts = [];
+    if (years) parts.push(`${years} ${years === 1 ? t('year') : t('years')}`);
+    if (months) parts.push(`${months} ${months === 1 ? t('month') : t('months')}`);
+    return parts.join(' ');
+}
+
+/** Role, company, team and timeline for a case; team is null when the study has none. */
+function caseFacts(study: RichCaseStudy, t: Translate) {
+    const company: Fact = {
+        label: t('Company'),
+        value: study.companyUrl ? (
+            <a href={study.companyUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-white/30 underline-offset-2 hover:decoration-white transition-colors">{study.company}</a>
+        ) : (
+            study.company
+        ),
+    };
+    const timeline: Fact = {
+        label: t('Timeline'),
+        value: [t(study.year), study.since ? duration(study.since, t) : study.timeline && t(study.timeline)].filter(Boolean).join(' · '),
+    };
+    const role: Fact = { label: t('Role'), value: t(study.role) };
+    const team: Fact | null = study.team ? { label: t('Team'), value: t(study.team) } : null;
+    return { role, company, team, timeline };
+}
+
 function renderSection(section: RichSection, i: number, t: Translate) {
     switch (section.type) {
         case 'text':
@@ -57,20 +93,6 @@ function renderSection(section: RichSection, i: number, t: Translate) {
                 <p key={i} className="my-14 px-4 md:px-16 text-[28px] md:text-[38px] font-bold leading-[1.3] font-serif text-white tracking-normal">
                     {t(section.content)}
                 </p>
-            );
-
-        case 'divider':
-            return (
-                <div key={i} className="mt-16 mb-8">
-                    {section.label && (
-                        <>
-                            <h2 className="text-[22px] md:text-[28px] font-bold text-white leading-none pb-5 tracking-normal">
-                                {t(section.label)}
-                            </h2>
-                            <div className="border-b border-white/15" />
-                        </>
-                    )}
-                </div>
             );
 
         case 'summary':
@@ -241,7 +263,14 @@ function renderSection(section: RichSection, i: number, t: Translate) {
             return <AnimatedSentence key={i} prefix={t(section.prefix)} phrases={section.phrases.map((phrase) => t(phrase))} />;
 
         case 'command-flow-diagram':
-            return <CommandFlowDiagram key={i} />;
+            return (
+                <div key={i} className="mt-16">
+                    {section.title && (
+                        <p className="text-sm font-semibold uppercase tracking-widest text-white/50">{t(section.title)}</p>
+                    )}
+                    <CommandFlowDiagram className={section.title ? 'mt-8' : 'mt-0'} />
+                </div>
+            );
 
         case 'current-design-process-diagram':
             return <CurrentDesignProcessDiagram key={i} />;
@@ -264,6 +293,45 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
     const t = useT();
     const [scrolled, setScrolled] = useState(false);
     const backButtonRef = useRef<HTMLButtonElement>(null);
+
+    // Brief — Context and What I did under the main asset.
+    const brief = study.brief ? (
+        // Plain text blocks, no boxes; side by side only from lg, where the
+        // columns are wide enough. The copy is regular weight with its key
+        // phrase in <strong>.
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-x-20">
+            {study.brief.map((row) => (
+                <div key={row.label}>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-white/50">{t(row.label)}</p>
+                    <p className="mt-3 text-[17px] leading-relaxed text-white/80" dangerouslySetInnerHTML={{ __html: t(row.content) }} />
+                </div>
+            ))}
+        </div>
+    ) : study.introHtml ? (
+        <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70" dangerouslySetInnerHTML={{ __html: t(study.intro) }} />
+    ) : (
+        <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70">
+            {t(study.intro)}
+        </p>
+    );
+
+    // The facts sit in a column beside the title on desktop, under the lede
+    // below lg. The scope lives in the tags above the title, shared with the
+    // home card for the same study.
+    const { role, company, team, timeline } = caseFacts(study, t);
+    const headerFacts = [company, role, timeline, team].filter(Boolean) as Fact[];
+    const headerTags = homeStudies.find((c) => c.id === study.id)?.tags ?? [];
+
+    // Each divider starts a numbered chapter; `i` keeps the section's index
+    // in the study as its React key.
+    const firstDivider = study.sections.findIndex((s) => s.type === 'divider');
+    const opening = firstDivider === -1 ? study.sections : study.sections.slice(0, firstDivider);
+    const chapters: { label?: string; sections: { section: RichSection; i: number }[] }[] = [];
+    study.sections.forEach((section, i) => {
+        if (firstDivider === -1 || i < firstDivider) return;
+        if (section.type === 'divider') chapters.push({ label: section.label, sections: [] });
+        else chapters[chapters.length - 1].sections.push({ section, i });
+    });
 
     useEffect(() => {
         setScrolled(false);
@@ -293,68 +361,67 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
                 {t('Back')}
             </button>
 
-            {/* Header — text only, left-aligned */}
+            {/* Header — scope tags as an eyebrow, then the title and lede on the
+                left with the case facts in a divided column on the right. */}
             <div className="mt-8">
-                <h1 className="text-[32px] md:text-[44px] font-bold leading-[1.15] text-white tracking-normal">
-                    {t(study.title)}
-                </h1>
-                {study.lede && (
-                    <p className="mt-4 text-lg md:text-xl leading-relaxed text-white/70">
-                        {t(study.lede)}
-                    </p>
-                )}
-                <dl className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 border-y border-white/10 py-5">
+                {headerTags.length > 0 && <TagLine tags={headerTags} className="text-white/60" />}
+                <div className="mt-4 grid lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] gap-x-16 gap-y-8 lg:items-start">
                     <div>
-                        <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">{t('Company')}</dt>
-                        <dd className="mt-1.5 text-[15px] text-white">
-                            {study.companyUrl ? (
-                                <a href={study.companyUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-white/30 underline-offset-2 hover:decoration-white transition-colors">{study.company}</a>
-                            ) : (
-                                study.company
-                            )}
-                        </dd>
+                        <h1 className="text-[30px] md:text-[40px] font-[700] leading-[1.15] text-white tracking-normal text-pretty">
+                            {t(study.title)}
+                        </h1>
+                        {study.lede && (
+                            <p className="mt-6 text-[17px] md:text-lg leading-relaxed text-white/70 text-pretty">
+                                {t(study.lede)}
+                            </p>
+                        )}
                     </div>
-                    <div>
-                        <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">{t('Year')}</dt>
-                        <dd className="mt-1.5 text-[15px] text-white">{t(study.year)}</dd>
-                    </div>
-                    <div className="col-span-2 md:col-span-1">
-                        <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">{t('Role')}</dt>
-                        <dd className="mt-1.5 text-[15px] text-white">{t(study.role)}</dd>
-                    </div>
-                </dl>
-                <TagLine tags={study.tags} className="mt-4 text-white/60" />
+                    <dl>
+                        {headerFacts.map((fact) => (
+                            <div key={fact.label} className="border-t border-white/10 py-4 first:border-t-0 first:pt-0">
+                                <dt className="text-xs font-semibold uppercase tracking-widest text-white/50">{fact.label}</dt>
+                                <dd className="mt-1.5 text-[15px] leading-relaxed text-white">{fact.value}</dd>
+                            </div>
+                        ))}
+                    </dl>
+                </div>
             </div>
 
-            {/* Brief — the problem and what I did, side by side on desktop */}
-            {study.brief ? (
-                <div className="mt-12 grid md:grid-cols-2 gap-10 md:gap-12">
-                    {study.brief.map((row) => (
-                        <div key={row.label}>
-                            <p className="text-xs font-semibold uppercase tracking-widest text-white/50">
-                                {t(row.label)}
-                            </p>
-                            {row.headline && (
-                                <p className="mt-3 text-[20px] md:text-[22px] font-bold leading-snug text-white">
-                                    {t(row.headline)}
-                                </p>
-                            )}
-                            <p className="mt-3 text-[16px] leading-relaxed text-white/70">
-                                {t(row.content)}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            ) : study.introHtml ? (
-                <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70" dangerouslySetInnerHTML={{ __html: t(study.intro) }} />
-            ) : (
-                <p className="mt-8 pt-8 border-t border-white/10 text-lg md:text-xl font-normal leading-relaxed text-white/70">
-                    {t(study.intro)}
-                </p>
+            {/* Hero — the work right after the header, before any long text */}
+            {study.heroDiagram === 'workflow-story' && <WorkflowStory className="mt-10" />}
+            {study.hero && (
+                <FadeImage
+                    src={study.hero}
+                    alt={t(study.title)}
+                    className="mt-10 w-full h-auto rounded-xl"
+                    fetchPriority="high"
+                />
             )}
 
-            {/* Sections */}
-            {study.sections.map((section, i) => renderSection(section, i, t))}
+            {/* Brief — Context and What I did, right after the main asset */}
+            <div className="mt-10">
+                {study.brief && brief}
+            </div>
+
+            {/* Opening — whatever comes before the first chapter, full width.
+                A study with `brief` shows it in the box above instead; the intro
+                sits where a `brief` section marks it, or leads. */}
+            {!study.brief && !opening.some((s) => s.type === 'brief') && brief}
+            {opening.map((section, i) => (section.type === 'brief' ? (study.brief ? null : <Fragment key={i}>{brief}</Fragment>) : renderSection(section, i, t)))}
+
+            {/* Chapters — a short title bar above each chapter that sticks
+                under the scrolled header until the next chapter pushes it out */}
+            {chapters.map((chapter, n) => (
+                <section key={n} className="mt-16 lg:mt-24">
+                    <h2 className="sticky top-[52px] z-10 -mx-1 px-1 bg-black border-b border-white/15 py-4 text-[18px] md:text-[20px] font-bold text-white leading-tight tracking-normal">
+                        <span className="tabular-nums">{String(n + 1).padStart(2, '0')}</span>
+                        {chapter.label && <><span className="mx-2.5">·</span>{t(chapter.label)}</>}
+                    </h2>
+                    <div className="mt-8 min-w-0 [&>*:first-child]:mt-0">
+                        {chapter.sections.map(({ section, i }) => renderSection(section, i, t))}
+                    </div>
+                </section>
+            ))}
 
             {/* Other case studies */}
             {otherStudies.length > 0 && (

@@ -120,12 +120,12 @@ function CaseCard({ cs, openStudy }: { cs: CaseStudy; openStudy: (id: string) =>
             </div>
 
             <div className="min-w-0 p-6 md:p-8 flex flex-col justify-center">
-                <h2 className="text-[22px] md:text-[26px] font-bold leading-[1.2] text-white text-pretty">
+                <h2 className="text-[22px] md:text-[26px] font-[700] leading-[1.2] text-white text-pretty">
                     {t(cs.title)}
                 </h2>
 
                 {cs.metric && (
-                    <p className="mt-3 flex items-center gap-2 text-[15px] font-bold text-white/70">
+                    <p className="mt-3 flex items-center gap-2 text-[15px] font-semibold text-white/70">
                         <span className="text-[22px] leading-none tabular-nums">{t(cs.metric.value)}</span>
                         {t(cs.metric.label)}
                     </p>
@@ -176,7 +176,7 @@ export function SmallCard({ cs, openStudy }: CardProps) {
             </div>
 
             <div className="min-w-0 flex-1 p-4 md:p-5 flex flex-col">
-                <p className="text-[20px] font-bold leading-[1.2] text-white text-pretty">
+                <p className="text-[20px] font-[700] leading-[1.2] text-white text-pretty">
                     {t(home?.title ?? cs.title)}
                 </p>
 

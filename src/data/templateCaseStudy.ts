@@ -6,13 +6,16 @@ export type RichSection =
     | { type: 'impact'; title?: string; items: { value: string; label: string; description: string; logos?: { src: string; alt: string; height: number }[] }[] }
     | { type: 'process'; title?: string; steps: { title: string; description: string }[] }
     | { type: 'two-column'; image: string; content: string; imageLeft?: boolean; caption?: string }
+    /** Starts a numbered chapter. Keep `label` short, and open every study with a 'Context' chapter: why the work existed */
     | { type: 'divider'; label?: string }
     | { type: 'summary'; label?: string; rows: { label: string; content: string; bold?: boolean }[] }
     | { type: 'download'; label: string; href: string }
     | { type: 'chart'; title?: string; caption?: string; bars: { label: string; sublabel: string; description: string; pct: number; color: string }[] }
     | { type: 'animated-sentence'; prefix: string; phrases: string[] }
     | { type: 'badge'; content: string; icon?: string }
-    | { type: 'command-flow-diagram' }
+    | { type: 'command-flow-diagram'; title?: string }
+    /** Where the Problem / What I did brief goes; without it the brief opens the study */
+    | { type: 'brief' }
     | { type: 'current-design-process-diagram' }
     | { type: 'spec-machine-diagram' }
     | { type: 'lifecycle-journey-diagram' }
@@ -76,13 +79,24 @@ export interface RichCaseStudy {
     company: string;
     companyUrl?: string;
     role: string;
+    /** What the role covered, shown after the title: "AI tooling, design-to-code" */
+    scope?: string;
+    /** How long it took, shown after `year`: "9 months" */
+    timeline?: string;
+    /** For ongoing work, the start month ("2026-01"); the duration is then counted live instead of `timeline` */
+    since?: string;
+    team?: string;
     cover: string;
     coverImages?: string[];
+    /** Image or video the page opens with, above the title. Cropped to 16:9, so keep the key content in the centre */
+    hero?: string;
+    /** A built hero instead of a file: `workflow-story` walks one change through the five commands */
+    heroDiagram?: 'workflow-story';
     intro: string;
     introHtml?: boolean;
     /** One-sentence subtitle under the title: what I did and for whom */
     lede?: string;
-    /** Scannable answer to problem / what I did, above the fold. `headline` is the one-line takeaway, `content` the detail */
+    /** Scannable answer to context / what I did, above the fold. `headline` is the one-line takeaway, `content` the detail */
     brief?: { label: string; headline?: string; content: string }[];
     tags: string[];
     sections: RichSection[];
@@ -100,13 +114,14 @@ export const templateCaseStudy: RichCaseStudy = {
     cover: '/card-hover.webp', // Replace with actual cover image
     intro: 'This is the opening paragraph, a concise summary of the project. It should set context: what the problem was, who it affected, and what you did. Keep it to 2–3 sentences that make someone want to read further.',
     brief: [
-        { label: 'Problem', content: 'What was broken, and for whom. One or two sentences, concrete enough that someone outside the domain understands the stakes.' },
+        { label: 'Context', content: 'What was broken, and for whom. One or two sentences, concrete enough that someone outside the domain understands the stakes.' },
         { label: 'What I did', content: 'The work you performed and what came out of it: the methods and the scope you owned, then the tangible artefacts — flows, screens, systems, documents. Name them, so nobody has to guess what your contribution was.' },
     ],
     tags: ['Product Design', 'Design Systems', 'UX Research'],
     sections: [
         {
             type: 'impact',
+            title: 'Highlights',
             items: [
                 { value: '40%', label: 'Faster delivery', description: 'Reduction in time from design to production across all product teams.' },
                 { value: '30+', label: 'Designers onboarded', description: 'Designers enabled to work directly in code using the new workflow.' },
@@ -116,7 +131,7 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'divider',
-            label: 'The Problem',
+            label: 'Context',
         },
         {
             type: 'text',
@@ -128,7 +143,7 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'divider',
-            label: 'Design Process',
+            label: 'Process',
         },
         {
             type: 'process',
@@ -157,7 +172,7 @@ export const templateCaseStudy: RichCaseStudy = {
         },
         {
             type: 'divider',
-            label: 'The Work',
+            label: 'Solution',
         },
         {
             type: 'text',

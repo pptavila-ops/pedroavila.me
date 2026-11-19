@@ -22,7 +22,7 @@ interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
     {
         id: 'design-transformation',
-        title: 'Building the AI workflow that takes HelloFresh designers from idea to production',
+        title: 'From insights to production code: how I defined the way designers work with AI',
         year: '2026 – Now',
         company: 'HelloFresh',
         cover: '/hellofresh-card.webp',
@@ -42,7 +42,7 @@ export const caseStudies: CaseStudy[] = [
     },
     {
         id: 'pets-table',
-        title: 'Designing the subscription that makes fresh dog food an easy habit',
+        title: 'Launching and scaling The Pets Table, HelloFresh\'s first pet food brand',
         year: '2023 – 2025',
         company: 'The Pets Table',
         cover: '/tpt-card.webp',

@@ -3,6 +3,7 @@ import { useT } from '../i18n/useLanguage';
 interface ImpactItem {
     value: string;
     label: string;
+    // Kept in the data for reference; the compact box shows value + label only.
     description: string;
     logos?: { src: string; alt: string; height: number }[];
 }
@@ -12,56 +13,28 @@ interface ImpactCardsProps {
     title?: string;
 }
 
+// No box: a small label, like Context / What I did, then the numbers in one
+// row of value + short label (2×2 below lg). Deliberately light on text so
+// it reads at a glance.
 export function ImpactCards({ items, title }: ImpactCardsProps) {
     const t = useT();
 
     return (
-        <div className="mt-16">
+        <div className="mt-10">
             {title && (
-                <div className="mb-6">
-                    <p className="text-sm font-semibold uppercase tracking-widest text-white/70 mb-4">{t(title)}</p>
-                    <div className="border-b border-white/15" />
-                </div>
+                <h2 className="text-xs font-semibold uppercase tracking-widest text-white/50">
+                    {t(title)}
+                </h2>
             )}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {/* 2×2 below lg, one row of equal columns from lg up */}
+            <dl className={`grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-flow-col lg:auto-cols-fr lg:grid-cols-none ${title ? 'mt-6' : ''}`}>
                 {items.map((item) => (
-                    <div key={item.label} className="rounded-2xl border border-white/10 p-8 flex flex-col min-h-[260px]">
-                        {item.logos ? (
-                            <div className="flex items-center gap-4">
-                                <p className="text-[56px] md:text-[68px] font-bold leading-none text-white font-serif tracking-normal flex-shrink-0">
-                                    {t(item.value)}
-                                </p>
-                                <div className="flex-1 overflow-hidden relative h-[72px] md:h-[88px]">
-                                    <div
-                                        className="animate-hf-brand-scroll"
-                                        style={{ display: 'flex', alignItems: 'center', width: 'max-content', height: '100%', willChange: 'transform' }}
-                                    >
-                                        {[...item.logos, ...item.logos].map((logo, j) => (
-                                            <img
-                                                key={j}
-                                                src={logo.src}
-                                                alt={logo.alt}
-                                                loading="lazy"
-                                                style={{ height: `${logo.height}px`, width: 'auto', objectFit: 'contain', flexShrink: 0, filter: 'brightness(0) invert(1)', opacity: 0.4, marginRight: '28px' }}
-                                            />
-                                        ))}
-                                    </div>
-                                    <div style={{ position: 'absolute', top: 0, left: 0, width: '32px', height: '100%', background: 'linear-gradient(to right, #000, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-                                    <div style={{ position: 'absolute', top: 0, right: 0, width: '32px', height: '100%', background: 'linear-gradient(to left, #000, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-                                </div>
-                            </div>
-                        ) : (
-                            <p className="text-[56px] md:text-[68px] font-bold leading-none text-white font-serif tracking-normal">
-                                {t(item.value)}
-                            </p>
-                        )}
-                        <div className="mt-8">
-                            <p className="text-[17px] md:text-[19px] font-bold text-white leading-snug">{t(item.label)}</p>
-                            <p className="text-[17px] md:text-[18px] text-white/55 mt-2 leading-relaxed">{t(item.description)}</p>
-                        </div>
+                    <div key={item.label} className="flex min-w-0 flex-col-reverse justify-end">
+                        <dt className="mt-2 text-[15px] md:text-[16px] font-semibold text-white/60 leading-snug">{t(item.label)}</dt>
+                        <dd className="text-[26px] md:text-[32px] lg:text-[26px] xl:text-[30px] font-bold leading-none text-white tracking-tight lg:whitespace-nowrap">{t(item.value)}</dd>
                     </div>
                 ))}
-            </div>
+            </dl>
         </div>
     );
 }

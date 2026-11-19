@@ -92,7 +92,7 @@ function App() {
     return (
         <main className="flex min-h-screen bg-black text-white">
             {/* Left Panel — Bio */}
-            <div className="hidden md:flex md:w-[32%] lg:w-[28%] fixed top-0 left-0 h-screen flex-col justify-between px-8 lg:px-10 py-10">
+            <div className="hidden md:flex md:w-[28%] lg:w-[24%] fixed top-0 left-0 h-screen flex-col justify-between px-8 lg:px-10 py-10">
                 <div>
                     <div className="flex items-center justify-between gap-3">
                         <button onClick={closeStudy} className="text-[15px] font-semibold text-white hover:bg-white/10 rounded-md px-2 py-1 -ml-2 transition-colors cursor-pointer">Pedro Ávila</button>
@@ -168,7 +168,7 @@ function App() {
             </div>
 
             {/* Right Panel — Content */}
-            <div className="w-full min-w-0 md:ml-[32%] lg:ml-[28%] min-h-screen px-7 py-10 md:py-14 md:px-10 lg:px-14 overflow-x-clip">
+            <div className="w-full min-w-0 md:ml-[28%] lg:ml-[24%] min-h-screen px-7 py-10 md:py-14 md:px-10 lg:px-14 overflow-x-clip">
                 {/* Mobile header — just the language switch; name, bio and contact
                     row follow the hero title on the home page. Hidden on md+ where
                     the left panel is visible, and when a case study is open. */}
@@ -256,12 +256,12 @@ function App() {
                     </div>
                 ) : (
                     <div>
-                        <p className="-mt-4 text-[26px] sm:text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-bold tracking-tight text-pretty">
-                            <span className="lg:hidden">{t('Leading design workflow transformation with AI.')}</span>
-                            <span className="hidden lg:inline">{t('Leading design workflow')}<br />{t('transformation with AI.')}</span>
+                        <p className="-mt-4 text-[26px] sm:text-[32px] md:text-[38px] lg:text-[48px] leading-[1.15] font-[700] tracking-tight text-pretty">
+                            <span className="lg:hidden">{t('Leading how designers work end to end with AI.')}</span>
+                            <span className="hidden lg:inline">{t('Leading how designers work')}<br />{t('end to end with AI.')}</span>
                         </p>
-                        <p className="mt-3 text-[18px] sm:text-[20px] md:text-[22px] leading-[1.3] font-normal text-white/60">
-                            {t('Currently @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">HelloFresh</a>
+                        <p className="mt-4 max-w-[38em] text-[17px] md:text-[19px] leading-relaxed font-normal text-white/60 text-pretty">
+                            <span className="hidden md:inline">{t('From research to prototyping and shipped code, I help human teams to use AI effectively. With agents in the loop.')}{' '}</span>{t('Currently at @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">HelloFresh</a>.
                         </p>
 
                         {/* Mobile only: the sidebar's name, bio and contact row, after the title */}
