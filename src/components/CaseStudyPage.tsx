@@ -294,13 +294,16 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
     const [scrolled, setScrolled] = useState(false);
     const backButtonRef = useRef<HTMLButtonElement>(null);
 
-    // Brief — Context and What I did as two separate cards under the main asset.
+    // Brief — Context and What I did under the main asset.
     const brief = study.brief ? (
-        <div className="grid sm:grid-cols-2 gap-10">
+        // Plain text blocks, no boxes; side by side only from lg, where the
+        // columns are wide enough. The copy is regular weight with its key
+        // phrase in <strong>.
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-x-20">
             {study.brief.map((row) => (
-                <div key={row.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+                <div key={row.label}>
                     <p className="text-xs font-semibold uppercase tracking-widest text-white/50">{t(row.label)}</p>
-                    <p className="mt-3 text-[17px] md:text-[18px] font-semibold leading-snug text-white">{t(row.content)}</p>
+                    <p className="mt-3 text-[17px] leading-relaxed text-white/80" dangerouslySetInnerHTML={{ __html: t(row.content) }} />
                 </div>
             ))}
         </div>

@@ -13,24 +13,25 @@ interface ImpactCardsProps {
     title?: string;
 }
 
-// One box in the same style as the Context / What I did cards: a small label,
-// then the numbers as a 2-column grid of value + short label. Deliberately
-// light on text so it reads at a glance.
+// No box: a small label, like Context / What I did, then the numbers in one
+// row of value + short label (2×2 below lg). Deliberately light on text so
+// it reads at a glance.
 export function ImpactCards({ items, title }: ImpactCardsProps) {
     const t = useT();
 
     return (
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+        <div className="mt-10">
             {title && (
                 <h2 className="text-xs font-semibold uppercase tracking-widest text-white/50">
                     {t(title)}
                 </h2>
             )}
-            <dl className={`grid sm:grid-cols-2 gap-x-10 gap-y-8 ${title ? 'mt-6' : ''}`}>
+            {/* 2×2 below lg, one row of equal columns from lg up */}
+            <dl className={`grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-flow-col lg:auto-cols-fr lg:grid-cols-none ${title ? 'mt-6' : ''}`}>
                 {items.map((item) => (
-                    <div key={item.label} className="flex flex-col-reverse">
+                    <div key={item.label} className="flex min-w-0 flex-col-reverse justify-end">
                         <dt className="mt-2 text-[15px] md:text-[16px] font-semibold text-white/60 leading-snug">{t(item.label)}</dt>
-                        <dd className="text-[36px] md:text-[44px] font-bold leading-none text-white font-serif tracking-normal">{t(item.value)}</dd>
+                        <dd className="text-[26px] md:text-[32px] lg:text-[26px] xl:text-[30px] font-bold leading-none text-white tracking-tight lg:whitespace-nowrap">{t(item.value)}</dd>
                     </div>
                 ))}
             </dl>

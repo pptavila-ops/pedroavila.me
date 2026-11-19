@@ -104,48 +104,48 @@ export const ptWork: Record<string, string> = {
         'Construí o conjunto de ferramentas no Claude Code que permite aos designers da HelloFresh prototipar, testar e levar UI direto para produção, nas nove marcas.',
     'Designers didn\'t know how to design with AI, or how to ship that design to production.':
         'Os designers não sabiam como fazer design com IA, nem como entregar esse design em produção.',
-    'Designers had no shared way to use AI, and couldn\'t ship their own designs. Every change went through a long handoff, across nine brands.':
-        'Os designers não tinham um jeito comum de usar IA e não conseguiam colocar os próprios designs em produção. Toda mudança passava por um handoff longo, em nove marcas.',
+    'Designers had no shared way to use AI, and <strong class="font-semibold text-white">couldn\'t ship their own designs</strong>. Every change went through a long handoff, across nine brands.':
+        'Os designers não tinham um jeito comum de usar IA e <strong class="font-semibold text-white">não conseguiam colocar os próprios designs em produção</strong>. Toda mudança passava por um handoff longo, em nove marcas.',
     'I built an AI design workflow that runs from first idea to production.':
         'Criei um workflow de design com IA que vai da primeira ideia até a produção.',
-    'A set of Claude Code commands, skills, and agents that takes designers through the whole process, from research to prototype to production code.':
-        'Um conjunto de comandos, skills e agentes no Claude Code que leva os designers por todo o processo, da pesquisa ao protótipo e ao código de produção.',
+    'I built a set of Claude Code commands, skills, and agents that take designers through the whole process, <strong class="font-semibold text-white">from research to prototype to production code</strong>.':
+        'Criei um conjunto de comandos, skills e agentes no Claude Code que leva os designers por todo o processo, <strong class="font-semibold text-white">da pesquisa ao protótipo e ao código de produção</strong>.',
 
     // ── Briefs · The Pets Table ──────────────────────────────────────────────
     'Three years as the sole product designer of HelloFresh\'s fresh dog food brand, from launch to a subscription built around how dogs actually eat.':
         'Três anos como único product designer da marca de comida fresca para cães da HelloFresh, do lançamento a uma assinatura pensada em como os cães realmente comem.',
     'A dog food brand running on a front end built for human meal kits.':
         'Uma marca de comida para cães rodando num front-end feito para meal kits de humanos.',
-    'HelloFresh wanted to launch its first pet food brand on a white-label platform built for human meal kits, one that couldn\'t handle multi-pet households or deliveries less often than weekly.':
-        'A HelloFresh queria lançar sua primeira marca de comida para pets numa plataforma white-label feita para refeições de humanos, que não suportava casas com vários pets nem entregas com intervalo maior que semanal.',
+    'HelloFresh wanted to launch its first pet food brand on a white-label platform built for human meal kits, one that <strong class="font-semibold text-white">couldn\'t handle multi-pet households or deliveries less often than weekly</strong>.':
+        'A HelloFresh queria lançar sua primeira marca de comida para pets numa plataforma white-label feita para refeições de humanos, que <strong class="font-semibold text-white">não suportava casas com vários pets nem entregas com intervalo maior que semanal</strong>.',
     'I designed the whole subscription, and tested every bet before scaling it.':
         'Desenhei a assinatura inteira e testei cada aposta antes de escalar.',
-    'Mapped the system with OOUX, built the Figma and Zest foundations, and validated changes through interviews, usability tests, and A/B tests: the acquisition quiz, checkout, delivery dashboard, add-ons store, and variable delivery cadence, some of it shipped in production code by me.':
-        'Mapeei o sistema com OOUX, construí as fundações no Figma e no Zest e validei as mudanças com entrevistas, testes de usabilidade e testes A/B: o quiz de aquisição, o checkout, o painel de entregas, a loja de add-ons e a cadência de entrega variável, parte disso entregue por mim direto no código de produção.',
+    'Mapped the system with OOUX, built the Figma and Zest foundations, and <strong class="font-semibold text-white">validated changes through interviews, usability tests, and A/B tests</strong>: the acquisition quiz, checkout, delivery dashboard, add-ons store, and variable delivery cadence, some of it shipped in production code by me.':
+        'Mapeei o sistema com OOUX, construí as fundações no Figma e no Zest e <strong class="font-semibold text-white">validei as mudanças com entrevistas, testes de usabilidade e testes A/B</strong>: o quiz de aquisição, o checkout, o painel de entregas, a loja de add-ons e a cadência de entrega variável, parte disso entregue por mim direto no código de produção.',
 
     // ── Briefs · Móvix ───────────────────────────────────────────────────────
     'An MVP for CAIXA that moved home financing in Brazil from paperwork and branch visits to a simulation anyone could run on their phone.':
         'Um MVP para a CAIXA que levou o financiamento imobiliário no Brasil da papelada e das idas à agência para uma simulação que qualquer pessoa conseguia fazer no celular.',
     'Financing a home meant paperwork, queues, and no idea how much you could borrow.':
         'Financiar uma casa significava papelada, fila e nenhuma ideia de quanto dava para financiar.',
-    'Financing a home through CAIXA meant applying in person, with no way to follow your own application. Most people needed a broker just to get an estimate.':
-        'Financiar uma casa pela CAIXA exigia ir pessoalmente, sem conseguir acompanhar o próprio pedido. A maioria das pessoas precisava de um corretor só para ter uma estimativa.',
+    'Financing a home through CAIXA meant <strong class="font-semibold text-white">applying in person</strong>, with no way to follow your own application. Most people needed a broker just to get an estimate.':
+        'Financiar uma casa pela CAIXA exigia <strong class="font-semibold text-white">ir pessoalmente</strong>, sem conseguir acompanhar o próprio pedido. A maioria das pessoas precisava de um corretor só para ter uma estimativa.',
     'I designed the simulation and application flow from scratch.':
         'Desenhei do zero o fluxo de simulação e de pedido de financiamento.',
-    'Designed a fully digital home financing experience, from the first simulation to processing the loan, including applying together with co-borrowers.':
-        'Criei uma experiência de financiamento imobiliário totalmente digital, da primeira simulação ao processamento do financiamento, incluindo pedidos feitos em conjunto com outras pessoas.',
+    'Designed a <strong class="font-semibold text-white">fully digital home financing experience</strong>, from the first simulation to processing the loan, including applying together with co-borrowers.':
+        'Criei uma <strong class="font-semibold text-white">experiência de financiamento imobiliário totalmente digital</strong>, da primeira simulação ao processamento do financiamento, incluindo pedidos feitos em conjunto com outras pessoas.',
 
     // ── Briefs · MVP Factory · Schwarzkopf ───────────────────────────────────
     'Ten interviews to help Schwarzkopf decide, before building anything, whether women in Germany would trust an AI to analyse their hair.':
         'Dez entrevistas para ajudar a Schwarzkopf a decidir, antes de construir qualquer coisa, se mulheres na Alemanha confiariam numa IA para analisar seus cabelos.',
     'Would people trust an AI with their hair?':
         'As pessoas confiariam o próprio cabelo a uma IA?',
-    'Schwarzkopf had an AI hair analysis prototype and needed to know if it was worth building.':
-        'A Schwarzkopf tinha um protótipo de análise capilar com IA e precisava saber se valia a pena construir.',
+    'Schwarzkopf had an AI hair analysis prototype and <strong class="font-semibold text-white">needed to know if it was worth building</strong>.':
+        'A Schwarzkopf tinha um protótipo de análise capilar com IA e <strong class="font-semibold text-white">precisava saber se valia a pena construir</strong>.',
     'I ran the research end to end.':
         'Conduzi a pesquisa de ponta a ponta.',
-    'Planned and ran ten interviews, synthesised them in Dovetail, and gave Henkel a clear go / no-go.':
-        'Planejei e conduzi dez entrevistas, sintetizei tudo no Dovetail e entreguei à Henkel uma recomendação clara de seguir ou não.',
+    'Planned and ran ten interviews, synthesised them in Dovetail, and gave Henkel <strong class="font-semibold text-white">a clear go / no-go</strong>.':
+        'Planejei e conduzi dez entrevistas, sintetizei tudo no Dovetail e entreguei à Henkel <strong class="font-semibold text-white">uma recomendação clara de seguir ou não</strong>.',
 
     // Chapter titles. Every study opens with 'Context'.
     'Outcome': 'Resultado',
@@ -166,17 +166,17 @@ export const ptWork: Record<string, string> = {
     'In early 2026, I joined the Consumer Acceleration team at HelloFresh with a mandate to close the gap between UX design and production engineering, using AI as the accelerant. What started as individual exploration with Claude Code grew into a team-wide movement, a new internal toolchain, and a new standard for how designers at HelloFresh ship.':
         'No começo de 2026, entrei no time de Consumer Acceleration da HelloFresh com a missão de fechar a lacuna entre o design de UX e a engenharia de produção, usando IA como acelerador. O que começou como uma exploração individual com o Claude Code virou um movimento do time inteiro, uma nova cadeia de ferramentas interna e um novo padrão de como os designers da HelloFresh entregam.',
 
-    'Designer in production code': 'Designer em código de produção',
+    'Designer shipping to production': 'Designer a colocar código em produção',
     'First designer at HelloFresh to merge code directly into production, setting a precedent that grew into an organisation-wide movement.':
         'Primeiro designer da HelloFresh a fazer merge de código direto em produção, criando um precedente que virou um movimento em toda a organização.',
     'AI Pioneer': 'Pioneiro em IA',
-    'Skills, Agents and Commands': 'Skills, agentes e comandos',
+    'Skills, agents and commands': 'Skills, agentes e comandos',
     'A full AI workflow covering prototype creation, iteration, testing, publishing, and design-to-code workflows.':
         'Um workflow completo de IA cobrindo criação de protótipos, iteração, testes, publicação e fluxos de design para código.',
-    'HelloFresh Brands affected': 'Marcas da HelloFresh impactadas',
+    'HelloFresh brands supported': 'Marcas da HelloFresh atendidas',
     'The new design-to-code workflow changed how features are built across all nine HelloFresh brands, giving each one faster, higher-fidelity output and less engineering overhead.':
         'O novo workflow de design para código mudou a forma como as funcionalidades são construídas nas nove marcas da HelloFresh, dando a cada uma entregas mais rápidas, de maior fidelidade e com menos sobrecarga de engenharia.',
-    'Designers Supported': 'Designers apoiados',
+    'Designers onboarded': 'Designers integrados',
     'Enabled designers across the organisation to prototype with code and work directly in production, moving beyond static handoffs to a workflow where designers ship their own changes.':
         'Capacitei designers de toda a organização a prototipar com código e trabalhar direto em produção, indo além dos handoffs estáticos para um fluxo em que designers entregam as próprias mudanças.',
 
@@ -363,7 +363,7 @@ export const ptWork: Record<string, string> = {
     'TPT patterns adopted by Good Chop, Factor, and core HelloFresh, including cancellation UX and Figma structure.':
         'Padrões da TPT adotados por Good Chop, Factor e pela HelloFresh principal, incluindo o UX de cancelamento e a estrutura no Figma.',
     'Pioneer': 'Pioneiro',
-    'Design-to-Code Workflows': 'Fluxos de design para código',
+    'Design-to-code workflows': 'Fluxos de design para código',
     'TPT was where I started my design-to-code journey, experimenting with features in production, building the knowledge to bridge the gap between design intent and engineering output.':
         'A TPT foi onde comecei minha jornada de design para código, experimentando com funcionalidades em produção e construindo o conhecimento para unir a intenção de design ao resultado da engenharia.',
     'CVR +': 'CVR +',
@@ -467,10 +467,10 @@ export const ptWork: Record<string, string> = {
     'The trial box already ships with a leaflet. We used it to tell customers the box size is theirs to change, connecting the physical product to the digital one.':
         'A caixa experimental já vai com um folheto. Usamos ele para contar ao cliente que o tamanho da caixa é dele para mudar, conectando o produto físico ao digital.',
     'Variable cadence · experiment results': 'Cadência variável · resultados do experimento',
-    'Net Revenue': 'Receita líquida',
+    'Net revenue': 'Receita líquida',
     'Measured against control in the A/B test, the clearest signal that lowering the amount paid per box didn\'t lower what customers were worth.':
         'Medida contra o controle no teste A/B, o sinal mais claro de que baixar o valor pago por caixa não baixou o valor do cliente.',
-    'Gross Revenue': 'Receita bruta',
+    'Gross revenue': 'Receita bruta',
     'Smaller, more frequent boxes translated into more revenue overall, not less.':
         'Caixas menores e mais frequentes se traduziram em mais receita no total, não em menos.',
     'AOR': 'AOR',

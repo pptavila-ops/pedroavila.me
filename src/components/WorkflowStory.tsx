@@ -292,7 +292,9 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
     const t = useT();
     const [active, setActive] = useState(0);
     const [paused, setPaused] = useState(false);
-    // Reduced motion: no auto-advance, the steps are still there to click.
+    // Auto-advance only on desktop (lg+) without reduced motion. Below lg the
+    // box is taller than the screen and you scroll inside a step to read it,
+    // so the steps wait for a tap or a swipe instead.
     const [autoplay, setAutoplay] = useState(false);
 
     // Nothing plays until the box is on screen: the timer holds and each step's
@@ -302,13 +304,45 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
     const [inView, setInView] = useState(false);
 
     useEffect(() => {
-        setAutoplay(!window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        const desktop = window.matchMedia('(min-width: 1024px)');
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const update = () => setAutoplay(desktop.matches && !reduce.matches);
+        update();
+        desktop.addEventListener('change', update);
+        return () => desktop.removeEventListener('change', update);
     }, []);
+
+    // Swipe left / right on the stage to change step. Only a mostly-horizontal
+    // drag of 50px+ counts, so vertical page scrolling is left alone.
+    const touchRef = useRef<{ x: number; y: number } | null>(null);
+    const onTouchStart = (e: React.TouchEvent) => {
+        const p = e.touches[0];
+        touchRef.current = { x: p.clientX, y: p.clientY };
+    };
+    const onTouchEnd = (e: React.TouchEvent) => {
+        const start = touchRef.current;
+        touchRef.current = null;
+        if (!start) return;
+        const p = e.changedTouches[0];
+        const dx = p.clientX - start.x;
+        const dy = p.clientY - start.y;
+        if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        go(dx < 0 ? 1 : -1);
+    };
 
     useEffect(() => {
         const el = rootRef.current;
         if (!el) return;
-        const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.35 });
+        // "In view" means most of the box is on screen: 70% of whichever is
+        // smaller, the box or the viewport (the box can be taller than a phone
+        // screen). It only counts as gone again once under 20%, so small scrolls
+        // don't restart a step.
+        const thresholds = Array.from({ length: 21 }, (_, n) => n / 20);
+        const io = new IntersectionObserver(([entry]) => {
+            const visible = entry.intersectionRect.height / Math.min(entry.boundingClientRect.height, window.innerHeight);
+            if (visible >= 0.7) setInView(true);
+            else if (visible < 0.2) setInView(false);
+        }, { threshold: thresholds });
         io.observe(el);
         return () => io.disconnect();
     }, []);
@@ -338,9 +372,10 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
                         type="button"
                         onClick={() => setActive(i)}
                         aria-current={i === active ? 'step' : undefined}
-                        className={`relative min-w-0 cursor-pointer px-2 md:px-4 pt-3.5 pb-3 text-left transition-colors hover:bg-white/[0.05] ${i === active ? 'bg-white/[0.05]' : ''}`}
+                        aria-label={t(step.stage)}
+                        className={`relative min-w-0 cursor-pointer px-2 md:px-4 py-2.5 lg:pt-3.5 lg:pb-3 text-left transition-colors hover:bg-white/[0.05] ${i === active ? 'lg:bg-white/[0.05]' : ''}`}
                     >
-                        <span className="absolute inset-x-0 top-0 h-[2px] bg-white/10">
+                        <span className="absolute inset-x-1 lg:inset-x-0 top-1/2 lg:top-0 -translate-y-1/2 lg:translate-y-0 h-1 lg:h-[2px] rounded-full lg:rounded-none overflow-hidden bg-white/15 lg:bg-white/10">
                             {i < active && <span className="absolute inset-0" style={{ background: step.dot }} />}
                             {i === active && (
                                 <span
@@ -356,11 +391,11 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
                                 />
                             )}
                         </span>
-                        <span className={`block text-[10px] md:text-[11px] font-semibold uppercase tracking-widest leading-none truncate ${i === active ? 'text-white' : 'text-white/45'}`}>
+                        <span className={`hidden lg:block text-[11px] font-semibold uppercase tracking-widest leading-none truncate ${i === active ? 'text-white' : 'text-white/45'}`}>
                             {t(step.stage)}
                         </span>
                         <span
-                            className={`mt-2 hidden md:block font-mono text-[11.5px] font-semibold leading-tight truncate transition-opacity ${i === active ? 'opacity-100' : 'opacity-50'}`}
+                            className={`mt-2 hidden lg:block font-mono text-[11.5px] font-semibold leading-tight truncate transition-opacity ${i === active ? 'opacity-100' : 'opacity-50'}`}
                             style={{ color: step.color }}
                         >
                             {step.command}
@@ -371,7 +406,7 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
 
             {/* Stage — every step shares one grid cell, so the box keeps the
                 height of the tallest step and nothing jumps as they crossfade */}
-            <div className="grid">
+            <div className="grid" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
                 {steps.map((step, i) => {
                     const shown = inView && i === active;
                     const r = (n: number) => reveal(shown, textStart(i) + n * 300);
@@ -416,9 +451,52 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
                     );
                 })}
             </div>
+
+            {/* Mobile / tablet navigation: back, the step name over pagination
+                dots, next. Replaces the floating arrows below lg. */}
+            <div className="lg:hidden flex items-center justify-between gap-3 border-t border-white/10 px-3 py-3">
+                {([-1, 1] as const).map((dir) => {
+                    const disabled = dir < 0 ? active === 0 : active === steps.length - 1;
+                    const button = (
+                        <button
+                            key={dir}
+                            type="button"
+                            onClick={() => go(dir)}
+                            disabled={disabled}
+                            aria-label={t(dir < 0 ? 'Previous slide' : 'Next slide')}
+                            className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-white/20 text-white transition-[opacity,background-color] duration-200 enabled:active:bg-white/10 disabled:opacity-25 cursor-pointer disabled:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5"><path d={dir < 0 ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </button>
+                    );
+                    if (dir < 0) return button;
+                    return [
+                        <div key="pager" className="flex min-w-0 flex-col items-center gap-1.5">
+                            <p className="text-[11px] font-semibold uppercase tracking-widest text-white" aria-live="polite">
+                                {t(steps[active].stage)} <span className="text-white/45">· {active + 1}/{steps.length}</span>
+                            </p>
+                            <div className="flex">
+                                {steps.map((step, i) => (
+                                    <button
+                                        key={step.command}
+                                        type="button"
+                                        onClick={() => setActive(i)}
+                                        aria-label={t(step.stage)}
+                                        aria-current={i === active ? 'step' : undefined}
+                                        className="flex h-6 items-center px-1.5 cursor-pointer"
+                                    >
+                                        <span className={`block h-2 rounded-full transition-[width,background-color] duration-300 ease-out ${i === active ? 'w-5 bg-white' : 'w-2 bg-white/25'}`} />
+                                    </button>
+                                ))}
+                            </div>
+                        </div>,
+                        button,
+                    ];
+                })}
+            </div>
         </div>
 
-            {/* Arrows — same look as SlideCarousel's, smaller below lg. No back arrow on
+            {/* Arrows — desktop only, same look as SlideCarousel's. No back arrow on
                 the first step and no next arrow on the last. */}
             {([-1, 1] as const).map((dir) => (
                 <button
@@ -427,9 +505,9 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
                     onClick={() => go(dir)}
                     tabIndex={(dir < 0 && active === 0) || (dir > 0 && active === steps.length - 1) ? -1 : undefined}
                     aria-label={t(dir < 0 ? 'Previous slide' : 'Next slide')}
-                    className={`absolute top-1/2 -translate-y-1/2 ${dir < 0 ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'} z-10 flex h-10 w-10 lg:h-14 lg:w-14 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.6)] transition-[opacity,background-color,scale] duration-200 hover:bg-white/85 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${dir < 0 ? (active === 0 ? 'pointer-events-none opacity-0' : 'opacity-50 hover:opacity-100 focus-visible:opacity-100') : (active === steps.length - 1 ? 'pointer-events-none opacity-0' : '')}`}
+                    className={`absolute top-1/2 -translate-y-1/2 ${dir < 0 ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'} z-10 hidden lg:flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.6)] transition-[opacity,background-color,scale] duration-200 hover:bg-white/85 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${dir < 0 ? (active === 0 ? 'pointer-events-none opacity-0' : 'opacity-50 hover:opacity-100 focus-visible:opacity-100') : (active === steps.length - 1 ? 'pointer-events-none opacity-0' : '')}`}
                 >
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5 lg:h-6 lg:w-6"><path d={dir < 0 ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-6 w-6"><path d={dir < 0 ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </button>
             ))}
         </div>
