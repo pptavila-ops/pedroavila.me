@@ -7,7 +7,7 @@ import { useT } from '../i18n/useLanguage';
 const STEP_MS = 16000;
 // Discover carries the most to read (question, command, hypotheses that
 // appear after a pause), so it stays up longer than the other steps.
-const stepMs = (i: number) => (i === 0 ? 52000 : STEP_MS);
+const stepMs = (i: number) => (i === 0 ? 24000 : STEP_MS);
 
 const steps = [
     {
@@ -430,16 +430,10 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
                         </div>
                         {i === 0 ? (
                             // Discover: the question sits on the asset as a chat bubble;
-                            // here, the command that works on it and the hypotheses it produces.
+                            // here, just the command that works on it.
                             <div>
                                 <p {...r(0)}><span className="font-mono text-[12.5px] font-semibold" style={{ color: step.color }}>{step.command}</span></p>
                                 <p {...r(1)}><span className="mt-2 block text-[17px] md:text-[20px] font-bold leading-snug text-white">{t(step.title)}</span></p>
-                                <div {...r(2)}>
-                                    <div className="mt-6 pt-5 border-t border-white/10">
-                                        <p className="text-xs font-semibold uppercase tracking-widest text-white/50">{t('Hypotheses')}</p>
-                                        <Hypotheses play={shown} />
-                                    </div>
-                                </div>
                             </div>
                         ) : (
                             <div>
@@ -520,64 +514,10 @@ export function WorkflowStory({ className = '' }: { className?: string }) {
     );
 }
 
-// The agent "thinking" (three pulsing dots), then the hypotheses popping in
-// one by one, each with the agent's confidence. Replays each time Discover
-// becomes the active step.
+// The hypothesis Discover picks; Define shows it going into the brief.
 const HYPOTHESES = [
     { name: 'Hypothesis 1', confidence: 8 },
-    { name: 'Hypothesis 2', confidence: 7 },
-    { name: 'Hypothesis 3', confidence: 3 },
 ];
-const THINK_MS = 3600;
-const POP_MS = 450;
-
-function Hypotheses({ play }: { play: boolean }) {
-    const t = useT();
-    const [shown, setShown] = useState(0);
-    const [thinking, setThinking] = useState(true);
-
-    useEffect(() => {
-        if (!play) {
-            setShown(0);
-            setThinking(true);
-            return;
-        }
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            setThinking(false);
-            setShown(HYPOTHESES.length);
-            return;
-        }
-        const timers: number[] = [];
-        timers.push(window.setTimeout(() => setThinking(false), THINK_MS));
-        HYPOTHESES.forEach((_, j) => {
-            timers.push(window.setTimeout(() => setShown(j + 1), THINK_MS + POP_MS * (j + 1)));
-        });
-        return () => timers.forEach(clearTimeout);
-    }, [play]);
-
-    return (
-        <div className="mt-3 min-h-[60px]">
-            {thinking ? (
-                <span className="flex items-center gap-1.5 h-[30px]" aria-label={t('Generating')}>
-                    {[0, 1, 2].map((d) => (
-                        <span key={d} className="h-1.5 w-1.5 rounded-full bg-white/60 animate-pulse" style={{ animationDelay: `${d * 200}ms` }} />
-                    ))}
-                </span>
-            ) : (
-                <ul className="flex flex-wrap gap-2">
-                    {HYPOTHESES.map((h, j) => (
-                        <li
-                            key={h.name}
-                            className={`transition-[opacity,transform] duration-300 ease-out ${j < shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
-                        >
-                            <HypothesisCard {...h} />
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-    );
-}
 
 function HypothesisCard({ name, confidence }: { name: string; confidence: number }) {
     const t = useT();
