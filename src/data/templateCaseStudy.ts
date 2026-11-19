@@ -121,7 +121,7 @@ export const templateCaseStudy: RichCaseStudy = {
     sections: [
         {
             type: 'impact',
-            title: 'Impact',
+            title: 'Highlights',
             items: [
                 { value: '40%', label: 'Faster delivery', description: 'Reduction in time from design to production across all product teams.' },
                 { value: '30+', label: 'Designers onboarded', description: 'Designers enabled to work directly in code using the new workflow.' },

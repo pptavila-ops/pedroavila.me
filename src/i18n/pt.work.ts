@@ -75,13 +75,12 @@ export const ptWork: Record<string, string> = {
     // Hero story (src/components/WorkflowStory.tsx)
     'One design change, followed through the workflow': 'Uma mudança de design, acompanhada pelo workflow',
     'The meal card before the change': 'O card de refeição antes da mudança',
-    'The question': 'A pergunta',
     'What are some ways to improve add-on sales and selection already on the meal-selection page?':
         'Que caminhos existem para melhorar a venda e a escolha de add-ons já na página de seleção de refeições?',
     'The prototype card with the add-on module': 'O card do protótipo com o módulo de add-on',
     'The meal card in production, with the add-on module': 'O card de refeição em produção, com o módulo de add-on',
-    '“I\'d have tapped that checkbox faster if it told me the bread was baked locally or something. Right now it\'s just bread with a price tag.”':
-        '“Eu teria marcado essa caixa mais rápido se ela dissesse que o pão é assado localmente ou algo assim. Do jeito que está, é só um pão com uma etiqueta de preço.”',
+    '“I\'d have tapped that checkbox faster if it told me the bread was baked locally.”':
+        '“Eu teria marcado essa caixa mais rápido se ela dissesse que o pão é assado localmente.”',
 
     // ── Fact tables, one block per study ────────────────────────────────────
     'AI Tooling, Design-to-Code, Design System Quality': 'Ferramentas de IA, Design-to-Code, Qualidade do Design System',
@@ -145,8 +144,8 @@ export const ptWork: Record<string, string> = {
         'A Schwarzkopf tinha um protótipo de análise capilar com IA e precisava saber se valia a pena construir.',
     'I ran the research end to end.':
         'Conduzi a pesquisa de ponta a ponta.',
-    'Planned and ran ten interviews with a native German interviewer, synthesised them in Dovetail, and gave Henkel a clear go / no-go.':
-        'Planejei e conduzi dez entrevistas com uma entrevistadora alemã nativa, sintetizei tudo no Dovetail e entreguei à Henkel uma recomendação clara de seguir ou não.',
+    'Planned and ran ten interviews, synthesised them in Dovetail, and gave Henkel a clear go / no-go.':
+        'Planejei e conduzi dez entrevistas, sintetizei tudo no Dovetail e entreguei à Henkel uma recomendação clara de seguir ou não.',
 
     // Chapter titles. Every study opens with 'Context'.
     'Outcome': 'Resultado',
@@ -287,6 +286,8 @@ export const ptWork: Record<string, string> = {
         'O agente busca em experimentos, pesquisas anteriores e dados de clientes o que já se sabe.',
     'The question: <strong class="font-semibold text-white">What are some ways to improve add-on sales and selection already on the meal-selection page?</strong>':
         'A pergunta: <strong class="font-semibold text-white">Que caminhos existem para melhorar a venda e a escolha de add-ons já na página de seleção de refeições?</strong>',
+    'The agent generates hypotheses from the question, grounded in the research database.':
+        'O agente gera hipóteses a partir da pergunta, com base no banco de pesquisas.',
     'The agent weighs the evidence and turns it into hypotheses.':
         'O agente pesa as evidências e as transforma em hipóteses.',
     'The agent generates a series of 10 hypotheses, each with a confidence level based on how recent the research is, the group of people researched, the type of research and other factors. H1 is the one this case tests, and H5 is why the design shows one named item.':
@@ -295,6 +296,16 @@ export const ptWork: Record<string, string> = {
         'O agente escreve um brief de design para o prototyper, a partir da hipótese escolhida.',
     'The agent builds an interactive prototype from production code and the Zest design system.':
         'O agente constrói um protótipo interativo a partir do código de produção e do design system Zest.',
+    'How to improve add-on sales on meal selection cards?': 'Como melhorar as vendas de add-ons nos cards de seleção de refeições?',
+    'Showing one add-on paired with each meal will sell better than a gallery of add-ons.':
+        'Mostrar um add-on ligado a cada refeição vai vender mais do que uma galeria de add-ons.',
+    'Agent': 'Agente',
+    'I implemented this new element with the design tokens and components from the design system.':
+        'Implementei este novo elemento com os tokens e componentes do design system.',
+    'In this case, a quick add-on component was added to the meal card.':
+        'Neste caso, um componente rápido de add-on foi adicionado ao card da refeição.',
+    'The agent builds an interactive prototype from production code.':
+        'O agente constrói um protótipo interativo a partir do código de produção.',
     'Once a meal is added and the modal\'s pairing is skipped, a "Best pair for this meal" module appears on the card.':
         'Quando uma refeição é adicionada e a combinação do modal é pulada, um módulo "Melhor par para esta refeição" aparece no card.',
     'The agents put the prototype in front of an emulated persona and five expert reviewers.':
@@ -348,7 +359,7 @@ export const ptWork: Record<string, string> = {
     'Sole designer': 'Designer único',
     'Owned TPT\'s full product UX from launch through 2025, funnel, checkout, post-checkout, and member experience.':
         'Responsável por todo o UX de produto da TPT do lançamento até 2025: funil, checkout, pós-checkout e experiência de membro.',
-    'Brands influenced': 'Marcas influenciadas',
+    'HelloFresh brands influenced': 'Marcas da HelloFresh influenciadas',
     'TPT patterns adopted by Good Chop, Factor, and core HelloFresh, including cancellation UX and Figma structure.':
         'Padrões da TPT adotados por Good Chop, Factor e pela HelloFresh principal, incluindo o UX de cancelamento e a estrutura no Figma.',
     'Pioneer': 'Pioneiro',

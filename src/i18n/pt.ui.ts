@@ -40,8 +40,8 @@ export const ptUi: Record<string, string> = {
     // Portuguese — read the two entries together, not in isolation.
     'Leading how designers work': 'Liderando como designers trabalham',
     'end to end with AI.': 'de ponta a ponta com IA.',
-    'From idea to prototyping and shipped code, I help human teams to use AI effectively. With agents in the loop.':
-        'Da ideia ao protótipo e ao código em produção, ajudo times humanos a usar IA de forma eficaz. Com agentes in the loop.',
+    'From research to prototyping and shipped code, I help human teams to use AI effectively. With agents in the loop.':
+        'Da pesquisa ao protótipo e ao código em produção, ajudo times humanos a usar IA de forma eficaz. Com agentes in the loop.',
     'Currently at @': 'Atualmente na @',
 
     // ── Navigation ───────────────────────────────────────────────────
@@ -55,6 +55,14 @@ export const ptUi: Record<string, string> = {
     'Restart': 'Recomeçar',
     'Previous slide': 'Slide anterior',
     'Next slide': 'Próximo slide',
+    'Hypotheses': 'Hipóteses',
+    'Generating': 'Gerando',
+    'Hypothesis 1': 'Hipótese 1',
+    'Hypothesis 2': 'Hipótese 2',
+    'Hypothesis 3': 'Hipótese 3',
+    'Confidence': 'Confiança',
+    'Pull request': 'Pull request',
+    'Open': 'Aberto',
     'Slide {current} of {total}': 'Slide {current} de {total}',
     'Image {n}': 'Imagem {n}',
 
@@ -120,6 +128,10 @@ export const ptUi: Record<string, string> = {
     'One customer profile': 'Um perfil de cliente',
     'Expert reviewers': 'Revisores especialistas',
     'Accessibility, brand, content, interaction, UX': 'Acessibilidade, marca, conteúdo, interação, UX',
+    'Accessibility': 'Acessibilidade',
+    'Brand': 'Marca',
+    'Content': 'Conteúdo',
+    'Interaction': 'Interação',
 
     // ── Diagram: command flow ────────────────────────────────────────
     'Discover': 'Descobrir',
@@ -163,5 +175,5 @@ export const ptUi: Record<string, string> = {
     'Reactivation': 'Reativação',
     'Winning back paused and canceled pet parents with reasons to return, offering the flexibility to tweak their plan as much as they need for their return box.':
         'Reconquistando tutores pausados e cancelados com motivos para voltar, oferecendo a flexibilidade de ajustar o plano o quanto for preciso para a caixa de retorno.',
-    'Impact': 'Impacto',
+    'Highlights': 'Destaques',
 };

@@ -420,8 +420,6 @@ export function CaseStudyPage({ study, onBack, otherStudies = [], onOpenStudy, o
                 </section>
             ))}
 
-            <TagLine tags={study.tags} className="mt-16 text-white/50" />
-
             {/* Other case studies */}
             {otherStudies.length > 0 && (
                 <div className="mt-20 pt-10 border-t border-white/10">

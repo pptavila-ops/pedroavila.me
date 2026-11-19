@@ -23,7 +23,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         sections: [
             {
                 type: 'impact',
-                title: 'Impact',
+                title: 'Highlights',
                 items: [
                     { value: '1st', label: 'Designer in production code', description: 'First designer at HelloFresh to merge code directly into production, setting a precedent that grew into an organisation-wide movement.' },
                     { value: 'AI Pioneer', label: 'Skills, Agents and Commands', description: 'A full AI workflow covering prototype creation, iteration, testing, publishing, and design-to-code workflows.' },
@@ -352,10 +352,10 @@ export const richCaseStudies: RichCaseStudy[] = [
         sections: [
             {
                 type: 'impact',
-                title: 'Impact',
+                title: 'Highlights',
                 items: [
                     { value: '3 yrs', label: 'Sole designer', description: 'Owned TPT\'s full product UX from launch through 2025, funnel, checkout, post-checkout, and member experience.' },
-                    { value: '4+', label: 'Brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh, including cancellation UX and Figma structure.' },
+                    { value: '4+', label: 'HelloFresh brands influenced', description: 'TPT patterns adopted by Good Chop, Factor, and core HelloFresh, including cancellation UX and Figma structure.' },
                     { value: 'Pioneer', label: 'Design-to-Code Workflows', description: 'TPT was where I started my design-to-code journey, experimenting with features in production, building the knowledge to bridge the gap between design intent and engineering output.' },
                     { value: 'CVR +', label: 'Uplifts as main goal', description: 'Growth was our primary target. I drove conversion improvements across the funnel, adding goals and allergen questions, refining UX flows, introducing two-step loading states, and layering in social proof at key moments.' },
                 ],
@@ -637,7 +637,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         sections: [
             {
                 type: 'impact',
-                title: 'Impact',
+                title: 'Highlights',
                 items: [
                     { value: '2', label: 'Platforms launched', description: 'Published on both the App Store and Google Play after 9 months of design and development.' },
                     { value: '9mo', label: 'Idea to launch', description: 'Full end-to-end project from discovery to a live product used by real customers.' },
@@ -1037,13 +1037,13 @@ export const richCaseStudies: RichCaseStudy[] = [
         lede: 'Ten interviews to help Schwarzkopf decide, before building anything, whether women in Germany would trust an AI to analyse their hair.',
         brief: [
             { label: 'Context', headline: 'Would people trust an AI with their hair?', content: 'Schwarzkopf had an AI hair analysis prototype and needed to know if it was worth building.' },
-            { label: 'What I did', headline: 'I ran the research end to end.', content: 'Planned and ran ten interviews with a native German interviewer, synthesised them in Dovetail, and gave Henkel a clear go / no-go.' },
+            { label: 'What I did', headline: 'I ran the research end to end.', content: 'Planned and ran ten interviews, synthesised them in Dovetail, and gave Henkel a clear go / no-go.' },
         ],
         tags: ['UX Research', 'User Interviews', 'Concept Testing', 'Dovetail'],
         sections: [
             {
                 type: 'impact',
-                title: 'Impact',
+                title: 'Highlights',
                 items: [
                     { value: '10', label: 'Women interviewed', description: 'Moderated sessions with women across Germany, conducted alongside another German UX Researcher.' },
                     { value: 'Full', label: 'Research ownership', description: 'I owned the entire research process, from screening criteria and script to synthesis and final report.' },

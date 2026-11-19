@@ -261,7 +261,7 @@ function App() {
                             <span className="hidden lg:inline">{t('Leading how designers work')}<br />{t('end to end with AI.')}</span>
                         </p>
                         <p className="mt-4 max-w-[38em] text-[17px] md:text-[19px] leading-relaxed font-normal text-white/60 text-pretty">
-                            {t('From idea to prototyping and shipped code, I help human teams to use AI effectively. With agents in the loop.')}{' '}{t('Currently at @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">HelloFresh</a>.
+                            <span className="hidden md:inline">{t('From research to prototyping and shipped code, I help human teams to use AI effectively. With agents in the loop.')}{' '}</span>{t('Currently at @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">HelloFresh</a>.
                         </p>
 
                         {/* Mobile only: the sidebar's name, bio and contact row, after the title */}
