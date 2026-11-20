@@ -17,7 +17,7 @@ export const richCaseStudies: RichCaseStudy[] = [
         lede: 'I built the Claude Code toolkit that lets HelloFresh designers prototype, test, and ship UI straight to production, across all nine brands.',
         brief: [
             { label: 'Context', headline: 'Designers didn\'t know how to design with AI, or how to ship that design to production.', content: 'Designers had no shared way to use AI, and <strong class="font-semibold text-white">couldn\'t ship their own designs</strong>. Every change went through a long handoff, across nine brands.' },
-            { label: 'What I did', headline: 'I built an AI design workflow that runs from first idea to production.', content: 'I built a set of Claude Code commands, skills, and agents that take designers through the whole process, <strong class="font-semibold text-white">from research to prototype to production code</strong>.' },
+            { label: 'What I did', headline: 'I built an AI design workflow that runs from first idea to production.', content: 'I built a set of Claude Code commands, skills, and agents that take designers through the whole process, <strong class="font-semibold text-white">from research and prototyping all the way to production code</strong>.' },
         ],
         tags: ['Consumer Acceleration', 'Design Operations', 'AI Enablement', 'Design-to-Code', 'Design Systems', 'UX Quality'],
         sections: [

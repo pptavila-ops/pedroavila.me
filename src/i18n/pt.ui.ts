@@ -12,20 +12,9 @@ export const ptUi: Record<string, string> = {
 
     // Skill tags and their tooltips
     'Design to Code': 'Design para Código',
-    'I close the gap between design and front-end engineering: turning design decisions into production-ready components and features, and enabling designers across the org to work directly in code instead of static tools.':
-        'Eu fecho a lacuna entre design e engenharia front-end: transformo decisões de design em componentes e funcionalidades prontos para produção e capacito designers de toda a organização a trabalhar direto no código, em vez de ferramentas estáticas.',
-    'I build interfaces and prototypes with Claude as a coding partner, and own the UX space for AI skills at HelloFresh, writing new skills and improving existing ones.':
-        'Eu construo interfaces e protótipos com o Claude como parceiro de código e sou responsável pelo espaço de UX das skills de IA na HelloFresh, escrevendo novas skills e melhorando as existentes.',
+    'User Research': 'Pesquisa com Usuários',
     'Fast Prototyping': 'Prototipagem Rápida',
-    'I help designers prototype in code, test ideas quickly, and share working prototypes in dedicated repositories.':
-        'Eu ajudo designers a prototipar em código, testar ideias rapidamente e compartilhar protótipos funcionais em repositórios dedicados.',
-    'I build and manage scalable component libraries and design tokens that keep teams aligned.':
-        'Eu construo e mantenho bibliotecas de componentes escaláveis e design tokens que mantêm os times alinhados.',
-    'I make design system components, prototyping workflows, and code delivery tools available to every designer in the org through guides, 101 sessions, and a culture that fosters curiosity instead of overwhelm.':
-        'Eu disponibilizo componentes do design system, fluxos de prototipagem e ferramentas de entrega de código para todos os designers da organização por meio de guias, sessões introdutórias e uma cultura que estimula a curiosidade em vez do excesso.',
     'Music Production': 'Produção Musical',
-    'I\'ve also been learning music production and experimenting with sounds and synthesizers I enjoy.':
-        'Também venho aprendendo produção musical e experimentando com sons e sintetizadores que eu curto.',
 
     // Contact row
     'Click to copy': 'Clique para copiar',
@@ -40,8 +29,8 @@ export const ptUi: Record<string, string> = {
     // Portuguese — read the two entries together, not in isolation.
     'Leading how designers work': 'Liderando como designers trabalham',
     'end to end with AI.': 'de ponta a ponta com IA.',
-    'From research to prototyping and shipped code, I help human teams to use AI effectively. With agents in the loop.':
-        'Da pesquisa ao protótipo e ao código em produção, ajudo times humanos a usar IA de forma eficaz. Com agentes in the loop.',
+    'From research to prototyping and shipped code, I help teams to use AI effectively, with humans in the loop.':
+        'Da pesquisa ao protótipo e ao código em produção, ajudo times a usar IA de forma eficaz, com humanos in the loop.',
     'Currently at @': 'Atualmente na @',
 
     // ── Navigation ───────────────────────────────────────────────────

@@ -17,13 +17,11 @@ function App() {
     const [copied, setCopied] = useState(false);
     const [activeStudy, setActiveStudy] = useState<string | null>(null);
     const [activePlayground, setActivePlayground] = useState(false);
-    const [shineKey, setShineKey] = useState(0);
     const musicRef = useRef<HTMLAudioElement>(null);
 
     const openStudy = useCallback((id: string) => {
         setActiveStudy(id);
         setActivePlayground(false);
-        setShineKey((k) => k + 1);
         window.history.pushState({ study: id }, '', `/work/${id}`);
         window.scrollTo(0, 0);
     }, []);
@@ -31,7 +29,6 @@ function App() {
     const openPlayground = useCallback(() => {
         setActiveStudy(null);
         setActivePlayground(true);
-        setShineKey((k) => k + 1);
         window.history.pushState({ playground: true }, '', '/playground');
         window.scrollTo(0, 0);
     }, []);
@@ -39,7 +36,6 @@ function App() {
     const closeStudy = useCallback(() => {
         setActiveStudy(null);
         setActivePlayground(false);
-        setShineKey((k) => k + 1);
         window.history.pushState(null, '', '/');
         window.scrollTo(0, 0);
     }, []);
@@ -50,8 +46,7 @@ function App() {
             const match = path.match(/^\/work\/(.+)$/);
             setActiveStudy(match ? match[1] : null);
             setActivePlayground(path === '/playground');
-            setShineKey((k) => k + 1);
-        };
+            };
         window.addEventListener('popstate', handlePopState);
 
         // Handle initial URL (e.g. direct link to /work/... or /playground)
@@ -112,28 +107,22 @@ function App() {
                     </p>
 
                     <div className="flex flex-wrap gap-2 mt-6">
-                        {[
-                            { label: 'Design to Code', tip: 'I close the gap between design and front-end engineering: turning design decisions into production-ready components and features, and enabling designers across the org to work directly in code instead of static tools.' },
-                            { label: 'Claude Code', tip: 'I build interfaces and prototypes with Claude as a coding partner, and own the UX space for AI skills at HelloFresh, writing new skills and improving existing ones.' },
-                            { label: 'Fast Prototyping', tip: 'I help designers prototype in code, test ideas quickly, and share working prototypes in dedicated repositories.' },
-                            { label: 'Design Systems', tip: 'I build and manage scalable component libraries and design tokens that keep teams aligned.' },
-                            { label: 'Design Ops', tip: 'I make design system components, prototyping workflows, and code delivery tools available to every designer in the org through guides, 101 sessions, and a culture that fosters curiosity instead of overwhelm.' },
-                        ].map((tag) => (
-                            <Tooltip key={`${tag.label}-${shineKey}`} text={t(tag.tip)}>
-                                <span className="text-[13px] text-white/60 hover:text-white rounded-md px-3 py-1 cursor-default animate-tag-shine hover:border-white/40 transition-colors">{t(tag.label)}</span>
-                            </Tooltip>
+                        {['User Research', 'Object-Oriented UX', 'Design to Code', 'Claude Code', 'Fast Prototyping', 'Design Systems', 'Design Ops'].map((label) => (
+                            <div key={label} className="relative">
+                                <span className="text-[13px] text-white/60 rounded-md px-3 py-1 cursor-default border border-white/15">{t(label)}</span>
+                            </div>
                         ))}
-                        <Tooltip
-                            key={`music-${shineKey}`}
-                            text={t('I\'ve also been learning music production and experimenting with sounds and synthesizers I enjoy.')}
+                        <div
+                            key="music"
+                            className="relative"
                             onMouseEnter={() => musicRef.current?.play().catch(() => { })}
                             onMouseLeave={() => { if (musicRef.current) { musicRef.current.pause(); musicRef.current.currentTime = 0; } }}
                         >
-                            <span className="text-[13px] text-white/60 hover:text-white rounded-md px-3 py-1 cursor-default animate-tag-shine hover:border-white/40 transition-colors music-tag">
+                            <span className="text-[13px] text-white/60 hover:text-white rounded-md px-3 py-1 cursor-default border border-white/15 hover:border-white/40 transition-colors music-tag">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="music-icon inline -mt-0.5 mr-1"><path d="M21.1045 2.00488C21.3856 1.97729 21.6149 2.06946 21.8174 2.26367C22.1485 2.5815 22.1645 2.92212 22.165 3.35254C22.1683 6.07735 22.1675 8.80251 22.167 11.5273L22.166 13.8408C22.1657 14.2859 22.1768 15.2001 22.0908 15.6182C21.9229 16.4204 21.5302 17.1583 20.958 17.7451C19.3002 19.4327 16.69 19.4929 15 17.8184C14.1915 17.0239 13.7359 15.9373 13.7363 14.8037C13.7402 13.7027 14.1798 12.6479 14.959 11.8701C16.4623 10.3708 18.0717 10.612 20.0312 10.6162V4.26758C19.4567 4.37696 18.8356 4.46318 18.2539 4.55957L14.6094 5.16406C13.2872 5.38224 11.7371 5.691 10.4277 5.85449L10.4297 7.9209V14.5762L10.4307 16.4854C10.4311 17.1197 10.4614 17.8093 10.3213 18.4248C10.141 19.1947 9.7506 19.8999 9.19336 20.4609C8.41153 21.2532 7.3435 21.6989 6.23047 21.6973C3.83578 21.7062 1.9946 19.8611 2 17.4668C2.01223 16.3691 2.46034 15.3213 3.24512 14.5537C4.74122 13.0726 6.36228 13.3306 8.29688 13.3359V7.79395L8.29492 6.05859C8.29476 5.71154 8.29851 5.37878 8.31055 5.03027C8.32611 4.5825 8.60316 4.16471 9.05469 4.04688C9.61136 3.90166 10.2306 3.82483 10.8057 3.72949L13.7764 3.22559L18.4609 2.44043C19.2992 2.29886 20.2702 2.10991 21.1045 2.00488ZM6.79492 15.415C6.65123 15.4148 6.1514 15.4111 6.02441 15.4326C5.42914 15.494 4.92507 15.7286 4.54102 16.1982C4.19695 16.6123 4.03597 17.1483 4.09375 17.6836C4.21261 18.8571 5.25037 19.6382 6.4043 19.5703C7.0601 19.4434 7.5276 19.2303 7.92969 18.6621C8.35231 18.0647 8.29918 17.3628 8.29785 16.6602L8.29395 15.4199L6.79492 15.415ZM18.0703 12.8018C17.3917 12.8417 16.9115 13.008 16.4443 13.5352C16.0862 13.9358 15.9022 14.4625 15.9326 14.999C15.97 15.5542 16.2261 16.0718 16.6455 16.4375C17.0182 16.7595 17.4885 16.947 17.9805 16.9707C18.6225 16.9233 19.151 16.7277 19.5791 16.2295C20.1374 15.5798 20.0862 14.9469 20.0859 14.1504L20.085 12.7988C19.431 12.7982 18.72 12.7843 18.0703 12.8018Z" fill="currentColor" /></svg>
                                 {t('Music Production')}
                             </span>
-                        </Tooltip>
+                        </div>
                     </div>
                 </div>
 
@@ -261,7 +250,7 @@ function App() {
                             <span className="hidden lg:inline">{t('Leading how designers work')}<br />{t('end to end with AI.')}</span>
                         </p>
                         <p className="mt-4 max-w-[38em] text-[17px] md:text-[19px] leading-relaxed font-normal text-white/60 text-pretty">
-                            <span className="hidden md:inline">{t('From research to prototyping and shipped code, I help human teams to use AI effectively. With agents in the loop.')}{' '}</span>{t('Currently at @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">HelloFresh</a>.
+                            <span className="hidden md:inline">{t('From research to prototyping and shipped code, I help teams to use AI effectively, with humans in the loop.')}{' '}</span>{t('Currently at @')}<a href="https://www.hellofresh.com" target="_blank" rel="noreferrer" className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors">HelloFresh</a>.
                         </p>
 
                         {/* Mobile only: the sidebar's name, bio and contact row, after the title */}

@@ -108,8 +108,8 @@ export const ptWork: Record<string, string> = {
         'Os designers não tinham um jeito comum de usar IA e <strong class="font-semibold text-white">não conseguiam colocar os próprios designs em produção</strong>. Toda mudança passava por um handoff longo, em nove marcas.',
     'I built an AI design workflow that runs from first idea to production.':
         'Criei um workflow de design com IA que vai da primeira ideia até a produção.',
-    'I built a set of Claude Code commands, skills, and agents that take designers through the whole process, <strong class="font-semibold text-white">from research to prototype to production code</strong>.':
-        'Criei um conjunto de comandos, skills e agentes no Claude Code que leva os designers por todo o processo, <strong class="font-semibold text-white">da pesquisa ao protótipo e ao código de produção</strong>.',
+    'I built a set of Claude Code commands, skills, and agents that take designers through the whole process, <strong class="font-semibold text-white">from research and prototyping all the way to production code</strong>.':
+        'Criei um conjunto de comandos, skills e agentes no Claude Code que leva os designers por todo o processo, <strong class="font-semibold text-white">da pesquisa e do protótipo até o código em produção</strong>.',
 
     // ── Briefs · The Pets Table ──────────────────────────────────────────────
     'Three years as the sole product designer of HelloFresh\'s fresh dog food brand, from launch to a subscription built around how dogs actually eat.':
