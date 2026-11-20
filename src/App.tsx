@@ -107,7 +107,7 @@ function App() {
                     </p>
 
                     <div className="flex flex-wrap gap-2 mt-6">
-                        {['User Research', 'Object-Oriented UX', 'Design to Code', 'Claude Code', 'Fast Prototyping', 'Design Systems', 'Design Ops'].map((label) => (
+                        {['Design to Code', 'Claude Code', 'Fast Prototyping', 'User Research', 'Object-Oriented UX', 'Design Systems', 'Design Ops'].map((label) => (
                             <div key={label} className="relative">
                                 <span className="text-[13px] text-white/60 rounded-md px-3 py-1 cursor-default border border-white/15">{t(label)}</span>
                             </div>
