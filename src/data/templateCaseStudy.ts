@@ -19,6 +19,7 @@ export type RichSection =
     | { type: 'current-design-process-diagram' }
     | { type: 'spec-machine-diagram' }
     | { type: 'lifecycle-journey-diagram' }
+    | { type: 'tpt-process-diagram' }
     | { type: 'slides'; slides: Slide[] };
 
 export interface Slide {

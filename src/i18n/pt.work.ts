@@ -160,6 +160,10 @@ export const ptWork: Record<string, string> = {
     'Methods': 'Métodos',
     'Credits': 'Créditos',
 
+    // ── The Pets Table · process ─────────────────────────────────────
+    'Every feature at TPT started as a demand, from the data or from the business, and followed the same path from idea to experiment. I wasn\'t only on the receiving end: watching the data myself, I was often the one bringing new opportunities to the team.':
+        'Toda feature na TPT começava como uma demanda, vinda dos dados ou do negócio, e seguia o mesmo caminho da ideia ao experimento. Eu não só recebia demandas: acompanhando os dados de perto, muitas vezes era eu quem trazia novas oportunidades para o time.',
+
     // ── HelloFresh · design transformation ───────────────────────────
     'From insights to production code: how I defined the way designers work with AI':
         'Dos insights ao código de produção: como defini a forma como os designers trabalham com IA',

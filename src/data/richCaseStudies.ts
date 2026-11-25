@@ -451,6 +451,17 @@ export const richCaseStudies: RichCaseStudy[] = [
             },
             {
                 type: 'divider',
+                label: 'Process',
+            },
+            {
+                type: 'text',
+                content: 'Every feature at TPT started as a demand, from the data or from the business, and followed the same path from idea to experiment. I wasn\'t only on the receiving end: watching the data myself, I was often the one bringing new opportunities to the team.',
+            },
+            {
+                type: 'tpt-process-diagram',
+            },
+            {
+                type: 'divider',
                 label: 'Research as a habit',
             },
             {
