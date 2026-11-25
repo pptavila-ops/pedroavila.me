@@ -1,5 +1,7 @@
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment } from 'react';
 import { useT } from '../i18n/useLanguage';
+import { useSnapCarousel } from './useSnapCarousel';
+import { CarouselFooter, StageTabs, carouselRegion, carouselTrack } from './CarouselParts';
 
 /* How a demand became a feature at TPT, as a row of post-its read left to
    right. A strip of four stages on top keeps the whole sequence visible while
@@ -38,14 +40,14 @@ const notes: Note[] = [
     {
         label: 'Data',
         question: 'What are users telling us?',
-        chips: ['Analytics', 'Heatmaps', 'Sprig feedback', 'Intercept surveys'],
+        chips: ['Analytics', 'Heatmaps', 'Sprig feedback', 'Intercept surveys', 'From other HelloFresh brands'],
         stage: 'demand',
         next: 'or',
     },
     {
         label: 'Business',
         question: 'What does the business need?',
-        chips: ['New plans', 'Other HelloFresh brands'],
+        chips: ['New types of food', 'New prices', 'New portion sizes'],
         stage: 'demand',
         next: 'arrow',
     },
@@ -125,50 +127,11 @@ function ConnectorMark({ kind }: { kind: Connector }) {
 
 export function TptProcessDiagram() {
     const t = useT();
-    const trackRef = useRef<HTMLDivElement>(null);
-    const noteRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const [active, setActive] = useState(0);
-    const [atEnd, setAtEnd] = useState(false);
-
-    useEffect(() => {
-        const track = trackRef.current;
-        if (!track) return;
-        const onScroll = () => {
-            const items = noteRefs.current.filter(Boolean) as HTMLDivElement[];
-            const left = track.scrollLeft;
-            const distance = (item: HTMLElement) => Math.abs(item.offsetLeft - track.offsetLeft - left);
-            let nearest = 0;
-            items.forEach((item, i) => {
-                if (distance(item) < distance(items[nearest])) nearest = i;
-            });
-            // At the end of the track the last notes can't reach the left edge
-            const end = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-            setAtEnd(end);
-            setActive(end ? items.length - 1 : nearest);
-        };
-        onScroll();
-        track.addEventListener('scroll', onScroll, { passive: true });
-        return () => track.removeEventListener('scroll', onScroll);
-    }, []);
-
-    const goTo = (index: number) => {
-        const track = trackRef.current;
-        const target = noteRefs.current[index];
-        if (!track || !target) return;
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' });
-    };
-
-    const onKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(Math.min(active + 1, notes.length - 1)); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(Math.max(active - 1, 0)); }
-    };
-
-    const navButton = 'flex h-11 w-11 items-center justify-center rounded-full bg-white text-black transition-[opacity,scale] duration-200 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-25 disabled:cursor-default';
+    const { trackRef, setItemRef, active, goTo, onKeyDown, edgeFade } = useSnapCarousel(notes.length);
 
     return (
         <div
-            className="mt-8 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+            className={carouselRegion}
             role="region"
             aria-roledescription="carousel"
             aria-label={t('How a demand became a feature at TPT')}
@@ -176,44 +139,25 @@ export function TptProcessDiagram() {
             onKeyDown={onKeyDown}
         >
             {/* The whole sequence at a glance, doubling as navigation and color key */}
-            <ol className="grid grid-cols-4 gap-2">
-                {stages.map((stage) => {
-                    const first = notes.findIndex((note) => note.stage === stage.id);
-                    const current = notes[active].stage === stage.id;
-                    return (
-                        <li key={stage.id}>
-                            <button
-                                type="button"
-                                onClick={() => goTo(first)}
-                                aria-current={current ? 'step' : undefined}
-                                className="group w-full text-left cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                            >
-                                <span
-                                    className={`block h-1 rounded-full transition-opacity ${current ? 'opacity-100' : 'opacity-35 group-hover:opacity-70'}`}
-                                    style={{ background: stage.bar ?? stage.color }}
-                                />
-                                <span className={`mt-2 block text-[12px] md:text-[14px] leading-tight transition-colors ${current ? 'text-white font-semibold' : 'text-white/50 group-hover:text-white/80'}`}>
-                                    {t(stage.label)}
-                                </span>
-                            </button>
-                        </li>
-                    );
-                })}
-            </ol>
+            <StageTabs
+                stages={stages}
+                activeId={notes[active].stage}
+                onPick={(id) => goTo(notes.findIndex((note) => note.stage === id))}
+            />
 
             <div
                 ref={trackRef}
-                className="mt-8 md:mt-10 flex items-start overflow-x-auto overscroll-x-contain snap-x snap-mandatory pt-5 pb-4 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                style={atEnd ? undefined : { maskImage: 'linear-gradient(to right, black calc(100% - 64px), transparent)' }}
+                className={`mt-8 md:mt-10 pt-5 pb-4 items-start ${carouselTrack}`}
+                style={edgeFade}
             >
                 {notes.map((note, i) => (
                     <Fragment key={note.label}>
                         <div
-                            ref={(el) => { noteRefs.current[i] = el; }}
+                            ref={setItemRef(i)}
                             role="group"
                             aria-roledescription="slide"
                             aria-label={`${i + 1} / ${notes.length}: ${t(note.label)}`}
-                            className="snap-start flex-shrink-0 w-[240px] md:w-[260px] min-h-[220px] relative flex flex-col p-6 pt-7 text-black rounded-sm"
+                            className="snap-start flex-shrink-0 w-[256px] md:w-[260px] min-h-[220px] relative flex flex-col p-6 pt-7 text-black rounded-sm"
                             style={{ background: note.color ?? stageColor(note.stage), transform: `rotate(${tilts[i % tilts.length]}deg)` }}
                         >
                             {/* Tape */}
@@ -255,19 +199,7 @@ export function TptProcessDiagram() {
                 ))}
             </div>
 
-            <div className="mt-3 flex items-center justify-between gap-4">
-                <p className="text-[14px] text-white/45 tabular-nums" aria-live="polite">
-                    {active + 1} / {notes.length}
-                </p>
-                <div className="flex gap-2">
-                    <button type="button" onClick={() => goTo(active - 1)} disabled={active === 0} aria-label={t('Previous slide')} className={navButton}>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
-                    <button type="button" onClick={() => goTo(active + 1)} disabled={active === notes.length - 1} aria-label={t('Next slide')} className={navButton}>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
-                </div>
-            </div>
+            <CarouselFooter active={active} count={notes.length} goTo={goTo} />
         </div>
     );
 }
