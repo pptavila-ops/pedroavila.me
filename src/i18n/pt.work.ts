@@ -154,11 +154,16 @@ export const ptWork: Record<string, string> = {
     'Solution': 'Solução',
     'Deep dive: add-on pairing': 'Mergulho: add-on pareado',
     'Into Design Systems': 'Into Design Systems',
+    'Across the pet parent lifecycle': 'Por todo o ciclo de vida do tutor',
     'Launch & Foundations': 'Lançamento e fundações',
     'Research as a habit': 'Pesquisa como hábito',
     'Deep dive: delivery cadence': 'Mergulho: cadência de entrega',
     'Methods': 'Métodos',
     'Credits': 'Créditos',
+
+    // ── The Pets Table · process ─────────────────────────────────────
+    'Every feature at TPT started as a demand, from the data or from the business, and followed the same path from idea to experiment. I wasn\'t only on the receiving end: watching the data myself, I was often the one bringing new opportunities to the team.':
+        'Toda feature na TPT começava como uma demanda, vinda dos dados ou do negócio, e seguia o mesmo caminho da ideia ao experimento. Eu não só recebia demandas: acompanhando os dados de perto, muitas vezes era eu quem trazia novas oportunidades para o time.',
 
     // ── HelloFresh · design transformation ───────────────────────────
     'From insights to production code: how I defined the way designers work with AI':
@@ -382,8 +387,8 @@ export const ptWork: Record<string, string> = {
         'O painel da The Pets Table, se afastando do white label com UX específico para pets: acesso melhorado aos adicionais, ações rápidas e navegação por pet',
     'I had to be highly strategic: deciding when to push for innovation, when to negotiate for impactful small changes, and when to lean on cross-brand learnings to move fast.':
         'Eu precisava ser muito estratégico: decidir quando insistir na inovação, quando negociar pequenas mudanças de impacto e quando me apoiar em aprendizados de outras marcas para andar rápido.',
-    'Over three years I shaped TPT\'s end-to-end product experience, from the acquisition funnel through to delivery management, pet profile, and member retention. I ran user research, built design systems foundations, drove measurable conversion improvements, and eventually pioneered AI-assisted design-to-code workflows that set a new bar across HelloFresh.':
-        'Ao longo de três anos moldei a experiência de produto da TPT de ponta a ponta, do funil de aquisição até a gestão de entregas, o perfil do pet e a retenção de membros. Conduzi pesquisa com usuários, construí as fundações do design system, gerei melhorias mensuráveis de conversão e, no fim, fui pioneiro em fluxos de design para código assistidos por IA que criaram um novo patamar em toda a HelloFresh.',
+    'Over three years I designed across the whole pet parent lifecycle, from the first visit to winning back the ones who left. As the only designer on the squad, every stage was mine to own, and several of its patterns were later adopted by other HelloFresh brands.':
+        'Em três anos, desenhei o ciclo de vida inteiro do tutor, da primeira visita até reconquistar quem tinha saído. Como único designer do squad, cada etapa era responsabilidade minha, e vários desses padrões foram depois adotados por outras marcas da HelloFresh.',
     'The main plans page we kept iterating on since when the brand was launched.':
         'A página principal de planos, que seguimos iterando desde o lançamento da marca.',
 

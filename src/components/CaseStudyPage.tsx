@@ -8,6 +8,7 @@ import { CommandFlowDiagram } from './CommandFlowDiagram';
 import { CurrentDesignProcessDiagram } from './CurrentDesignProcessDiagram';
 import { SpecMachineDiagram } from './SpecMachineDiagram';
 import { LifecycleJourneyDiagram } from './LifecycleJourneyDiagram';
+import { TptProcessDiagram } from './TptProcessDiagram';
 import { ImpactCards } from './ImpactCards';
 import { AnimatedSentence } from './AnimatedSentence';
 import { SmallCard } from './CardGrid';
@@ -283,6 +284,9 @@ function renderSection(section: RichSection, i: number, t: Translate) {
 
         case 'lifecycle-journey-diagram':
             return <LifecycleJourneyDiagram key={i} />;
+
+        case 'tpt-process-diagram':
+            return <TptProcessDiagram key={i} />;
 
         default:
             return null;

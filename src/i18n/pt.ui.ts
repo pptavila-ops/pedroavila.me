@@ -145,20 +145,71 @@ export const ptUi: Record<string, string> = {
 
     // ── Diagram: pet parent lifecycle ────────────────────────────────
     'Where I worked across the pet parent lifecycle': 'Onde atuei ao longo do ciclo de vida do tutor',
+    'Back to Growth': 'De volta à Aquisição',
+    'Cancellation and reactivation': 'Cancelamento e reativação',
+    'Churn': 'Churn',
     'Growth': 'Aquisição',
-    'The acquisition funnel: plans, goals and allergen questions, loading states, and social proof at the moments that decide a signup.':
-        'O funil de aquisição: planos, perguntas sobre objetivos e alergias, estados de carregamento e prova social nos momentos que decidem uma assinatura.',
+    'The acquisition funnel: plans, goals and allergen questions, loading states, and social proof where signups are decided.':
+        'O funil de aquisição: planos, perguntas sobre objetivos e alergias, estados de carregamento e prova social onde a assinatura se decide.',
     'Activation': 'Ativação',
     'First delivery and pet profile setup, turning a checkout into a pet parent who understands what they bought.':
         'Primeira entrega e configuração do perfil do pet, transformando um checkout em um tutor que entende o que comprou.',
     'Retention': 'Retenção',
-    'The member experience: delivery management, quick actions, pet navigation, and the add-ons store.':
-        'A experiência de membro: gestão de entregas, ações rápidas, navegação por pet e a loja de adicionais.',
+    'The day-to-day member experience: delivery management, quick actions, pet navigation, and the add-ons store.':
+        'A experiência de membro no dia a dia: gestão de entregas, ações rápidas, navegação por pet e a loja de adicionais.',
     'Cancellation': 'Cancelamento',
-    'The save flow, offering the right alternative before pet parents leave, within strict compliance rules. Later adopted across brands.':
-        'O fluxo de retenção, oferecendo a alternativa certa antes de o tutor sair, dentro de regras rígidas de compliance. Depois adotado por outras marcas.',
+    'The save flow: the right alternative before pet parents leave, within strict compliance rules. Later adopted across brands.':
+        'O fluxo de retenção: a alternativa certa antes de o tutor sair, dentro de regras rígidas de compliance. Depois adotado por outras marcas.',
     'Reactivation': 'Reativação',
-    'Winning back paused and canceled pet parents with reasons to return, offering the flexibility to tweak their plan as much as they need for their return box.':
-        'Reconquistando tutores pausados e cancelados com motivos para voltar, oferecendo a flexibilidade de ajustar o plano o quanto for preciso para a caixa de retorno.',
+    'Winning back paused and canceled pet parents with reasons to return, and the freedom to tweak their return box.':
+        'Reconquistando tutores pausados e cancelados com motivos para voltar e liberdade para ajustar a caixa de retorno.',
     'Highlights': 'Destaques',
+
+    // ── Diagram: TPT product process ─────────────────────────────────
+    'How a demand became a feature at TPT': 'Como uma demanda virava feature na TPT',
+    'Business': 'Negócio',
+    'or': 'ou',
+    'Demand': 'Demanda',
+    'Strategy': 'Estratégia',
+    'Design and test': 'Design e teste',
+    'Build and research': 'Construção e pesquisa',
+    'What are users telling us?': 'O que os usuários estão dizendo?',
+    'Analytics': 'Analytics',
+    'Heatmaps': 'Heatmaps',
+    'Sprig feedback': 'Feedback no Sprig',
+    'Intercept surveys': 'Pesquisas de interceptação',
+    'From other HelloFresh brands': 'De outras marcas HelloFresh',
+    'What does the business need?': 'Do que o negócio precisa?',
+    'New types of food': 'Novos tipos de comida',
+    'New prices': 'Novos preços',
+    'New portion sizes': 'Novos tamanhos de porção',
+    'Prioritise': 'Priorizar',
+    'Which problems are worth it?': 'Quais problemas valem a pena?',
+    'Ranked for the next weeks or the quarter, by how much each could move:':
+        'Ranqueados para as próximas semanas ou o trimestre, pelo quanto cada um poderia mexer em:',
+    'Hypothesise and vote': 'Hipóteses e votação',
+    'What change would move it?': 'Que mudança mexeria nisso?',
+    'We wrote hypotheses, voted as a team, and picked one opportunity.':
+        'Escrevíamos hipóteses, votávamos em time e escolhíamos uma oportunidade.',
+    'Design and review': 'Design e revisão',
+    'Is everyone aligned before we build?': 'Todo mundo está alinhado antes de construir?',
+    'Designed with OOUX, reviewed early with stakeholders and developers.':
+        'Desenhado com OOUX e revisado cedo com stakeholders e desenvolvedores.',
+    'Usability test': 'Teste de usabilidade',
+    'Do people get it?': 'As pessoas entendem?',
+    'Tested with real users before any engineering time. If not, back to design.':
+        'Testado com usuários reais antes de qualquer tempo de engenharia. Se não funcionasse, voltava para o design.',
+    'Build and A/B test': 'Desenvolvimento e teste A/B',
+    'Did it actually work?': 'Funcionou de verdade?',
+    'Shipped as an experiment against control.': 'Ia ao ar como experimento contra o controle.',
+    'Results fed back into the data': 'Os resultados voltavam para os dados',
+    'User interviews, any time': 'Entrevistas, a qualquer momento',
+    'What are we missing?': 'O que estamos deixando passar?',
+    'Before or after a feature, whenever we needed to learn more.':
+        'Antes ou depois de uma feature, sempre que precisávamos entender mais.',
+    'Conversion rate': 'Taxa de conversão',
+    'Average order rate': 'Taxa média de pedidos',
+    'Average order value': 'Valor médio do pedido',
+    'Customer value added': 'Valor agregado por cliente',
+    'Annual recurring revenue': 'Receita recorrente anual',
 };

@@ -389,13 +389,6 @@ export const richCaseStudies: RichCaseStudy[] = [
                 content: 'I had to be highly strategic: deciding when to push for innovation, when to negotiate for impactful small changes, and when to lean on cross-brand learnings to move fast.',
             },
             {
-                type: 'lifecycle-journey-diagram',
-            },
-            {
-                type: 'text',
-                content: 'Over three years I shaped TPT\'s end-to-end product experience, from the acquisition funnel through to delivery management, pet profile, and member retention. I ran user research, built design systems foundations, drove measurable conversion improvements, and eventually pioneered AI-assisted design-to-code workflows that set a new bar across HelloFresh.',
-            },
-            {
                 type: 'image',
                 src: '/tpt-plans.webp',
                 caption: 'The main plans page we kept iterating on since when the brand was launched.',
@@ -448,6 +441,28 @@ export const richCaseStudies: RichCaseStudy[] = [
                 type: 'image',
                 src: '/tpt-ooux.webp',
                 caption: 'Some of my OOUX Mapping and Explorations',
+            },
+            {
+                type: 'divider',
+                label: 'Across the pet parent lifecycle',
+            },
+            {
+                type: 'text',
+                content: 'Over three years I designed across the whole pet parent lifecycle, from the first visit to winning back the ones who left. As the only designer on the squad, every stage was mine to own, and several of its patterns were later adopted by other HelloFresh brands.',
+            },
+            {
+                type: 'lifecycle-journey-diagram',
+            },
+            {
+                type: 'divider',
+                label: 'Process',
+            },
+            {
+                type: 'text',
+                content: 'Every feature at TPT started as a demand, from the data or from the business, and followed the same path from idea to experiment. I wasn\'t only on the receiving end: watching the data myself, I was often the one bringing new opportunities to the team.',
+            },
+            {
+                type: 'tpt-process-diagram',
             },
             {
                 type: 'divider',
